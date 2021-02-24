@@ -6,10 +6,30 @@ Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orc
 
 ### Getting started
 
-* Step **1**
-* Step 2
+#### Software
+* To use the script you need a **license** for the GOM Software **ATOS Professional 2016** or **GOM Inspect Professional 2016**.
+* Other versions of the software might work as well, but the script was only tested with this version 
+* Open the software ATOS Professional 2016 or GOM Inspect Professional 2016.
+* Import the Python script under the menu Scripting.
+
+#### Parameters
+* The variable **includeonlypropswithuri** can be set True or False. With True only the metadata that is assigned an "uri" in the script will be exported, with False all.
+* The variable **sensortype** are a list of structured light scanners. If your scanner is not included, you can add it here, otherwise your sensor in the exported TTL will get the general class " capturing device".
+* The variables **referencepointid** and **globalreferencepointid** contain the keyword for the point ID. For other ATOS Python libraries this could be different.
+* You can additionally adjust the variables of the namespaces
 
 ### Exports
+* The metadata are exported as ****.ttl** and ****.json** files.
+* They are saved at the same path as the opened ATOS file.
+* The filename corresponds to the name of the opened ATOS file.
+
+#### json file
+* Contains the metadata of the ATOS project
+* You can open it with an editor 
+
+#### ttl file
+* The content of the ****.ttl** file is based on the ontology structure. (link to release on Zenodo ?).
+* You can open it e.g. with Protégé.
 
 ### Sample data
 
