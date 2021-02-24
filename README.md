@@ -33,7 +33,6 @@ Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orc
 
 #### ATOS files
 * The script writes out the metadata for ****.amp** and ****.session** files.
-* There you will find in the zip folder "**atos-v62_project.zip**, by both ****.amp** and ****.session**, which you can use for testing.
 
 ### Exports
 * The metadata are exported as ****.ttl** and ****.txt** files.
