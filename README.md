@@ -32,6 +32,10 @@ Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orc
 * You can open it e.g. with Protégé.
 
 ### Sample data
+* Sample data can be found here [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4428498.svg)](https://doi.org/10.5281/zenodo.4428498).
+* There is a zip folder **xxxxx** that contains both the ****.atos** file 
+* In **atos_62_3d-modell.zip** you can download the 3d-model of the scanning project.
+* In **atos_62_metadata.zip** are the metadata belonging to the scanning project and the 3d-model, which are the result of this script.
 
 
 
