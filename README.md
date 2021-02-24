@@ -1,8 +1,7 @@
 # 3D Capturing and Processing Metadata Generator (3dcap-md-gen)
 Scripts for exporting scanning metadata as described in the publication "Metadata Schema and Ontology for Capturing and Processing of 3D Cultural Heritage Objects"
 
-Contributors: Timo Homburg [[ORCID ID]](https://orcid.org/0000-0002-9499-5840). 
-
+Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-9499-5840) Timo Homburg, [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5232-1944) Anja Cramer, [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-7640-1247) Laura Raddatz
 ## ATOS 2016 Script
 
 ### Getting started
