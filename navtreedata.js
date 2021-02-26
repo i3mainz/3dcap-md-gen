@@ -22,12 +22,24 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "PythonScripte3DDaten", "index.html", ]
+  [ "PythonScripte3DDaten", "index.html", [
+    [ "Packages", "namespaces.html", [
+      [ "Packages", "namespaces.html", "namespaces_dup" ],
+      [ "Package Functions", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"a00002.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
