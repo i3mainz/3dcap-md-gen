@@ -1,0 +1,15 @@
+cff-version: 1.1.0
+message: If you use this software, please cite it as below.
+authors:
+  - family-names: Cramer
+    given-names: Anja
+    orcid: https://orcid.org/0000-0002-5232-1944
+  - family-names: Raddatz
+    given-names: Laura
+    orcid: https://orcid.org/0000-0001-7640-1247
+  - family-names: Homburg
+    given-names: Timo
+    orcid: https://orcid.org/0000-0002-9499-5840
+title: "3dcap-md-gen"
+version: 0.1.1
+date-released: 2021-02-26
