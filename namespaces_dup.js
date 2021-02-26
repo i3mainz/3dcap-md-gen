@@ -1,4 +1,5 @@
 var namespaces_dup =
 [
-    [ "atos-v62_3dcap_metadata", "a00005.html", null ]
+    [ "atos-2016_3dcap-metadata", "a00008.html", null ],
+    [ "atos-v62_3dcap_metadata", "a00009.html", null ]
 ];
