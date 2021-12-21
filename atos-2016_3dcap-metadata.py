@@ -7,11 +7,24 @@
 # Laura Raddatz / i3mainz
 # 2020/2021
 
-
+#import gom
 import json, math, time
 import xml, time, os, random
+import datetime
 
 production=True
+#production=False
+
+## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
+#includeonlypropswithuri=False
+includeonlypropswithuri=True
+
+
+# python script version
+script_name = "atos-2016_3dcap_metadata.py"
+script_label = "ATOS 2016 3DCAP Metadata Script"
+github_release = "0.1.2"
+
 
 ####################### TTL Export #############################
 
@@ -20,6 +33,11 @@ datatypes={"float":"xsd:float","double":"xsd:double","str":"xsd:string","date":"
 
 ## Namespace for classes defined in the resulting ontology model .
 ontologynamespace="http://objects.mainzed.org/ont#"
+
+## Prefix name for the data namespace .
+dataprefix="ex"
+# variable python script
+script_uri=str(dataprefix)+":"+script_name
 
 ## Prefix name for the class namespace .
 ontologyprefix="giga"
@@ -34,18 +52,23 @@ datanamespace="http://objects.mainzed.org/data/"
 ## Prefix name for the exif namespace .
 exifnamespace="http://www.w3.org/2003/12/exif/"
 
-## Prefix name for the data namespace .
-dataprefix="ex"
-
-#atos 2016
-referencepointid="reference_point_id"
-globalreferencepointid="point_id"
+## Prefix name for the exif namespace .
+om="http://www.ontology-of-units-of-measure.org/resource/om-2/"
 
 ## Prefix name for the rdfs namespace .
 rdfs='http://www.w3.org/2000/01/rdf-schema#'
 
 ##Prefix name for the  gigamesh namespace
 giganamespace="http://www.gigamesh.eu/ont#"
+
+# Prefix name for prov-o namespace .
+provnamespace = "http://www.w3.org/ns/prov#"
+
+#atos 2016
+referencepointid="reference_point_id"
+globalreferencepointid="point_id"
+
+
 
 ## Provenance dictionary: Might be used to change the provenance vocabulary .
 provenancedict_prov_o={
@@ -80,9 +103,7 @@ germanlabel="key_deu"
 ## Key for the english label as present in the JSON dictionary .
 englishlabel="key_eng"
 
-## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
-includeonlypropswithuri=True
-#includeonlypropswithuri=True
+
 
 artifactURI=None
 
@@ -268,7 +289,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 		if jsonobj[info]["unit"].startswith("http"):
 			ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasUnit <"+str(jsonobj[info]["unit"])+"> .\n")
 			ttlstring.add("<"+str(jsonobj[info]["unit"])+"> rdf:type om:UnitOfMeasure .\n")
-			ttlstring.add("<"+str(jsonobj[info]["unit"])+"> rdfs:label \""+jsonobj[info]["unit"].replace("\"","'")++"\"@en .\n")
+			ttlstring.add("<"+str(jsonobj[info]["unit"])+"> rdfs:label \""+jsonobj[info]["unit"].replace("\"","'")+"\"@en .\n")
 		elif ":" in jsonobj[info]["unit"]:
 			ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasUnit "+str(jsonobj[info]["unit"].replace(" ",""))+" .\n")
 			ttlstring.add(str(jsonobj[info]["unit"].replace(" ",""))+" rdf:type om:UnitOfMeasure .\n")
@@ -319,7 +340,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 #  @param dict the dictionary to export from
 #  @param measurementToExport indicates whether to export measurements
 def exportToTTL(dict,measurementToExport,ttlstring):
-	#print ("drin in exportToTTL")
+	###print ("drin in exportToTTL")
 	projectid=str(generate_uuid())
 	userid=str(generate_uuid())
 	projlabelkey="prj_n"
@@ -329,6 +350,8 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	mesheskey="meshes"
 	meshprocessingkey="processing"
 	calibkey="calibration"
+	sensorskey="sensors"
+	sensorinformationkey="calibration"
 	meshinfokey="mesh_information"
 	globalrefpointkey="global_referencepoints"
 	refpointkey="referencepoints"
@@ -338,7 +361,7 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	measurementskey="measurements"
 	measurementinformation="measurement_properties"
 	messungkey="messung"
-	applicationkey="application"
+	applicationkey="applications"
 	capturingdevice="capturing_device"
 	mssetup="measurement_setup"
 	calsetup="cal_setup"
@@ -366,6 +389,8 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	ttlstring.add(str(ontologyprefix)+":Scanner rdf:type owl:Class .\n")
 	ttlstring.add(str(ontologyprefix)+":Scanner rdfs:label \"scanner\"@en .\n")
 	ttlstring.add(str(ontologyprefix)+":Scanner rdfs:subClassOf "+str(ontologyprefix)+":CapturingDevice .\n")
+	ttlstring.add(str(ontologyprefix)+":Sensor rdf:type owl:Class .\n")
+	ttlstring.add(str(ontologyprefix)+":Sensor rdfs:label \"Sensor\"@en .\n")
 	ttlstring.add(str(ontologyprefix)+":Software rdf:type owl:Class .\n")
 	ttlstring.add(str(ontologyprefix)+":Software rdfs:label \"software\"@en .\n")
 	ttlstring.add(str(ontologyprefix)+":Software rdfs:subClassOf "+provenancedict.get("entity")+" .\n")
@@ -458,6 +483,9 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	ttlstring.add(str(ontologyprefix)+":calibration rdf:type owl:ObjectProperty .\n")
 	ttlstring.add(str(ontologyprefix)+":calibration rdfs:range "+str(ontologyprefix)+":Calibration .\n")
 	ttlstring.add(str(ontologyprefix)+":calibration rdfs:domain "+str(ontologyprefix)+":Measurement .\n")
+	ttlstring.add(str(ontologyprefix)+":sensor rdf:type owl:ObjectProperty .\n")
+	ttlstring.add(str(ontologyprefix)+":sensor rdfs:range "+str(ontologyprefix)+":Sensor .\n")
+	ttlstring.add(str(ontologyprefix)+":sensor rdfs:domain "+str(ontologyprefix)+":Measurement .\n")
 	ttlstring.add(str(ontologyprefix)+":calibrationsetup rdf:type owl:ObjectProperty .\n")
 	ttlstring.add(str(ontologyprefix)+":calibrationsetup rdfs:range "+str(ontologyprefix)+":Setup .\n")
 	ttlstring.add(str(ontologyprefix)+":calibrationsetup rdfs:domain "+str(ontologyprefix)+":Calibration .\n")
@@ -467,6 +495,12 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	ttlstring.add(str(ontologyprefix)+":capturingdevice rdf:type owl:ObjectProperty .\n")
 	ttlstring.add(str(ontologyprefix)+":capturingdevice rdfs:range "+str(ontologyprefix)+":Tool .\n")
 	ttlstring.add(str(ontologyprefix)+":capturingdevice rdfs:domain "+str(ontologyprefix)+":Measurement .\n")
+	ttlstring.add(str(ontologyprefix)+":globalReferencePoint rdf:type owl:ObjectProperty .\n")
+	ttlstring.add(str(ontologyprefix)+":globalReferencePoint rdfs:range "+str(ontologyprefix)+":GRP .\n")
+	ttlstring.add(str(ontologyprefix)+":globalReferencePoint rdfs:domain "+str(ontologyprefix)+":MeasurementSeries .\n")	
+	ttlstring.add(str(ontologyprefix)+":referencePoint rdf:type owl:ObjectProperty .\n")
+	ttlstring.add(str(ontologyprefix)+":referencePoint rdfs:range "+str(ontologyprefix)+":ReferencePoint .\n")
+	ttlstring.add(str(ontologyprefix)+":referencePoint rdfs:domain "+str(ontologyprefix)+":Measurement .\n")	
 	ttlstring.add(str(ontologyprefix)+":partOf rdf:type owl:ObjectProperty .\n")
 	ttlstring.add(str(ontologyprefix)+":partOf rdfs:range "+str(ontologyprefix)+":MeasurementCheck.\n")
 	ttlstring.add(str(ontologyprefix)+":partOf rdfs:range "+str(ontologyprefix)+":MeasurementSetup.\n")
@@ -494,6 +528,9 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	ttlstring.add(str(ontologyprefix)+":MeasurementSeries rdf:type owl:Class .\n")
 	ttlstring.add(str(ontologyprefix)+":MeasurementSeries rdfs:label \"Measurement Series\".\n")
 	ttlstring.add(str(ontologyprefix)+":MeasurementSeries rdfs:subClassOf prov:Entity .\n")
+	ttlstring.add(str(ontologyprefix)+":MeasurementProjectMetadata rdf:type owl:Class .\n")
+	ttlstring.add(str(ontologyprefix)+":MeasurementProjectMetadata rdfs:label \"Measurement Project Metadata\".\n")
+	ttlstring.add(str(ontologyprefix)+":MeasurementProjectMetadata rdfs:subClassOf prov:Entity .\n")
 	ttlstring.add(str(ontologyprefix)+":MeasurementProject rdf:type owl:Class .\n")
 	ttlstring.add(str(ontologyprefix)+":MeasurementProject rdfs:label \"Measurement Project\".\n")
 	ttlstring.add(str(ontologyprefix)+":MeasurementProject rdfs:subClassOf prov:Entity .\n")
@@ -505,6 +542,7 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	ttlstring.add(str(ontologyprefix)+":GRP rdfs:subClassOf "+str(ontologyprefix)+":ReferencePoint .\n")
 	ttlstring.add(str(ontologyprefix)+":Calibration rdfs:subClassOf prov:Entity .\n")
 	ttlstring.add(str(ontologyprefix)+":Calibration rdfs:label \"Calibration\".\n")
+	ttlstring.add(str(dataprefix)+":metadata_calculation_activity rdf:type "+provenancedict.get("activity")+" . \n")	
 	ttlstring.add(str(ontologyprefix)+":GRP_calculation_algorithm rdf:type "+str(ontologyprefix)+":Algorithm . \n")	
 	for pro in dict[projects]:
 		#print(projkey)		
@@ -514,6 +552,10 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 				labelprefix=pro[projinfokey]["prj_n"]["value"]
 				projectname=pro[projinfokey]["prj_n"]["value"]
 			ttlstring.add(str(dataprefix)+":"+str(projectid)+" rdf:type "+str(ontologyprefix)+":MeasurementProject .\n")
+			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_metadata rdf:type "+str(ontologyprefix)+":MeasurementProjectMetadata .\n")
+			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_metadata prov:wasGeneratedBy "+str(dataprefix)+":metadata_calculation_activity .\n")
+			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_metadata prov:wasAttributedTo "+str(dataprefix)+":"+script_name+".\n")
+			ttlstring.add(str(dataprefix)+":"+str(projectid)+" "+str(dataprefix)+":metadata "+str(dataprefix)+":"+str(projectid)+"_metadata .\n")
 			#print(pro[projinfokey])
 			ttlstring=exportInformationFromIndAsTTL(pro[projinfokey],projectid,str(ontologyprefix)+":MeasurementProject",labelprefix,ttlstring)
 		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdf:type foaf:Person, "+provenancedict.get("agent")+" .\n")
@@ -521,218 +563,238 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdfs:label \"Creator of "+str(labelprefix)+"\" .\n")
 		#print(pro[applicationkey])
 		if applicationkey in pro:
-			if "PROJECT.TYPE" in pro[applicationkey][0] and "PROJECT.VERSION" in pro[applicationkey][0]:
-				softwareid=str(pro[applicationkey][0]["PROJECT.TYPE"]["value"]).strip().replace(" ","_")+"_"+str(pro[applicationkey][0]["PROJECT.VERSION"]["value"]).strip().replace(" ","_").replace(".","_").replace("-","_")
-			elif "application_name" in pro[applicationkey][0] and "application_build_information.version" in pro[applicationkey][0]:
-				softwareid=str(pro[applicationkey][0]["application_name"]["value"]).strip().replace(" ","_")+"_"+str(pro[applicationkey][0]["application_build_information.version"]["value"]).strip().replace(" ","_").replace(".","_").replace("-","_")
-			else:
-				softwareid="ATOS2016"
-			ttlstring.add(str(dataprefix)+":"+softwareid+" rdf:type "+str(ontologyprefix)+":Software  .\n")
-			ttlstring.add(str(dataprefix)+":"+softwareid+" rdfs:label \""+str(softwareid).replace("_"," ")+"\"@en  .\n")
-			ttlstring=exportInformationFromIndAsTTL(pro[applicationkey][0],softwareid,str(ontologyprefix)+":Software",labelprefix,ttlstring)
-		for msindex, project in enumerate(pro[projkey]):
-			#print(project)
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" rdf:type "+str(ontologyprefix)+":MeasurementSeries .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+" "+str(ontologyprefix)+":measurementSeries "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" rdfs:label \"Measurement Series "+str(msindex)+" for "+str(labelprefix)+"\"@en .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" prov:wasAttributedTo "+str(dataprefix)+":"+str(userid)+" .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity prov:wasAssociatedWith "+str(dataprefix)+":"+str(userid)+" .\n")
-			if artifactURI!=None:
-				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity prov:used "+artifactURI+" .\n")						
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity rdf:type prov:Activity .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity rdfs:label \"MS "+str(msindex)+" Activity ("+str(labelprefix)+")\"@en .\n")
-			ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity rdfs:label \" Messreihe "+str(msindex)+" ("+str(labelprefix)+")\"@de .\n")
-			if measurmentserieskey in project:
-				print(project[measurmentserieskey])
-				ttlstring=exportInformationFromIndAsTTL(project[measurmentserieskey],str(projectid)+"_ms_"+str(msindex),str(ontologyprefix)+":MeasurementSeries",labelprefix,ttlstring)
-				if measurementToExport==None:
-					#print ("measurementToExport==None:")			
-					if projkey in project:						
-						#print (project[projinfokey])
-						if projinfokey in project:
-							if "prj_n" in project[projinfokey]:
-								labelprefix=project[projinfokey]["prj_n"]["value"]+"Measurement Series "+str(msindex)
-							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" rdf:type "+str(ontologyprefix)+":MeasurementSeries, prov:Entity .\n")
-							#print(project[projinfokey])
-							ttlstring=exportInformationFromIndAsTTL(project[measurmentserieskey],projectid+"_ms_"+str(msindex),str(ontologyprefix)+":MeasurementSeries",labelprefix,ttlstring)
-							ttlstring.add(str(dataprefix)+":"+str(userid)+" rdf:type foaf:Person, "+provenancedict.get("agent")+" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(projectid)+" dc:creator "+str(dataprefix)+":"+str(userid)+" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(userid)+" rdfs:label \"Creator of "+str(labelprefix)+"\" .\n")
-							#print(ttlstring)
-				if userkey in project:
-					ttlstring=exportInformationFromIndAsTTL(project[userkey],userid,"foaf:Person",labelprefix,ttlstring)
-				#print(ttlstring)
-				#print(project[globalrefpointkey])
-				if globalrefpointkey in project and refpointkey in project[globalrefpointkey]:
-					for index, grp in enumerate(project[globalrefpointkey][refpointkey]):
-						if "point_id" in grp:
-							index = grp["point_id"]["value"]
-							print (index)
-						elif "r_id" in grp:
-							index = grp["r_id"]["value"]
-							print (index)						
-						grpid=str(projectid)+"_ms_"+str(msindex)+"_grp"+str(index)
-						print (grpid)
-						ttlstring.add(str(dataprefix)+":"+str(grpid)+" rdf:type "+str(ontologyprefix)+":GRP .\n")
-						ttlstring.add(str(dataprefix)+":"+str(grpid)+" rdfs:label \"GRP"+str(index)+" ( Measurement Series "+str(msindex)+")\"@en .\n")
-						ttlstring.add(str(dataprefix)+":"+str(grpid)+" rdfs:label \"GRP"+str(index)+" ( Messreihe "+str(msindex)+")\"@de .\n")
-						ttlstring.add(str(dataprefix)+":"+str(grpid)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity .\n")
-						ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity prov:wasAssociatedWith "+str(ontologyprefix)+":GRP_calculation_algorithm. \n")
-						ttlstring.add(str(ontologyprefix)+":GRP_calculation_algorithm prov:actedOnBehalfOf "+str(dataprefix)+":"+str(userid)+" . \n")
-						ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdf:type "+provenancedict.get("activity")+" .\n")
-						ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdfs:label \"GRP Calculation Activity\"@en .\n")
-						ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdfs:label \"GRP Berechnung\"@de .\n")
-						#print("265:"+str(project[globalrefpointkey]))
-						#print("266: "+str(grp))
-						ttlstring=exportInformationFromIndAsTTL(grp,grpid,str(ontologyprefix)+":GRP",labelprefix+" MS "+str(msindex)+" GRP"+str(index),ttlstring)
-						if "r_x" in grp and "r_y" in grp and "r_z" in grp:
-							ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")					
-						elif "coordinate.x" in grp and "coordinate.y" in grp and "coordinate.z" in grp:
-							ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["coordinate.x"]["value"])+" "+str(grp["coordinate.y"]["value"])+" "+str(grp["coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
-						#print(grp)
-			for index, messung in enumerate(project[measurementskey]):
-				#print(index)
-				if measurementToExport==None or measurementToExport==index:
-					messungid=str(projectid)+"_ms_"+str(msindex)+"_measurement"+str(index)
-					calibid=str(messungid)+"_calibration"
-					capturedevid=str(messungid)+"_capturingdevice"
-					mssetupid=str(messungid)+"_mssetup"
-					mscheckid=str(messungid)+"_mscheck"
-					ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" "+str(ontologyprefix)+":measurement "+str(dataprefix)+":"+str(messungid)+" .\n")
-					ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(messungid)+" .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+" rdf:type "+str(ontologyprefix)+":Measurement .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+" rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" for "+str(labelprefix)+"\"@en .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+" prov:wasAttributedTo "+str(dataprefix)+":"+str(userid)+" .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity prov:wasAssociatedWith "+str(dataprefix)+":"+str(userid)+" .\n")
-					if artifactURI!=None:
-						ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity prov:used "+artifactURI+" .\n")						
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdf:type prov:Activity .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity prov:used "+str(dataprefix)+":"+softwareid+" .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity ("+str(labelprefix)+")\"@en .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"Messreihe "+str(msindex)+" Messvorgang "+str(index)+" ("+str(labelprefix)+")\"@de .\n")
-					ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":calibration "+str(dataprefix)+":"+str(calibid)+" .\n")
-					ttlstring.add(str(dataprefix)+":"+str(calibid)+" rdf:type "+str(ontologyprefix)+":Calibration .\n")
-					if labelprefix=="":
-						ttlstring.add(str(dataprefix)+":"+str(calibid)+" rdfs:label \" Camera Calibration of MS "+str(msindex)+" Measurement "+str(index)+"\"@en .\n")
+			for appl in pro[applicationkey]:
+				if "script_name" in appl and "value" in appl["script_name"] and appl["script_name"]["value"]==script_name:
+					ttlstring.add(str(dataprefix)+":"+script_name+" rdf:type "+str(ontologyprefix)+":Software  .\n")
+					ttlstring.add(str(dataprefix)+":"+script_name+" rdfs:label \""+str(script_label)+"\"@en  .\n")
+					ttlstring=exportInformationFromIndAsTTL(appl,script_name,str(ontologyprefix)+":Software",labelprefix,ttlstring)
+				else:
+					if "PROJECT.TYPE" in appl and "PROJECT.VERSION" in appl:
+						softwareid=str(appl["PROJECT.TYPE"]["value"]).strip().replace(" ","_")+"_"+str(appl["PROJECT.VERSION"]["value"]).strip().replace(" ","_").replace(".","_").replace("-","_")
+					elif "application_name" in appl and "application_build_information.version" in appl:
+						softwareid=str(appl["application_name"]["value"]).strip().replace(" ","_")+"_"+str(appl["application_build_information.version"]["value"]).strip().replace(" ","_").replace(".","_").replace("-","_")
 					else:
-						ttlstring.add(str(dataprefix)+":"+str(calibid)+" rdfs:label \" Camera Calibration of MS "+str(msindex)+" Measurement "+str(index)+" ("+str(labelprefix)+")\"@en .\n")
-					if capturingdevice in messung:
-						if "sensor_type" in messung[capturingdevice] and messung[capturingdevice]["sensor_type"]["value"] in sensorTypeToClass:
-							ttlstring.add(str(dataprefix)+":"+str(capturedevid)+" rdf:type "+str(sensorTypeToClass[messung[capturingdevice]["sensor_type"]["value"]])+" .\n")
-						else:
-							ttlstring.add(str(dataprefix)+":"+str(capturedevid)+" rdf:type "+str(ontologyprefix)+":CapturingDevice .\n")
-						ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":capturingdevice "+str(dataprefix)+":"+str(capturedevid)+" .\n")
-						ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
-						ttlstring.add(str(dataprefix)+":"+str(capturedevid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Capturing Device\"@en .\n")
-						ttlstring=exportInformationFromIndAsTTL(messung[capturingdevice],capturedevid,str(ontologyprefix)+":CapturingDevice",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Caturing Device",ttlstring)
-					if mssetup in messung:
-						ttlstring.add(str(dataprefix)+":"+str(mssetupid)+" rdf:type "+str(ontologyprefix)+":MeasurementSetup .\n")
-						ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":setup "+str(dataprefix)+":"+str(mssetupid)+" .\n")
-						ttlstring.add(str(dataprefix)+":"+str(mssetupid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
-						ttlstring.add(str(dataprefix)+":"+str(mssetupid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Setup\"@en .\n")
-						ttlstring=exportInformationFromIndAsTTL(messung[mssetup],mssetupid,str(ontologyprefix)+":MeasurementSetup",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Setup",ttlstring)
-					if mscheck in messung:
-						ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" rdf:type "+str(ontologyprefix)+":MeasurementCheck .\n")
-						ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":verification "+str(dataprefix)+":"+str(mscheckid)+" .\n")
-						ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" prov:used "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
-						ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Measurement Check\"@en .\n")
-						ttlstring=exportInformationFromIndAsTTL(messung[capturingdevice],mscheckid,str(ontologyprefix)+":MeasurementCheck",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Measurement Check",ttlstring)
-					if calibkey in messung:
-						ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdf:type prov:Activity .\n")
-						if labelprefix=="":
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Calibration Activity \"@en .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"Messreihe "+str(msindex)+" Messvorgang "+str(index)+" Kalibrierung \"@de .\n")
-						else:
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Calibration Activity ("+str(labelprefix)+")\"@en .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"Messreihe "+str(msindex)+" Messvorgang "+str(index)+" Kalibrierung ("+str(labelprefix)+")\"@de .\n")							
-						ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity prov:wasAssociatedWith "+str(dataprefix)+":"+str(userid)+" .\n")
-						if calobject in messung[calibkey]:
-							calobjid=""
-							calobjname=""
-							if "calibration_object_name" in messung[calibkey][calobject]:
-								#print(messung[calibkey][calobject])
-								calobjid=str(messung[calibkey][calobject]["calibration_object_name"]["value"]).replace(" ","")+"_calibration_object"
-								calobjname=str(messung[calibkey][calobject]["calibration_object_name"]["value"])
-							else:
-								calobjid=str(messungid)+"_calibration_object"
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+" "+str(ontologyprefix)+":calibrationobject "+str(dataprefix)+":"+str(calobjid)+" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calobjid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Calibration Object"+"\" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity prov:used "+str(dataprefix)+":"+str(calobjid)+" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calobjid)+" rdf:type "+str(ontologyprefix)+":CalibrationObject .\n")
-							ttlstring=exportInformationFromIndAsTTL(messung[calibkey][calobject],calobjid,str(ontologyprefix)+":CalibrationObject",calobjname+" Calibration Object",ttlstring)
-						if calsetup in messung[calibkey]:
-							calsetupid=str(messungid)+"_calibration_setup"
-							ttlstring.add(str(dataprefix)+":"+str(calsetupid)+" rdf:type "+str(ontologyprefix)+":CalibrationSetup .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calsetupid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Calibration Setup"+"\" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calibid)+" "+str(ontologyprefix)+":calibrationsetup "+str(dataprefix)+":"+str(calsetupid)+" .\n")
-							ttlstring.add(str(dataprefix)+":"+str(calsetupid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(calibid)+"_activity .\n")
-							ttlstring=exportInformationFromIndAsTTL(messung[calibkey][calsetup],calsetupid,str(ontologyprefix)+":CalibrationSetup",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Calibration Setup",ttlstring)							
-						if calproperties in messung[calibkey]:
-							ttlstring=exportInformationFromIndAsTTL(messung[calibkey][calproperties],calibid,str(ontologyprefix)+":Calibration",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Calibration",ttlstring)
-						ttlstring=exportInformationFromIndAsTTL(messung[calibkey],calibid,str(ontologyprefix)+":Calibration",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Calibration",ttlstring)
+						softwareid="ATOS2016"
+					ttlstring.add(str(dataprefix)+":"+softwareid+" rdf:type "+str(ontologyprefix)+":Software  .\n")
+					ttlstring.add(str(dataprefix)+":"+softwareid+" rdfs:label \""+str(softwareid).replace("_"," ")+"\"@en  .\n")
+					ttlstring=exportInformationFromIndAsTTL(appl,softwareid,str(ontologyprefix)+":Software",labelprefix,ttlstring)
+		if projkey in pro:
+			for msindex, project in enumerate(pro[projkey]):
+				#print(project)
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" rdf:type "+str(ontologyprefix)+":MeasurementSeries .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+" "+str(ontologyprefix)+":measurementSeries "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" rdfs:label \"Measurement Series "+str(msindex)+" for "+str(labelprefix)+"\"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" prov:wasAttributedTo "+str(dataprefix)+":"+str(userid)+" .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity prov:wasAssociatedWith "+str(dataprefix)+":"+str(userid)+" .\n")
+				if artifactURI!=None:
+					ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity prov:used "+artifactURI+" .\n")						
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity rdf:type prov:Activity .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity rdfs:label \"MS "+str(msindex)+" Activity ("+str(labelprefix)+")\"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_activity rdfs:label \" Messreihe "+str(msindex)+" ("+str(labelprefix)+")\"@de .\n")
+				if measurmentserieskey in project:
+					#print(project[measurmentserieskey])
+					ttlstring=exportInformationFromIndAsTTL(project[measurmentserieskey],str(projectid)+"_ms_"+str(msindex),str(ontologyprefix)+":MeasurementSeries",labelprefix,ttlstring)
+					if measurementToExport==None:
+						#print ("measurementToExport==None:")			
+						if projkey in project:						
+							#print (project[projinfokey])
+							if projinfokey in project:
+								if "prj_n" in project[projinfokey]:
+									labelprefix=project[projinfokey]["prj_n"]["value"]+"Measurement Series "+str(msindex)
+								ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" rdf:type "+str(ontologyprefix)+":MeasurementSeries, prov:Entity .\n")
+								#print(project[projinfokey])
+								ttlstring=exportInformationFromIndAsTTL(project[measurmentserieskey],projectid+"_ms_"+str(msindex),str(ontologyprefix)+":MeasurementSeries",labelprefix,ttlstring)
+								ttlstring.add(str(dataprefix)+":"+str(userid)+" rdf:type foaf:Person, "+provenancedict.get("agent")+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(projectid)+" dc:creator "+str(dataprefix)+":"+str(userid)+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(userid)+" rdfs:label \"Creator of "+str(labelprefix)+"\" .\n")
+								#print(ttlstring)
+					if userkey in project:
+						ttlstring=exportInformationFromIndAsTTL(project[userkey],userid,"foaf:Person",labelprefix,ttlstring)
 					#print(ttlstring)
-					ttlstring=exportInformationFromIndAsTTL(messung[measurementinformation],messungid,str(ontologyprefix)+":Measurement",labelprefix+" MS "+str(msindex)+" Measurement "+str(index),ttlstring)
-					#print(messung)
-					index2=0
-					index2oid = 0
-					messungindex=index
-					if refpointkey in messung:
-						for index,rp in enumerate(messung[refpointkey]):
-							if "r_id" in rp:
-								index2 = rp["r_id"]["value"]
-							elif "reference_point_id" in rp:
-								index2 = rp["reference_point_id"]["value"]
+					#print(project[globalrefpointkey])
+					if globalrefpointkey in project and refpointkey in project[globalrefpointkey]:
+						for index, grp in enumerate(project[globalrefpointkey][refpointkey]):
+							if "point_id" in grp:
+								index = grp["point_id"]["value"]
+								#print (index)
+							elif "r_id" in grp:
+								index = grp["r_id"]["value"]
+								#print (index)						
+							grpid=str(projectid)+"_ms_"+str(msindex)+"_grp"+str(index)
+							#print (grpid)
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" "+str(ontologyprefix)+":globalReferencePoint "+str(dataprefix)+":"+str(grpid)+" . \n")
+							ttlstring.add(str(dataprefix)+":"+str(grpid)+" rdf:type "+str(ontologyprefix)+":GRP .\n")
+							ttlstring.add(str(dataprefix)+":"+str(grpid)+" rdfs:label \"GRP"+str(index)+" ( Measurement Series "+str(msindex)+")\"@en .\n")
+							ttlstring.add(str(dataprefix)+":"+str(grpid)+" rdfs:label \"GRP"+str(index)+" ( Messreihe "+str(msindex)+")\"@de .\n")
+							ttlstring.add(str(dataprefix)+":"+str(grpid)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity .\n")
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity prov:wasAssociatedWith "+str(ontologyprefix)+":GRP_calculation_algorithm. \n")
+							ttlstring.add(str(ontologyprefix)+":GRP_calculation_algorithm prov:actedOnBehalfOf "+str(dataprefix)+":"+str(userid)+" . \n")
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdf:type "+provenancedict.get("activity")+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdfs:label \"GRP Calculation Activity\"@en .\n")
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdfs:label \"GRP Berechnung\"@de .\n")
+							#print("265:"+str(project[globalrefpointkey]))
+							#print("266: "+str(grp))
+							ttlstring=exportInformationFromIndAsTTL(grp,grpid,str(ontologyprefix)+":GRP",labelprefix+" MS "+str(msindex)+" GRP"+str(index),ttlstring)
+							if "r_x" in grp and "r_y" in grp and "r_z" in grp:
+								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")					
+							elif "coordinate.x" in grp and "coordinate.y" in grp and "coordinate.z" in grp:
+								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["coordinate.x"]["value"])+" "+str(grp["coordinate.y"]["value"])+" "+str(grp["coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+				if sensorskey in project:
+					for seindex, sensor in enumerate(project[sensorskey]):
+						sensorid=str(projectid)+"_sensor_"+str(seindex)
+						calibid=str(sensorid)+"_calibration"
+						mscheckid=str(sensorid)+"_mscheck"
+						capturedevid=str(sensorid)+"_capturingdevice"
+						ttlstring.add(str(dataprefix)+":"+str(sensorid)+" rdf:type "+str(ontologyprefix)+":Sensor, "+provenancedict.get("entity")+" .\n")
+						ttlstring.add(str(dataprefix)+":"+str(sensorid)+" rdfs:label \"Sensor "+str(seindex)+" from "+str(projectname)+"\"@en .\n")
+						ttlstring.add(str(dataprefix)+":"+str(sensorid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+" .\n")
+						if capturingdevice in sensor:
+							if "sensor_type" in sensor[capturingdevice] and sensor[capturingdevice]["sensor_type"]["value"] in sensorTypeToClass:
+								ttlstring.add(str(dataprefix)+":"+str(capturedevid)+" rdf:type "+str(sensorTypeToClass[sensor[capturingdevice]["sensor_type"]["value"]])+" .\n")
 							else:
-								index2 = "_noid_" + str(index2oid)
-								index2oid+=1	
-							#print("aaa:"+str(rp))
-							rpuri=str(messungid)+"_rp"+str(index2)
-							ttlstring.add(str(dataprefix)+":"+str(rpuri)+" rdf:type "+str(ontologyprefix)+":ReferencePoint .\n")				
-							ttlstring.add(str(dataprefix)+":"+str(rpuri)+" rdfs:label \"RP"+str(index2)+" ("+str(labelprefix)+" MS "+str(msindex)+" Measurement "+str(messungindex)+")\"@en .\n")
-							ttlstring.add(str(dataprefix)+":"+str(rpuri)+" rdfs:label \"RP"+str(index2)+" ("+str(labelprefix)+" Messreihe "+str(msindex)+" Messung "+str(messungindex)+")\"@de .\n")
-							ttlstring=exportInformationFromIndAsTTL(rp,rpuri,str(ontologyprefix)+":ReferencePoint",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" RP"+str(index2),ttlstring)
-							if "r_x" in rp and "r_y" in rp and "r_z" in rp:
-							# atos v6.2
-								ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")			
-							#atos 2016
-							elif "reference_point_coordinate.x" in rp and "reference_point_coordinate.y" in rp and "reference_point_coordinate.z" in rp:
-								ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["reference_point_coordinate.x"]["value"])+" "+str(rp["reference_point_coordinate.y"]["value"])+" "+str(rp["reference_point_coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
-							#print(rp)
-							ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity . \n")
-							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity\"@en. \n")
-							ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasAttributedTo "+str(dataprefix)+":"+str(messungid)+"_algorithm . \n")
-							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_algorithm rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Algorithm\"@en. \n")
-							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_algorithm rdf:type "+str(ontologyprefix)+":Algorithm . \n")
-							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_algorithm prov:actedOnBehalfOf "+str(dataprefix)+":"+str(userid)+" . \n")
-							print(rpuri)
-							if measurementToExport==None and index2!=None:
-								print("grp loop")
-								for index, point in enumerate(project[globalrefpointkey][refpointkey]):
-									if referencepointid in rp and globalreferencepointid in point and rp[referencepointid]["value"]==point[globalreferencepointid]["value"]:
-										if "point_id" in point:
-											index = point["point_id"]["value"]
-											print (index)
-										elif "r_id" in point:
-											index = point["r_id"]["value"]
-											print (index)	
-										print(str(rp[referencepointid]["value"])+" - "+str(point[globalreferencepointid]["value"]))
-										print(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp"+str(index)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(rpuri)+" . \n")
-										ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp"+str(index)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(rpuri)+" . \n")
-										ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdf:type prov:Activity . \n")
-										ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity prov:used "+str(dataprefix)+":"+str(rpuri)+" . \n")
-							print("next")
+								ttlstring.add(str(dataprefix)+":"+str(capturedevid)+" rdf:type "+str(ontologyprefix)+":CapturingDevice .\n")
+							ttlstring.add(str(dataprefix)+":"+str(sensorid)+" "+str(ontologyprefix)+":capturingdevice "+str(dataprefix)+":"+str(capturedevid)+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(sensorid)+"_activity .\n")
+							ttlstring.add(str(dataprefix)+":"+str(capturedevid)+" rdfs:label \""+labelprefix+"Sensor "+str(seindex)+" Capturing Device\"@en .\n")
+							ttlstring=exportInformationFromIndAsTTL(sensor[capturingdevice],capturedevid,str(ontologyprefix)+":CapturingDevice",labelprefix+" Sensor "+str(seindex)+" Caturing Device",ttlstring)				
+						if calibkey in sensor:
+							ttlstring.add(str(dataprefix)+":"+str(sensorid)+" "+str(ontologyprefix)+":calibration "+str(dataprefix)+":"+str(calibid)+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(calibid)+" rdfs:label \"Sensor "+str(seindex)+" Calibration\"@en .\n")
+							ttlstring.add(str(dataprefix)+":"+str(calibid)+" rdf:type "+str(ontologyprefix)+":Calibration .\n")
+							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdf:type prov:Activity .\n")
+							if labelprefix=="":
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"MS "+str(seindex)+" Measurement "+str(msindex)+" Calibration Activity \"@en .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"Sensor "+str(seindex)+" Messvorgang "+str(msindex)+" Kalibrierung \"@de .\n")
+							else:
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"MS "+str(seindex)+" Measurement "+str(msindex)+" Calibration Activity ("+str(labelprefix)+")\"@en .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity rdfs:label \"Sensor "+str(seindex)+" Messvorgang "+str(msindex)+" Kalibrierung ("+str(labelprefix)+")\"@de .\n")							
+							ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity prov:wasAssociatedWith "+str(dataprefix)+":"+str(userid)+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(calibid)+" rdf:type "+str(ontologyprefix)+":Calibration .\n")
+							if calobject in sensor[calibkey]:
+								calobjid=""
+								calobjname=""
+								if "calibration_object_name" in sensor[calibkey][calobject]:
+									#print(messung[calibkey][calobject])
+									calobjid=str(sensor[calibkey][calobject]["calibration_object_name"]["value"]).replace(" ","")+"_calibration_object"
+									calobjname=str(sensor[calibkey][calobject]["calibration_object_name"]["value"])
+								else:
+									calobjid=str(sensorid)+"_calibration_object"
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+" "+str(ontologyprefix)+":calibrationobject "+str(dataprefix)+":"+str(calobjid)+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calobjid)+" rdfs:label \""+labelprefix+" Sensor "+str(seindex)+" Calibration Object"+"\" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+"_activity prov:used "+str(dataprefix)+":"+str(calobjid)+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calobjid)+" rdf:type "+str(ontologyprefix)+":CalibrationObject .\n")
+								ttlstring=exportInformationFromIndAsTTL(sensor[calibkey][calobject],calobjid,str(ontologyprefix)+":CalibrationObject",calobjname+" Calibration Object",ttlstring)
+							if calsetup in sensor[calibkey]:
+								calsetupid=str(sensorid)+"_calibration_setup"
+								ttlstring.add(str(dataprefix)+":"+str(calsetupid)+" rdf:type "+str(ontologyprefix)+":CalibrationSetup .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calsetupid)+" rdfs:label \""+labelprefix+" Sensor "+str(seindex)+" Calibration Setup"+"\" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calibid)+" "+str(ontologyprefix)+":calibrationsetup "+str(dataprefix)+":"+str(calsetupid)+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(calsetupid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(calibid)+"_activity .\n")
+								ttlstring=exportInformationFromIndAsTTL(sensor[calibkey][calsetup],calsetupid,str(ontologyprefix)+":CalibrationSetup",labelprefix+" Sensor "+str(seindex)+" Calibration Setup",ttlstring)							
+							if calproperties in sensor[calibkey]:
+								ttlstring=exportInformationFromIndAsTTL(sensor[calibkey][calproperties],calibid,str(ontologyprefix)+":Calibration",labelprefix+" Sensor "+str(seindex)+" Calibration",ttlstring)
+							ttlstring=exportInformationFromIndAsTTL(sensor[calibkey],calibid,str(ontologyprefix)+":Calibration",labelprefix+" Sensor "+str(seindex)+" Calibration",ttlstring)
+						#print(ttlstring)
+				if measurementskey in project:
+					for index, messung in enumerate(project[measurementskey]):
+					#print(index)
+						if measurementToExport==None or measurementToExport==index:
+							messungid=str(projectid)+"_ms_"+str(msindex)+"_measurement"+str(index)
+							calibid=str(messungid)+"_calibration"
+							capturedevid=str(messungid)+"_capturingdevice"
+							mssetupid=str(messungid)+"_mssetup"
+							mscheckid=str(messungid)+"_mscheck"
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" "+str(ontologyprefix)+":measurement "+str(dataprefix)+":"+str(messungid)+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(messungid)+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+" rdf:type "+str(ontologyprefix)+":Measurement .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+" rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" for "+str(labelprefix)+"\"@en .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+" prov:wasAttributedTo "+str(dataprefix)+":"+str(userid)+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity prov:wasAssociatedWith "+str(dataprefix)+":"+str(userid)+" .\n")
+							if artifactURI!=None:
+								ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity prov:used "+artifactURI+" .\n")						
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdf:type prov:Activity .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity prov:used "+str(dataprefix)+":"+softwareid+" .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity ("+str(labelprefix)+")\"@en .\n")
+							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"Messreihe "+str(msindex)+" Messvorgang "+str(index)+" ("+str(labelprefix)+")\"@de .\n")
+							if measurementinformation in messung and "sensor_id" in messung[measurementinformation] and "value" in messung[measurementinformation]["sensor_id"]:	
+								ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":sensor "+str(dataprefix)+":"+str(projectid)+"_sensor_"+str(messung[measurementinformation]["sensor_id"]["value"])+" .\n")	
+							if mssetup in messung:
+								ttlstring.add(str(dataprefix)+":"+str(mssetupid)+" rdf:type "+str(ontologyprefix)+":MeasurementSetup .\n")
+								ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":setup "+str(dataprefix)+":"+str(mssetupid)+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(mssetupid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
+								ttlstring.add(str(dataprefix)+":"+str(mssetupid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Setup\"@en .\n")
+								ttlstring=exportInformationFromIndAsTTL(messung[mssetup],mssetupid,str(ontologyprefix)+":MeasurementSetup",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Setup",ttlstring)
+							if mscheck in messung:
+								ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" rdf:type "+str(ontologyprefix)+":MeasurementCheck .\n")
+								ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":verification "+str(dataprefix)+":"+str(mscheckid)+" .\n")
+								ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" prov:used "+str(dataprefix)+":"+str(messungid)+"_activity .\n")
+								ttlstring.add(str(dataprefix)+":"+str(mscheckid)+" rdfs:label \""+labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Measurement Check\"@en .\n")
+								ttlstring=exportInformationFromIndAsTTL(messung[mscheck],mscheckid,str(ontologyprefix)+":MeasurementCheck",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" Measurement Check",ttlstring)
+							ttlstring=exportInformationFromIndAsTTL(messung[measurementinformation],messungid,str(ontologyprefix)+":Measurement",labelprefix+" MS "+str(msindex)+" Measurement "+str(index),ttlstring)
+							#print(messung)
+							index2=0
+							index2oid = 0
+							messungindex=index
+							if refpointkey in messung:
+								for index,rp in enumerate(messung[refpointkey]):
+									if "r_id" in rp:
+										index2 = rp["r_id"]["value"]
+									elif "reference_point_id" in rp:
+										index2 = rp["reference_point_id"]["value"]
+									else:
+										index2 = "_noid_" + str(index2oid)
+										index2oid+=1	
+									#print("aaa:"+str(rp))
+									rpuri=str(messungid)+"_rp"+str(index2)
+									ttlstring.add(str(dataprefix)+":"+str(messungid)+" "+str(ontologyprefix)+":referencePoint "+str(dataprefix)+":"+str(rpuri)+" . \n")
+									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" rdf:type "+str(ontologyprefix)+":ReferencePoint .\n")				
+									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" rdfs:label \"RP"+str(index2)+" ("+str(labelprefix)+" MS "+str(msindex)+" Measurement "+str(messungindex)+")\"@en .\n")
+									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" rdfs:label \"RP"+str(index2)+" ("+str(labelprefix)+" Messreihe "+str(msindex)+" Messung "+str(messungindex)+")\"@de .\n")
+									ttlstring=exportInformationFromIndAsTTL(rp,rpuri,str(ontologyprefix)+":ReferencePoint",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" RP"+str(index2),ttlstring)
+									if "r_x" in rp and "r_y" in rp and "r_z" in rp:
+									### atos v6.2
+										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")			
+									###atos 2016
+									elif "reference_point_coordinate.x" in rp and "reference_point_coordinate.y" in rp and "reference_point_coordinate.z" in rp:
+										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["reference_point_coordinate.x"]["value"])+" "+str(rp["reference_point_coordinate.y"]["value"])+" "+str(rp["reference_point_coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+									#print(rp)
+									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity . \n")
+									ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity\"@en. \n")
+									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasAttributedTo "+str(dataprefix)+":"+str(messungid)+"_algorithm . \n")
+									ttlstring.add(str(dataprefix)+":"+str(messungid)+"_algorithm rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Algorithm\"@en. \n")
+									ttlstring.add(str(dataprefix)+":"+str(messungid)+"_algorithm rdf:type "+str(ontologyprefix)+":Algorithm . \n")
+									ttlstring.add(str(dataprefix)+":"+str(messungid)+"_algorithm prov:actedOnBehalfOf "+str(dataprefix)+":"+str(userid)+" . \n")
+									#print(rpuri)
+									if measurementToExport==None and index2!=None:
+										#print("grp loop")
+										if globalrefpointkey in project:
+											if refpointkey in project[globalrefpointkey]:
+												for index, point in enumerate(project[globalrefpointkey][refpointkey]):
+													if referencepointid in rp and globalreferencepointid in point and rp[referencepointid]["value"]==point[globalreferencepointid]["value"]:
+														if "point_id" in point:
+															index = point["point_id"]["value"]
+															#print (index)
+														elif "r_id" in point:
+															index = point["r_id"]["value"]
+															#print (index)	
+														#print(str(rp[referencepointid]["value"])+" - "+str(point[globalreferencepointid]["value"]))
+														#print(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp"+str(index)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(rpuri)+" . \n")
+														ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp"+str(index)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(rpuri)+" . \n")
+														ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdf:type prov:Activity . \n")
+														ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity prov:used "+str(dataprefix)+":"+str(rpuri)+" . \n")
+									#print("next")
 		if mesheskey in pro:					
 			for index, mesh in enumerate(pro[mesheskey]):
 				meshid=str(projectid)+"_mesh_"+str(index)
 				ttlstring.add(str(dataprefix)+":"+str(meshid)+" rdf:type "+str(ontologyprefix)+":Mesh, "+provenancedict.get("entity")+" .\n")
 				ttlstring.add(str(dataprefix)+":"+str(meshid)+" rdfs:label \"Mesh "+str(meshid)+" from "+str(projectname)+"\"@en .\n")
 				ttlstring.add(str(dataprefix)+":"+str(meshid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+" .\n")
+				lastprocid=""
 				if meshprocessingkey in mesh:
-					print(mesh[meshprocessingkey])
-					lastprocid=""
+					#print(mesh[meshprocessingkey])
 					for indexprocstep, procstep in enumerate(mesh[meshprocessingkey]):
 						ttlstring.add(str(dataprefix)+":"+str(meshid)+"_creation_"+str(0)+"_activity rdf:type prov:Activity .\n")
 						ttlstring.add(str(dataprefix)+":"+str(meshid)+"_creation_"+str(0)+"_activity rdfs:label \"Mesh Creation Activity "+str(0)+": "+str(procstep["processname"]["value"])+"\"@en .\n")
@@ -777,21 +839,35 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	return ttlstring
 
 
-
 #####################################################################################################
 
 
 
-## Methode zum abgreifen von Metadaten der Messreihen inkl. Scans und Netze
+## Method for collecting metadata of the measurement series, measurements and networks
+## An externally created dictionary with user information can be given
 
-def exportjson(json_file,csv_file,dic_dig):
+def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		
-	# infos zur Software
-	
+
+	dic_dig = {}
 	dic_dig_app={}
 	list_app=[]
 	
+	list_project_info=[]
+	project = {}
+	project_info ={}
+	sensor_id = 0 
+	
 	list_app.append(dic_dig_app)
+	
+	# add script version infos
+	list_app.append(script_version())
+	
+	# import userkey / general information 
+	if "projects" in dic_user:
+		for e in dic_user["projects"]:
+			if 'general' in e:
+				project['general'] = e['general']
 
 	def infos_app (keyword,beschreibung,unit,description,uri,measurementclass, value, from_application):		
 		dir = {}
@@ -865,9 +941,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	from_application= "true"
 	infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
 	
-	list_project_info=[]
-	project = {}
-	project_info ={}
+
 	
 	#project 
 	def infos_p (keyword, beschreibung,unit=None,description=None, uri=None, measurementclass=None, value=None, from_application="true"):
@@ -886,30 +960,26 @@ def exportjson(json_file,csv_file,dic_dig):
 		if measurementclass!=None:
 			dir["measurementclass"] = measurementclass
 		dir["from_application"]=from_application
-
-		dir["value_type"] = type(gom.app.project.get(keyword)).__name__
 		
+		try:
+			dir["value_type"] = type(gom.app.project.get(keyword)).__name__
+		except:
+			dir["value_type"] = type(dir["value"]).__name__
+				
 		if dir["value"] != None:
 			if len(str(dir["value"])) != 0:
-				project_info[keyword] = {}		
-				project_info[keyword] = dir
+				if includeonlypropswithuri and "uri" in dir:
+					project_info[keyword] = {}		
+					project_info[keyword] = dir
+				
+				if not includeonlypropswithuri:			
+					project_info[keyword] ={}		
+					project_info[keyword] = dir
 		
 			
 	### Projektinformationen 
 	
 	anz_messungen = 0
-
-	# Messverfahren 	
-	keyword= 'recording technology'
-	beschreibung = "Aufnahmeverfahren"
-	value= 'Streifenlichtprojektion'
-	unit= None
-	description='recording technology'
-	uri= None
-	measurementclass=None
-	from_application= 'false'
-	infos_p(keyword,beschreibung,unit,description,uri,measurementclass, value,from_application)	
-		
 		
 	##Benutzerdefinierte Keywords
 	# Abteilung
@@ -1062,7 +1132,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	beschreibung = "Projektname"
 	unit= None
 	description="Project name" 
-	uri= "rdfs:label"
+	uri= rdfs+"label"
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
 	
@@ -1236,7 +1306,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	#Abweichung
 	keyword = 'alignment.deviation'
 	beschreibung= 'Abweichung'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Deviation" 
 	uri= None
 	measurementclass=None
@@ -1245,7 +1315,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Drehung X
 	keyword = 'alignment.rotation.x'
 	beschreibung= 'Drehung X'
-	unit="om:radian"
+	unit=om+"radian"
 	description="Rotation X"
 	uri= ontologynamespace+'alignmentRotationX'
 	measurementclass=None
@@ -1254,7 +1324,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Drehung Y
 	keyword = 'alignment.rotation.y'
 	beschreibung= 'Drehung Y'
-	unit="om:radian"
+	unit=om+"radian"
 	description="Rotation Y" 
 	uri= ontologynamespace+'alignmentRotationY'
 	measurementclass=None
@@ -1263,7 +1333,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Drehung Z
 	keyword = 'alignment.rotation.z'
 	beschreibung= 'Drehung Z'
-	unit="om:radian"
+	unit=om+"radian"
 	description="Rotation Z"
 	uri= ontologynamespace+'alignmentRotationZ'
 	measurementclass=None
@@ -1272,7 +1342,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Verschiebung X
 	keyword = 'alignment.translation.x'
 	beschreibung= 'Verschiebung X'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Translation X"
 	uri= ontologynamespace+'alignmentTranslationX'
 	measurementclass=None
@@ -1281,7 +1351,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Verschiebung Y
 	keyword = 'alignment.translation.y'
 	beschreibung= 'Verschiebung Y'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Translation Y"
 	uri= ontologynamespace+'alignmentTranslationY'
 	measurementclass=None
@@ -1290,7 +1360,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Verschiebung Z 
 	keyword = 'alignment.translation.z'
 	beschreibung= 'Verschiebung Z'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Translation Z"
 	uri= ontologynamespace+'alignmentTranslationZ'
 	measurementclass=None
@@ -1301,7 +1371,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ausrichtungsresiduum (Messungen)
 	keyword = 'measurement_alignment_residual'
 	beschreibung = 'Ausrichtungsresiduum (Messungen)'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Alignment residual (measurments)"
 	uri= ontologynamespace+'MeasurementAlignmentResidual'
 	measurementclass=None
@@ -1310,7 +1380,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ausrichtungsresiduum (Refernzpunkte)
 	keyword = 'measurement_reference_point_alignment_residual'
 	beschreibung = 'Ausrichtungsresiduum (Referenzpunkte)'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Alignment residual (reference points)"
 	uri= ontologynamespace+'MeasurementPointAlignmentResidual'
 	measurementclass=None
@@ -1319,7 +1389,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ausrichtungsresiduum (Vorschaunetze)
 	keyword = 'measurement_mesh_alignment_residual'
 	beschreibung = 'Ausrichtungsresiduum (Vorschaunetze)'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description="Alignment residual (preview meshes)"
 	uri= ontologynamespace+'MeasurementMeshAlignmentResidual'
 	measurementclass=None
@@ -1328,7 +1398,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Automatische Belichtungszeit(Modus)
 	keyword = 'automatic_exposure_time_mode'
 	beschreibung = 'Automatische Belichtungszeit(Modus)'
-	unit= "om:second-Time" 
+	unit= om+"second-Time" 
 	description="Automatic exposure time (mode)"
 	uri= None
 	measurementclass=None
@@ -1384,7 +1454,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ellipsenfinder-Qualität für Photogrammetrie 
 	keyword = 'ellipse_quality_for_photogrammetry'
 	beschreibung = 'Ellipsenfinder-Qualität für Photogrammetrie'
-	unit= "om:pixel"
+	unit= om+"pixel"
 	description='Ellipse finder quality for photogrammetry'
 	uri= ontologynamespace+'EllipseQualityForPhotogrammetry'
 	measurementclass=None	 
@@ -1393,7 +1463,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ellipsenfinder-Qualität für Scannen
 	keyword = 'ellipse_quality'
 	beschreibung = 'Ellipsenfinder-Qualität für Scannen'
-	unit= "om:pixel"
+	unit= om+"pixel"
 	description='Ellipse finder quality for scanning'
 	uri= ontologynamespace+'EllipseQuality'
 	measurementclass=None 
@@ -1402,7 +1472,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ellipsenmindestgröße für Photogrammetrie
 	keyword = 'min_ellipse_radius_for_photogrammetry'
 	beschreibung = 'Ellipsenmindestgröße für Photogrammetrie'
-	unit= "om:millimetre"
+	unit= om+"millimetre"
 	description='Min. ellipse size for photogrammetry'
 	uri= None
 	measurementclass=None 
@@ -1411,7 +1481,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Ellipsenmindestgröße für Scannen
 	keyword = 'min_ellipse_radius'
 	beschreibung = 'Ellipsenmindestgröße für Scannen'
-	unit= "om:millimetre"
+	unit= om+"millimetre"
 	description='Min. ellipse size for scanning'
 	uri= None
 	measurementclass=None 
@@ -1438,7 +1508,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Max.Blickwinkel Sensor/Fläche
 	keyword = 'max_viewing_angle_sensor_surface'
 	beschreibung = 'Max.Blickwinkel Sensor/Fläche'
-	unit= "om:radian"
+	unit= om+"radian"
 	description='Max. viewing angle sensor/surface'
 	uri= None
 	measurementclass=None	
@@ -1456,7 +1526,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Max. Sensorbewegung
 	keyword = 'max_sensor_movement'
 	beschreibung = 'Max. Sensorbewegung'
-	unit="om:pixel"
+	unit=om+"pixel"
 	description='Max. sensor movement'
 	uri= ontologynamespace+'MaximumSensorMovement'
 	measurementclass=None 
@@ -1483,7 +1553,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Messtemperatur
 	keyword = 'measurement_temperature'
 	beschreibung = 'Messtemperatur'
-	unit="om:degreeCelsius"
+	unit=om+"degreeCelsius"
 	description='Measurment temperature'
 	uri= ontologynamespace+'MeasurementTemperature'
 	measurementclass=None
@@ -1548,7 +1618,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	# Referenzpunktgröße 
 	keyword = 'reference_point_size'
 	beschreibung = 'Referenzpunktgröße'
-	unit="om:millimetre"
+	unit=om+"millimetre"
 	description='Reference point size'
 	uri= None
 	measurementclass=None	 
@@ -1805,13 +1875,19 @@ def exportjson(json_file,csv_file,dic_dig):
 		
 		messreihe = {}
 		messreihe_infos = {}
-
+		
 		def infos_mr (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
-			if value == None:
+			if keyword == 'reference_points_master_series':
+				dir["value"] = gom.app.project.measurement_series[mr].get(keyword).get('name')
+				dir["value_type"] = type(dir["value"]).__name__
+			elif value == None:
 				dir["value"] = gom.app.project.measurement_series[mr].get(keyword)
+				dir["value_type"] = type(gom.app.project.measurement_series[mr].get(keyword)).__name__
 			else:
-				dir["value"]=value 			
+				dir["value"] = value 
+				dir["value_type"] = type(dir["value"]).__name__
+			
 			dir["key_deu"] = beschreibung
 			if  description != None:
 				dir["key_eng"] =  description
@@ -1821,7 +1897,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				dir["unit"] =  unit
 			if  measurementclass != None:
 				dir["measurementclass"] =  measurementclass
-			dir["value_type"] = type(gom.app.project.measurement_series[mr].get(keyword)).__name__
+
 			dir["from_application"]=from_application
 			
 			if dir["value"] != None:
@@ -1832,7 +1908,8 @@ def exportjson(json_file,csv_file,dic_dig):
 
 					if not includeonlypropswithuri:			
 						messreihe_infos[keyword] ={}		
-						messreihe_infos[keyword] = dir				
+						messreihe_infos[keyword] = dir
+
 		
 		##  Icons		
 		# Icon des Objekttyps
@@ -1924,8 +2001,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		unit=None
 		description= 'External photogrammetry file'
 		uri=None
-		measurementclass=None
-		
+		measurementclass=None		
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 		
 		# Importdatei
@@ -1949,7 +2025,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Kalibriertemperatur des Referenzpunktrahmens 
 		keyword = 'reference_point_frame_calibration_temperature'
 		beschreibung = "Kalibriertemperatur des Referenzpunktrahmens"
-		unit="om:degreeCelsius"
+		unit=om+"degreeCelsius"
 		description= 'Reference point frame calibration temprature'
 		uri=None
 		measurementclass=None
@@ -2134,7 +2210,17 @@ def exportjson(json_file,csv_file,dic_dig):
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+				
+#		# Reference points master measurement series
+		if (gom.app.project.measurement_series[mr].get ('transformation_mode')) == 'depends on other':
+			keyword = 'reference_points_master_series'
+			beschreibung = None
+			unit=None
+			description= 'Reference points master measurement series'
+			uri=None
+			measurementclass=None
+			infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+	
 		# VDI-Aufnahme/Überwachung
 		keyword = 'vdi_acceptance_test'
 		beschreibung = "VDI-Aufnahme/Überwachung"
@@ -2160,22 +2246,38 @@ def exportjson(json_file,csv_file,dic_dig):
 	
 		# Einzelmessungen 
 		list_messungen = []
+		list_sensors = []
+		temp_list_cal_time =[]
 		m = 0
 		
 		while m < (len(gom.app.project.measurement_series[mr].measurements)):
 				
 			messung = {}
+			dic_measurement_setup= {}
+			dic_measurement_check={}
+			dic_measurement_info ={}
+			dic_measurement_sensor={}
+			# sensors
+			dic_sensor = {}
 			calibration={}
 			dic_measurement_cal_sensor= {}
 			dic_measurement_cal_calobject= {}
 			dic_measurement_cal_calsetup= {}
 			dic_measurement_cal_calresults= {}
-			dic_measurement_setup= {}
-			dic_measurement_check={}
-			dic_measurement_info ={}
-			dic_measurement_sensor={}
-
-#measurements			
+			
+			# Messverfahren 	
+			# nur wenn es Messungen gibt, kann es auch eine Aufnahmeverfahren geben
+			keyword= 'acquisition_technology'
+			beschreibung = "Aufnahmeverfahren"
+			value= 'fringe projection'
+			unit= None
+			description='acquisition technology'
+			uri= ontologynamespace+"AcquisitionTechnology"
+			measurementclass=ontologynamespace+"FringeProjection"
+			from_application= 'false'
+			infos_p(keyword,beschreibung,unit,description,uri,measurementclass, value,from_application)	
+			
+			# measurements			
 			def infos_m (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
 				dir = {}
 				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
@@ -2206,38 +2308,7 @@ def exportjson(json_file,csv_file,dic_dig):
 							messung[keyword] = {}		
 							messung[keyword] = dir
 					
-			def infos_capturing_device (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
-				dir = {}
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "acquisition_time": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_sensor[keyword] = {}		
-							dic_measurement_sensor[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_sensor[keyword] = {}		
-							dic_measurement_sensor[keyword] = dir					
-
-			
-
+								
 			def infos_m_setup (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
 				dir = {}
 				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
@@ -2327,8 +2398,41 @@ def exportjson(json_file,csv_file,dic_dig):
 						if not includeonlypropswithuri:			
 							dic_measurement_info[keyword] = {}
 							dic_measurement_info[keyword] = dir	
+							
 
-# calibration	
+			## capturing device 	
+						
+			def infos_capturing_device (keyword, beschreibung, value, unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				dir["value"] = value
+				dir["key_deu"] = beschreibung
+				if  description != None:
+					dir["key_eng"] =  description
+				if  uri != None:
+					dir["uri"] =  uri
+				if  unit != None:
+					dir["unit"] =  unit
+				if  measurementclass != None:
+					dir["measurementclass"] =  measurementclass
+				dir["value_type"] = type(value).__name__
+				dir["from_application"]= from_application
+				
+				if keyword == "acquisition_time": 
+					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
+					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+					dir["value"] = capturetime
+					dir["value_type"]="dateTime"
+
+				if dir["value"] != None:
+					if len(str(dir["value"])) != 0:
+						if includeonlypropswithuri and "uri" in dir:
+							dic_measurement_sensor[keyword] = {}		
+							dic_measurement_sensor[keyword] = dir
+						if not includeonlypropswithuri:			
+							dic_measurement_sensor[keyword] = {}		
+							dic_measurement_sensor[keyword] = dir
+
+			## calibration	
 			
 			def infos_cali (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
 				dir = {}
@@ -2398,7 +2502,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
 				dir["from_application"]= from_application
 				
-				# calibration_light_intensity, als int ohne '%' im value 
+				## calibration_light_intensity, als int ohne '%' im value 
 				if keyword == 'calibration_light_intensity':
 					value= dir['value']
 					value_new= value.replace('%','')
@@ -2448,7 +2552,7 @@ def exportjson(json_file,csv_file,dic_dig):
 							dic_measurement_cal_calresults[keyword] = dir
 					
 				
-			# lokale Referenzpunkte
+			## lokale Referenzpunkte
 					
 			rp_local = 0 
 			list_rp_local= []
@@ -2517,7 +2621,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
 				
-	#			# Referenzpunktnormale X
+				# Referenzpunktnormale X
 				keyword = 'reference_point_normal.x'
 				beschreibung = "Referenzpunktnormale X"
 				unit='om:millimetre'
@@ -2526,7 +2630,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
 				
-	#			# Referenzpunktnormale Y
+				# Referenzpunktnormale Y
 				keyword = 'reference_point_normal.y'
 				beschreibung = "Referenzpunktnormale Y"
 				unit='om:millimetre'
@@ -2535,7 +2639,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
 				
-	#			# Referenzpunktnormale Z
+				# Referenzpunktnormale Z
 				keyword = 'reference_point_normal.z'
 				beschreibung = "Referenzpunktnormale Z"
 				unit='om:millimetre'
@@ -2543,6 +2647,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				uri=ontologynamespace+"zNormal"
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
+			
 				
 				if len(refpoints_local) > 0:
 					list_rp_local.append(refpoints_local)
@@ -2574,7 +2679,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Aktuelle Kameratemperatur(ATOS IIe Rev.01 / ATOS III Rev.01)
 			keyword = 'current_camera_temperature'
 			beschreibung = "Aktuelle Kameratemperatur(ATOS IIe Rev.01 / ATOS III Rev.01)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'Current camera temperature(ATOS IIe Rev.01 / ATOS III Rev.01)'
 			uri=ontologynamespace+'CameraTemperature'
 			measurementclass=None
@@ -2643,24 +2748,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
 	
-			# Anzahl der gemeinsamen Referenzpunkte
-			keyword = 'number_of_common_reference_points'
-			beschreibung = "Anzahl der gemeinsamen Referenzpunkte"
-			unit=None
-			description= 'Number of common reference points'
-			uri=ontologynamespace+'numberOfCommonReferencePoints'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Aufnahmezeit 
-			keyword = 'acquisition_time'
-			beschreibung = "Aufnahmezeit"
-			unit=None
-			description= 'Acquisition time'
-			uri=ontologynamespace+'acquisitionTime'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
 			# Automatische Belichtungszeit (Modus)
 			keyword = 'automatic_exposure_time_mode'
 			beschreibung = "Automatische Belichtungszeit (Modus)"
@@ -2669,7 +2756,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+			
 			# Automatisierung: Achsposition
 			keyword = 'automation_axis_position'
 			beschreibung = "Automatisierung: Achsposition"
@@ -2714,29 +2801,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# schleife damit alle belichtungszeiten rausgeschrieben werden 
-			for i in range(gom.app.project.measurement_series[mr].measurements[m].get ('number_of_exposure_times')):
-				
-				# Belichtungszeiten
-				keyword = 'exposure_times ['+ str(i) +']'
-				beschreibung = "Belichtungszeit "+ str(i)
-				unit="om:second-Time"
-				description= 'Exposure time'
-				uri=exifnamespace+'exposureTime'
-				measurementclass=None
-				infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-				# Anzahl der Punkte pro Belichtungszeit
-				keyword = 'points_per_exposure_time ['+ str(i) +']'
-				beschreibung = "Anzahl der Punkte für Belichtungszeit "+ str(i)
-				unit=None
-				description= 'Points per exposure time'
-				uri=None
-				measurementclass=None
-				infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-		
+								
 			# Benötigte Ausrichtung zur Berechnung 
 			keyword ='alignment_at_calculation'
 			beschreibung = "Benötigte Ausrichtung zur Berechnung"
@@ -2772,7 +2837,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+			
 			# Berechnungsmodus
 			keyword ='computation_mode'
 			beschreibung = "Berechnungsmodus"
@@ -2790,33 +2855,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Bildbreite
-			keyword = 'image_width'
-			beschreibung = "Bildbreite"
-			unit="om:pixel"
-			description= 'Image width'
-			uri=exifnamespace+'imageWidth'
-			measurementclass=None
-			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Bildhöhe
-			keyword = 'image_height'
-			beschreibung = "Bildhöhe"
-			unit="om:pixel"
-			description= 'Image height'
-			uri=exifnamespace + 'imageLength'
-			measurementclass=None
-			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Eckenmaskierungsgröße 
-			keyword = 'corner_mask_size'
-			beschreibung = "Eckenmaskierungsgröße"
-			unit="om:percent"
-			description= 'Corner mask size'
-			uri=ontologynamespace+'CornerMask'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
 			
 			# Element-Keywords (Liste der Element-Keywords)
 			keyword ='element_keywords'
@@ -2835,25 +2873,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Ergebnis der Lichtänderungskontrolle
-			keyword = 'lighting_change_check_result'
-			beschreibung = "Ergebnis der Lichtänderungskontrolle"
-			unit=None
-			description= 'Lightning change check result'
-			uri=None
-			measurementclass=None
-			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
 			
-			# Ergebnis der Sensorbewegungskontrolle 
-			keyword = 'sensor_movement_check_result'
-			beschreibung = "Ergebnis der Sensorbewegungskontrolle "
-			unit=None
-			description= 'Sensor movement check result'
-			uri=ontologynamespace+'sensorMovementCheck'
-			measurementclass=None
-			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-	
 			# Importdatei 
 			keyword = 'import_file'
 			beschreibung = "Importdatei"
@@ -2884,7 +2904,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Kamera-Betriebstemperatur (ATOS IIe Rev.01)
 			keyword = 'camera_operating_temperature'
 			beschreibung = "Kamera-Betriebstemperatur (ATOS IIe Rev.01)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'Camera operating temperature(ATOS IIe Rev.01/ATOS III Rev.01)'
 			uri=ontologynamespace+'operatingTemperature'
 			measurementclass=None
@@ -2934,16 +2954,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Lichtänderung (Sigma)
-			keyword = 'lighting_change_sigma'
-			beschreibung = "Lichtänderung (Sigma)"
-			unit='Grauwerte'
-			description= 'Light change sigma'
-			uri=ontologynamespace+'LightChangeSigma'
-			measurementclass=None
-			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+			
 			# Max. Blickwinkel Sensor/Fläche
 			keyword = 'max_viewing_angle_sensor_surface'
 			beschreibung = "Max. Blickwinkel Sensor/Fläche"
@@ -2956,7 +2967,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Max. Residuum 
 			keyword = 'max_residual'
 			beschreibung = "Max. Residuum"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Max. residual'
 			uri=ontologynamespace+'MaximumResidual'
 			measurementclass=None
@@ -2971,15 +2982,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
 			
-			# Maximale Einschneideabweichung
-			keyword = 'max_intersection_deviation'
-			beschreibung = "Maximale Einschneideabweichung"
-			unit="om:pixel"
-			description= 'Max. intersection deviation'
-			uri=ontologynamespace+'MaxIntersectionDeviation'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
 			# Messauflösung
 			keyword = 'measurement_resolution'
 			beschreibung = "Messauflösung"
@@ -2988,24 +2990,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Messungs-ID (eindeutig über alle Messreihen)
-			keyword = 'unique_measurement_id'
-			beschreibung = "Messungs-ID (eindeutig über alle Messreihen)"
-			unit=None
-			description= 'Measurement ID(unique trough all measurement series)'
-			uri=ontologynamespace+'measurementId'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Min. Streifenkontrast
-			keyword ='min_fringe_contrast'
-			beschreibung = "Min. Streifenkontrast"
-			unit='Grauwerte'
-			description= 'Min. fringe contrast'
-			uri=ontologynamespace+'MinimumFringeContrast'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
 			
 			# Min. Tiefenbegrenzung 
 			keyword = 'min_depth_limitation'
@@ -3019,30 +3003,12 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Mittlere Einschneideabweichung
 			keyword = 'mean_intersection_deviation'
 			beschreibung = "Mittlere Einschneideabweichung"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Mean intersection deviation'
 			uri=ontologynamespace+'MeanIntersectionDeviation'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
 			
-			# Mittlere Lichtänderung
-			keyword = 'lighting_change_mean'
-			beschreibung = "Mittlere Lichtänderung"
-			unit='Grauwerte'
-			description= 'Mean lighting change'
-			uri=ontologynamespace +'MeanLightingChange'
-			measurementclass=None
-			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Name 
-			keyword = 'name'
-			beschreibung = "Name"
-			unit=None
-			description= 'Name'
-			uri="rdfs:label"
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
 			# Name(importiert)
 			keyword = 'imported_name'
 			beschreibung = "Name(importiert)"
@@ -3055,7 +3021,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Neigungswinkel des Sensors 
 			keyword = 'sensor_tilt_angle'
 			beschreibung = "Neigungswinkel des Sensors"
-			unit="om:radian"
+			unit=om+"radian"
 			description= 'Sensor tilt angle'
 			uri=None
 			measurementclass=None
@@ -3105,20 +3071,11 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Referenzpunktbelichtungszeit 
-			keyword = 'reference_point_exposure_time'
-			beschreibung = "Referenzpunktbelichtungszeit"
-			unit="om:second-Time"
-			description= 'Reference point exposure time'
-			uri=ontologynamespace+'ShutterTime'
-			measurementclass=None
-			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
 			
 			# Rotationswinkel des Sensors 
 			keyword = 'sensor_rotation_angle'
 			beschreibung = "Rotationswinkel des Sensors"
-			unit="om:radian"
+			unit=om+"radian"
 			description= 'Sensor rotation angle'
 			uri=None
 			measurementclass=None
@@ -3145,38 +3102,11 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Sekunden seit der letzten Lichtfaktorkalibrierung 
 			keyword = 'seconds_since_last_light_factor_calibration'
 			beschreibung = "Sekunden seit der letzten Lichtfaktorkalibrierung"
-			unit="om:second-Time"
+			unit=om+"second-Time"
 			description= 'Seconds since last light factor calibration'
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Sensorbewegung 
-			keyword = 'sensor_movement'
-			beschreibung = "Sensorbewegung"
-			unit="om:pixel"
-			description= 'Sensor movement'
-			uri=ontologynamespace+'SensorMovement'
-			measurementclass=None
-			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Sensorkennung
-			keyword = 'sensor_identifier'
-			beschreibung = "Sensorkennung"
-			unit=None
-			description= 'Sensor identifier'
-			uri=ontologynamespace +'serialNumber'
-			measurementclass='http://www.wikidata.org/entity/Q1198578'
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Sensortyp 
-			keyword = 'sensor_type'
-			beschreibung = "Sensortyp"
-			unit=None
-			description= 'Sensor type'
-			uri=ontologynamespace+'sensorType'
-			measurementclass=None
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
 			
 			# Status: Aktuelle Position?
 			keyword = 'is_current_position'
@@ -3249,7 +3179,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+					
 			# Status: Ist Mehrfachaufnahme aktiviert? 
 			keyword = 'is_double_snap_enabled'
 			beschreibung = "Status: Ist Mehrfachaufnahme aktiviert? "
@@ -3258,15 +3188,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Status: Ist Messung transformiert?
-			keyword = 'is_measurement_transformed'
-			beschreibung = "Status: Ist Messung transformiert?"
-			unit=None
-			description= 'State: measurement transformed?'
-			uri=None
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
 			
 			# Status: Ist Sichtbarkeitszustand gesperrt?
 			keyword = 'is_visibility_locked'
@@ -3321,7 +3242,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+			
 			# Status: Punkte an Scan-Bereichsgrenzen vermeiden?
 			keyword = 'avoid_points_on_borders_in_scan_area'
 			beschreibung = "Status: Punkte an Scan-Bereichsgrenzen vermeiden?"
@@ -3330,25 +3251,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Status: Punkte auf Glanzstellen vermeiden 
-			keyword ='avoid_points_on_shiny_surfaces'
-			beschreibung = "Status: Punkte auf Glanzstellen vermeiden"
-			unit=None
-			description= 'State: Avoid points on shiny surfaces?'
-			uri=None
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Status: Punkte bei starken Helligkeitsunterschieden vermeiden?
-			keyword = 'avoid_points_at_strong_brightness_differences'
-			beschreibung = "Status: Punkte bei starken Helligkeitsunterschieden vermeiden?"
-			unit=None
-			description= 'State: Avoid points at strong brightness differences?'
-			uri=None
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+			
 			# Status: Punkte in Schattenbereichen vermeiden? 
 			keyword = 'avoid_points_in_shadow_areas'
 			beschreibung = "Status: Punkte in Schattenbereichen vermeiden?"
@@ -3358,15 +3261,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
 	
-			# Status: Reflexionserkennung
-			keyword = 'reflection_detection'
-			beschreibung = "Status: Reflexionserkennung"
-			unit=None
-			description= 'State: Reflection detection?'
-			uri=ontologynamespace+'reflectionDetectionActivated'
-			measurementclass=None
-			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-	
 			# Status: Scan-Bereich definiert? 
 			keyword = 'is_scan_area_defined'
 			beschreibung = "Status: Scan-Bereich definiert? "
@@ -3375,16 +3269,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Status: Sensor-Betriebstemperatur erreicht?
-			keyword ='sensor_operation_temperature_reached'
-			beschreibung = "Status: Sensor-Betriebstemperatur erreicht?"
-			unit=None
-			description= 'State: Is sensor operation temperature reached?'
-			uri=ontologynamespace+'SensorTemperature'
-			measurementclass=None
-			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+			
 			# Status: Sind Aufnahmeparameter gültig?
 			keyword = 'are_acquisition_parameters_valid'
 			beschreibung = "Status: Sind Aufnahmeparameter gültig?"
@@ -3403,24 +3288,6 @@ def exportjson(json_file,csv_file,dic_dig):
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
 			
-			# Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden? 
-			keyword = 'avoid_triple_scan_points_at_strong_brightness_differences'
-			beschreibung = "Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden?"
-			unit=None
-			description= 'State: Avoid Triple Scan points at strong brightness differences?'
-			uri=ontologynamespace+'avoidTripleScanPointsWithBrightnessDifference'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Status: Triple-Scan-Punkte vermeiden? 
-			keyword = 'avoid_triple_scan_points'
-			beschreibung = "Status: Triple-Scan-Punkte vermeiden?"
-			unit=None
-			description= 'State: Avoid Triple Scan points?'
-			uri=ontologynamespace+'avoidTripleScanPoints'
-			measurementclass=None
-			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
 			# Status: Wird Qualität der Triple-Scan-Punkte geprüft?
 			keyword = 'is_quality_triple_scan_points_checked'
 			beschreibung = "Status: Wird Qualität der Triple-Scan-Punkte geprüft?"
@@ -3442,7 +3309,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur der Hauptplatine (Sensor)
 			keyword = 'sensor_main_board_temperature'
 			beschreibung = "Temperatur der Hauptplatine (Sensor)"
-			unit= "om:degreeCelsius"
+			unit= om+"degreeCelsius"
 			description= 'Main board temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3451,7 +3318,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur der Hauptstromversorgung (Sensor)
 			keyword = 'sensor_main_power_supply_temperature'
 			beschreibung = "Temperatur der Hauptstromversorgung (Sensor)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'Main power supply temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3460,7 +3327,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur der LED (Sensor)
 			keyword = 'sensor_led_temperature'
 			beschreibung = "Temperatur der LED (Sensor)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'LED temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3469,7 +3336,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur der LED-Stromversorgung (Sensor)
 			keyword = 'sensor_led_power_supply_temperature'
 			beschreibung = "Temperatur der LED-Stromversorgung (Sensor)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'LED power supply temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3478,7 +3345,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur der Projektionseinheit (Sensor)
 			keyword = 'sensor_projection_unit_temperature'
 			beschreibung = "Temperatur der Projektionseinheit (Sensor)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'Projection unit temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3487,7 +3354,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur des Kameraträgers (Sensor)
 			keyword = 'sensor_camera_support_temperature'
 			beschreibung = "Temperatur des Kameraträgers (Sensor)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'Camera support temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3496,7 +3363,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Temperatur des LED-Kühlkörpers (Sensor)
 			keyword = 'sensor_led_heatsink_temperature'
 			beschreibung = "Temperatur des LED-Kühlkörpers (Sensor)"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'LED heatsink temperature (Sensor)'
 			uri=None
 			measurementclass=None
@@ -3510,11 +3377,269 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Typ der Projektorkalibrierung
+			keyword = 'projector_calibration_type'
+			beschreibung = "Typ der Projektorkalibrierung"
+			unit=None
+			description= 'Projector calibration type'
+			uri=None
+			measurementclass=None
+			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Umgebungstemperatur
+			keyword = 'ambient_temperature'
+			beschreibung = "Umgebungstemperatur"
+			unit=om+"degreeCelsius"
+			description= 'Ambient temperature'
+			uri=None
+			measurementclass=None
+			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01)
+			keyword = 'remaining_lamp_warmup_time'
+			beschreibung = "Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01)"
+			unit=om+"second-Time"
+			description= 'Remaining lamp warm up time (ATOS IIe Rev.01 / ATOS III Rev.01)'
+			uri=None
+			measurementclass=None
+			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Wiederholungsgrund 
+			keyword = 'reason_for_repetition'
+			beschreibung = "Wiederholungsgrund"
+			unit=None
+			description= 'Reason for repetition'
+			uri=None
+			measurementclass=None
+			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			
+			## properties ## setup ## check 
+			# Anzahl der gemeinsamen Referenzpunkte
+			keyword = 'number_of_common_reference_points'
+			beschreibung = "Anzahl der gemeinsamen Referenzpunkte"
+			unit=None
+			description= 'Number of common reference points'
+			uri=ontologynamespace+'numberOfCommonReferencePoints'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Aufnahmezeit 
+			keyword = 'acquisition_time'
+			beschreibung = "Aufnahmezeit"
+			unit=None
+			description= 'Acquisition time'
+			uri=ontologynamespace+'acquisitionTime'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Maximale Einschneideabweichung
+			keyword = 'max_intersection_deviation'
+			beschreibung = "Maximale Einschneideabweichung"
+			unit=om+"pixel"
+			description= 'Max. intersection deviation'
+			uri=ontologynamespace+'MaxIntersectionDeviation'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Messungs-ID (eindeutig über alle Messreihen)
+			keyword = 'unique_measurement_id'
+			beschreibung = "Messungs-ID (eindeutig über alle Messreihen)"
+			unit=None
+			description= 'Measurement ID(unique trough all measurement series)'
+			uri=ontologynamespace+'measurementId'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Min. Streifenkontrast
+			keyword ='min_fringe_contrast'
+			beschreibung = "Min. Streifenkontrast"
+			unit='Grauwerte'
+			description= 'Min. fringe contrast'
+			uri=ontologynamespace+'MinimumFringeContrast'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# schleife damit alle belichtungszeiten rausgeschrieben werden 
+			for i in range(gom.app.project.measurement_series[mr].measurements[m].get ('number_of_exposure_times')):
 				
+				# Belichtungszeiten
+				keyword = 'exposure_times ['+ str(i) +']'
+				beschreibung = "Belichtungszeit "+ str(i)
+				unit=om+"second-Time"
+				description= 'Exposure time'
+				uri=exifnamespace+'exposureTime'
+				measurementclass=None
+				infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
+		
+				# Anzahl der Punkte pro Belichtungszeit
+				keyword = 'points_per_exposure_time ['+ str(i) +']'
+				beschreibung = "Anzahl der Punkte für Belichtungszeit "+ str(i)
+				unit=None
+				description= 'Points per exposure time'
+				uri=None
+				measurementclass=None
+				infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+		
+			# Bildbreite
+			keyword = 'image_width'
+			beschreibung = "Bildbreite"
+			unit=om+"pixel"
+			description= 'Image width'
+			uri=exifnamespace+'imageWidth'
+			measurementclass=None
+			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Bildhöhe
+			keyword = 'image_height'
+			beschreibung = "Bildhöhe"
+			unit=om+"pixel"
+			description= 'Image height'
+			uri=exifnamespace + 'imageHeight'
+			measurementclass=None
+			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
+		
+			# Eckenmaskierungsgröße 
+			keyword = 'corner_mask_size'
+			beschreibung = "Eckenmaskierungsgröße"
+			unit=om+"percent"
+			description= 'Corner mask size'
+			uri=ontologynamespace+'CornerMask'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# check 
+			# Ergebnis der Lichtänderungskontrolle
+			keyword = 'lighting_change_check_result'
+			beschreibung = "Ergebnis der Lichtänderungskontrolle"
+			unit=None
+			description= 'Lightning change check result'
+			uri=None
+			measurementclass=None
+			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Ergebnis der Sensorbewegungskontrolle 
+			keyword = 'sensor_movement_check_result'
+			beschreibung = "Ergebnis der Sensorbewegungskontrolle "
+			unit=None
+			description= 'Sensor movement check result'
+			uri=ontologynamespace+'sensorMovementCheck'
+			measurementclass=None
+			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Lichtänderung (Sigma)
+			keyword = 'lighting_change_sigma'
+			beschreibung = "Lichtänderung (Sigma)"
+			unit='Grauwerte'
+			description= 'Light change sigma'
+			uri=ontologynamespace+'LightChangeSigma'
+			measurementclass=None
+			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
+		
+			# Mittlere Lichtänderung
+			keyword = 'lighting_change_mean'
+			beschreibung = "Mittlere Lichtänderung"
+			unit='Grauwerte'
+			description= 'Mean lighting change'
+			uri=ontologynamespace +'MeanLightingChange'
+			measurementclass=None
+			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Name 
+			keyword = 'name'
+			beschreibung = "Name"
+			unit=None
+			description= 'Name'
+			uri=rdfs+"label"
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Referenzpunktbelichtungszeit 
+			keyword = 'reference_point_exposure_time'
+			beschreibung = "Referenzpunktbelichtungszeit"
+			unit=om+"second-Time"
+			description= 'Reference point exposure time'
+			uri=ontologynamespace+'ShutterTime'
+			measurementclass=None
+			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Sensorbewegung 
+			keyword = 'sensor_movement'
+			beschreibung = "Sensorbewegung"
+			unit=om+"pixel"
+			description= 'Sensor movement'
+			uri=ontologynamespace+'SensorMovement'
+			measurementclass=None
+			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
+
+			# Status: Ist Messung transformiert?
+			keyword = 'is_measurement_transformed'
+			beschreibung = "Status: Ist Messung transformiert?"
+			unit=None
+			description= 'State: measurement transformed?'
+			uri=None
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Status: Punkte auf Glanzstellen vermeiden 
+			keyword ='avoid_points_on_shiny_surfaces'
+			beschreibung = "Status: Punkte auf Glanzstellen vermeiden"
+			unit=None
+			description= 'State: Avoid points on shiny surfaces?'
+			uri=None
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Status: Punkte bei starken Helligkeitsunterschieden vermeiden?
+			keyword = 'avoid_points_at_strong_brightness_differences'
+			beschreibung = "Status: Punkte bei starken Helligkeitsunterschieden vermeiden?"
+			unit=None
+			description= 'State: Avoid points at strong brightness differences?'
+			uri=None
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Status: Reflexionserkennung
+			keyword = 'reflection_detection'
+			beschreibung = "Status: Reflexionserkennung"
+			unit=None
+			description= 'State: Reflection detection?'
+			uri=ontologynamespace+'reflectionDetectionActivated'
+			measurementclass=None
+			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Status: Sensor-Betriebstemperatur erreicht?
+			keyword ='sensor_operation_temperature_reached'
+			beschreibung = "Status: Sensor-Betriebstemperatur erreicht?"
+			unit=None
+			description= 'State: Is sensor operation temperature reached?'
+			uri=ontologynamespace+'SensorTemperature'
+			measurementclass=None
+			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden? 
+			keyword = 'avoid_triple_scan_points_at_strong_brightness_differences'
+			beschreibung = "Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden?"
+			unit=None
+			description= 'State: Avoid Triple Scan points at strong brightness differences?'
+			uri=ontologynamespace+'avoidTripleScanPointsWithBrightnessDifference'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+		
+			# Status: Triple-Scan-Punkte vermeiden? 
+			keyword = 'avoid_triple_scan_points'
+			beschreibung = "Status: Triple-Scan-Punkte vermeiden?"
+			unit=None
+			description= 'State: Avoid Triple Scan points?'
+			uri=ontologynamespace+'avoidTripleScanPoints'
+			measurementclass=None
+			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
+	
 			# Transformationsabweichung
 			keyword = 'transformation_deviation'
 			beschreibung = "Transformationsabweichung"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Transformation deviation'
 			uri=ontologynamespace+'TransformationDeviation'
 			measurementclass=None
@@ -3537,44 +3662,33 @@ def exportjson(json_file,csv_file,dic_dig):
 			uri=None
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Typ der Projektorkalibrierung
-			keyword = 'projector_calibration_type'
-			beschreibung = "Typ der Projektorkalibrierung"
+				
+				
+				
+			# Sensor 
+			# capturing device 
+			# Sensorkennung
+			keyword = 'sensor_identifier'
+			beschreibung = "Sensorkennung"
 			unit=None
-			description= 'Projector calibration type'
-			uri=None
-			measurementclass=None
-			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+			description= 'Sensor identifier'
+			uri=ontologynamespace +'serialNumber'
+			measurementclass='http://www.wikidata.org/entity/Q1198578'
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 	
-			# Umgebungstemperatur
-			keyword = 'ambient_temperature'
-			beschreibung = "Umgebungstemperatur"
-			unit="om:degreeCelsius"
-			description= 'Ambient temperature'
-			uri=None
-			measurementclass=None
-			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01)
-			keyword = 'remaining_lamp_warmup_time'
-			beschreibung = "Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01)"
-			unit="om:second-Time"
-			description= 'Remaining lamp warm up time (ATOS IIe Rev.01 / ATOS III Rev.01)'
-			uri=None
-			measurementclass=None
-			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
-			# Wiederholungsgrund 
-			keyword = 'reason_for_repetition'
-			beschreibung = "Wiederholungsgrund"
+			# Sensortyp 
+			keyword = 'sensor_type'
+			beschreibung = "Sensortyp"
 			unit=None
-			description= 'Reason for repetition'
-			uri=None
+			description= 'Sensor type'
+			uri=ontologynamespace+'sensorType'
 			measurementclass=None
-			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 			
-	## Messungskalibrierung
+			
+			## Messungskalibrierung
 			
 			# Anzahl der Kameras
 			keyword = 'calibration_number_of_cameras'
@@ -3583,7 +3697,8 @@ def exportjson(json_file,csv_file,dic_dig):
 			description= 'Number of cameras'
 			uri=ontologynamespace+'numberOfCameras'
 			measurementclass=None
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 	
 			# Anzahl der Maßstäbe
 			keyword = 'calibration_number_of_scales'
@@ -3615,20 +3730,22 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Brennweite (Kamera)
 			keyword = 'calibration_camera_focal_length'
 			beschreibung = "Brennweite (Kamera)"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Focal length camera'
 			uri= ontologynamespace + "FocalLengthCamera"
 			measurementclass="http://www.wikidata.org/entity/Q193540"
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 		
 			# Brennweite (Projektor)
 			keyword = 'calibration_projector_focal_length'
 			beschreibung = "Brennweite (Projektor)"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Focal length projector'
 			uri=ontologynamespace + "FocalLengthProjector"
 			measurementclass="http://www.wikidata.org/entity/Q193540"
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 		
 			# Grenzwert Kalibrierabweichung
 			keyword = 'limit_value_calibration_deviation' 
@@ -3660,7 +3777,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Höhenänderung
 			keyword = 'calibration_height_variance'
 			beschreibung = "Höhenänderung"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'height variance'
 			uri=ontologynamespace+'HeightVariance'
 			measurementclass=None
@@ -3678,7 +3795,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Kalibrierabweichung
 			keyword = 'calibration_deviation'
 			beschreibung = "Kalibrierabweichung"
-			unit="om:pixel"
+			unit=om+"pixel"
 			description= 'calibration deviation'
 			uri=ontologynamespace+'CalibrationDeviation'
 			measurementclass=None
@@ -3687,7 +3804,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Kalibrierabweichung (optimiert)
 			keyword = 'calibration_deviation_optimized'
 			beschreibung = "Kalibrierabweichung (optimiert)"
-			unit="om:pixel"
+			unit=om+"pixel"
 			description= 'Calibration deviation (optimized)'
 			uri=ontologynamespace+ 'CalibrationDeviationOptimized'
 			measurementclass=None
@@ -3708,14 +3825,14 @@ def exportjson(json_file,csv_file,dic_dig):
 			beschreibung = "Kalibrierobjekttyp"
 			unit=None
 			description= 'Calibration object type'
-			uri="rdfs:label"
+			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
 		
 			# Kalibriervolumenbreite
 			keyword = 'calibration_volume_width'
 			beschreibung = "Kalibriervolumenbreite"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Calibration volume width'
 			uri=ontologynamespace+'CalibrationVolumeWidth'
 			measurementclass=None
@@ -3724,7 +3841,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Kalibriervolumenlänge
 			keyword = 'calibration_volume_length'
 			beschreibung = "Kalibriervolumenlänge"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Calibration volume length'
 			uri=ontologynamespace+'CalibrationVolumeLength'
 			measurementclass=None
@@ -3733,7 +3850,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Kalibriervolumentiefe
 			keyword = 'calibration_volume_depth' 
 			beschreibung = "Kalibriervolumentiefe"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Calibration volume depth'
 			uri=ontologynamespace+'CalibrationVolumeDepth'
 			measurementclass=None
@@ -3742,7 +3859,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Kamerawinkel 
 			keyword = 'calibration_camera_angle'
 			beschreibung = "Kamerawinkel"
-			unit="om:radian"
+			unit=om+"radian"
 			description= 'Camera angle'
 			uri= ontologynamespace + "CameraAngle"
 			measurementclass=None
@@ -3787,7 +3904,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Maßstabsabweichung 
 			keyword = 'calibration_scale_deviation'
 			beschreibung = "Maßstabsabweichung"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Scale deviation'
 			uri=ontologynamespace+'ScaleDeviation'
 			measurementclass=None
@@ -3796,7 +3913,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Messtemperatur 
 			keyword = 'calibration_measurement_temperature'
 			beschreibung = "Messtemperatur"
-			unit = "om:degreeCelsius"
+			unit = om+"degreeCelsius"
 			description= 'Measurement temperature'
 			uri=ontologynamespace + 'CalibrationTemperature'
 			measurementclass=None
@@ -3805,29 +3922,56 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Messvolumenbreite
 			keyword = 'measuring_volume_width'
 			beschreibung = "Messvolumenbreite"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Measuring volume width'
 			uri=ontologynamespace+'MeasuringVolumeWidth'
 			measurementclass=None
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 		
 			# Messvolumenlänge
 			keyword = 'measuring_volume_length'
 			beschreibung = "Messvolumenlänge"
-			unit ="om:millimetre"
+			unit =om+"millimetre"
 			description= 'Measuring volume length'
 			uri=ontologynamespace+'MeasuringVolumeLength'
 			measurementclass=None
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
+			
+			# theroretischer Messpunktabstand für Atos Triple Scan 8MP
+			# MV100, MV170, MV560, MV700, MV1400
+			mv_length = gom.app.project.measurement_series[mr].measurements[m].get ('measuring_volume_length')
+			if 80 < mv_length < 120:
+				value = 0.031
+			elif 140 < mv_length <200 :
+				value = 0.053
+			elif 280 < mv_length < 360:
+				value = 0.104
+			elif 400 < mv_length < 500:
+				value = 0.195
+			elif 650 < mv_length < 750:
+				value = 0.213
+			elif 1200 < mv_length < 1500:
+				value = 0.399
+			keyword = 'theoretical_measuring_point_distance'
+			beschreibung = "Theoretischer Messpunktabstand"
+			unit =om+"millimetre"
+			description= 'theoretical measuring point distance'
+			uri=ontologynamespace+'TheoreticalMeasuringPointDistance'
+			measurementclass=None
+			from_application= 'derived from the used measuring volume'
+			infos_capturing_device (keyword,beschreibung, value, unit,description,uri,measurementclass,from_application)		
 	
 			# Messvolumentiefe
 			keyword = 'measuring_volume_depth'
 			beschreibung = "Messvolumentiefe"
-			unit ="om:millimetre"
+			unit =om+"millimetre"
 			description= 'Measuring volume depth'
 			uri=ontologynamespace+'MeasuringVolumeDepth'
 			measurementclass=None
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 	
 			# Min. Tiefenbegrenzung (kalibriert) 
 			keyword = 'calibration_min_z'
@@ -3852,7 +3996,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			beschreibung = "Name des Kalibrierobjekts"
 			unit=None
 			description= 'Calibration object name'
-			uri="rdfs:label"
+			uri=rdfs+ 'label'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
 		
@@ -3878,7 +4022,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Referenzvolumenbreite
 			keyword = 'reference_volume_width'
 			beschreibung = "Referenzvolumenbreite"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Reference volume width'
 			uri=None
 			#uri=ontologynamespace+'ReferenceVolumeWidth'
@@ -3888,7 +4032,7 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Referenzvolumenhöhe
 			keyword = 'reference_volume_length'
 			beschreibung = "Referenzvolumenhöhe"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Reference volume length'
 			uri=None
 			#uri=ontologynamespace+'ReferenceVolumeLength'
@@ -3898,9 +4042,9 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Referenzvolumentiefe
 			keyword = 'reference_volume_depth'
 			beschreibung = "Referenzvolumentiefe"
-			unit="om:millimetre"
+			unit=om+"millimetre"
 			description= 'Reference volume depth'
-			uri=ontologynamespace+'ReferenceVolumeDepth'
+			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
 		
@@ -3938,7 +4082,8 @@ def exportjson(json_file,csv_file,dic_dig):
 			description= 'State: Is sensor setup valid?'
 			uri=ontologynamespace+'sensorSetupValid'
 			measurementclass=None
-			infos_capturing_device (keyword,beschreibung,unit,description,uri,measurementclass)
+			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
 	
 			# Status: Kalibrierobjekt rezertifiziert? 
 			keyword = 'calibration_object_recertified'
@@ -3970,20 +4115,22 @@ def exportjson(json_file,csv_file,dic_dig):
 			# Zertifizierungstemperatur
 			keyword = 'calibration_object_certification_temperature'
 			beschreibung = "Zertifizierungstemperatur"
-			unit="om:degreeCelsius"
+			unit=om+"degreeCelsius"
 			description= 'Certification temperature'
 			uri=ontologynamespace+'ReferenceTemperature'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
+			
 	
 			dir_mea = {}	
-			#dir_mea["measurement_information"] = messung
-			dir_mea["capturing_device"]=dic_measurement_sensor
+			#dir_mea["measurement_information"] = messung			
+			if len(list_rp_local)>0:			
+				dir_mea["referencepoints"] =list_rp_local
 			dir_mea["measurement_setup"]=dic_measurement_setup
 			dir_mea["measurement_check"]=dic_measurement_check
 			dir_mea["measurement_properties"]=dic_measurement_info 
-			dir_mea["calibration"]=calibration
-			dir_mea["referencepoints"] =list_rp_local
+			dic_sensor["calibration"]=calibration
+			dic_sensor["capturing_device"]=dic_measurement_sensor
 			
 			if len(dir_mea)>0:
 				list_messungen.append(dir_mea)
@@ -3996,25 +4143,149 @@ def exportjson(json_file,csv_file,dic_dig):
 			if len(dic_measurement_cal_calresults) >0:
 				calibration["cal_properties"]=dic_measurement_cal_calresults
 			
+
+			# temporäre Vergleichsliste mit allen Kalibrierzeiten anlegen und wenn noch nicht in Liste "temp_list_cal_time", dann rein einen "sensor" anlegen
 			
+			if "calibration_date" in dic_measurement_cal_calresults:
+				cal_time_new = dic_measurement_cal_calresults["calibration_date"]["value"]
+			else:
+				cal_time_new = None
+				
+			if cal_time_new in temp_list_cal_time:
+				for s in list_sensors:
+					if "cal_properties" in s["calibration"]:
+						if "calibration_date" in s["calibration"]["cal_properties"]:
+							if "value" in s["calibration"]["cal_properties"]["calibration_date"]:
+								cal_time_store = s["calibration"]["cal_properties"]["calibration_date"]["value"]
+								if cal_time_store == cal_time_new:
+									dic_measurement_info["sensor_id"] = s["capturing_device"]["sensor_id"]
+								
+			if not cal_time_new in temp_list_cal_time:
+				temp_list_cal_time.append(cal_time_new)
+				
+				dic_s ={}
+				dic_s["value"] = sensor_id
+				dic_s["key_deu"] = "Sensor ID"
+				dic_s["from_application"] = "false"
+				dic_s["key_eng"] = "sensor ID"
+				dic_s["uri"] = ontologynamespace + "sensor_id"
+				dic_s["value_type"] = type(dic_s["value"]).__name__
+				dic_sensor["capturing_device"]["sensor_id"] = dic_s
+				
+				dic_measurement_info["sensor_id"] = dic_s
+				
+				sensor_id = + 1 
+				
+				list_sensors.append(dic_sensor)
+		
 			m=m+1
-			
+		
+	
 		# Referenzpunkte (in Schleife Messreihe)	
 		# hier gibt es allgemeneine Informationen, die für alle Refernzpunkte dieser Messreihe gelten 
 		
-			list_refpoints =[]
-			refpoints={}
-			refpoints_information={}
-			
-			try:
-				rp = gom.app.project.measurement_series[mr].results['points']
-			except: 
-				rp=None
+		list_refpoints =[]
+		refpoints={}
+		refpoints_information={}
+		
+		try:
+			rp = gom.app.project.measurement_series[mr].results['points'].get ('num_points')
+		except: 
+			rp = None		
+
+		if rp is not None:
+			def refpoints_mr (keyword, beschreibung, unit=None, description=None,  uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				dir["value"] = gom.app.project.measurement_series[mr].results['points'].get(keyword)
+				dir["key_deu"] = beschreibung
+				if  description != None:
+					dir["key_eng"] =  description
+				if  uri != None:
+					dir["uri"] =  uri
+				if  unit != None:
+					dir["unit"] =  unit
+				if  measurementclass != None:
+					dir["measurementclass"] =  measurementclass
+				dir["value_type"] = type(gom.app.project.measurement_series[mr].results['points'].get(keyword)).__name__
+				dir["from_application"]= from_application				
 				
-			if rp is not None:
-				def refpoints_mr (keyword, beschreibung, unit=None, description=None,  uri=None, measurementclass=None, from_application="true"):
+				if dir["value"] != None:
+					if len(str(dir["value"])) != 0:
+						if includeonlypropswithuri and "uri" in dir:
+							refpoints_information[keyword] = {}		
+							refpoints_information[keyword] = dir
+						if not includeonlypropswithuri:			
+							refpoints_information[keyword] = {}		
+							refpoints_information[keyword] = dir			
+				
+				
+			# Anzahl der Punkte
+			keyword='num_points' 
+			beschreibung="Anzahl der Punkte"
+			unit=None
+			description= 'Number of points'
+			uri=ontologynamespace+'totalNumberOfVertices'
+			measurementclass=None
+			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Benötigte Ausrichtung zur Berechnung
+			keyword='alignment_at_calculation'
+			beschreibung="Benötigte Ausrichtung zur Berechnung"
+			unit=None
+			description= 'Allignment at calculation'
+			uri=None
+			measurementclass=None
+			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Benötigte Starrkörperbewegungskorrektur zur Berechnung
+			keyword='rigid_body_motion_compensation_at_calculation'
+			beschreibung="Benötigte Starrkörperbewegungskorrektur zur Berechnung"
+			unit=None
+			description= 'Rigid body motion compensation at calculation'
+			uri=None
+			measurementclass=None
+			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+	
+			# Berechnungsinformationen
+			keyword='computation_information'
+			beschreibung="Berechnungsinformationen"
+			unit=None
+			description= 'Computation information'
+			uri=None
+			measurementclass=None
+			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+		
+			# Name
+			keyword='name'
+			beschreibung="Name"
+			unit=None
+			description= 'Name'
+			uri=None
+			measurementclass=None
+			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+			# Name(importiert) 
+			keyword='imported_name'
+			beschreibung="Name(importiert)"
+			unit=None
+			description= 'Name (imported)'
+			uri=None
+			measurementclass=None
+			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+		
+			# neue Schleife innerhalb der globalen Referenzpunkten 
+			# hier gibt es Informationen, die nur für einen bestimmten Referenzpunkt gelten 
+			
+			p= 0 
+			list_rp_individual= []
+			
+			while p < gom.app.project.measurement_series[mr].results['points'].get ('num_points'):
+					
+				refpoints_individual ={}
+				def individual_refpoints_mr (keyword, beschreibung, unit=None, description=None, uri=None,measurementclass=None, from_application="true"):
 					dir = {}
-					dir["value"] = gom.app.project.measurement_series[mr].results['points'].get(keyword)
+					dir["value"] = gom.app.project.measurement_series[mr].results['points'].get(keyword+"["+str(p)+"]")
 					dir["key_deu"] = beschreibung
 					if  description != None:
 						dir["key_eng"] =  description
@@ -4024,249 +4295,165 @@ def exportjson(json_file,csv_file,dic_dig):
 						dir["unit"] =  unit
 					if  measurementclass != None:
 						dir["measurementclass"] =  measurementclass
-					dir["value_type"] = type(gom.app.project.measurement_series[mr].results['points'].get(keyword)).__name__
-					dir["from_application"]= from_application				
-					
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].results['points'].get(keyword+"["+str(p)+"]")).__name__
+					dir["from_application"]=from_application
+						
 					if dir["value"] != None:
 						if len(str(dir["value"])) != 0:
 							if includeonlypropswithuri and "uri" in dir:
-								refpoints_information[keyword] = {}		
-								refpoints_information[keyword] = dir
+								refpoints_individual[keyword] = {}		
+								refpoints_individual[keyword] = dir
 							if not includeonlypropswithuri:			
-								refpoints_information[keyword] = {}		
-								refpoints_information[keyword] = dir			
-					
-					
-				# Anzahl der Punkte
-				keyword='num_points' 
-				beschreibung="Anzahl der Punkte"
-				unit=None
-				description= 'Number of points'
-				uri=ontologynamespace+'totalNumberOfVertices'
-				measurementclass=None
-				refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+								refpoints_individual[keyword] = {}		
+								refpoints_individual[keyword] = dir			
 				
-				# Benötigte Ausrichtung zur Berechnung
-				keyword='alignment_at_calculation'
-				beschreibung="Benötigte Ausrichtung zur Berechnung"
-				unit=None
-				description= 'Allignment at calculation'
-				uri=None
-				measurementclass=None
-				refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
-				# Benötigte Starrkörperbewegungskorrektur zur Berechnung
-				keyword='rigid_body_motion_compensation_at_calculation'
-				beschreibung="Benötigte Starrkörperbewegungskorrektur zur Berechnung"
-				unit=None
-				description= 'Rigid body motion compensation at calculation'
-				uri=None
-				measurementclass=None
-				refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 		
-				# Berechnungsinformationen
-				keyword='computation_information'
-				beschreibung="Berechnungsinformationen"
-				unit=None
-				description= 'Computation information'
+				# Beobachtungswinkel 
+				keyword='observation_angle'
+				beschreibung="Beobachtungswinkel"
+				unit=om+"radian"
+				description= 'Observation angle'
 				uri=None
 				measurementclass=None
-				refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
-				# Name
-				keyword='name'
-				beschreibung="Name"
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				
+				# Anzahl der Beobachtugen 
+				keyword='number_of_observations'			
+				beschreibung='Anzahl der Beobachtugen'
 				unit=None
-				description= 'Name'
+				description= 'Number of observations'
 				uri=None
 				measurementclass=None
-				refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 				
-				# Name(importiert) 
-				keyword='imported_name'
-				beschreibung="Name(importiert)"
+				# Punkt-ID 
+				keyword='point_id'
+				beschreibung= "Punkt-ID"
 				unit=None
-				description= 'Name (imported)'
+				description= 'Point ID'
+				uri=ontologynamespace+ 'PointID'
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				
+				# Punkt-Materialstärke
+				keyword= 'point_thickness'
+				beschreibung= "Punkt-Materialstärke"
+				unit=om+"millimetre"
+				description= 'Point thickness'
+				uri=ontologynamespace+'PointThickness'
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				
+				# Punkttyp 
+				keyword='point_type'
+				beschreibung= "Punkttyp"
+				unit=None
+				description= 'Point type'
 				uri=None
 				measurementclass=None
-				refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
-			
-				# neue Schleife innerhalb der globalen Referenzpunkten 
-				# hier gibt es Informationen, die nur für einen bestimmten Referenzpunkt gelten 
-				
-				p= 0 
-				list_rp_individual= []
-			
-				while p < gom.app.project.measurement_series[mr].results['points'].get ('num_points'):
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 					
-					refpoints_individual ={}
-					def individual_refpoints_mr (keyword, beschreibung, unit=None, description=None, uri=None,measurementclass=None, from_application="true"):
-						dir = {}
-						dir["value"] = gom.app.project.measurement_series[mr].results['points'].get(keyword+"["+str(p)+"]")
-						dir["key_deu"] = beschreibung
-						if  description != None:
-							dir["key_eng"] =  description
-						if  uri != None:
-							dir["uri"] =  uri
-						if  unit != None:
-							dir["unit"] =  unit
-						if  measurementclass != None:
-							dir["measurementclass"] =  measurementclass
-						dir["value_type"] = type(gom.app.project.measurement_series[mr].results['points'].get(keyword+"["+str(p)+"]")).__name__
-						dir["from_application"]=from_application
-							
-						if dir["value"] != None:
-							if len(str(dir["value"])) != 0:
-								if includeonlypropswithuri and "uri" in dir:
-									refpoints_individual[keyword] = {}		
-									refpoints_individual[keyword] = dir
-								if not includeonlypropswithuri:			
-									refpoints_individual[keyword] = {}		
-									refpoints_individual[keyword] = dir			
-					
-			
-					# Beobachtungswinkel 
-					keyword='observation_angle'
-					beschreibung="Beobachtungswinkel"
-					unit="om:radian"
-					description= 'Observation angle'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
-					# Anzahl der Beobachtugen 
-					keyword='number_of_observations'			
-					beschreibung='Anzahl der Beobachtugen'
-					unit=None
-					description= 'Number of observations'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
-					# Punkt-ID 
-					keyword='point_id'
-					beschreibung= "Punkt-ID"
-					unit=None
-					description= 'Point ID'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
-					# Punkt-Materialstärke
-					keyword= 'point_thickness'
-					beschreibung= "Punkt-Materialstärke"
-					unit="om:millimetre"
-					description= 'Point thickness'
-					uri=ontologynamespace+'PointThickness'
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
-					# Punkttyp 
-					keyword='point_type'
-					beschreibung= "Punkttyp"
-					unit=None
-					description= 'Point type'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-						
-					# Durchmesser
-					keyword='diameter'
-					beschreibung= "Durchmesser"
-					unit="om:millimetre"
-					description= 'Diameter'
-					uri=ontologynamespace+'diameter'
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
-					# Koordinate X
-					keyword='coordinate.x'
-					beschreibung= "Koordinate X"
-					unit='om:millimetre'
-					description= 'Coordinate X'
-					uri=ontologynamespace+'xCoordinate'
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				# Durchmesser
+				keyword='diameter'
+				beschreibung= "Durchmesser"
+				unit=om+"millimetre"
+				description= 'Diameter'
+				uri=ontologynamespace+'diameter'
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 		
-					# Koordinate Y
-					keyword='coordinate.y'
-					beschreibung= "Koordinate Y"
-					unit='om:millimetre'
-					description= 'Coordinate Y'
-					uri=ontologynamespace+'yCoordinate'
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
-					# Koordinate Z
-					keyword='coordinate.z'
-					beschreibung= "Koordinate Z"
-					unit='om:millimetre'
-					description= 'Coordinate Z'
-					uri=ontologynamespace+'zCoordinate'
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
-					# Normale X
-					keyword='normal.x'
-					beschreibung= "Normale X"
-					unit='om:millimetre'
-					description= 'Normal X'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				# Koordinate X
+				keyword='coordinate.x'
+				beschreibung= "Koordinate X"
+				unit='om:millimetre'
+				description= 'Coordinate X'
+				uri=ontologynamespace+'xCoordinate'
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+	
+				# Koordinate Y
+				keyword='coordinate.y'
+				beschreibung= "Koordinate Y"
+				unit='om:millimetre'
+				description= 'Coordinate Y'
+				uri=ontologynamespace+'yCoordinate'
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 			
-					# Normale Y
-					keyword='normal.y'
-					beschreibung= "Normale Y"
-					unit='om:millimetre'
-					description= 'Normal Y'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
-					# Normale Z
-					keyword='normal.z'
-					beschreibung= "Normale Z"
-					unit='om:millimetre'
-					description= 'Normale Z'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				# Koordinate Z
+				keyword='coordinate.z'
+				beschreibung= "Koordinate Z"
+				unit='om:millimetre'
+				description= 'Coordinate Z'
+				uri=ontologynamespace+'zCoordinate'
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 				
-					# Residuum 
-					keyword= 'residual'
-					beschreibung= "Residuum"
-					unit='om:millimetre'
-					description= 'Residual'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
-					# Status: Benutzerdefinierte Referenzpunktgröße benutzt? 
-					keyword='use_user_defined_reference_point_size'
-					beschreibung= "Status: Benutzerdefinierte Referenzpunktgröße benutzt?"
-					unit=None
-					description= 'State: Use User-defined reference point size?'
-					uri=None
-					measurementclass=None
-					individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
-					if len(refpoints_individual) > 0:
-						list_rp_individual.append(refpoints_individual)
-					if len(list_rp_individual) >0:
-						refpoints["referencepoints"]= list_rp_individual
+				# Normale X
+				keyword='normal.x'
+				beschreibung= "Normale X"
+				unit='om:millimetre'
+				description= 'Normal X'
+				uri=None
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
 		
-					p = p+1
-				if len(refpoints_information)>0:	
-					refpoints["global_referencepoints_information"]= refpoints_information
-				if len(refpoints) >0:
-					messreihe["global_referencepoints"]= refpoints
+				# Normale Y
+				keyword='normal.y'
+				beschreibung= "Normale Y"
+				unit='om:millimetre'
+				description= 'Normal Y'
+				uri=None
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+				
+				# Normale Z
+				keyword='normal.z'
+				beschreibung= "Normale Z"
+				unit='om:millimetre'
+				description= 'Normale Z'
+				uri=None
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+				# Residuum 
+				keyword= 'residual'
+				beschreibung= "Residuum"
+				unit='om:millimetre'
+				description= 'Residual'
+				uri=None
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+				# Status: Benutzerdefinierte Referenzpunktgröße benutzt? 
+				keyword='use_user_defined_reference_point_size'
+				beschreibung= "Status: Benutzerdefinierte Referenzpunktgröße benutzt?"
+				unit=None
+				description= 'State: Use User-defined reference point size?'
+				uri=None
+				measurementclass=None
+				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
+			
+				
+				if len(refpoints_individual) > 0:
+					list_rp_individual.append(refpoints_individual)
+				if len(list_rp_individual) > 0:
+					refpoints["referencepoints"]= list_rp_individual
+	
+				p = p+1
+			
+			if len(refpoints_information)>0:	
+				refpoints["global_referencepoints_information"]= refpoints_information
+			if len(refpoints) >0:
+				messreihe["global_referencepoints"]= refpoints
+					
 		if len(messreihe_infos)>0:
 			messreihe["measurement_series_information"]=messreihe_infos
+		if len(list_sensors)>0:
+			messreihe["sensors"]=list_sensors	
 		if len(messreihe) > 0: 
 			list_messreihen.append(messreihe) 
-	
+
 			
 		mr = mr +1 
 		
@@ -4294,14 +4481,12 @@ def exportjson(json_file,csv_file,dic_dig):
 		dic_mesh_processing_poly_post={}
 		list_mesh_processing_poly_post=[]
 
-		#mesh information
-		
+		#mesh information		
 		def infos_n (keyword, beschreibung, unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
 			if value == None:
-				dir["value"] = gom.app.project.actual_elements[netz_name[n]].get (keyword)
-			else:
-				dir["value"] = value 			
+				value = gom.app.project.actual_elements[netz_name[n]].get (keyword)
+			dir["value"] = value 			
 			dir["key_deu"] = beschreibung
 			if  description != None:
 				dir["key_eng"] =  description
@@ -4311,7 +4496,7 @@ def exportjson(json_file,csv_file,dic_dig):
 				dir["unit"] =  unit
 			if  measurementclass != None:
 				dir["measurementclass"] =  measurementclass
-			dir["value_type"] = type(gom.app.project.actual_elements[netz_name[n]].get (keyword)).__name__
+			dir["value_type"] = type(value).__name__
 			dir["from_application"]= from_application		
 			
 			if dir["value"] != None:
@@ -4354,7 +4539,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Fläche 
 		keyword= 'area'
 		beschreibung= 'Fläche'
-		unit= "om:squareMillimetre"
+		unit= om+"squareMillimetre"
 		description= 'Area'
 		uri=giganamespace+'TotalArea'
 		measurementclass=None
@@ -4390,7 +4575,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Minimum X
 		keyword= 'bounding_box.min.x'
 		beschreibung= 'Minimum X'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'Minimum X'
 		uri=giganamespace+'MinimumXCoordinate'
 		measurementclass=None
@@ -4399,7 +4584,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Minimum Y
 		keyword= 'bounding_box.min.y'
 		beschreibung= 'Minimum Y'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'Minimum Y'
 		uri=giganamespace+'MinimumYCoordinate'
 		measurementclass=None
@@ -4408,7 +4593,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Minimun Z
 		keyword= 'bounding_box.min.z'
 		beschreibung= 'Minimun Z'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'Minimum Z'
 		uri=giganamespace+'MinimumZCoordinate'
 		measurementclass=None
@@ -4417,7 +4602,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Maximum X
 		keyword= 'bounding_box.max.x'
 		beschreibung= 'Maximum X'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'Maximum X'
 		uri=giganamespace+'MaximumXCoordinate'
 		measurementclass=None
@@ -4426,7 +4611,7 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Maximum Y
 		keyword= 'bounding_box.max.y'
 		beschreibung= 'Maximum Y'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'Maximum Y'
 		uri=giganamespace+'maximumYCoordinate'
 		measurementclass=None
@@ -4435,14 +4620,14 @@ def exportjson(json_file,csv_file,dic_dig):
 		# Maximum Z
 		keyword= 'bounding_box.max.z'
 		beschreibung= 'Maximum Z'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'Maximum Z'
 		uri=giganamespace+'maximumZCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
 		
 		# berechneter Wert 
-		# durchschnittliche Auflösung 
+		# durchschnittliche Auflösung pro mm²
 		keyword= 'average resolution'
 		beschreibung= 'durchschnittliche Auflösung'
 		unit = '1/mm²'
@@ -4457,11 +4642,11 @@ def exportjson(json_file,csv_file,dic_dig):
 		
 		# berechneter Wert
 		# durchschnittlicher Punktabstand 
-		keyword= 'average point distance'
+		keyword= 'average_point_distance'
 		beschreibung= 'durchschnittlicher Punktabstand'
-		unit="om:millimetre"
+		unit=om+"millimetre"
 		description= 'average point distance'
-		uri=None
+		uri=ontologynamespace +'AveragePointDistance'
 		measurementclass=None
 		from_application= "script-based calculation"
 		value = 1/math.sqrt(anz_punkte_netz / flaeche_netz)
@@ -4593,7 +4778,7 @@ def exportjson(json_file,csv_file,dic_dig):
 						###creation tolerance 
 							keyword= 'creation tolerance'
 							beschreibung= 'Erstellungstoleranz'
-							unit="om:millimetre"
+							unit=om+"millimetre"
 							description= 'creation tolerance'
 							uri=ontologynamespace + 'CreationTolerance'
 							measurementclass=None
@@ -4605,7 +4790,7 @@ def exportjson(json_file,csv_file,dic_dig):
 						# merge tolerance
 							keyword= 'merge tolerance'
 							beschreibung= 'Merge-Toleranz'
-							unit="om:millimetre"
+							unit=om+"millimetre"
 							description= 'merge tolerance'
 							uri=ontologynamespace + 'MergeTolerance'
 							measurementclass=None
@@ -4617,7 +4802,7 @@ def exportjson(json_file,csv_file,dic_dig):
 						# maximum gap
 							keyword= 'maximum gap'
 							beschreibung= 'Maximaler Abstand'
-							unit="om:millimetre"
+							unit=om+"millimetre"
 							description= 'maximum gap'
 							uri=ontologynamespace + 'MaximumGap'
 							measurementclass=None
@@ -4629,7 +4814,7 @@ def exportjson(json_file,csv_file,dic_dig):
 						# maximum edge length
 							keyword= 'maximum edge length'
 							beschreibung= 'Maximale Kantenlänge'
-							unit="om:millimetre"
+							unit=om+"millimetre"
 							description= 'maximum edge length'
 							uri=ontologynamespace + 'MaximumEdgeLength'
 							measurementclass=None
@@ -4641,7 +4826,7 @@ def exportjson(json_file,csv_file,dic_dig):
 						# unit edge length 
 							keyword= 'unit edge length'
 							beschreibung= 'Einheitliche Kantenlänge'
-							unit="om:millimetre"
+							unit=om+"millimetre"
 							description= 'unit edge length'
 							uri=ontologynamespace + 'UnitEdgeLength'
 							measurementclass=None
@@ -4732,7 +4917,7 @@ def exportjson(json_file,csv_file,dic_dig):
 							##tolerance
 							keyword= 'tolerance'
 							beschreibung= 'Toleranz'
-							unit="om:millimetre"
+							unit=om+"millimetre"
 							description= 'tolerance'
 							uri=ontologynamespace + 'Tolerance'
 							measurementclass=None
@@ -4790,7 +4975,7 @@ def exportjson(json_file,csv_file,dic_dig):
 								##tolerance
 								keyword= 'tolerance'
 								beschreibung= 'Toleranz'
-								unit="om:millimetre"
+								unit=om+"millimetre"
 								description= 'tolerance'
 								uri=ontologynamespace + 'Tolerance'
 								measurementclass=None
@@ -4801,7 +4986,7 @@ def exportjson(json_file,csv_file,dic_dig):
 								
 								list_mesh_processing_poly_post.append(dic_thin)
 									
-# Struktur Mesh		
+		# Struktur Mesh		
 
 
 		if len(list_mesh_processing_poly_post)>0:
@@ -4842,7 +5027,7 @@ def exportjson(json_file,csv_file,dic_dig):
 	if len(list_meshes)>0:
 		project["meshes"]= list_meshes
 	if len(list_app)>0:
-		project["application"]=list_app
+		project["applications"]=list_app
 	
 	list_prj = []
 	if len(project)>0:
@@ -4850,66 +5035,131 @@ def exportjson(json_file,csv_file,dic_dig):
 	
 	if len(list_prj)>0:
 		dic_dig["projects"] = list_prj
-	
-	
-	with open(json_file, 'w') as fp:
-		json.dump(dic_dig, fp, indent = 4, ensure_ascii=False)
 		
 	return dic_dig
 	
+	
 ######### Methode zu Ende
 
-if production:
 
+######### Methode zum Speichern der Skript Informationen 
+
+def script_version():
+	
+	# Zeitpunkt
+	now = datetime.datetime.now()
+	now_string = str(now.year)+"-"+str(now.month).zfill(2)+"-"+str(now.day).zfill(2)+'T'+str(now.hour).zfill(2)+':'+str(now.minute).zfill(2)+':'+str(now.second).zfill(2)
+	
+	# def dictionary
+	dic_script = {}
+	
+	dic_script["github"]={}
+	dic_script["github"]["key_deu"]="GitHub Repository"
+	dic_script["github"]["key_eng"]="GitHub Repository"
+	dic_script["github"]["value"]="https://github.com/i3mainz/3dcap-md-gen"
+	dic_script["github"]["value_type"]="str"
+	dic_script["github"]["uri"]="http:///www.wikidata.org/entity/Q364"
+	dic_script["github"]["from_application"]="false"
+	
+	dic_script["github_release"]={}
+	dic_script["github_release"]["key_deu"]="GitHub Release"
+	dic_script["github_release"]["key_eng"]="GitHub Release"
+	dic_script["github_release"]["value"]=github_release
+	dic_script["github_release"]["value_type"]="str"
+	dic_script["github_release"]["uri"]="http:///www.wikidata.org/entity/Q20631656"
+	dic_script["github_release"]["from_application"]="false"
+	
+	dic_script["script_name"]={}
+	dic_script["script_name"]["key_deu"]="Python Skript Name"
+	dic_script["script_name"]["key_eng"]="Python Script name"
+	dic_script["script_name"]["value"]=script_name
+	dic_script["script_name"]["value_type"]="str"
+	dic_script["script_name"]["uri"]="http:///www.wikidata.org/entity/Q15955723"
+	dic_script["script_name"]["from_application"]="false"
+	
+	dic_script["start_time_script"]={}
+	dic_script["start_time_script"]["key_deu"]="Skriptausführungszeit"
+	dic_script["start_time_script"]["key_eng"]="Script execution time"
+	dic_script["start_time_script"]["value"]=now_string
+	dic_script["start_time_script"]["value_type"]="dateTime"
+	dic_script["start_time_script"]["uri"]=provnamespace+"startedAtTime"
+	dic_script["start_time_script"]["from_application"]="false"
+	
+	return dic_script
+
+
+#########     HAUPTMETHODE     ##########################
+
+def exportMeta(manualmetadatapathJSON=None):
+	
+	#Definition von Variablen
+	
+#	try:
+	
+		pfad = gom.app.project.get('project_file')
+		x = pfad.split("\\")
+		out_file = pfad.replace(x[-1],(gom.app.project.get('name')))
+	
+		out_file_json = out_file+"_meta_atos2016.json"
+		e=out_file+"_meta_atos2016.csv"
+		out_file_ttl=out_file+"_meta_atos2016.ttl"
+		
+		objectdescriptionpathTTL = out_file+"_objdesc.ttl"
+		objectdescriptionpathTXT = out_file+"_objdesc.txt"
+		manualmetadatapathTTL = out_file+"_manualmetadata.ttl"
+		if manualmetadatapathJSON == None:
+			manualmetadatapathJSON = out_file+"_manualmetadata.json"
+		manualmetadatapathYAML = out_file+"_manualmetadata.yaml"
+		
+		## import externer Infos in einen ttl-string
+		## import externer Infos in ein dictionary
+		ttlstring=set()
+		dic_dig = {}
+		if os.path.isfile(objectdescriptionpathTTL):
+			readInputTTL(objectdescriptionpathTTL,ttlstring)
+		elif os.path.isfile(objectdescriptionpathTXT):
+			readInputTXTForArtifactDescription(objectdescriptionpathTXT,ttlstring);	
+		if os.path.isfile(manualmetadatapathTTL):
+			readInputTTL(manualmetadatapathTTL,ttlstring)
+		elif os.path.isfile(manualmetadatapathJSON):		### ÜBERPRÜFEN .....
+			with open(manualmetadatapathJSON) as json_file:
+				#dic_dig["userdata"]=json.load(json_file)
+				dic_dig=json.load(json_file)
+		elif os.path.isfile(manualmetadatapathYAML):
+			with open(manualmetadatapathYAML) as yaml_file:
+				dic_dig["userdata"]=yaml.load(yaml_file)
+				
+	
+		# Methode zum Abreifen der Metadaten wird aufgerufen und in einem Dictionary gespeichert
+		# externe Infos in dictionary wird übergeben
+		dic_prj = createMetaDic(dic_dig)
+		
+		
+		###### export der Metadaten in JSON-File
+		with open(out_file_json, 'w') as fp:
+			json.dump(dic_prj, fp, indent = 4, ensure_ascii=False)
+	
+		# Methode zum Umwandeln des Dictionary in TTL 
+		# externe Infos aus ttlstring werden übergeben
+		fertiges_ttl = exportToTTL(dic_prj, None, ttlstring)
+		
+		###### export der Metadaten in TTL-File
+		with open(out_file_ttl, 'w',encoding='utf8') as text_file:
+			text_file.write(ttlstringhead)
+			for item in fertiges_ttl:
+				text_file.write("%s" % item)
+		text_file.close()
+	
+#	except:
+#		print ("weiter gehts")
+
+#######################################################################################################
 #### Skript hier starten 
 
-	pfad =gom.app.project.get('project_file')
-	x = pfad.split("\\")
-	gom.app.project.get('name')
-
-	w = pfad.replace(x[-1],(gom.app.project.get('name'))+"_meta_atos2016.json")
-	e=pfad.replace(x[-1],(gom.app.project.get('name'))+"_meta_atos2016.csv")
-	objectdescriptionpathTTL = pfad.replace(x[-1],(gom.app.project.get('name'))+"_objdesc.ttl")
-	objectdescriptionpathTXT = pfad.replace(x[-1],(gom.app.project.get('name'))+"_objdesc.txt")
-	manualmetadatapathTTL = pfad.replace(x[-1],(gom.app.project.get('name'))+"_manualmetadata.ttl")
-	manualmetadatapathJSON = pfad.replace(x[-1],(gom.app.project.get('name'))+"_manualmetadata.json")
-	manualmetadatapathYAML = pfad.replace(x[-1],(gom.app.project.get('name'))+"_manualmetadata.yaml")
-	ttlstring=set()
-	if os.path.isfile(objectdescriptionpathTTL):
-		readInputTTL(objectdescriptionpathTTL,ttlstring)
-	elif os.path.isfile(objectdescriptionpathTXT):
-		readInputTXTForArtifactDescription(objectdescriptionpathTXT,ttlstring);
-	dic_dig = {}
-	if os.path.isfile(manualmetadatapathTTL):
-		readInputTTL(manualmetadatapathTTL,ttlstring)
-	elif os.path.isfile(manualmetadatapathJSON):
-		with open(manualmetadatapathJSON) as json_file:
-			dic_dig["userdata"]=json.load(json_file)
-	elif os.path.isfile(manualmetadatapathYAML):
-		with open(manualmetadatapathYAML) as yaml_file:
-			dic_dig["userdata"]=yaml.load(yaml_file)
-
-	dic_prj = exportjson(w,e,dic_dig)
-	#print (dic_prj)
-
-
-	######## Timo TTL
-
-	out_file_ttl=pfad.replace(x[-1],(gom.app.project.get('name'))+"_meta_atos2016.ttl")
-	fertiges_ttl = exportToTTL(dic_prj, None, ttlstring)
-
-	#print ("ttl")
-	#print (fertiges_ttl)	
-	with open(out_file_ttl, 'w',encoding='utf8') as text_file:
-		text_file.write(ttlstringhead)
-		for item in fertiges_ttl:
-			text_file.write("%s" % item)
-	
-	#close file
-	text_file.close()
+if production:	
+	exportMeta()	
 
 else:
-#Test Code
 	ttlstring=set()
 	path="test_laura.json"
 	objectdescriptionpathTTL = path+"_objdesc.ttl"
@@ -4934,7 +5184,7 @@ else:
 	with open('test_proc.json', 'r') as myfile:
 		data=myfile.read()
 	dic_prj=json.loads(data)
-	#print(ttlstring)
+	###print(ttlstring)
 	if True:
 		fertiges_ttl = exportToTTL(dic_prj, None,ttlstring)
 		text_file = open("out.ttl", "w",encoding='utf8')	
@@ -4942,4 +5192,6 @@ else:
 		for item in fertiges_ttl:
 			text_file.write("%s" % item)
 		text_file.close()
-print ("fertsch")
+		
+print ("fertsch 3dcap")
+
