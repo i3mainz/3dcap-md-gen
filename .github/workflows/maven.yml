@@ -16,8 +16,8 @@ jobs:
          sudo pip3 install wheel pylode==2.13.2 rdflib shapely
          mkdir atos2016
          mkdir atos62
-         python3 docgeneration.py sampledata/V03_041_SLP_20120113_e.ttl docs/atos62/ http://objects.mainzed.org/data/ ex
-         python3 docgeneration.py sampledata/V03_041_SLP_20200825_meta_atos2016.ttl docs/atos2016/ http://objects.mainzed.org/data/ ex
+         python3 docgeneration.py sampledata/V03_041_SLP_20120113_e.ttl docs/atos62/ http://objects.mainzed.org/data/ ex False
+         python3 docgeneration.py sampledata/V03_041_SLP_20200825_meta_atos2016.ttl docs/atos2016/ http://objects.mainzed.org/data/ ex False
          cd docs
          doxygen Doxyfile
          
