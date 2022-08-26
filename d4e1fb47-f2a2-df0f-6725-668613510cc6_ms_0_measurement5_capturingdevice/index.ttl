@@ -1,0 +1,7 @@
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://objects.mainzed.org/ont#focalLengthCamera> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice_m_cal_lense> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://objects.mainzed.org/ont#numberOfCameras> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://objects.mainzed.org/ont#sensorType> "ATOS III Rev.01"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://objects.mainzed.org/ont#serialNumber> "D08061"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#StructuredLightScanner> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://www.w3.org/2000/01/rdf-schema#label> " MS 0 Measurement 5 Capturing Device"@en .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_capturingdevice> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

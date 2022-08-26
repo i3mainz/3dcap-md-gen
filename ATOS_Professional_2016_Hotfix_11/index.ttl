@@ -1,0 +1,7 @@
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://objects.mainzed.org/ont#application_build_information.date> "2017-08-30"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://objects.mainzed.org/ont#application_build_information.revision> "104024"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://objects.mainzed.org/ont#application_build_information.version> "2016 Hotfix 11"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://objects.mainzed.org/ont#application_name> "ATOS Professional"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Software> .
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://www.w3.org/2000/01/rdf-schema#label> "ATOS Professional 2016 Hotfix 11"@en .
+<http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .
