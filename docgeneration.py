@@ -36,6 +36,7 @@ invcollectionrelationproperties={
 
 valueproperties={
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#value":"DatatypeProperty",
+    "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue":"ObjectProperty",
     "http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue":"DatatypeProperty"
 }
 
@@ -416,9 +417,6 @@ function download(){
 }
 
 function rewriteLink(thelink){
-    console.log(thelink)
-    console.log(window.location.pathname)
-    console.log(baseurl)
     if(thelink==null){
         rest=search[document.getElementById('search').value].replace(baseurl,"")
     }else{
@@ -428,11 +426,7 @@ function rewriteLink(thelink){
     if(!(rest.endsWith("/"))){
         rest+="/"
     }
-    console.log(rest)
-    console.log(curlocpath)
     count=0
-    console.log(curlocpath.split("/"))
-    console.log(rest.split("/"))
     if(!indexpage){
         count=rest.split("/").length-1
     }
@@ -1630,9 +1624,16 @@ class OntDocGeneration:
                 if ext in fileextensionmap:
                     foundmedia[fileextensionmap[ext]].add(str(tup[1]))
             if str(tup[0]) in valueproperties and isinstance(tup[1],Literal):
-                foundval=tup[1]
+                if valueproperties[tup[0]]=="DatatypeProperty":
+                    foundval=str(tup[1])
+                else:
+                    for valtup in graph.predicate_objects(object):
+                        if str(valtup[0]) in unitproperties:
+                            foundunit=str(valtup[1])
+                        if str(valtup[0]) in valueproperties and isinstance(valtup[1],Literal):
+                            foundval=str(valtup[1])
             if str(tup[0]) in unitproperties and isinstance(tup[1],URIRef):
-                foundunit=str(tup[1])
+                foundunit=tup[1]
         if foundunit!=None and foundval!=None and label!=None:
             res=self.replaceNameSpacesInLabel(str(foundunit))
             if res!=None:
