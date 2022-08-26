@@ -1,5 +1,0 @@
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp32_r_dev> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp32_r_dev_value> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp32_r_dev> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#R_dev> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp32_r_dev> <http://www.w3.org/2000/01/rdf-schema#label> "Punktabweichung ( MS 1 Measurement 56 RP32)"@de .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp32_r_dev> <http://www.w3.org/2000/01/rdf-schema#label> "Point deviation ( MS 1 Measurement 56 RP32)"@en .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp32_r_dev> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

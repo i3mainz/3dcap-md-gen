@@ -1,6 +1,0 @@
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp28_r_dev_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "0.00610701793511"^^<http://www.w3.org/2001/XMLSchema#float> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp28_r_dev_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp28_r_dev_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp28_r_dev_value> <http://www.w3.org/2000/01/rdf-schema#label> "Point deviation Measurement Value ( MS 1 GRP28)"@en .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp28_r_dev_value> <http://www.w3.org/2000/01/rdf-schema#label> "Punktabweichung Messwert ( MS 1 GRP28)"@de .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp28_r_dev_value> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

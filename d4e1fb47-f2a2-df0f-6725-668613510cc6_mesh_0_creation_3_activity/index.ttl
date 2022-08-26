@@ -1,9 +1,0 @@
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://objects.mainzed.org/ont#automatic> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://objects.mainzed.org/ont#processname> "reference points"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://objects.mainzed.org/ont#refpoints> "fill_all"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov-o/Activity> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://www.w3.org/2000/01/rdf-schema#label> "Mesherstellungsschritt 3: reference points"@de .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://www.w3.org/2000/01/rdf-schema#label> "Mesh Creation Activity 3: reference points"@en .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://www.w3.org/ns/prov-o/used> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_intermediate_2> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://www.w3.org/ns/prov-o/wasInformedBy> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_2_activity> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_3_activity> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

@@ -1,0 +1,44 @@
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov-o/Activity> .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 37 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 29 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 5 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 13 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 34 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 35 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 22 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 23 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "Messreihe 0 Messvorgang 7 ()"@de .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 10 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 27 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 8 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 11 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 28 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 33 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 7 Activity ()"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 18 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 3 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 31 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 30 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 17 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 36 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 1 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 26 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 0 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 12 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 19 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 32 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 9 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 6 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 25 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 7 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 21 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 4 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 16 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 20 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 2 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 14 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 24 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 15 Activity"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/ns/prov-o/used> <http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://www.w3.org/ns/prov-o/wasAssociatedWith> <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_activity> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

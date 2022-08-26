@@ -1,0 +1,43 @@
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Algorithm> .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 8 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 31 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 28 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 36 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 5 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 23 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 37 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 19 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 39 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 29 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 15 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 20 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 22 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 33 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 18 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 12 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 21 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 25 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 3 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 4 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 9 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 14 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 35 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 17 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 6 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 11 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 30 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 27 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 13 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 10 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 16 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 34 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 7 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 24 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 2 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 1 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 32 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 38 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 0 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 26 Algorithm"@en .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://www.w3.org/ns/prov-o/actedOnBehalfOf> <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_algorithm> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

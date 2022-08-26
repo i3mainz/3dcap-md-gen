@@ -1,0 +1,6 @@
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp97_r_y_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "-13.3635438354"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp97_r_y_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp97_r_y_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp97_r_y_value> <http://www.w3.org/2000/01/rdf-schema#label> "y-coordinate Measurement Value ( MS 0 Measurement 55 RP97)"@en .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp97_r_y_value> <http://www.w3.org/2000/01/rdf-schema#label> "y-Koordinate Messwert ( MS 0 Measurement 55 RP97)"@de .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp97_r_y_value> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .
