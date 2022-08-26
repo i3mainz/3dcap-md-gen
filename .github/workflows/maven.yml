@@ -14,8 +14,10 @@ jobs:
          sudo apt-get install doxygen graphviz python3-dev python3-pip -y
          sudo apt-get install python3-venv python3-wheel -y
          sudo pip3 install wheel pylode==2.13.2 rdflib shapely
-         python3 docgeneration.py sampledata/V03_041_SLP_20120113_e.ttl docs/ http://objects.mainzed.org/data/ ex
-         python3 docgeneration.py sampledata/V03_041_SLP_20200825_meta_atos2016.ttl docs/ http://objects.mainzed.org/data/ ex
+         mkdir atos2016
+         mkdir atos62
+         python3 docgeneration.py sampledata/V03_041_SLP_20120113_e.ttl docs/atos62/ http://objects.mainzed.org/data/ ex
+         python3 docgeneration.py sampledata/V03_041_SLP_20200825_meta_atos2016.ttl docs/atos2016/ http://objects.mainzed.org/data/ ex
          cd docs
          doxygen Doxyfile
          
