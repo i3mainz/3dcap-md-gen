@@ -1623,8 +1623,8 @@ class OntDocGeneration:
                 ext="."+''.join(filter(str.isalpha,str(tup[1]).split(".")[-1]))
                 if ext in fileextensionmap:
                     foundmedia[fileextensionmap[ext]].add(str(tup[1]))
-            if str(tup[0]) in valueproperties and isinstance(tup[1],Literal):
-                if valueproperties[tup[0]]=="DatatypeProperty":
+            if str(tup[0]) in valueproperties:
+                if valueproperties[tup[0]]=="DatatypeProperty" and isinstance(tup[1],Literal):
                     foundval=str(tup[1])
                 else:
                     for valtup in graph.predicate_objects(tup[1]):
