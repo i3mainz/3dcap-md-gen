@@ -1,1 +1,5 @@
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_calibration_m_cal_cam_angle> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_calibration_m_cal_cam_angle_value> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_calibration_m_cal_cam_angle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#M_cal_cam_angle> .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_calibration_m_cal_cam_angle> <http://www.w3.org/2000/01/rdf-schema#label> "Camera angle ( MS 0 Measurement 6 Calibration)"@en .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_calibration_m_cal_cam_angle> <http://www.w3.org/2000/01/rdf-schema#label> "Triangulationswinkel ( MS 0 Measurement 6 Calibration)"@de .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_calibration_m_cal_cam_angle> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

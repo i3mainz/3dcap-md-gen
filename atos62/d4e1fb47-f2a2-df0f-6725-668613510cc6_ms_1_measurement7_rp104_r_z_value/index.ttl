@@ -3,3 +3,4 @@
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp104_r_z_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp104_r_z_value> <http://www.w3.org/2000/01/rdf-schema#label> "z-coordinate Measurement Value ( MS 1 Measurement 62 RP104)"@en .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp104_r_z_value> <http://www.w3.org/2000/01/rdf-schema#label> "z-Koordinate Messwert ( MS 1 Measurement 62 RP104)"@de .
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp104_r_z_value> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .
