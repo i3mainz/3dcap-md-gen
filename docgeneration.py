@@ -1624,26 +1624,26 @@ class OntDocGeneration:
                 if ext in fileextensionmap:
                     foundmedia[fileextensionmap[ext]].add(str(tup[1]))
             if str(tup[0]) in valueproperties:
-                print("VALPROP: "+str(tup[0]))
                 if valueproperties[str(tup[0])]=="DatatypeProperty" and isinstance(tup[1],Literal):
                     foundval=str(tup[1])
                 else:
                     for valtup in graph.predicate_objects(tup[1]):
-                        print("VALTUP: "+str(valtup))
-                        if str(valtup[0]) in unitproperties and isinstance(valtup[1],URIRef):
-                            print("--->VALPROP: "+str(valtup[0]))
+                        if str(valtup[0]) in unitproperties:
                             foundunit=str(valtup[1])
                         if str(valtup[0]) in valueproperties and isinstance(valtup[1],Literal):
                             foundval=str(valtup[1])
-                            print("--->VALPROP: "+str(valtup[0]))
-            if str(tup[0]) in unitproperties and isinstance(tup[1],URIRef):
+            if str(tup[0]) in unitproperties:
                 foundunit=tup[1]
         if foundunit!=None and foundval!=None:
-            res=self.replaceNameSpacesInLabel(str(foundunit))
-            if res!=None:
-                unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(res["uri"])+"</a>"
+            res=None
+            if "http" in foundunit:
+                res=self.replaceNameSpacesInLabel(str(foundunit))
+                if res!=None:
+                    unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(res["uri"])+"</a>"
+                else:
+                    unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(self.shortenURI(foundunit))+"</a>"
             else:
-                unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(self.shortenURI(foundunit))+"</a>"
+                unitlabel=str(foundval)+" "+str(foundunit)
         return {"geojsonrep":geojsonrep,"label":label,"unitlabel":unitlabel,"foundmedia":foundmedia,"imageannos":imageannos,"image3dannos":image3dannos}
 
 
