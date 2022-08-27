@@ -1398,21 +1398,21 @@ class OntDocGeneration:
         subtorencounter = 0
         for subj in subjectstorender:
             path = subj.replace(prefixnamespace, "")
-            #try:
-            paths=self.processSubjectPath(outpath,paths,path)
-            if os.path.exists(outpath + path+"/index.ttl"):
-                try:
-                    self.graph.parse(outpath + path+"/index.ttl")
-                except Exception as e:
-                    print(e)
-            postprocessing=self.createHTML(outpath + path, self.graph.predicate_objects(subj), subj, prefixnamespace, self.graph.subject_predicates(subj),
-                       self.graph,str(corpusid) + "_search.js", str(corpusid) + "_classtree.js",uritotreeitem,curlicense,subjectstorender,postprocessing)
-            subtorencounter += 1
-            if subtorencounter%500==0:
-                subtorenderlen=len(subjectstorender)+len(postprocessing)
-            print(str(subtorencounter) + "/" + str(subtorenderlen) + " " + str(outpath + path))
-            #except Exception as e:
-            #    print("Create HTML Exception: "+str(e))
+            try:
+                paths=self.processSubjectPath(outpath,paths,path)
+                if os.path.exists(outpath + path+"/index.ttl"):
+                    try:
+                        self.graph.parse(outpath + path+"/index.ttl")
+                    except Exception as e:
+                        print(e)
+                postprocessing=self.createHTML(outpath + path, self.graph.predicate_objects(subj), subj, prefixnamespace, self.graph.subject_predicates(subj),
+                           self.graph,str(corpusid) + "_search.js", str(corpusid) + "_classtree.js",uritotreeitem,curlicense,subjectstorender,postprocessing)
+                subtorencounter += 1
+                if subtorencounter%500==0:
+                    subtorenderlen=len(subjectstorender)+len(postprocessing)
+                print(str(subtorencounter) + "/" + str(subtorenderlen) + " " + str(outpath + path))
+            except Exception as e:
+                print("Create HTML Exception: "+str(e))
             #    #QgsMessageLog.logMessage("Exception occured " + str(e), "OntdocGeneration", Qgis.Info)
         print("Postprocessing " + str(len(postprocessing)))
         for subj in postprocessing.subjects():
@@ -1624,10 +1624,10 @@ class OntDocGeneration:
                 if ext in fileextensionmap:
                     foundmedia[fileextensionmap[ext]].add(str(tup[1]))
             if str(tup[0]) in valueproperties:
-                if valueproperties[tup[0]]=="DatatypeProperty" and isinstance(tup[1],Literal):
+                if valueproperties[str(tup[0])]=="DatatypeProperty" and isinstance(tup[1],Literal):
                     foundval=str(tup[1])
                 else:
-                    for valtup in graph.predicate_objects(tup[1]):
+                    for valtup in graph.predicate_objects(str(tup[1])):
                         if str(valtup[0]) in unitproperties and isinstance(valtup[1],URIRef):
                             foundunit=str(valtup[1])
                         if str(valtup[0]) in valueproperties and isinstance(valtup[1],Literal):
