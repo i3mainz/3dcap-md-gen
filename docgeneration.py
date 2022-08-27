@@ -1624,6 +1624,7 @@ class OntDocGeneration:
                 if ext in fileextensionmap:
                     foundmedia[fileextensionmap[ext]].add(str(tup[1]))
             if str(tup[0]) in valueproperties:
+                print("VALPROP: "+str(tup[0]))
                 if valueproperties[str(tup[0])]=="DatatypeProperty" and isinstance(tup[1],Literal):
                     foundval=str(tup[1])
                 else:
