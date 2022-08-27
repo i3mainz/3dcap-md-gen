@@ -1,11 +1,1 @@
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://objects.mainzed.org/ont#diameter> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57_diameter> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://objects.mainzed.org/ont#pointThickness> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57_point_thickness> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://objects.mainzed.org/ont#xCoordinate> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57_coordinate.x> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://objects.mainzed.org/ont#yCoordinate> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57_coordinate.y> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://objects.mainzed.org/ont#zCoordinate> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57_coordinate.z> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://www.opengis.net/ont/geosparql#asWKT> "POINT(43.04490743449743 -105.47891989260337 -0.3070216003300369)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#GRP> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://www.w3.org/2000/01/rdf-schema#label> "GRP57 ( Messreihe 1)"@de .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://www.w3.org/2000/01/rdf-schema#label> "GRP57 ( Measurement Series 1)"@en .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp57> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

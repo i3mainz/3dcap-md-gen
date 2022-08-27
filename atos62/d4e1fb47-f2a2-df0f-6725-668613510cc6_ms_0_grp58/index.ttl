@@ -1,21 +1,3 @@
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#commonReferencepoint> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#pointID> "58"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#pointMeasurementDeviation> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58_r_dev> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#pointMeasurementState> "ok"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#pointProjectState> "atos point"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#xCoordinate> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58_r_x> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#yCoordinate> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58_r_y> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://objects.mainzed.org/ont#zCoordinate> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58_r_z> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.opengis.net/ont/geosparql#asWKT> "POINT(18.213878826 -94.156093259 -65.3470228475)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#GRP> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/2000/01/rdf-schema#label> "GRP58 ( Messreihe 0)"@de .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/2000/01/rdf-schema#label> "GRP58 ( Measurement Series 0)"@en .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement1_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement7_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement3_rp58> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp_calculation_activity> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp58> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .
