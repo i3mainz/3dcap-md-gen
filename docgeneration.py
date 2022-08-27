@@ -1630,9 +1630,11 @@ class OntDocGeneration:
                 else:
                     for valtup in graph.predicate_objects(str(tup[1])):
                         if str(valtup[0]) in unitproperties and isinstance(valtup[1],URIRef):
+                            print("--->VALPROP: "+str(valtup[0]))
                             foundunit=str(valtup[1])
                         if str(valtup[0]) in valueproperties and isinstance(valtup[1],Literal):
                             foundval=str(valtup[1])
+                            print("--->VALPROP: "+str(valtup[0]))
             if str(tup[0]) in unitproperties and isinstance(tup[1],URIRef):
                 foundunit=tup[1]
         if foundunit!=None and foundval!=None:
