@@ -1412,7 +1412,7 @@ class OntDocGeneration:
                     subtorenderlen=len(subjectstorender)+len(postprocessing)
                 print(str(subtorencounter) + "/" + str(subtorenderlen) + " " + str(outpath + path))
             except Exception as e:
-                print(e)
+                print("Create HTML Exception: "+str(e))
             #    #QgsMessageLog.logMessage("Exception occured " + str(e), "OntdocGeneration", Qgis.Info)
         print("Postprocessing " + str(len(postprocessing)))
         for subj in postprocessing.subjects():
