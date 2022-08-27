@@ -1627,7 +1627,7 @@ class OntDocGeneration:
                 if valueproperties[tup[0]]=="DatatypeProperty":
                     foundval=str(tup[1])
                 else:
-                    for valtup in graph.predicate_objects(object):
+                    for valtup in graph.predicate_objects(tup[1]):
                         if str(valtup[0]) in unitproperties:
                             foundunit=str(valtup[1])
                         if str(valtup[0]) in valueproperties and isinstance(valtup[1],Literal):
