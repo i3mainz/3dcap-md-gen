@@ -1628,7 +1628,7 @@ class OntDocGeneration:
                     foundval=str(tup[1])
                 else:
                     for valtup in graph.predicate_objects(tup[1]):
-                        if str(valtup[0]) in unitproperties:
+                        if str(valtup[0]) in unitproperties and isinstance(tup[1],URIRef):
                             foundunit=str(valtup[1])
                         if str(valtup[0]) in valueproperties and isinstance(valtup[1],Literal):
                             foundval=str(valtup[1])
@@ -1637,7 +1637,7 @@ class OntDocGeneration:
         if foundunit!=None and foundval!=None and label!=None:
             res=self.replaceNameSpacesInLabel(str(foundunit))
             if res!=None:
-                unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+res["uri"]+"</a>"
+                unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(res["uri"])+"</a>"
             else:
                 unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(self.shortenURI(foundunit))+"</a>"
         return {"geojsonrep":geojsonrep,"label":label,"unitlabel":unitlabel,"foundmedia":foundmedia,"imageannos":imageannos,"image3dannos":image3dannos}
