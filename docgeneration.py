@@ -1634,7 +1634,7 @@ class OntDocGeneration:
                             foundval=str(valtup[1])
             if str(tup[0]) in unitproperties and isinstance(tup[1],URIRef):
                 foundunit=tup[1]
-        if foundunit!=None and foundval!=None and label!=None:
+        if foundunit!=None and foundval!=None:
             res=self.replaceNameSpacesInLabel(str(foundunit))
             if res!=None:
                 unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(res["uri"])+"</a>"
