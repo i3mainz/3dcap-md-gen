@@ -1043,7 +1043,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;                    subtorenderlen=len(subjectstorender)+len(postprocessing)</div>
 <div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;                print(str(subtorencounter) + <span class="stringliteral">&quot;/&quot;</span> + str(subtorenderlen) + <span class="stringliteral">&quot; &quot;</span> + str(outpath + path))</div>
 <div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;            <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
-<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;                print(e)</div>
+<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;                print(<span class="stringliteral">&quot;Create HTML Exception: &quot;</span>+str(e))</div>
 <div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;            <span class="comment">#    #QgsMessageLog.logMessage(&quot;Exception occured &quot; + str(e), &quot;OntdocGeneration&quot;, Qgis.Info)</span></div>
 <div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;        print(<span class="stringliteral">&quot;Postprocessing &quot;</span> + str(len(postprocessing)))</div>
 <div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;        <span class="keywordflow">for</span> subj <span class="keywordflow">in</span> postprocessing.subjects():</div>
