@@ -37,6 +37,7 @@ invcollectionrelationproperties={
 valueproperties={
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#value":"DatatypeProperty",
     "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue":"ObjectProperty",
+    "http://www.opengis.net/ont/crs/usesValue":"ObjectProperty",
     "http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue":"DatatypeProperty"
 }
 
@@ -1297,15 +1298,18 @@ class OntDocGeneration:
 
     def processLiteral(self,literal, literaltype, reproject,currentlayergeojson=None,triplestoreconf=None):     
         #print("Process literal: " + str(literal) + " --- " + str(literaltype))
-        if "wkt" in literaltype.lower(): 
-            crsuri=""
-            if "http" in literal:
-                crsuri=literal[0:literal.rfind('>')].replace("<","")
-                literal=literal[literal.rfind('>')+1:].strip()
-            shapelygeom=shapely.wkt.loads(literal)
-            return json.loads(json.dumps(shapely.geometry.mapping(shapelygeom),indent=2))
-        if "geojson" in literaltype.lower():
-            return literal
+        try:
+            if "wkt" in literaltype.lower(): 
+                crsuri=""
+                if "http" in literal:
+                    crsuri=literal[0:literal.rfind('>')].replace("<","")
+                    literal=literal[literal.rfind('>')+1:].strip()
+                shapelygeom=shapely.wkt.loads(literal)
+                return json.loads(json.dumps(shapely.geometry.mapping(shapelygeom),indent=2))
+            if "geojson" in literaltype.lower():
+                return literal
+        except Exception as e:
+            print(e)
         return {}
 
 
@@ -1575,6 +1579,8 @@ class OntDocGeneration:
 
 
     def shortenURI(self,uri):
+        if uri.endswith("/"):
+            uri=uri[0:-1]
         if uri!=None and "#" in uri:
             return uri[uri.rfind('#')+1:]
         if uri!=None and "/" in uri:
@@ -1644,6 +1650,8 @@ class OntDocGeneration:
                     unitlabel=str(foundval)+" <a href=\""+str(foundunit)+"\" target=\"_blank\">"+str(self.shortenURI(foundunit))+"</a>"
             else:
                 unitlabel=str(foundval)+" "+str(foundunit)
+        if foundunit==None and foundval!=None:
+            unitlabel=str(foundval)
         return {"geojsonrep":geojsonrep,"label":label,"unitlabel":unitlabel,"foundmedia":foundmedia,"imageannos":imageannos,"image3dannos":image3dannos}
 
 
