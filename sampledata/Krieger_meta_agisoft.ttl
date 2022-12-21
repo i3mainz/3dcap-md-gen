@@ -121,10 +121,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5_rp_noid_0 prov:wasAttr
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement31_ExposureTime_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_6_coordinate_y_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_estimated_coordinate_y rdf:type giga:Estimated_coordinate_y .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38 giga:transform "Matrix([[0.42989316118692544, -0.44428408965926547, 0.7860047821994149, -2.299045146036345],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38 giga:transform """Matrix([[0.42989316118692544, -0.44428408965926547, 0.7860047821994149, -2.299045146036345],
        [-0.6634189822463025, -0.7459351173715517, -0.05878821877867252, 0.14966594552960966],
        [0.6124272397272941, -0.4961778394361507, -0.6154189042371718, -1.3447895265212464],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_ExposureTime om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_ExposureTime_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2 <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/FNumber> "22"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38 prov:wasAttributedTo ex:7913b236-8b55-6a38-293b-2cec289ed40f .
@@ -647,10 +647,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement13_rp_noid_5 rdfs:label 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_activity rdfs:label "MS 0 Measurement 5 Activity"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 prov:wasDerivedFrom ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement35 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_1_capturingdevice_focal_length rdfs:label "sensor focal length ( Sensor 1 Caturing Device)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24 giga:transform "Matrix([[0.5030544313084022, -0.5848806952782527, 0.6362788786623422, -1.7939692342510123],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24 giga:transform """Matrix([[0.5030544313084022, -0.5848806952782527, 0.6362788786623422, -1.7939692342510123],
        [-0.6349849110576996, -0.7495559738963411, -0.18697594691658226, 0.7112779318644467],
        [0.5862852563983042, -0.30996840853082874, -0.7484578704528664, -0.9105042978782658],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement42_estimated_coordinate_z_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_rp_noid_2_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_rp_noid_2_coordinate_y_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17 <http://objects.mainzed.org/ont#camera_id> "17"^^xsd:integer .
@@ -1129,10 +1129,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement45_activity rdf:type pro
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_FocalLengthIn35mmFilm_value rdfs:label "FocalLengthIn35mmFilm Measurement Value ( MS 0 Measurement 10)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2_rp_noid_5_coordinate_x om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2_rp_noid_5_coordinate_x_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_0_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_0_coordinate_y_value .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement27 giga:transform "Matrix([[-0.8497960425385991, -0.2724721348551576, 0.4512267964263739, -1.1410529279407957],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement27 giga:transform """Matrix([[-0.8497960425385991, -0.2724721348551576, 0.4512267964263739, -1.1410529279407957],
        [-0.45241583329363505, -0.06226039418359153, -0.8896311354158697, 2.7956477449115744],
        [0.27049325291208504, -0.9601471653051822, -0.07036207135568233, -2.911574961705097],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_rp_noid_3_coordinate_y_value rdfs:label "coordinate_x Measurement Value ( MS 0 Measurement 3 RP_noid_3)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_5_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 5 RP_noid_5)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_3 rdfs:label "RP_noid_3 ( Messreihe 0 Messung 18)"@de .
@@ -1432,10 +1432,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_5_coordinate_
 giga:reference_preselection_mode rdfs:range xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24_FocalLengthIn35mmFilm om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24_FocalLengthIn35mmFilm_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp8 prov:wasGeneratedBy ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp_calculation_activity .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5 giga:transform "Matrix([[0.5243595432849903, 0.3467876741450945, -0.777679483095055, 2.469776689303447],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5 giga:transform """Matrix([[0.5243595432849903, 0.3467876741450945, -0.777679483095055, 2.469776689303447],
        [-0.519028643063683, 0.8541964208159669, 0.030947412568155364, -0.014464036889670474],
        [0.6750232122271265, 0.3874103557292028, 0.627898781037473, -4.956122385269363],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration_radial_distortion_coefficient_k4_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_0_coordinate_y_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp9_x_current_frame_position_value rdf:type om:Measure .
@@ -1454,10 +1454,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5_rp_noid_5 rdfs:label "
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_rp_noid_6 <http://www.w3.org/2000/01/rdf-schema#label> "target 89"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_ISOSpeedRatings rdfs:label "ISOSpeedRatings ( MS 0 Measurement 0)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_rp_noid_1 rdfs:label "RP_noid_1 ( Messreihe 0 Messung 4)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement32 giga:transform "Matrix([[0.5223923730389386, 0.6285242774282355, -0.5762494609750719, 1.8247450477178364],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement32 giga:transform """Matrix([[0.5223923730389386, 0.6285242774282355, -0.5762494609750719, 1.8247450477178364],
        [0.5844568714735181, -0.7559988920928796, -0.29474707893671476, 0.9424928833554741],
        [-0.6208996488790552, -0.1828193311377459, -0.7622733880860679, -0.7796334257767502],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement52_FocalLengthIn35mmFilm rdfs:label "FocalLengthIn35mmFilm ( MS 0 Measurement 52)"@de .
 giga:Software rdfs:subClassOf prov:Entity .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_FocalLength_value rdfs:label "focallength Measurement Value ( MS 0 Measurement 10)"@en .
@@ -1663,10 +1663,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration_radial_distortion_c
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_0_coordinate_y rdfs:label "Koordinate Y ( MS 0 Measurement 0 RP_noid_0)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_rp_noid_6_coordinate_x om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_rp_noid_6_coordinate_x_value .
 <http://objects.mainzed.org/ont#tangentialDistortionCoefficientP1> rdf:type owl:ObjectProperty .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement26 giga:transform "Matrix([[-0.49711087270527066, -0.5366480110875158, 0.6818281986204571, -1.8556622911286473],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement26 giga:transform """Matrix([[-0.49711087270527066, -0.5366480110875158, 0.6818281986204571, -1.8556622911286473],
        [-0.6834776386994984, -0.2419168717292577, -0.6887194962903896, 2.212842734277308],
        [0.5345456927484895, -0.8083842770418924, -0.24652740820341718, -2.4052185504383097],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38_estimated_coordinate_x rdf:type giga:Estimated_coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_rp_noid_0_coordinate_y rdfs:label "coordinate_x ( MS 0 Measurement 0 RP_noid_0)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_0 rdfs:label "RP_noid_0 ( Messreihe 0 Messung 19)"@de .
@@ -1741,10 +1741,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 prov:wasDerivedFrom ex:054fc50f-594
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_1 prov:wasAttributedTo ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_algorithm . 
 giga:buildModel_keep_depth rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/BuildModel_keep_depth> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_rp_noid_6_coordinate_x rdf:type giga:Coordinate_x .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10 giga:transform "Matrix([[-0.4448463496186544, -0.4537598730747454, 0.7721487569232687, -2.3539909589791885],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10 giga:transform """Matrix([[-0.4448463496186544, -0.4537598730747454, 0.7721487569232687, -2.3539909589791885],
        [0.6443442252544959, 0.43665161929265833, 0.6278183517151141, -1.88491424831528],
        [-0.6220387806336046, 0.7768122945450147, 0.09813467497051143, -3.293995909668879],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement47_ISOSpeedRatings_value om:hasNumericalValue "1000"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp0_z_estimated_coordiate rdfs:label "estimated coordinate z ( MS 0 GRP0)"@en .
 <http://objects.mainzed.org/ont#xCoordinate> rdf:type owl:ObjectProperty .
@@ -2851,10 +2851,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_0_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement25_ISOSpeedRatings rdf:type giga:ISOSpeedRatings .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp3_x_estimated_coordiate_value rdfs:label "Geschätzte Koordinate X Messwert ( MS 0 GRP3)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_1_calibration_radial_distortion_coefficient_b2 rdf:type giga:Radial_distortion_coefficient_b2 .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement39 giga:transform "Matrix([[0.06192677313267092, -0.47503255720057, 0.8777865027265239, -2.579239214498305],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement39 giga:transform """Matrix([[0.06192677313267092, -0.47503255720057, 0.8777865027265239, -2.579239214498305],
        [-0.748579927746878, -0.6038042258519273, -0.27394990165691585, 0.8218275887329876],
        [0.6601463220709889, -0.6401285233785807, -0.39299148465749767, -2.038947066522883],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_estimated_coordinate_y_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40_ISOSpeedRatings_value om:hasUnit <http://www.w3.org/2003/12/exif/isoSpeedRatings> .
 <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/focalLengthIn35mmFilm> rdfs:label "FocalLengthIn35mmFilm"@de .
@@ -2920,10 +2920,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40 <http://objects.mainz
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration <http://objects.mainzed.org/ont#radialDistortionCoefficientK3> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration_radial_distortion_coefficient_k3 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_0 giga:coordinate_x ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_0_coordinate_x .
 giga:regioncenter-yvalue rdfs:label "Mittelpunkt Region Y Wert"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14 giga:transform "Matrix([[-0.7467936635272756, 0.47407293238879994, -0.4664269277087193, 1.5055960682478924],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14 giga:transform """Matrix([[-0.7467936635272756, 0.47407293238879994, -0.4664269277087193, 1.5055960682478924],
        [-0.4322531630783006, 0.18700495994749072, 0.8821487107987185, -2.626793074639931],
        [0.5054269750659484, 0.8603975823602257, 0.06526540541790615, -3.3235150120466765],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_0 <http://objects.mainzed.org/ont#referencepoint_id> "1"^^xsd:integer .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3 prov:wasGeneratedBy ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_activity .
 giga:originalDateTime rdfs:range xsd:dateTime .
@@ -2936,10 +2936,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_2_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_5_coordinate_y rdf:type giga:Coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_FocalLengthIn35mmFilm rdfs:label "FocalLengthIn35mmFilm ( MS 0 Measurement 9)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_6 rdfs:label "RP_noid_6 ( MS 0 Measurement 17)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement41 giga:transform "Matrix([[-0.513721145574264, -0.3677177993132807, 0.7751607605252359, -2.2498398225126346],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement41 giga:transform """Matrix([[-0.513721145574264, -0.3677177993132807, 0.7751607605252359, -2.2498398225126346],
        [-0.6748662157253354, -0.38468681109219227, -0.6297393494488688, 1.9297462281363371],
        [0.5297604887705674, -0.8466402290465039, -0.050538570395810944, -3.104401083140806],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6 <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/focalLengthIn35mmFilm> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_FocalLengthIn35mmFilm .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_algorithm rdfs:label "MS 0 Measurement 2 Algorithm"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp3_z_current_frame_position_value om:hasNumericalValue "-2.781360534370557"^^xsd:float .
@@ -2979,10 +2979,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_4_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_estimated_coordinate_z rdfs:label "Geschätzte Koordinate Z ( MS 0 Measurement 12)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement13_rp_noid_6_coordinate_x rdf:type giga:Coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_FocalLengthIn35mmFilm om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_FocalLengthIn35mmFilm_value .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement48 giga:transform "Matrix([[-0.2009254881074066, 0.5913281520565729, -0.7809993372687062, 2.596380467503688],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement48 giga:transform """Matrix([[-0.2009254881074066, 0.5913281520565729, -0.7809993372687062, 2.596380467503688],
        [0.6394525255505215, -0.5248000805122351, -0.5618588284092465, 1.6965350771744279],
        [-0.7421114577985303, -0.612303758015341, -0.27268056792597145, -2.3908576572397213],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_ExposureTime_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9 <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/imageWidth> "7360"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_3_coordinate_x_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
@@ -3071,10 +3071,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_6 giga:coordi
 rdfs:label rdf:type owl:AnnotationProperty .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5_FocalLength rdfs:label "focallength ( MS 0 Measurement 5)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_estimated_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_estimated_coordinate_y_value .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement42 giga:transform "Matrix([[-0.7193871011504289, -0.2677634350898949, 0.6409250670142673, -1.8280576387103393],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement42 giga:transform """Matrix([[-0.7193871011504289, -0.2677634350898949, 0.6409250670142673, -1.8280576387103393],
        [-0.5665595374334924, -0.30763646818750856, -0.764441033686879, 2.348003393852974],
        [0.40186128109277997, -0.913051228721574, 0.06960577913143352, -3.476866462921411],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_5_coordinate_y rdf:type giga:Coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_estimated_coordinate_y_value rdfs:label "Geschätzte Koordinate Y Messwert ( MS 0 Measurement 18)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration rdfs:label "Sensor 0 Calibration"@en .
@@ -4337,10 +4337,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp3_y_reference_location_value rdf
 giga:partOf rdfs:range giga:MeasurementSetup.
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4_z_current_frame_position_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_activity rdfs:label "MS 0 Measurement 5 Activity"@en. 
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9 giga:transform "Matrix([[0.20370177456602367, -0.528751144061293, 0.8239707608237846, -2.520627314268145],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9 giga:transform """Matrix([[0.20370177456602367, -0.528751144061293, 0.8239707608237846, -2.520627314268145],
        [0.7220343805561691, 0.6495211039433724, 0.23830377426103078, -0.6710520915657593],
        [-0.6611897914619692, 0.5463923161850436, 0.5140851062620091, -4.59034913906146],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11 <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/make> "NIKON CORPORATION"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement35_ExposureTime rdf:type giga:ExposureTime .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp3_x_error_value rdfs:label "error X Measurement Value ( MS 0 GRP3)"@en .
@@ -4781,10 +4781,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_rp_noid_5_coordinate_y
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement28_FocalLengthIn35mmFilm rdfs:label "FocalLengthIn35mmFilm ( MS 0 Measurement 28)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_regioncenter-yvalue_value rdfs:label "center of region - y value Measurement Value "@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_3 <http://www.w3.org/2000/01/rdf-schema#label> "target 82"^^xsd:string .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7 giga:transform "Matrix([[0.982928602822323, -0.16623049485054306, 0.07885926917933957, -0.2041625728377407],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7 giga:transform """Matrix([[0.982928602822323, -0.16623049485054306, 0.07885926917933957, -0.2041625728377407],
        [0.18044759706420357, 0.9546500757547335, -0.23681616831465754, 0.8145884235627933],
        [-0.035916938448464435, 0.24700335107691346, 0.9683487585003991, -6.011626376259344],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_0 rdfs:label "RP_noid_0 ( MS 0 Measurement 14)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_2 rdfs:label "RP_noid_2 ( Messreihe 0 Messung 9)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement49_FocalLength_value om:hasNumericalValue "60"^^xsd:string .
@@ -4797,10 +4797,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement26_FocalLengthIn35mmFilm
 giga:Z_reference_location rdfs:subClassOf om:Quantity .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement42_ExposureTime rdf:type giga:ExposureTime .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_ISOSpeedRatings om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_ISOSpeedRatings_value .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20 giga:transform "Matrix([[0.7553084806191608, -0.526856389662393, 0.38978384237508346, -1.1647752783070324],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20 giga:transform """Matrix([[0.7553084806191608, -0.526856389662393, 0.38978384237508346, -1.1647752783070324],
        [0.5177620623994633, 0.844329596286634, 0.13794919200308398, -0.47617666305286976],
        [-0.40178544752719647, 0.09762109150362001, 0.9105155554129825, -5.778832468480509],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_4_coordinate_x_value rdfs:label "coordinate x Measurement Value ( MS 0 Measurement 4 RP_noid_4)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp9_x_reference_location_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp9_z_reference_location_value rdf:type om:Measure .
@@ -4992,10 +4992,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_2_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement46_ISOSpeedRatings rdf:type giga:ISOSpeedRatings .
 <http://objects.mainzed.org/ont#yCoordinate> rdfs:label "imported Y coordinate (target)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_1_coordinate_x rdfs:label "coordinate x ( MS 0 Measurement 1 RP_noid_1)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8 giga:transform "Matrix([[0.7528075200020514, -0.3991745708397778, 0.5233932554239117, -1.5881142694512935],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8 giga:transform """Matrix([[0.7528075200020514, -0.3991745708397778, 0.5233932554239117, -1.5881142694512935],
        [0.516827581559724, 0.8508647025764363, -0.09443785707352342, 0.3679925289961899],
        [-0.40763965553842746, 0.34159759938323847, 0.8468417746711133, -5.62985324893157],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement41_estimated_coordinate_y rdf:type giga:Estimated_coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement50_ISOSpeedRatings_value rdfs:label "Isowert Messwert ( MS 0 Measurement 50)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 giga:measurement ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement52 .
@@ -5071,10 +5071,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_ExposureTime rdf:type 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24_ExposureTime om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24_ExposureTime_value .
 giga:z_current_frame_position rdfs:range om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_rp_noid_4_coordinate_y_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement43 giga:transform "Matrix([[-0.8727449020838178, -0.14595006281209122, 0.46584859670482426, -1.2797509502378148],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement43 giga:transform """Matrix([[-0.8727449020838178, -0.14595006281209122, 0.46584859670482426, -1.2797509502378148],
        [-0.4227770759694282, -0.2511492626795685, -0.8707373839971788, 2.6770736946391502],
        [0.24408170746995225, -0.9568817204966642, 0.15748489787245334, -3.7482643127958917],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_rp_noid_7_coordinate_y_value om:hasNumericalValue "2259.661376953125"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_FocalLengthIn35mmFilm_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_3 rdf:type giga:ReferencePoint .
@@ -5311,10 +5311,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement31_estimated_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp2_x_error rdfs:label "error X ( MS 0 GRP2)"@en .
 <http://objects.mainzed.org/ont#xCoordinate> rdfs:label "imported X coordinate (target)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_FocalLength om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_FocalLength_value .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement28 giga:transform "Matrix([[-0.9906374754654121, 0.09030561840150504, 0.10238304297410133, -0.08904383261760293],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement28 giga:transform """Matrix([[-0.9906374754654121, 0.09030561840150504, 0.10238304297410133, -0.08904383261760293],
        [-0.10188822973329242, 0.010084581563837604, -0.9947447360285441, 3.083287893286406],
        [-0.09086352868632579, -0.9958630410351637, -0.0007890848276255373, -3.0924695187535076],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 giga:measurement ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement13 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_estimated_coordinate_x_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_2_coordinate_x rdfs:label "Koordinate X ( MS 0 Measurement 2 RP_noid_2)"@de .
@@ -5510,10 +5510,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp1_x_current_frame_position_value
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement33_estimated_coordinate_z_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp10_x_error rdfs:label "error X ( MS 0 GRP10)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_rp_noid_1_coordinate_y rdfs:label "coordinate_x ( MS 0 Measurement 1 RP_noid_1)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement45 giga:transform "Matrix([[-0.9691974924974742, 0.22219223609604055, -0.10623949715266261, 0.505371665842582],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement45 giga:transform """Matrix([[-0.9691974924974742, 0.22219223609604055, -0.10623949715266261, 0.505371665842582],
        [0.05585858815449983, -0.2218119507825601, -0.973488200554799, 2.9893585989023497],
        [-0.239866710207972, -0.9494367112707811, 0.20256824189721423, -3.880791209457573],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4 <http://www.w3.org/2003/12/exif/mode#http://www.w3.org/2003/12/exif/model> "NIKON D800"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_rp_noid_6_coordinate_y rdfs:label "coordinate_x ( MS 0 Measurement 6 RP_noid_6)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration <http://objects.mainzed.org/ont#radialDistortionCoefficientB2> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration_radial_distortion_coefficient_b2 .
@@ -5578,10 +5578,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_5_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_4 rdfs:label "RP_noid_4 ( Messreihe 0 Messung 11)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_rp_noid_1_coordinate_x rdfs:label "Koordinate X ( MS 0 Measurement 1 RP_noid_1)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement46_estimated_coordinate_z rdfs:label "estimated coordinate z ( MS 0 Measurement 46)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17 giga:transform "Matrix([[0.4951597541157007, 0.5574824216715565, -0.6663558864685561, 2.0086355068430715],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17 giga:transform """Matrix([[0.4951597541157007, 0.5574824216715565, -0.6663558864685561, 2.0086355068430715],
        [-0.5283198422694245, 0.8020871370313474, 0.27844993961799847, -0.8167640575847238],
        [0.6897064318740902, 0.2141718331995904, 0.6916902946373019, -5.208060380696471],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_6 rdfs:label "RP_noid_6 ( Messreihe 0 Messung 18)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp2_y_reference_location rdfs:label "imported Y coordinate (target) ( MS 0 GRP2)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_rp_noid_7_coordinate_x_value rdf:type om:Measure .
@@ -5941,10 +5941,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement25_estimated_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement37_estimated_coordinate_x rdfs:label "estimated coordinate x ( MS 0 Measurement 37)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38_estimated_coordinate_z rdfs:label "Geschätzte Koordinate Z ( MS 0 Measurement 38)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_calibration <http://objects.mainzed.org/ont#covariance_param> "Cx"^^xsd:list .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement31 giga:transform "Matrix([[-0.04874481796716296, 0.7573208663417763, -0.6512211975394303, 2.0910059661922245],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement31 giga:transform """Matrix([[-0.04874481796716296, 0.7573208663417763, -0.6512211975394303, 2.0910059661922245],
        [0.6584462073438685, -0.465898284911726, -0.591089993275802, 1.8217807257853063],
        [-0.751047624825366, -0.45760670178621077, -0.4759449250958797, -1.6248135194745355],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_activity rdfs:label "MS 0 Measurement 0 Activity"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_ExposureTime_value rdfs:label "Belichtungszeit Messwert ( MS 0 Measurement 22)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 giga:measurement ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement31 .
@@ -5985,10 +5985,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3 <http://www.w3.org/200
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_3 prov:wasAttributedTo ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_algorithm . 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5_activity rdfs:label "MS 0 Measurement 0 Activity"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19 <http://objects.mainzed.org/ont#estimatedCoordiateZ> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_estimated_coordinate_z .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18 giga:transform "Matrix([[0.8660919050084392, 0.27373435912459276, -0.4182754029506174, 1.2398054309429558],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18 giga:transform """Matrix([[0.8660919050084392, 0.27373435912459276, -0.4182754029506174, 1.2398054309429558],
        [-0.25833533304016626, 0.9614431054350888, 0.09428685334848924, -0.2872124609335701],
        [0.42795755371517763, 0.026394235089913343, 0.9034133475724937, -5.820538113441564],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement33_activity prov:wasAssociatedWith ex:7913b236-8b55-6a38-293b-2cec289ed40f .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement46_ExposureTime_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_0_coordinate_x rdfs:label "coordinate x ( MS 0 Measurement 0 RP_noid_0)"@en .
@@ -6034,10 +6034,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_6_coordinate_
 <http://www.w3.org/2000/01/rdf-schema#label> rdfs:domain giga:CapturingDevice .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_alignmentsetup_match_point_limit_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_0_capturingdevice_pixel_height rdfs:label "Pixelhöhe ( Sensor 0 Caturing Device)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement36 giga:transform "Matrix([[0.8753939500799628, -0.24441883101022932, 0.41706698168398815, -1.156141387778841],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement36 giga:transform """Matrix([[0.8753939500799628, -0.24441883101022932, 0.41706698168398815, -1.156141387778841],
        [-0.3437715164675568, -0.9213230153284129, 0.18161785675356362, -0.6050489707932506],
        [0.3398625849207225, -0.30236292179060986, -0.8905448258775356, -0.4824409299347357],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_5_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 5 RP_noid_5)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_8 rdfs:label "RP_noid_8 ( Messreihe 0 Messung 11)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_estimated_coordinate_z_value rdf:type om:Measure .
@@ -6136,10 +6136,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_6 rdf:type gig
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_4 giga:coordinate_x ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_4_coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_5_coordinate_x om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_5_coordinate_x_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4_y_error rdf:type giga:Y_error .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement50 giga:transform "Matrix([[0.7433996071959715, 0.3771835006145313, -0.552349192888921, 1.8678481952051285],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement50 giga:transform """Matrix([[0.7433996071959715, 0.3771835006145313, -0.552349192888921, 1.8678481952051285],
        [0.4678294942158079, -0.883424961562913, 0.026379947485674154, -0.13455019201879678],
        [-0.47800898355852717, -0.2780160861384345, -0.8331953357320301, -0.6477775447655656],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp6 giga:z_current_frame_position ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp6_z_current_frame_position .
 giga:setup rdfs:domain giga:Measurement .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp9 <http://objects.mainzed.org/ont#yError> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp9_y_error .
@@ -6209,10 +6209,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 prov:wasDerivedFrom ex:054fc50f-594
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp6 <http://objects.mainzed.org/ont#projections> "15"^^xsd:integer .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24 <http://objects.mainzed.org/ont#estimatedCoordiateX> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24_estimated_coordinate_x .
 <http://objects.mainzed.org/ont#acquisitionTechnology> rdfs:label "Aufnahmeverfahren"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0 giga:transform "Matrix([[-0.8457160933014594, -0.25508832832765105, 0.4687155152989107, -1.404675897583378],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0 giga:transform """Matrix([[-0.8457160933014594, -0.25508832832765105, 0.4687155152989107, -1.404675897583378],
        [0.38293434674482424, 0.3216273391234399, 0.8659775636882809, -2.6248895275041444],
        [-0.37165249308195614, 0.9118584317093197, -0.17432333437204073, -2.4468705217356037],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_6 giga:enabled "True"^^xsd:boolean .
 <http://objects.mainzed.org/ont#match_tiepoint_limit> rdfs:domain giga:AlignmentSetup .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2_rp_noid_5_coordinate_x rdfs:label "Koordinate X ( MS 0 Measurement 5 RP_noid_5)"@de .
@@ -6242,10 +6242,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_rp_noid_6 rdfs:label "
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51 <http://objects.mainzed.org/ont#estimatedCoordiateY> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51_estimated_coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_3 <http://objects.mainzed.org/ont#referencepoint_id> "10"^^xsd:integer .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_3_coordinate_x_value rdf:type om:Measure .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement29 giga:transform "Matrix([[-0.8633755092901614, 0.43583201469771815, -0.25423057432669643, 0.9661583244932122],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement29 giga:transform """Matrix([[-0.8633755092901614, 0.43583201469771815, -0.25423057432669643, 0.9661583244932122],
        [0.25707329564213466, -0.053592883128681934, -0.9649047225222017, 2.967437585693503],
        [-0.43416131866582225, -0.8984309978192444, -0.0657699895991401, -2.8729883159722727],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24 <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/make> "NIKON CORPORATION"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_0 giga:coordinate_x ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_rp_noid_0_coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_3_coordinate_y rdfs:label "coordinate_x ( MS 0 Measurement 3 RP_noid_3)"@en .
@@ -6524,10 +6524,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_rp_noid_1_coordinate_x
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7_rp_noid_1_coordinate_x_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_estimated_coordinate_z_value om:hasNumericalValue "350"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_5 giga:coordinate_x ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_5_coordinate_x .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2 giga:transform "Matrix([[-0.9337564189265615, 0.1857988480295923, -0.3059047861415706, 1.0108538172330852],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2 giga:transform """Matrix([[-0.9337564189265615, 0.1857988480295923, -0.3059047861415706, 1.0108538172330852],
        [-0.23109456279000082, 0.3396729235677665, 0.9117113622434595, -2.762437301286259],
        [0.2733024938824048, 0.9220092695118648, -0.274234669164669, -2.1405975054149056],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_rp_noid_4 giga:enabled "True"^^xsd:boolean .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement49_FocalLength_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_rp_noid_2 prov:wasAttributedTo ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_algorithm . 
@@ -7114,10 +7114,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp11_y_reference_location_value om
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp0_z_current_frame_position_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_rp_noid_5_coordinate_x_value om:hasNumericalValue "5212.5107421875"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_6_coordinate_y_value om:hasNumericalValue "3639.07080078125"^^xsd:float .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40 giga:transform "Matrix([[-0.15860777727933845, -0.45703526454186555, 0.8751927444578453, -2.567468954104639],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40 giga:transform """Matrix([[-0.15860777727933845, -0.45703526454186555, 0.8751927444578453, -2.567468954104639],
        [-0.7511917565854096, -0.519388173250774, -0.4073657697025503, 1.2377567005969523],
        [0.6407452831075975, -0.7220489543323021, -0.26094211948820023, -2.450294271580251],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_estimated_coordinate_y_value om:hasNumericalValue "-3"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 prov:wasDerivedFrom ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement34 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement37 prov:wasAttributedTo ex:7913b236-8b55-6a38-293b-2cec289ed40f .
@@ -7266,10 +7266,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_5 giga:coordi
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4 giga:y_current_frame_position ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4_y_current_frame_position .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30 <http://www.w3.org/2000/01/rdf-schema#label> "DSC_0039"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_algorithm rdfs:label "MS 0 Measurement 0 Algorithm"@en. 
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement37 giga:transform "Matrix([[0.6824778800415827, -0.36615396635118314, 0.6325782292959846, -1.8249625745373397],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement37 giga:transform """Matrix([[0.6824778800415827, -0.36615396635118314, 0.6325782292959846, -1.8249625745373397],
        [-0.5290324624449957, -0.844644010698534, 0.08186054526130354, -0.2909969832067039],
        [0.5043298493380407, -0.3905224297225323, -0.7701581882641246, -0.8605008988454144],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement49 giga:sensor ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_1 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement29_ISOSpeedRatings rdfs:label "ISOSpeedRatings ( MS 0 Measurement 29)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_2_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 2 RP_noid_2)"@de .
@@ -7320,10 +7320,10 @@ giga:Scalebar rdfs:label "scalebar"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement44_FocalLength rdfs:label "focallength ( MS 0 Measurement 44)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement47 rdfs:label "MS 0 Measurement 47 for "@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2_ExposureTime_value rdfs:label "Belichtungszeit Messwert ( MS 0 Measurement 2)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4 giga:transform "Matrix([[-0.08001888913850906, 0.45195660305503715, -0.8884436990243055, 2.8200345971804284],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4 giga:transform """Matrix([[-0.08001888913850906, 0.45195660305503715, -0.8884436990243055, 2.8200345971804284],
        [-0.6405374113578988, 0.6596041987490626, 0.3932354582734486, -1.1429029569816596],
        [0.7637465561506392, 0.6005476916511785, 0.2367143173119865, -3.7373552013075613],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_rp_noid_1_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 1 RP_noid_1)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_FocalLength rdfs:label "focallength ( MS 0 Measurement 3)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp7_total_error_value rdfs:label "total error Measurement Value ( MS 0 GRP7)"@en .
@@ -7493,10 +7493,10 @@ giga:originalSoftwareVersion rdfs:domain giga:DenseCloudSetup .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2_rp_noid_3 rdfs:label "RP_noid_3 ( Messreihe 0 Messung 2)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement47_FocalLengthIn35mmFilm_value rdfs:label "FocalLengthIn35mmFilm Measurement Value ( MS 0 Measurement 47)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement50_ISOSpeedRatings_value rdf:type om:Measure .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19 giga:transform "Matrix([[0.9913937398034463, -0.12733520920286978, -0.030400611437896276, 0.0720517185935138],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19 giga:transform """Matrix([[0.9913937398034463, -0.12733520920286978, -0.030400611437896276, 0.0720517185935138],
        [0.1281912022059567, 0.9913515433622018, 0.02809151384978051, -0.118719586873353],
        [0.02656065427522596, -0.03174684190029428, 0.9991429675846344, -6.07591302925297],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40_ISOSpeedRatings rdfs:label "Isowert ( MS 0 Measurement 40)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_activity prov:used ex:ATOS2016 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement32 <http://objects.mainzed.org/ont#estimatedCoordiateX> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement32_estimated_coordinate_x .
@@ -7634,10 +7634,10 @@ giga:lastSavedDateTime rdfs:label "Zuletzt gespeichert"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30 rdf:type giga:Measurement .
 <http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/focalLength> rdfs:label "Brennweite"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_rp_noid_1_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 1 RP_noid_1)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement13 giga:transform "Matrix([[-0.9887802748063932, 0.11921786012447766, -0.09000372204044421, 0.39995812973563916],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement13 giga:transform """Matrix([[-0.9887802748063932, 0.11921786012447766, -0.09000372204044421, 0.39995812973563916],
        [-0.08571729620188176, 0.04061759514609187, 0.995491213470208, -2.99150215802308],
        [0.12233606698611789, 0.9920369513238352, -0.029942844261682866, -3.0101682789048922],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_rp_noid_5_coordinate_y rdfs:label "coordinate_x ( MS 0 Measurement 5 RP_noid_5)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement28_ISOSpeedRatings rdf:type giga:ISOSpeedRatings .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4_total_error_value rdfs:label "total error Measurement Value ( MS 0 GRP4)"@en .
@@ -8049,10 +8049,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_FocalLength_value om:
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_rp_noid_0_coordinate_x_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40 <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/dateTimeOriginal> "2022-11-03T14:16:30"^^xsd:dateTime .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement52_FocalLength rdfs:label "focallength ( MS 0 Measurement 52)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement35 giga:transform "Matrix([[0.9041334109659429, -0.29482120829152025, 0.3092300604996506, -0.8473147083415239],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement35 giga:transform """Matrix([[0.9041334109659429, -0.29482120829152025, 0.3092300604996506, -0.8473147083415239],
        [-0.30513785272549787, -0.9521796950813803, -0.015643500529022657, 0.17523641697587483],
        [0.29905462044442976, -0.08021398516628608, -0.9508585860024512, -0.2847665813096038],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_2 prov:wasAttributedTo ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_algorithm . 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_2_coordinate_x_value om:hasNumericalValue "6208.10302734375"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40 <http://objects.mainzed.org/ont#estimatedCoordiateZ> ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement40_estimated_coordinate_z .
@@ -8321,10 +8321,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp6 <http://objects.mainzed.org/on
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement50 <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/imageWidth> "7360"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_activity rdfs:label "MS 0 Measurement 14 Activity ()"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_0_coordinate_y_value rdfs:label "coordinate_x Measurement Value ( MS 0 Measurement 0 RP_noid_0)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement52 giga:transform "Matrix([[0.943281117866297, -0.1673182493291124, 0.28674960526276233, -0.7515410360840722],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement52 giga:transform """Matrix([[0.943281117866297, -0.1673182493291124, 0.28674960526276233, -0.7515410360840722],
        [-0.23291138320341057, -0.9490135169335993, 0.2124279460231055, -0.7030039265227632],
        [0.23658617933257017, -0.2671665175854983, -0.934156856009768, -0.3447001341333483],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_0 giga:enabled "True"^^xsd:boolean .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_ISOSpeedRatings om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_ISOSpeedRatings_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_rp_noid_5_coordinate_y_value rdfs:label "Koordinate Y Messwert ( MS 0 Measurement 5 RP_noid_5)"@de .
@@ -8989,10 +8989,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_rp_noid_2_coordinate_y
 giga:buildModel_face_count_custom rdfs:label "BuildModel face count custom"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_4_coordinate_x rdfs:label "coordinate x ( MS 0 Measurement 4 RP_noid_4)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18 prov:wasAttributedTo ex:7913b236-8b55-6a38-293b-2cec289ed40f .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement44 giga:transform "Matrix([[-0.9741004881668547, 0.012966623992023252, 0.2257434508802955, -0.5295132977638842],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement44 giga:transform """Matrix([[-0.9741004881668547, 0.012966623992023252, 0.2257434508802955, -0.5295132977638842],
        [-0.22317895236406426, -0.21551127727702396, -0.9506555867337572, 2.922821046020942],
        [0.036323465897042724, -0.9764152579864139, 0.21282351795924992, -3.91733986415099],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_1 rdfs:label "RP_noid_1 ( Messreihe 0 Messung 14)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_4_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 4 RP_noid_4)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0_rp_noid_8_coordinate_y_value rdfs:label "Koordinate Y Messwert ( MS 0 Measurement 8 RP_noid_8)"@de .
@@ -9063,10 +9063,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_rp_noid_1 rdf:type gig
 giga:Regioncenter-yvalue rdfs:label "Regioncenter-yvalue"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement43_activity prov:wasAssociatedWith ex:7913b236-8b55-6a38-293b-2cec289ed40f .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement26_estimated_coordinate_x rdf:type giga:Estimated_coordinate_x .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement46 giga:transform "Matrix([[-0.9059850901447193, 0.32313525542029725, -0.2734494891930193, 1.0256278575234523],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement46 giga:transform """Matrix([[-0.9059850901447193, 0.32313525542029725, -0.2734494891930193, 1.0256278575234523],
        [0.19770090393461706, -0.24820359702060693, -0.9483192115577264, 2.9085528433245225],
        [-0.37430651746783566, -0.9132242775630154, 0.16098462613122216, -3.7489287167395635],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement46_activity rdf:type prov:Activity .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp5_z_current_frame_position om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp5_z_current_frame_position_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30_FocalLength_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
@@ -9380,10 +9380,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement2_rp_noid_5_coordinate_x
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement13_activity rdfs:label "MS 0 Measurement 7 Activity"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp5 giga:z_current_frame_position ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp5_z_current_frame_position .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement25_FocalLength_value rdfs:label "focallength Measurement Value ( MS 0 Measurement 25)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21 giga:transform "Matrix([[0.27506969200006076, -0.7246365174364701, 0.6318532916275234, -1.8512801072085872],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21 giga:transform """Matrix([[0.27506969200006076, -0.7246365174364701, 0.6318532916275234, -1.8512801072085872],
        [0.7151470580322268, 0.5934629625637379, 0.3692782114516398, -1.1818059012190618],
        [-0.6425740034664043, 0.35029077872906567, 0.6814653479132607, -5.076669945102405],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement5_rp_noid_4 rdf:type giga:ReferencePoint .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_1_coordinate_y rdfs:label "Koordinate Y ( MS 0 Measurement 1 RP_noid_1)"@de .
 <http://objects.mainzed.org/ont#referencepointEnabled> rdfs:domain giga:GRP .
@@ -9620,10 +9620,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement25_estimated_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp11_z_reference_location_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_rp_noid_4_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_rp_noid_4_coordinate_y_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_1_calibration_tangential_distortion_coefficient_p3 rdfs:label "tangential distortion coefficient p3 ( MS 1 Sensor 11 Calibration)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15 giga:transform "Matrix([[-0.3730899337738559, 0.6424159450831316, -0.6694069426138081, 2.0832802862252295],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15 giga:transform """Matrix([[-0.3730899337738559, 0.6424159450831316, -0.6694069426138081, 2.0832802862252295],
        [-0.5998206970660876, 0.38343217930103496, 0.702278360230195, -2.076868364420929],
        [0.7078269793443681, 0.6635371258485885, 0.24227969360394555, -3.8673637240865197],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_2 <http://objects.mainzed.org/ont#referencepoint_id> "6"^^xsd:integer .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51_FocalLength rdf:type giga:FocalLength .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_0_coordinate_y_value rdfs:label "coordinate_x Measurement Value ( MS 0 Measurement 0 RP_noid_0)"@en .
@@ -10074,10 +10074,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_6_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_0_coordinate_x_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement29_ISOSpeedRatings rdfs:label "Isowert ( MS 0 Measurement 29)"@de .
 giga:point_colors rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/point_colors> .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11 giga:transform "Matrix([[-0.7728574024594943, -0.44530445687891795, 0.4521010685093931, -1.2363423623551637],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11 giga:transform """Matrix([[-0.7728574024594943, -0.44530445687891795, 0.4521010685093931, -1.2363423623551637],
        [0.4577483207799807, 0.10221225065131284, 0.8831869171584807, -2.697878342931705],
        [-0.43949733820203163, 0.8895260516143217, 0.1248418728342536, -3.430775732315324],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_algorithm rdfs:label "MS 0 Measurement 5 Algorithm"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_5 <http://objects.mainzed.org/ont#referencepoint_id> "10"^^xsd:integer .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement34_estimated_coordinate_y_value rdfs:label "Geschätzte Koordinate Y Messwert ( MS 0 Measurement 34)"@de .
@@ -10268,10 +10268,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_4_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement26 <http://objects.mainzed.org/ont#camera_id> "26"^^xsd:integer .
 <http://objects.mainzed.org/ont#numberOfTextureImages> rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/atlas_count> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_1 rdfs:label "RP_noid_1 ( Messreihe 0 Messung 15)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6 giga:transform "Matrix([[0.9084740199087151, 0.10954413729600285, -0.403329935827944, 1.2997398727790344],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6 giga:transform """Matrix([[0.9084740199087151, 0.10954413729600285, -0.403329935827944, 1.2997398727790344],
        [-0.20288894560837512, 0.9592930958913692, -0.1964505839265302, 0.6919342604434763],
        [0.36539161306852785, 0.2603014371055745, 0.8937181496086737, -5.782484417752255],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement45_ExposureTime rdfs:label "exposure time ( MS 0 Measurement 45)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_5_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 5 RP_noid_5)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_ISOSpeedRatings_value rdfs:label "Isowert Messwert ( MS 0 Measurement 22)"@de .
@@ -10491,10 +10491,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_ExposureTime om:hasVal
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp7_y_reference_location_value om:hasNumericalValue "348.857745"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp10_y_current_frame_position_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_ISOSpeedRatings_value rdfs:label "Isowert Messwert ( MS 0 Measurement 8)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12 giga:transform "Matrix([[-0.9653776591482515, -0.17103591995453868, 0.196958597940652, -0.4586952484725287],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12 giga:transform """Matrix([[-0.9653776591482515, -0.17103591995453868, 0.196958597940652, -0.4586952484725287],
        [0.19484556674362002, 0.029223986033162595, 0.9803984719289862, -2.967818705235003],
        [-0.17343926988372704, 0.9848312915041023, 0.005113407529382934, -3.09237042385791],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_rp_noid_5_coordinate_y rdfs:label "Koordinate Y ( MS 0 Measurement 5 RP_noid_5)"@de .
 giga:buildDepthMaps_downscale rdfs:domain giga:DenseCloudSetup .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_1_coordinate_x om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_1_coordinate_x_value .
@@ -10576,10 +10576,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_algorithm rdfs:label "
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_regionsizeX_value rdfs:label "x dimension of region Measurement Value "@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement34_estimated_coordinate_y rdf:type giga:Estimated_coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_rp_noid_4_coordinate_y_value rdfs:label "coordinate_x Measurement Value ( MS 0 Measurement 4 RP_noid_4)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement47 giga:transform "Matrix([[-0.6149746007707086, 0.5091254871440254, -0.6021606751916522, 2.045574396422794],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement47 giga:transform """Matrix([[-0.6149746007707086, 0.5091254871440254, -0.6021606751916522, 2.045574396422794],
        [0.4801932137487218, -0.36392229677140653, -0.798107160337695, 2.435575600535273],
        [-0.6254763927412303, -0.7799691021142978, -0.02067563470451847, -3.1784576351576987],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_1_coordinate_y_value rdfs:label "Koordinate Y Messwert ( MS 0 Measurement 1 RP_noid_1)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_estimated_coordinate_y_value om:hasNumericalValue "395"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51_estimated_coordinate_z om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51_estimated_coordinate_z_value .
@@ -10729,10 +10729,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_rp_noid_2_coordinate_y
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_estimated_coordinate_x rdf:type giga:Estimated_coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 prov:wasDerivedFrom ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement33 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_3_coordinate_y rdfs:label "Koordinate Y ( MS 0 Measurement 3 RP_noid_3)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51 giga:transform "Matrix([[0.9827951790533616, 0.10615293853635564, -0.15114625258195558, 0.6130317352653869],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement51 giga:transform """Matrix([[0.9827951790533616, 0.10615293853635564, -0.15114625258195558, 0.6130317352653869],
        [0.13587053937680588, -0.9698471340665156, 0.20232580920985477, -0.6775217476733396],
        [-0.12511128070213115, -0.2193811527526086, -0.9675841447946576, -0.23481691827373555],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_rp_noid_5_coordinate_y_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_rp_noid_7_coordinate_x_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement29_estimated_coordinate_y_value rdf:type om:Measure .
@@ -10750,10 +10750,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_0_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38_estimated_coordinate_z_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_4_coordinate_y_value rdfs:label "coordinate_x Measurement Value ( MS 0 Measurement 4 RP_noid_4)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4_x_current_frame_position_value rdfs:label "x position in current frame Measurement Value ( MS 0 GRP4)"@en .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3 giga:transform "Matrix([[-0.6417857476829008, 0.37023144786098194, -0.6715949144282296, 2.148640652341739],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3 giga:transform """Matrix([[-0.6417857476829008, 0.37023144786098194, -0.6715949144282296, 2.148640652341739],
        [-0.5020254077253804, 0.45919004974031763, 0.7328812920368823, -2.20294634408493],
        [0.5797254040226854, 0.8075104787148247, -0.10883603583597082, -2.658621798356189],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 giga:measurement ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_rp_noid_4_coordinate_x rdf:type giga:Coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp4_z_estimated_coordiate_value rdfs:label "Geschätzte Koordinate Z Messwert ( MS 0 GRP4)"@de .
@@ -11223,10 +11223,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_3_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_0 rdf:type giga:ReferencePoint .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement26_estimated_coordinate_y_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp7_total_error_value om:hasNumericalValue "0.023840822969804627"^^xsd:float .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement49 giga:transform "Matrix([[0.24335523127960518, 0.5637573854087715, -0.7892755170445332, 2.6147248533916567],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement49 giga:transform """Matrix([[0.24335523127960518, 0.5637573854087715, -0.7892755170445332, 2.6147248533916567],
        [0.656039938977355, -0.6950364175913673, -0.29416997924388366, 0.8616432563025229],
        [-0.714415726223491, -0.4462084587038042, -0.5389881088722991, -1.5611197815953093],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp1_x_error_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_0_coordinate_y_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement8_rp_noid_3_coordinate_x rdfs:label "Koordinate X ( MS 0 Measurement 3 RP_noid_3)"@de .
@@ -11379,10 +11379,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_alignmentsetup giga:min_image "2"^^
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30 <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/FNumber> "22"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_rp_noid_5 <http://www.w3.org/2000/01/rdf-schema#label> "target 89"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_FocalLength_value rdf:type om:Measure .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement23 giga:transform "Matrix([[0.8945699408825118, -0.30829664029733106, 0.3235703979829367, -0.8894385823423854],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement23 giga:transform """Matrix([[0.8945699408825118, -0.30829664029733106, 0.3235703979829367, -0.8894385823423854],
        [-0.3195919603504009, -0.9473632819741618, -0.019073301930507925, 0.18657245244829276],
        [0.312418949087353, -0.0863480952223178, -0.9460118427919553, -0.30029770788145543],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_4_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18_rp_noid_4_coordinate_y_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_estimated_coordinate_x_value rdfs:label "Geschätzte Koordinate X Messwert ( MS 0 Measurement 9)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement39_estimated_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement39_estimated_coordinate_y_value .
@@ -11840,10 +11840,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15 rdf:type giga:Measure
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_5_coordinate_x rdfs:label "coordinate x ( MS 0 Measurement 5 RP_noid_5)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_activity rdfs:label "MS 0 Measurement 2 Activity"@en. 
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22_rp_noid_1 <http://objects.mainzed.org/ont#referencepoint_id> "5"^^xsd:integer .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement33 giga:transform "Matrix([[0.8877244823832502, 0.33410266947759576, -0.3167343518239457, 1.0228250508391743],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement33 giga:transform """Matrix([[0.8877244823832502, 0.33410266947759576, -0.3167343518239457, 1.0228250508391743],
        [0.3243957134916135, -0.9421310550112123, -0.08459607704691131, 0.3343675313853872],
        [-0.32666904421089205, -0.027649257339109716, -0.9447342769916512, -0.25672309325718273],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement14_FocalLengthIn35mmFilm_value rdfs:label "FocalLengthIn35mmFilm Measurement Value ( MS 0 Measurement 14)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement12_rp_noid_0_coordinate_y_value rdfs:label "coordinate_x Measurement Value ( MS 0 Measurement 0 RP_noid_0)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1 giga:iSOSpeedRatings ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_ISOSpeedRatings .
@@ -12301,10 +12301,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_rp_noid_3 rdfs:label "
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_rp_noid_2_coordinate_x rdfs:label "Koordinate X ( MS 0 Measurement 2 RP_noid_2)"@de .
 <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/make> rdfs:label "Kamera Hersteller"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 giga:measurement ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement0 .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30 giga:transform "Matrix([[-0.5534177473266999, 0.6605415778174527, -0.5073594592774139, 1.6988995249102448],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30 giga:transform """Matrix([[-0.5534177473266999, 0.6605415778174527, -0.5073594592774139, 1.6988995249102448],
        [0.5124222015205656, -0.21020404503526274, -0.8326089999751557, 2.553594412992484],
        [-0.6566218731756173, -0.7207628482554036, -0.2221455204187115, -2.38960581128446],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement44_estimated_coordinate_x rdf:type giga:Estimated_coordinate_x .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_6_coordinate_y rdf:type giga:Coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement45 <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/dateTimeOriginal> "2022-11-03T14:16:43"^^xsd:dateTime .
@@ -12450,10 +12450,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp3_y_current_frame_position_value
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0 giga:measurement ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement30 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement4_rp_noid_0_coordinate_y_value rdfs:label "Koordinate Y Messwert ( MS 0 Measurement 0 RP_noid_0)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_ISOSpeedRatings om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_ISOSpeedRatings_value .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16 giga:transform "Matrix([[0.029892453297956728, 0.6736565284291386, -0.7384397896515538, 2.2589632763241103],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16 giga:transform """Matrix([[0.029892453297956728, 0.6736565284291386, -0.7384397896515538, 2.2589632763241103],
        [-0.635023010087067, 0.5833213341356586, 0.506440517536024, -1.4894614224021099],
        [0.7719146441775734, 0.4537875084739518, 0.4452243021862273, -4.4782054238240105],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_estimated_coordinate_y rdfs:label "estimated coordinate y ( MS 0 Measurement 21)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_rp_noid_0_coordinate_y_value om:hasNumericalValue "565.6007080078125"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_4_coordinate_y om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_rp_noid_4_coordinate_y_value .
@@ -12517,10 +12517,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement19_estimated_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_0_coordinate_x om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement11_rp_noid_0_coordinate_x_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement42_activity rdf:type prov:Activity .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement9_ExposureTime_value rdfs:label "Belichtungszeit Messwert ( MS 0 Measurement 9)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement34 giga:transform "Matrix([[0.999980804704873, -0.00011011552439217295, 0.006195005760013188, 0.050348865490596285],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement34 giga:transform """Matrix([[0.999980804704873, -0.00011011552439217295, 0.006195005760013188, 0.050348865490596285],
        [-0.00013221863380054295, -0.999993627370857, 0.003567595255637379, 0.0952388618291556],
        [0.00619457343391655, -0.0035683458697920445, -0.9999744467573783, -0.11656973337308073],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement47_FocalLength_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement29_FocalLengthIn35mmFilm_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7_FocalLength_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
@@ -12646,10 +12646,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement20_estimated_coordinate_
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_6_coordinate_x om:hasValue ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement15_rp_noid_6_coordinate_x_value .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement10_FocalLength rdf:type giga:FocalLength .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement33_estimated_coordinate_x_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1 giga:transform "Matrix([[-0.9866266203592815, -0.06571766201258933, 0.14916132507463734, -0.40731798454063695],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1 giga:transform """Matrix([[-0.9866266203592815, -0.06571766201258933, 0.14916132507463734, -0.40731798454063695],
        [0.12368484396281866, 0.2941671954661418, 0.9477171099465698, -2.877522294966698],
        [-0.10616012138423615, 0.9534919244603931, -0.282104907111699, -2.113008161452321],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_rp_noid_3_coordinate_x_value rdfs:label "Koordinate X Messwert ( MS 0 Measurement 3 RP_noid_3)"@de .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement1_rp_noid_2_coordinate_x_value om:hasNumericalValue "965.6723022460938"^^xsd:float .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement16_rp_noid_2_coordinate_y_value rdf:type om:Measure .
@@ -12724,10 +12724,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement3_rp_noid_1_coordinate_y
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_alignmentsetup giga:reference_preselection "false"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement17_ISOSpeedRatings rdfs:label "ISOSpeedRatings ( MS 0 Measurement 17)"@en .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement44_FocalLength_value rdfs:label "Brennweite Messwert ( MS 0 Measurement 44)"@de .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement25 giga:transform "Matrix([[0.06151955797076614, -0.6579264665324098, 0.7505651927869158, -2.1023530513408306],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement25 giga:transform """Matrix([[0.06151955797076614, -0.6579264665324098, 0.7505651927869158, -2.1023530513408306],
        [-0.7510509882982165, -0.5257894140060368, -0.39933432746942854, 1.3538932817281861],
        [0.6573718559258177, -0.5391458585163822, -0.5264826552520789, -1.5785396871876536],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7_rp_noid_1 giga:coordinate_y ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7_rp_noid_1_coordinate_y .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement6_rp_noid_5_coordinate_x_value rdf:type om:Measure .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement18 <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/imageHeight> "4912"^^xsd:string .
@@ -13094,10 +13094,10 @@ ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement21_rp_noid_4 rdf:type gi
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement24 giga:sensor ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_sensor_1 .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_grp8_total_error_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 giga:reference_preselection rdfs:domain giga:AlignmentSetup .
-ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22 giga:transform "Matrix([[-0.3559846705032452, -0.6773057171531579, 0.6438415021403501, -1.839615508129743],
+ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement22 giga:transform """Matrix([[-0.3559846705032452, -0.6773057171531579, 0.6438415021403501, -1.839615508129743],
        [0.6770525738918564, 0.28794920265891083, 0.6772629244794888, -2.098773668186272],
        [-0.6441076979458544, 0.6770097652174182, 0.35606607708001087, -4.105040704479315],
-       [0.0, 0.0, 0.0, 1.0]])"^^xsd:string .
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string .
 giga:enabled rdfs:range xsd:boolean .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement38 <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/make> "NIKON CORPORATION"^^xsd:string .
 ex:054fc50f-594d-4569-dcdd-9fcf90a3f4b0_ms_0_measurement7_rp_noid_0_coordinate_y rdfs:label "coordinate_x ( MS 0 Measurement 0 RP_noid_0)"@en .
