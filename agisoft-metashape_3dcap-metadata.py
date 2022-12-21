@@ -8,7 +8,7 @@
 # 2020/2021/2022
 
 
-import Metashape
+#import Metashape
 import os, json
 import time, math 
 import random
@@ -19,7 +19,7 @@ from tkinter import filedialog
 import tkinter.font as tkFont
 from tkinter import *
 
-production=True
+production=False
 # production=False
 
 ## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
@@ -242,28 +242,34 @@ def exportInformationFromIndAsTTL(jsonobj,id,classs,labelprefix,ttlstring):
 	return ttlstring
 
 def exportInformationFromStructuredList(thelist,projectid,projectname,thekey,index,dataprefix,labelprefix,thelabel,theclass,informationkey,ttlstring,subdata=[{}],hasactivity=False):
-	for index, data in enumerate(thelist):
-		theid=str(projectid)+"_"+thekey+"_"+str(index)
-		ttlstring.add(str(dataprefix)+":"+str(theid)+" rdf:type "+str(ontologyprefix)+":"+str(theclass)+", "+provenancedict.get("entity")+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(theid)+" rdfs:label \""+thelabel+" "+str(theid)+" from "+str(projectname)+"\"@en .\n")
-		print(informationkey)
-		if hasactivity:
-			ttlstring.add(str(dataprefix)+":"+str(theid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+" .\n")	
-		if informationkey!=None and informationkey in data:
-			ttlstring=exportInformationFromIndAsTTL(data[informationkey],theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
-		elif informationkey==None and not isinstance(data,str):
-			ttlstring=exportInformationFromIndAsTTL(data,theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
-		for item in subdata:       
-			if item["key"] in data:
-				print(item["key"])
-				itemid=str(theid)+"_"+item["key"]
-				ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdf:type "+str(ontologyprefix)+":"+item["class"]+" .\n")
-				ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdfs:label \""+labelprefix+" "+thelabel+" "+str(index)+" "+item["label"]+"\" .\n")
-				ttlstring.add(str(dataprefix)+":"+str(theid)+" "+str(ontologyprefix)+":"+item["relation"]+" "+str(dataprefix)+":"+str(itemid)+" .\n")
-				if hasactivity:
-					ttlstring.add(str(dataprefix)+":"+str(itemid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(theid)+"_activity .\n")							
-				ttlstring=exportInformationFromIndAsTTL(data[item["key"]],itemid,str(ontologyprefix)+":"+item["class"],labelprefix+" "+thelabel+" "+str(index)+" "+item["label"],ttlstring)
+    for index, data in enumerate(thelist):
+        theid=str(projectid)+"_"+thekey+"_"+str(index)
+        ttlstring.add(str(dataprefix)+":"+str(theid)+" rdf:type "+str(ontologyprefix)+":"+str(theclass)+", "+provenancedict.get("entity")+" .\n")
+        ttlstring.add(str(dataprefix)+":"+str(theid)+" rdfs:label \""+thelabel+" "+str(theid)+" from "+str(projectname)+"\"@en .\n")
+        print(informationkey)
+        if hasactivity:
+            ttlstring.add(str(dataprefix)+":"+str(theid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+" .\n")	
+        if informationkey!=None and informationkey in data:
+            ttlstring=exportInformationFromIndAsTTL(data[informationkey],theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
+        elif informationkey==None and not isinstance(data,str):
+            ttlstring=exportInformationFromIndAsTTL(data,theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
+        for item in subdata:       
+            if item["key"] in data:
+                print(item["key"])
+                itemid=str(theid)+"_"+item["key"]
+                ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdf:type "+str(ontologyprefix)+":"+item["class"]+" .\n")
+                ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdfs:label \""+labelprefix+" "+thelabel+" "+str(index)+" "+item["label"]+"\" .\n")
+                ttlstring.add(str(dataprefix)+":"+str(theid)+" "+str(ontologyprefix)+":"+item["relation"]+" "+str(dataprefix)+":"+str(itemid)+" .\n")
+                if hasactivity:
+                    ttlstring.add(str(dataprefix)+":"+str(itemid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(theid)+"_activity .\n")							
+                ttlstring=exportInformationFromIndAsTTL(data[item["key"]],itemid,str(ontologyprefix)+":"+item["class"],labelprefix+" "+thelabel+" "+str(index)+" "+item["label"],ttlstring)
 
+
+def checkfornewline(literal):
+    if '\n' in literal or '\r' in literal:
+        return "\"\""+literal+"\"\""
+    else:
+        return literal
 
 ## Processes a given property depending on its type .
 def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputvalue,propclass):
@@ -274,19 +280,19 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 		if englishlabel in jsonobj[info] and jsonobj[info][englishlabel]!=None and str(jsonobj[info][englishlabel])!="" and str(jsonobj[info][englishlabel]).strip()!="...":
 			ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+"\"@en .\n")
 			if labelprefix=="":
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" \"@en .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" Measurement Value \"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" \"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" Measurement Value \"@en .\n")
 			else:
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" ("+str(labelprefix)+")\"@en .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" Measurement Value ("+str(labelprefix)+")\"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" ("+str(labelprefix)+")\"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" Measurement Value ("+str(labelprefix)+")\"@en .\n")
 		if germanlabel in jsonobj[info] and jsonobj[info][germanlabel]!=None and str(jsonobj[info][germanlabel])!="" and str(jsonobj[info][germanlabel])!="...":
 			ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+"\"@de .\n")
 			if labelprefix=="":
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" \"@de .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" Messwert \"@de .\n")			
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" \"@de .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" Messwert \"@de .\n")			
 			else:
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" ("+str(labelprefix)+")\"@de .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" Messwert ("+str(labelprefix)+")\"@de .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" ("+str(labelprefix)+")\"@de .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" Messwert ("+str(labelprefix)+")\"@de .\n")
 		if "measurementclass" in jsonobj[info] and jsonobj[info]["measurementclass"]!=None and str(jsonobj[info]["measurementclass"])!="":
 			if ":" in jsonobj[info]["measurementclass"]:
 				if jsonobj[info]["measurementclass"].startswith("http"):
@@ -320,7 +326,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 			ttlstring.add(str(jsonobj[info]["unit"].replace(" ",""))+" rdfs:label \""+jsonobj[info]["unit"].replace("\"","'")+"\" .\n")
 		else:
 			ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasUnit \""+str(jsonobj[info]["unit"])+"\" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasNumericalValue \""+str(inputvalue).replace("\\","\\\\")+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")		  
+		ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasNumericalValue \""+checkfornewline(str(inputvalue).replace("\\","\\\\"))+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")		  
 		ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" "+str(dataprefix)+":"+str(id)+"_"+str(info).replace("/","_").replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" .\n")
 	elif "value_type" in jsonobj[info] and jsonobj[info]["value_type"]=="enumeration":
 		ttlstring.add(str(propuri)+" rdf:type owl:ObjectProperty .\n")
@@ -334,7 +340,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 				ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" "+str(ontologyprefix)+":"+jsonobj[info]["measurementclass"]+"_"+str(inputvalue)+" .\n") 
 			else:
 				ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdf:type owl:Class .\n")
-				ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdfs:label \""+jsonobj[info]["measurementclass"].replace("\"","'")++"\"@en .\n") 					
+				ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdfs:label \""+jsonobj[info]["measurementclass"].replace("\"","'")+"\"@en .\n") 					
 				ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdfs:subClassOf "+str(ontologyprefix)+":Enumeration .\n")  
 				ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"_"+inputvalue+"> rdf:type <"+jsonobj[info]["measurementclass"].replace(" ","")+"> .\n")
 				ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" <"+jsonobj[info]["measurementclass"].replace(" ","")+"_"+str(inputvalue).replace(" ","")+"> .\n")   
@@ -352,11 +358,11 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 			ttlstring.add(str(propuri)+" rdf:type owl:DatatypeProperty .\n")
 			ttlstring.add(str(propuri)+" rdfs:domain "+str(classs)+" .\n")
 			if englishlabel in jsonobj[info] and jsonobj[info][englishlabel]!=None and str(jsonobj[info][englishlabel])!="" and str(jsonobj[info][englishlabel])!="...":
-				ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+"\"@en .\n")
+				ttlstring.add(str(propuri)+" rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+"\"@en .\n")
 			if germanlabel in jsonobj[info] and jsonobj[info][germanlabel]!=None and str(jsonobj[info][germanlabel])!="" and str(jsonobj[info][germanlabel])!="...":
-				ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+"\"@de .\n")
+				ttlstring.add(str(propuri)+" rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+"\"@de .\n")
 			ttlstring.add(str(propuri)+" rdfs:range "+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
-			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+str(inputvalue).replace("\\","\\\\")+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
+			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+checkfornewline(str(inputvalue).replace("\\","\\\\"))+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
 	#print("handled Property")
 	return ttlstring
 
@@ -731,7 +737,7 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 					#print(ttlstring)
 			if densecloudkey in project:
 				exportInformationFromStructuredList(project[densecloudkey],projectid,projectname,densecloudkey,index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Densecloud",densecloudinformationkey,ttlstring,
-				[{"key":densecloudsetupkey,"label":"Densecloud Setup","class":"DenseCloudSetup","relation":"setup"}])
+                [{"key":densecloudsetupkey,"label":"Densecloud Setup","class":"DenseCloudSetup","relation":"setup"}])
 			for index, messung in enumerate(project[measurementskey]):
 				#print(index)
 				if measurementToExport==None or measurementToExport==index:
@@ -866,7 +872,10 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 								ttlstring.add(str(dataprefix)+":"+str(meshid)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(meshid)+"_creation_"+str(0)+"_activity .\n")
 						if lastprocid!="":
 							ttlstring.add(str(dataprefix)+":"+str(meshid)+" owl:sameAs "+str(lastprocid)+" .\n")
-					exportInformationFromStructuredList(project[mesheskey],projectid,projectname,"mesh",index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Mesh",meshinfokey,ttlstring,[{"key":meshsetupkey,"label":"Mesh Setup","class":"MeshSetup","relation":"setup"},{"key":meshtexturesetupkey,"label":"Mesh Texture","class":"TextureSetup","relation":"texturesetup"}])
+					exportInformationFromStructuredList(project[mesheskey],projectid,projectname,"mesh",index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Mesh",meshinfokey,ttlstring,[
+                    {"key":meshsetupkey,"label":"Mesh Setup","class":"MeshSetup","relation":"setup"},
+                    {"key":meshtexturesetupkey,"label":"Mesh Texture","class":"TextureSetup","relation":"texturesetup"}
+                    ])
 					#ttlstring=exportInformationFromIndAsTTL(mesh[meshinfokey],meshid,str(ontologyprefix)+":Mesh",labelprefix+" Mesh Attribute ",ttlstring)							
 	return ttlstring
 
@@ -2224,7 +2233,7 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		## DenseCloud Information
 
 		list_densecloud =[]
-		if (len(doc.chunks[i].dense_clouds)) > 0:
+		if not (len(doc.chunks[i].dense_clouds)) > 0:
 			for d in range(len(doc.chunks[i].dense_clouds)):
 				denseclouds={}
 				densecloud_info= {}
@@ -5110,7 +5119,6 @@ def exportMeta(input_file, unit,includeonlypropswithuri, manualmetadatapathJSON=
 		print ("... export geht nicht")
 	
 #######################################################################################################
-
 if production:
 	root = Tk()
 	def_font = tkinter.font.nametofont("TkDefaultFont")
