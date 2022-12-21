@@ -8,7 +8,7 @@
 # 2020/2021/2022
 
 
-#import Metashape
+import Metashape
 import os, json
 import time, math 
 import random
@@ -19,7 +19,7 @@ from tkinter import filedialog
 import tkinter.font as tkFont
 from tkinter import *
 
-production=False
+production=True
 # production=False
 
 ## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
