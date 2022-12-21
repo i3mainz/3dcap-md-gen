@@ -1,3 +1,5 @@
+/home/runner/work/3dcap-md-gen/3dcap-md-gen/agisoft-metashape_3dcap-metadata.py:366: warning: The following parameter of agisoft-metashape_3dcap-metadata.exportToTTL(dict, measurementToExport, ttlstring) is not documented:
+  parameter 'ttlstring'
 /home/runner/work/3dcap-md-gen/3dcap-md-gen/atos-2016_3dcap-metadata.py:342: warning: The following parameter of atos-2016_3dcap-metadata.exportToTTL(dict, measurementToExport, ttlstring) is not documented:
   parameter 'ttlstring'
 /home/runner/work/3dcap-md-gen/3dcap-md-gen/atos-v62_3dcap_metadata.py:340: warning: The following parameter of atos-v62_3dcap_metadata.exportToTTL(dict, measurementToExport, ttlstring) is not documented:
