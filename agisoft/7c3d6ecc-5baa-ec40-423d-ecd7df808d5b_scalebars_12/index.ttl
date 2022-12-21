@@ -1,0 +1,11 @@
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://objects.mainzed.org/ont#scalebar_accuracy> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12_scalebar_accuracy> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://objects.mainzed.org/ont#scalebar_distance> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12_scalebar_distance> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://objects.mainzed.org/ont#scalebar_enabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://objects.mainzed.org/ont#scalebar_key> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://objects.mainzed.org/ont#scalebar_point0> "target 106"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://objects.mainzed.org/ont#scalebar_point1> "target 114"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Scalebar> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov-o/Entity> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://www.w3.org/2000/01/rdf-schema#label> " MS 0  7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12 from "@en .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://www.w3.org/2000/01/rdf-schema#label> "target 106_target 114"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_12> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

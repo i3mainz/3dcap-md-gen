@@ -1,0 +1,5 @@
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_2_scalebar_distance> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_2_scalebar_distance_value> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_2_scalebar_distance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Scalebar_distance> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_2_scalebar_distance> <http://www.w3.org/2000/01/rdf-schema#label> "distance ( MS 0  2)"@en .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_2_scalebar_distance> <http://www.w3.org/2000/01/rdf-schema#label> "Abstand ( MS 0  2)"@de .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_2_scalebar_distance> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

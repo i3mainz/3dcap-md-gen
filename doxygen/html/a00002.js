@@ -1,6 +1,7 @@
 var a00002 =
 [
     [ "Window", "a00022.html", "a00022" ],
+    [ "checkfornewline", "a00002.html#a73de109dabc3d6983b4ac85dfb727346", null ],
     [ "createMetaDic", "a00002.html#abb8c200ff18d952054a7dd924f035f61", null ],
     [ "exportInformationFromIndAsTTL", "a00002.html#acbf10b86d0e1cb9470859c607ce00b2c", null ],
     [ "exportInformationFromStructuredList", "a00002.html#a5fca61b69f8d64ca7832ccf918e2f3d1", null ],

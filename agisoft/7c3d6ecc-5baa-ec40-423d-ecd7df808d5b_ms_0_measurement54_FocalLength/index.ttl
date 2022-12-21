@@ -1,0 +1,5 @@
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement54_FocalLength> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement54_FocalLength_value> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement54_FocalLength> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#FocalLength> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement54_FocalLength> <http://www.w3.org/2000/01/rdf-schema#label> "focallength ( MS 0 Measurement 54)"@en .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement54_FocalLength> <http://www.w3.org/2000/01/rdf-schema#label> "Brennweite ( MS 0 Measurement 54)"@de .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement54_FocalLength> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

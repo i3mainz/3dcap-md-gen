@@ -1,0 +1,5 @@
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_image_width> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_image_width_value> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_image_width> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Image_width> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_image_width> <http://www.w3.org/2000/01/rdf-schema#label> "image width ( MS 1 Sensor 17 Calibration)"@en .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_image_width> <http://www.w3.org/2000/01/rdf-schema#label> "Bildbreite ( MS 1 Sensor 17 Calibration)"@de .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_image_width> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

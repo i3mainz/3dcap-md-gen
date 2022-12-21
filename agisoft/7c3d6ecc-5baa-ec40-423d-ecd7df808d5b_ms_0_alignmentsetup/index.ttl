@@ -1,0 +1,27 @@
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#adaptive_fitting> "false"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#descriptor_type> "binary"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#descriptor_version> "1.1.0"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#filter_stationary_points> "true"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#guided_matching> "false"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#keep_keypoints> "false"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#lastSavedDateTime> "2022-11-23T14:09:41"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#lastSavedSoftwareVersion> "1.8.1.13915"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#match_downscale> "1"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#match_point_limit> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup_match_point_limit> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#match_preselection_generic> "true"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#match_tiepoint_limit> "4000"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#matchingAccuracy> "high"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#max_workgroup_size> "100"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#min_image> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#optimize_fit_flags> "f cx cy k1 k2 k3 p1 p2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#optimize_sigma0> "0.200262608804541"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#reference_preselection> "false"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#reference_preselection_mode> "0"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#reset_alignment> "false"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#reset_matches> "true"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#subdivide_task> "true"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#workitem_size_cameras> "20"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://objects.mainzed.org/ont#workitem_size_pairs> "80"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#AlignmentSetup> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Alignment Setup" .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

@@ -1,0 +1,7 @@
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://objects.mainzed.org/ont#buildUV_camera> "4294967295"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://objects.mainzed.org/ont#mappingmode> "1"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://objects.mainzed.org/ont#numberOfTextureImages> "1"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://objects.mainzed.org/ont#textureImageSize> "8000"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#TextureSetup> .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://www.w3.org/2000/01/rdf-schema#label> "  MS 0  0 Mesh Texture" .
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_texture_setup> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .
