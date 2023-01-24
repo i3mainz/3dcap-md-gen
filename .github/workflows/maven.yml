@@ -4,9 +4,6 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-     - name: Ontology Documentation
        uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
        with: 
          rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl sampledata/V03_041_SLP_20200825_meta_atos2016.ttl sampledata/Holz_meta_agisoft.ttl
@@ -15,13 +12,17 @@ jobs:
          prefixnsshort: ex
          indexpages: true
          ghpages: false
-     - name: Create Doxygen Documentation 🔧
-       run: |
-         sudo apt-get install doxygen graphviz -y 
-         cd docs
-         doxygen Doxyfile      
-     - name: Deploy 🚀
-       uses: JamesIves/github-pages-deploy-action@v4.3.3
-       with:
-          BRANCH: gh-pages
-          FOLDER: docs/
+  doxygen:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+       - name: Create Doxygen Documentation 🔧
+         run: |
+           sudo apt-get install doxygen graphviz -y 
+           cd docs
+           doxygen Doxyfile      
+       - name: Deploy 🚀
+         uses: JamesIves/github-pages-deploy-action@v4.3.3
+         with:
+            BRANCH: gh-pages
+            FOLDER: docs/
