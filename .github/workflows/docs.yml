@@ -4,31 +4,26 @@ on: [push]
 
 jobs:
   build:
-       uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
-       with: 
-         rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl sampledata/V03_041_SLP_20200825_meta_atos2016.ttl sampledata/Holz_meta_agisoft.ttl
-         docpath: docs/atos62/ docs/atos2016/ docs/agisoft/
-         prefixns: http://objects.mainzed.org/data/
-         prefixnsshort: ex
-         indexpages: true
-         ghpages: false
-  
-  doxygen:
-    needs: build
+
     runs-on: ubuntu-latest
+
     steps:
-       - name: Download build-output artifact
-         uses: actions/download-artifact@master
-         with:
-           name: build-output
-           path: docs/
-       - name: Create Doxygen Documentation 🔧
-         run: |
-           sudo apt-get install doxygen graphviz -y 
-           cd docs
-           doxygen Doxyfile      
-       - name: Deploy 🚀
-         uses: JamesIves/github-pages-deploy-action@v4.3.3
-         with:
-            BRANCH: gh-pages
-            FOLDER: docs/
+    - uses: actions/checkout@v1
+    - name: Create Doxygen Documentation 🔧
+      run: |
+         sudo apt-get install doxygen graphviz python3-dev python3-pip -y
+         sudo apt-get install python3-venv python3-wheel -y
+         sudo pip3 install wheel pylode==2.13.2 rdflib shapely
+         mkdir atos2016
+         mkdir atos62
+         wget https://raw.githubusercontent.com/sparqlunicorn/sparqlunicornGoesGIS-ontdoc/main/docgeneration.py .
+         python3 docgeneration.py sampledata/V03_041_SLP_20120113_e.ttl docs/atos62/ http://objects.mainzed.org/data/ ex False
+         python3 docgeneration.py sampledata/V03_041_SLP_20200825_meta_atos2016.ttl docs/atos2016/ http://objects.mainzed.org/data/ ex False
+         python3 docgeneration.py sampledata/Holz_meta_agisoft.ttl docs/agisoft/ http://objects.mainzed.org/data/ ex False      
+         cd docs
+         doxygen Doxyfile      
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+         BRANCH: gh-pages
+         FOLDER: docs/
