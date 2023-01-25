@@ -8,4 +8,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_rp_noid_1> <http://www.w3.org/2000/01/rdf-schema#label> "RP_noid_1 ( Messreihe 0 Messung 13)"@de .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_rp_noid_1> <http://www.w3.org/ns/prov-o/wasAttributedTo> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_algorithm> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_rp_noid_1> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_activity> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_rp_noid_1> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

@@ -2,4 +2,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_rp_noid_1_coordinate_y> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Coordinate_y> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_rp_noid_1_coordinate_y> <http://www.w3.org/2000/01/rdf-schema#label> "coordinate_x ( MS 0 Measurement 1 RP_noid_1)"@en .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_rp_noid_1_coordinate_y> <http://www.w3.org/2000/01/rdf-schema#label> "Koordinate Y ( MS 0 Measurement 1 RP_noid_1)"@de .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_rp_noid_1_coordinate_y> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

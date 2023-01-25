@@ -12,4 +12,3 @@
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement4_rp109> <http://www.w3.org/2000/01/rdf-schema#label> "RP109 ( Messreihe 0 Messung 4)"@de .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement4_rp109> <http://www.w3.org/ns/prov-o/wasAttributedTo> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement4_algorithm> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement4_rp109> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement4_activity> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement4_rp109> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

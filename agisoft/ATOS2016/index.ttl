@@ -4,4 +4,3 @@
 <http://objects.mainzed.org/data/ATOS2016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Software> .
 <http://objects.mainzed.org/data/ATOS2016> <http://www.w3.org/2000/01/rdf-schema#label> "ATOS2016"@en .
 <http://objects.mainzed.org/data/ATOS2016> <http://www.w3.org/ns/prov#startedAtTime> "2022-12-21T14:56:05"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-<http://objects.mainzed.org/data/ATOS2016> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

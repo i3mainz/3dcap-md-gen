@@ -6,4 +6,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 0 Measurement 1 Activity"@en .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_activity> <http://www.w3.org/ns/prov-o/used> <http://objects.mainzed.org/data/ATOS2016> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_activity> <http://www.w3.org/ns/prov-o/wasAssociatedWith> <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement1_activity> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

@@ -3,4 +3,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement27_rp_noid_3_coordinate_y_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement27_rp_noid_3_coordinate_y_value> <http://www.w3.org/2000/01/rdf-schema#label> "Koordinate Y Messwert ( MS 0 Measurement 3 RP_noid_3)"@de .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement27_rp_noid_3_coordinate_y_value> <http://www.w3.org/2000/01/rdf-schema#label> "coordinate_x Measurement Value ( MS 0 Measurement 3 RP_noid_3)"@en .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement27_rp_noid_3_coordinate_y_value> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

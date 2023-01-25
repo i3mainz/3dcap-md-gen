@@ -2,4 +2,3 @@
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp3_coordinate.z> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Coordinate.z> .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp3_coordinate.z> <http://www.w3.org/2000/01/rdf-schema#label> "Koordinate Z ( MS 1 GRP3)"@de .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp3_coordinate.z> <http://www.w3.org/2000/01/rdf-schema#label> "Coordinate Z ( MS 1 GRP3)"@en .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp3_coordinate.z> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

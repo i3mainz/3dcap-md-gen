@@ -25,4 +25,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement37> <http://www.w3.org/2003/12/exif/softwar#http://www.w3.org/2003/12/exif/software> "Ver.1.10 "^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement37> <http://www.w3.org/ns/prov-o/wasAttributedTo> <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement37> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement37_activity> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement37> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

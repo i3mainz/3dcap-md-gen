@@ -11,4 +11,3 @@
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_rp1059> <http://www.w3.org/2000/01/rdf-schema#label> "RP1059 ( MS 1 Measurement 3)"@en .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_rp1059> <http://www.w3.org/ns/prov-o/wasAttributedTo> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_algorithm> .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_rp1059> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_activity> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_rp1059> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

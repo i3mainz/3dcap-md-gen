@@ -38,4 +38,3 @@
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 2 Algorithm"@en .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2_algorithm> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Measurement 0 Algorithm"@en .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2_algorithm> <http://www.w3.org/ns/prov-o/actedOnBehalfOf> <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2_algorithm> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

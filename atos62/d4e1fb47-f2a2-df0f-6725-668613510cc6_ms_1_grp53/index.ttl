@@ -18,4 +18,3 @@
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp53> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement3_rp53> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp53> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_rp53> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp53> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp_calculation_activity> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp53> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

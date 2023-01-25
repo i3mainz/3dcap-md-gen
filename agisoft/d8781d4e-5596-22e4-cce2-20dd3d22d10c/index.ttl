@@ -1,4 +1,3 @@
 <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov-o/Agent> .
 <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> <http://www.w3.org/2000/01/rdf-schema#label> "Creator of " .
-<http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

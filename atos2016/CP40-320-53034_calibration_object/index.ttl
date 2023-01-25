@@ -22,4 +22,3 @@
 <http://objects.mainzed.org/data/CP40-320-53034_calibration_object> <http://www.w3.org/2000/01/rdf-schema#label> " MS 0 Measurement 8 Calibration Object" .
 <http://objects.mainzed.org/data/CP40-320-53034_calibration_object> <http://www.w3.org/2000/01/rdf-schema#label> " MS 1 Measurement 1 Calibration Object" .
 <http://objects.mainzed.org/data/CP40-320-53034_calibration_object> <http://www.w3.org/2000/01/rdf-schema#label> " MS 0 Measurement 0 Calibration Object" .
-<http://objects.mainzed.org/data/CP40-320-53034_calibration_object> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

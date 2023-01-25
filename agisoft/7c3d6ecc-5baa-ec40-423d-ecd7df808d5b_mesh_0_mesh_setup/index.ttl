@@ -24,4 +24,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_mesh_setup> <http://objects.mainzed.org/ont#originalSoftwareVersion> "1.8.1.13915"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_mesh_setup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#MeshSetup> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_mesh_setup> <http://www.w3.org/2000/01/rdf-schema#label> "  MS 0  0 Mesh Setup" .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_mesh_setup> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

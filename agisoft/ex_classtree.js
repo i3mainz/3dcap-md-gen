@@ -11,28 +11,28 @@ var tree={
   },
   "types": {
     "class": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/class.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/class.png"
     },
     "geoclass": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geoclass.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geoclass.png"
     },
     "halfgeoclass": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/halfgeoclass.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/halfgeoclass.png"
     },
     "collectionclass": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/collectionclass.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/collectionclass.png"
     },
     "geocollection": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geometrycollection.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geometrycollection.png"
     },
     "featurecollection": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/featurecollection.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/featurecollection.png"
     },
     "instance": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/instance.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/instance.png"
     },
     "geoinstance": {
-      "icon": "https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geoinstance.png"
+      "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geoinstance.png"
     }
   },
   "core": {
@@ -11598,7 +11598,7 @@ var tree={
           "from": {
             "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Coordinate_y": 1
+              "http://objects.mainzed.org/ont#Z_current_frame_position": 1
             }
           }
         },
@@ -12535,11 +12535,11 @@ var tree={
             }
           },
           "from": {
-            "http://objects.mainzed.org/ont#measurement": {
+            "http://www.w3.org/ns/prov-o/wasDerivedFrom": {
               "instancecount": 0,
               "http://objects.mainzed.org/ont#MeasurementSeries": 1
             },
-            "http://www.w3.org/ns/prov-o/wasDerivedFrom": {
+            "http://objects.mainzed.org/ont#measurement": {
               "instancecount": 0,
               "http://objects.mainzed.org/ont#MeasurementSeries": 1
             }
@@ -16868,7 +16868,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 3
+              "instancecount": 2
             },
             "http://www.w3.org/ns/prov-o/actedOnBehalfOf": {
               "instancecount": 1,
@@ -16879,11 +16879,11 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasAttributedTo": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 3
+              "http://objects.mainzed.org/ont#ReferencePoint": 2
             }
           }
         },
-        "instancecount": 5
+        "instancecount": 4
       },
       {
         "id": "http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement13_ExposureTime",
@@ -18284,7 +18284,11 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 2
+              "instancecount": 6
+            },
+            "http://www.w3.org/ns/prov-o/used": {
+              "instancecount": 1,
+              "http://objects.mainzed.org/ont#Software": 1
             },
             "http://www.w3.org/ns/prov-o/wasAssociatedWith": {
               "instancecount": 1,
@@ -18295,11 +18299,12 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasGeneratedBy": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#MeasurementSeries": 1
+              "http://objects.mainzed.org/ont#Measurement": 1,
+              "http://objects.mainzed.org/ont#ReferencePoint": 4
             }
           }
         },
-        "instancecount": 4
+        "instancecount": 9
       },
       {
         "id": "http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_tangential_distortion_coefficient_p2",
@@ -18977,9 +18982,9 @@ var tree={
             }
           },
           "from": {
-            "http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/focalLength": {
+            "http://objects.mainzed.org/ont#focalLengthCamera": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Calibration": 1
+              "http://objects.mainzed.org/ont#CapturingDevice": 1
             }
           }
         },

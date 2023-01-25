@@ -2,4 +2,3 @@
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> <http://www.w3.org/2000/01/rdf-schema#label> "GRP Berechnung"@de .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> <http://www.w3.org/2000/01/rdf-schema#label> "GRP Calculation Activity"@en .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> <http://www.w3.org/ns/prov-o/wasAssociatedWith> <http://objects.mainzed.org/ont#GRP_calculation_algorithm> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

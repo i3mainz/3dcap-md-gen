@@ -8,4 +8,3 @@
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov-o/Entity> .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5> <http://www.w3.org/2000/01/rdf-schema#label> " MS 0  7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5 from "@en .
 <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5> <http://www.w3.org/2000/01/rdf-schema#label> "target 72_target 96"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

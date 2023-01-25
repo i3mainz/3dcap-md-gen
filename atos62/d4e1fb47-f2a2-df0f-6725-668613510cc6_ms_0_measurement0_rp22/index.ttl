@@ -12,4 +12,3 @@
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp22> <http://www.w3.org/2000/01/rdf-schema#label> "RP22 ( MS 0 Measurement 0)"@en .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp22> <http://www.w3.org/ns/prov-o/wasAttributedTo> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_algorithm> .
 <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp22> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_activity> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp22> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

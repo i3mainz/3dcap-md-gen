@@ -1,5 +1,6 @@
 var namespaces={"rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","xsd":"http://www.w3.org/2001/XMLSchema#","geo":"http://www.opengis.net/ont/geosparql#","rdfs":"http://www.w3.org/2000/01/rdf-schema#","owl":"http://www.w3.org/2002/07/owl#","dc":"http://purl.org/dc/terms/","skos":"http://www.w3.org/2004/02/skos/core#"}
 var annotationnamespaces=["http://www.w3.org/2004/02/skos/core#","http://www.w3.org/2000/01/rdf-schema#","http://purl.org/dc/terms/"]
+var indexpage=false
 var geoproperties={
                    "http://www.opengis.net/ont/geosparql#asWKT":"DatatypeProperty",
                    "http://www.opengis.net/ont/geosparql#asGML": "DatatypeProperty",
@@ -27,7 +28,31 @@ var geoproperties={
                    "http://www.wikidata.org/prop/direct/P3896": "DatatypeProperty"
 }
 
-  var baseurl="http://objects.mainzed.org/data/"
+commentproperties={
+    "http://www.w3.org/2004/02/skos/core#definition":"DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#note": "DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#scopeNote": "DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#historyNote": "DatatypeProperty",
+    "https://schema.org/description":"DatatypeProperty",
+    "http://www.w3.org/2000/01/rdf-schema#comment": "DatatypeProperty",
+    "http://purl.org/dc/terms/description": "DatatypeProperty",
+    "http://purl.org/dc/elements/1.1/description": "DatatypeProperty"
+}
+
+labelproperties={
+    "http://www.w3.org/2004/02/skos/core#prefLabel":"DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#prefSymbol": "DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#altLabel": "DatatypeProperty",
+    "https://schema.org/name": "DatatypeProperty",
+    "https://schema.org/alternateName": "DatatypeProperty",
+    "http://purl.org/dc/terms/title": "DatatypeProperty",
+    "http://purl.org/dc/elements/1.1/title":"DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#altSymbol": "DatatypeProperty",
+    "http://www.w3.org/2004/02/skos/core#hiddenLabel": "DatatypeProperty",
+    "http://www.w3.org/2000/01/rdf-schema#label": "DatatypeProperty"
+}
+
+var baseurl="http://objects.mainzed.org/data/"
   $( function() {
     var availableTags = Object.keys(search)
     $( "#search" ).autocomplete({
@@ -87,7 +112,7 @@ function exportCSV(){
                        for(prop in feat["properties"]){
                           rescsvtitle+="\""+prop+"\","
                        }
-                       rescsvtitle+="\n"
+                       rescsvtitle+="\\n"
                        rescsv=rescsvtitle+rescsv
                        gottitle=true
                     }
@@ -95,7 +120,7 @@ function exportCSV(){
                         rescsv+="\""+feat["properties"][prop]+"\","
                     }
                 }
-                rescsv+="\n"
+                rescsv+="\\n"
            }
         }else{
             gottitle=false
@@ -112,7 +137,7 @@ function exportCSV(){
                    for(prop in feature["properties"]){
                       rescsvtitle+="\""+prop+"\","
                    }
-                   rescsvtitle+="\n"
+                   rescsvtitle+="\\n"
                    rescsv=rescsvtitle+rescsv
                    gottitle=true
                 }
@@ -131,7 +156,7 @@ function exportCSV(){
                        for(prop in feat["properties"]){
                           rescsvtitle+="\""+prop+"\","
                        }
-                       rescsvtitle+="\n"
+                       rescsvtitle+="\\n"
                        rescsv=rescsvtitle+rescsv
                        gottitle=true
                     }
@@ -139,7 +164,7 @@ function exportCSV(){
                         rescsv+="\""+feat["properties"][prop]+"\","
                     }
                 }
-                rescsv+="\n"
+                rescsv+="\\n"
            }
         }else{
             gottitle=false
@@ -149,7 +174,7 @@ function exportCSV(){
                    for(prop in nongeofeature["properties"]){
                       rescsvtitle+="\""+prop+"\","
                    }
-                   rescsvtitle+="\n"
+                   rescsvtitle+="\\n"
                    rescsv=rescsvtitle+rescsv
                    gottitle=true
                 }
@@ -162,10 +187,13 @@ function exportCSV(){
     }
 }
 
-function setSVGDimensions(){ 
-    $('.svgview').each(function(i, obj) {
+function setSVGDimensions(){
+    $('svg').each(function(i, obj) {
         console.log(obj)
         console.log($(obj).children().first()[0])
+        if($(obj).attr("viewBox") || $(obj).attr("width") || $(obj).attr("height")){
+            return
+        }
         maxx=Number.MIN_VALUE
         maxy=Number.MIN_VALUE
         minx=Number.MAX_VALUE
@@ -193,10 +221,10 @@ function setSVGDimensions(){
         $(obj).attr("height",((maxy-miny)+10))
         console.log($(obj).hasClass("svgoverlay"))
         if($(obj).hasClass("svgoverlay")){
-            naturalWidth=$(obj).prev()[0].naturalWidth
-            naturalHeight=$(obj).prev()[0].naturalHeight
-            currentWidth=$(obj).prev()[0].width
-            currentHeight=$(obj).prev()[0].height
+            naturalWidth=$(obj).prev().children('img')[0].naturalWidth
+            naturalHeight=$(obj).prev().children('img')[0].naturalHeight
+            currentWidth=$(obj).prev().children('img')[0].width
+            currentHeight=$(obj).prev().children('img')[0].height
             console.log(naturalWidth+" - "+naturalHeight+" - "+currentWidth+" - "+currentHeight)
             overlayposX = (currentWidth/naturalWidth) * minx;
             overlayposY = (currentHeight/naturalHeight) * miny;
@@ -210,6 +238,8 @@ function setSVGDimensions(){
     });
 }
 
+
+
 function exportWKT(){
     if(typeof(feature)!=="undefined"){
         reswkt=""
@@ -221,7 +251,7 @@ function exportWKT(){
                     if(i<feat["geometry"].coordinates.length-1)reswkt =  reswkt + p[0] + ' ' + p[1] + ', ';
                     else reswkt =  reswkt + p[0] + ' ' + p[1] + ')';
                 })
-                reswkt+=")\n"
+                reswkt+=")\\n"
             }
         }else{
                 reswkt+=feature["geometry"]["type"].toUpperCase()+"("
@@ -229,7 +259,7 @@ function exportWKT(){
                     if(i<feature["geometry"].coordinates.length-1)reswkt =  reswkt + p[0] + ' ' + p[1] + ', ';
                     else reswkt =  reswkt + p[0] + ' ' + p[1] + ')';
                 })
-                reswkt+=")\n"
+                reswkt+=")\\n"
         }
         saveTextAsFile(reswkt,".wkt")
     }
@@ -244,7 +274,7 @@ function downloadFile(filePath){
 
 function saveTextAsFile(tosave,fileext){
     var a = document.createElement('a');
-    a.style = "display: none";  
+    a.style = "display: none";
     var blob= new Blob([tosave], {type:'text/plain'});
     var url = window.URL.createObjectURL(blob);
     var filename = "res."+fileext;
@@ -254,7 +284,7 @@ function saveTextAsFile(tosave,fileext){
     a.click();
     setTimeout(function(){
         document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);  
+        window.URL.revokeObjectURL(url);
     }, 1000);
 }
 
@@ -298,7 +328,7 @@ function rewriteLink(thelink){
         while(counter<count){
             rest="../"+rest
             counter+=1
-        }   
+        }
     }
     rest+="index.html"
     console.log(rest)
@@ -389,14 +419,14 @@ function shortenURI(uri){
 }
 
 var presenter = null;
-function setup3dhop(meshurl,meshformat) { 
-  presenter = new Presenter("draw-canvas");  
+function setup3dhop(meshurl,meshformat) {
+  presenter = new Presenter("draw-canvas");
   presenter.setScene({
     meshes: {
 			"mesh_1" : { url: meshurl}
 		},
 		modelInstances : {
-			"model_1" : { 
+			"model_1" : {
 				mesh  : "mesh_1",
 				color : [0.8, 0.7, 0.75]
 			}
@@ -408,7 +438,7 @@ function start3dhop(meshurl,meshformat){
     init3dhop();
 	setup3dhop(meshurl,meshformat);
 	resizeCanvas(640,480);
-  	moveToolbar(20,20);  
+  	moveToolbar(20,20);
 }
 
 
@@ -506,26 +536,108 @@ function animate() {
     renderer.render( scene, camera );
 }
 
+function getTextAnnoContext(){
+$('span.textanno').each(function(i, obj) {
+    startindex=$(obj).attr("start").val()
+    endindex=$(obj).attr("end").val()
+    exact=$(obj).attr("exact").val()
+    if($(obj).attr("src")){
+        source=$(obj).attr("src").val()
+        $.get( source, function( data ) {
+            markarea=data.substring(start,end)
+            counter=0
+            startindex=0
+            endindex=data.indexOf("\\n",end)
+            for(line in data.split("\\n")){
+                counter+=line.length
+                if(counter>start){
+                    startindex=counter-line.length
+                    break
+                }
+            }
+            $(obj).html(data.substring(startindex,endindex)+"</span>".replace(markarea,"<mark>"+markarea+"</mark>"))
+        });
+    }
+  });
+}
 
 function labelFromURI(uri,label){
         if(uri.includes("#")){
         	prefix=uri.substring(0,uri.lastIndexOf('#')-1)
         	if(label!=null){
         		return label+" ("+prefix.substring(prefix.lastIndexOf("/")+1)+":"+uri.substring(uri.lastIndexOf('#')+1)+")"
-        	
+
         	}else{
-				return uri.substring(uri.lastIndexOf('#')+1)+" ("+prefix.substring(uri.lastIndexOf("/")+1)+":"+uri.substring(uri.lastIndexOf('#')+1)+")"        	
+				return uri.substring(uri.lastIndexOf('#')+1)+" ("+prefix.substring(uri.lastIndexOf("/")+1)+":"+uri.substring(uri.lastIndexOf('#')+1)+")"
         	}
        	}
         if(uri.includes("/")){
             prefix=uri.substring(0,uri.lastIndexOf('/')-1)
             if(label!=null){
-            	return label+" ("+prefix.substring(prefix.lastIndexOf("/")+1)+":"+uri.substring(uri.lastIndexOf('/')+1)+")" 
+            	return label+" ("+prefix.substring(prefix.lastIndexOf("/")+1)+":"+uri.substring(uri.lastIndexOf('/')+1)+")"
             }else{
         		return uri.substring(uri.lastIndexOf('/')+1)+" ("+prefix.substring(uri.lastIndexOf("/")+1)+":"+uri.substring(uri.lastIndexOf('/')+1)+")"
             }
        	}
         return uri
+}
+
+function formatHTMLTableForPropertyRelations(propuri,result,propicon){
+    dialogcontent="<h3><img src=\""+propicon+"\" height=\"25\" width=\"25\" alt=\"Instance\"/><a href=\""+propuri.replace('/index.json','/index.html')+"\" target=\"_blank\"> "+shortenURI(propuri)+"</a></h3><table border=1 id=classrelationstable><thead><tr><th>Incoming Concept</th><th>Relation</th><th>Outgoing Concept</th></tr></thead><tbody>"
+    console.log(result)
+    for(instance in result["from"]){
+//
+            if(result["from"][instance]=="instancecount"){
+                continue;
+            }
+            dialogcontent+="<tr><td><img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/class.png\" height=\"25\" width=\"25\" alt=\"Class\"/><a href=\""+result["from"][instance]+"\" target=\"_blank\">"+shortenURI(result["from"][instance])+"</a></td>"
+            dialogcontent+="<td><img src=\""+propicon+"\" height=\"25\" width=\"25\" alt=\"Instance\"/><a href=\""+propuri+"\" target=\"_blank\">"+shortenURI(propuri)+"</a></td><td></td></tr>"
+       // }
+    }
+    for(instance in result["to"]){
+        //for(instance in result["to"][res]){
+            if(result["to"][instance]=="instancecount"){
+                continue;
+            }
+            dialogcontent+="<tr><td></td><td><img src=\""+propicon+"\" height=\"25\" width=\"25\" alt=\"Class\"/><a href=\""+propuri+"\" target=\"_blank\">"+shortenURI(propuri)+"</a></td>"
+            dialogcontent+="<td><img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/class.png\" height=\"25\" width=\"25\" alt=\"Instance\"/><a href=\""+result["to"][instance]+"\" target=\"_blank\">"+shortenURI(result["to"][instance])+"</a></td></tr>"
+       // }
+    }
+    dialogcontent+="</tbody></table>"
+    dialogcontent+="<button style=\"float:right\" id=\"closebutton\" onclick='document.getElementById(\"classrelationdialog\").close()'>Close</button>"
+    return dialogcontent
+}
+
+function determineTableCellLogo(uri){
+    result="<td><a href=\""+uri+"\" target=\"_blank\">"
+    logourl=""
+    finished=false
+    if(uri in labelproperties){
+        result+="<img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/labelannotationproperty.png\" height=\"25\" width=\"25\" alt=\"Label Property\"/>"
+        logourl="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/labelannotationproperty.png"
+        finished=true
+    }
+    if(!finished){
+        for(ns in annotationnamespaces){
+            if(uri.includes(annotationnamespaces[ns])){
+                result+="<img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/annotationproperty.png\" height=\"25\" width=\"25\" alt=\"Annotation Property\"/>"
+                logourl="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/annotationproperty.png"
+                finished=true
+            }
+        }
+    }
+    if(!finished && uri in geoproperties && geoproperties[uri]=="ObjectProperty"){
+        result+="<img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geoobjectproperty.png\" height=\"25\" width=\"25\" alt=\"Geo Object Property\"/>"
+        logourl="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geoobjectproperty.png"
+    }else if(!finished && uri in geoproperties && geoproperties[uri]=="DatatypeProperty"){
+        result+="<img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geodatatypeproperty.png\" height=\"25\" width=\"25\" alt=\"Geo Datatype Property\"/>"
+        logourl="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geodatatypeproperty.png"
+    }else if(!finished){
+        result+="<img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/objectproperty.png\" height=\"25\" width=\"25\" alt=\"Object Property\"/>"
+        logourl="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/objectproperty.png"
+    }
+    result+=shortenURI(uri)+"</a></td>"
+    return [result,logourl]
 }
 
 function formatHTMLTableForClassRelations(result,nodeicon,nodelabel,nodeid){
@@ -539,21 +651,8 @@ function formatHTMLTableForClassRelations(result,nodeicon,nodelabel,nodeid){
             if(instance=="instancecount"){
                 continue;
             }
-            dialogcontent+="<tr><td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/class.png\" height=\"25\" width=\"25\" alt=\"Class\"/><a href=\""+instance+"\" target=\"_blank\">"+shortenURI(instance)+"</a></td>"
-            dialogcontent+="<td><a href=\""+res+"\" target=\"_blank\">"
-            finished=false
-            for(ns in annotationnamespaces){
-                if(res.includes(annotationnamespaces[ns])){
-                    dialogcontent+="<img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/annotationproperty.png\" height=\"25\" width=\"25\" alt=\"Annotation Property\"/>"
-                    finished=true
-                }
-            }
-            if(!finished && res in geoproperties && geoproperties[res]=="ObjectProperty"){
-                dialogcontent+="<img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geoobjectproperty.png\" height=\"25\" width=\"25\" alt=\"Datatype Property\"/>"
-            }else if(!finished){
-                dialogcontent+="<img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/objectproperty.png\" height=\"25\" width=\"25\" alt=\"Datatype Property\"/>"
-            }
-            dialogcontent+=shortenURI(res)+"</a></td>"
+            dialogcontent+="<tr><td><img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/class.png\" height=\"25\" width=\"25\" alt=\"Class\"/><a href=\""+instance+"\" target=\"_blank\">"+shortenURI(instance)+"</a></td>"
+            dialogcontent+=determineTableCellLogo(res)[0]
             dialogcontent+="<td><img src=\""+nodeicon+"\" height=\"25\" width=\"25\" alt=\"Instance\"/><a href=\""+nodeid+"\" target=\"_blank\">"+nodelabel+"</a></td><td></td><td></td></tr>"
         }
     }
@@ -563,21 +662,8 @@ function formatHTMLTableForClassRelations(result,nodeicon,nodelabel,nodeid){
                 continue;
             }
             dialogcontent+="<tr><td></td><td></td><td><img src=\""+nodeicon+"\" height=\"25\" width=\"25\" alt=\"Instance\"/><a href=\""+nodeid+"\" target=\"_blank\">"+nodelabel+"</a></td>"
-            dialogcontent+="<td><a href=\""+res+"\" target=\"_blank\">"
-            finished=false
-            for(ns in annotationnamespaces){
-                if(res.includes(annotationnamespaces[ns])){
-                    dialogcontent+="<img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/annotationproperty.png\" height=\"25\" width=\"25\" alt=\"Annotation Property\"/>"
-                    finished=true
-                }
-            }
-            if(!finished && res in geoproperties && geoproperties[res]=="ObjectProperty"){
-                dialogcontent+="<img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geoobjectproperty.png\" height=\"25\" width=\"25\" alt=\"Datatype Property\"/>"
-            }else if(!finished){
-                dialogcontent+="<img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/objectproperty.png\" height=\"25\" width=\"25\" alt=\"Datatype Property\"/>"
-            }
-            dialogcontent+=shortenURI(res)+"</a></td>"
-            dialogcontent+="<td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/class.png\" height=\"25\" width=\"25\" alt=\"Class\"/><a href=\""+instance+"\" target=\"_blank\">"+shortenURI(instance)+"</a></td></tr>"
+            dialogcontent+=determineTableCellLogo(res)[0]
+            dialogcontent+="<td><img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/class.png\" height=\"25\" width=\"25\" alt=\"Class\"/><a href=\""+instance+"\" target=\"_blank\">"+shortenURI(instance)+"</a></td></tr>"
         }
     }
     dialogcontent+="</tbody></table>"
@@ -589,40 +675,40 @@ function formatHTMLTableForResult(result,nodeicon){
     dialogcontent=""
     dialogcontent="<h3><img src=\""+nodeicon+"\" height=\"25\" width=\"25\" alt=\"Instance\"/><a href=\""+nodeid.replace('/index.json','/index.html')+"\" target=\"_blank\"> "+nodelabel+"</a></h3><table border=1 id=dataschematable><thead><tr><th>Type</th><th>Relation</th><th>Value</th></tr></thead><tbody>"
     for(res in result){
+        console.log(result)
+        console.log(result[res])
+        console.log(result[res].size)
         dialogcontent+="<tr>"
+        detpropicon=""
         if(res in geoproperties && geoproperties[res]=="ObjectProperty"){
-            dialogcontent+="<td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geoobjectproperty.png\" height=\"25\" width=\"25\" alt=\"Geo Object Property\"/>Geo Object Property</td>"
+            dialogcontent+="<td><img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geoobjectproperty.png\" height=\"25\" width=\"25\" alt=\"Geo Object Property\"/>Geo Object Property</td>"
+            detpropicon="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/geoobjectproperty.png"
         }else if((result[res][0]+"").startsWith("http")){
-            dialogcontent+="<td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/objectproperty.png\" height=\"25\" width=\"25\" alt=\"Object Property\"/>Object Property</td>"
+            dialogcontent+="<td><img src=\"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/objectproperty.png\" height=\"25\" width=\"25\" alt=\"Object Property\"/>Object Property</td>"
+            detpropicon="https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/objectproperty.png"
         }else{
             finished=false
-            for(ns in annotationnamespaces){
-                if(res.includes(annotationnamespaces[ns])){
-                    dialogcontent+="<td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/annotationproperty.png\" height=\"25\" width=\"25\" alt=\"Annotation Property\"/>Annotation Property</td>"
-                    finished=true
-                }
-            }
-            if(!finished && res in geoproperties && geoproperties[res]=="DatatypeProperty"){
-                dialogcontent+="<td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/geodatatypeproperty.png\" height=\"25\" width=\"25\" alt=\"Datatype Property\"/>Geo Datatype Property</td>"
-            }else if(!finished){
-                dialogcontent+="<td><img src=\"https://raw.githubusercontent.com/i3mainz/geopubby/master/public/icons/datatypeproperty.png\" height=\"25\" width=\"25\" alt=\"Datatype Property\"/>Datatype Property</td>"
-            }
-        }    
-        dialogcontent+="<td><a href=\""+res+"\" target=\"_blank\">"+shortenURI(res)+"</a></td>"
-        if(Array.isArray(result[res]) && result[res].length>1){
+            ress=determineTableCellLogo(res)
+            dialogcontent+=ress[0]
+            detpropicon=ress[1]
+        }
+        dialogcontent+="<td><a href=\""+res+"\" target=\"_blank\">"+shortenURI(res)+"</a> <a href=\"#\" onclick=\"getPropRelationDialog('"+res+"','"+detpropicon+"')\">[x]</a></td>"
+        if(Object.keys(result[res]).length>1){
             dialogcontent+="<td><ul>"
-            for(resitem of result[res]){
+            for(resitem in result[res]){
                 if((resitem+"").startsWith("http")){
-                    dialogcontent+="<li><a href=\""+rewriteLink(resitem)+"\" target=\"_blank\">"+shortenURI(resitem)+"</a></li>"
-                }else{
+                    dialogcontent+="<li><a href=\""+rewriteLink(resitem)+"\" target=\"_blank\">"+shortenURI(resitem)+"</a> ["+result[res][resitem]+"]</li>"
+                }else if(resitem!="instancecount"){
                     dialogcontent+="<li>"+resitem+"</li>"
                 }
             }
             dialogcontent+="</ul></td>"
-        }else if((result[res][0]+"").startsWith("http")){
-            dialogcontent+="<td><a href=\""+rewriteLink(result[res][0]+"")+"\" target=\"_blank\">"+shortenURI(result[res][0]+"")+"</a></td>"
+        }else if((Object.keys(result[res])[0]+"").startsWith("http")){
+            dialogcontent+="<td><a href=\""+rewriteLink(Object.keys(result[res])[0]+"")+"\" target=\"_blank\">"+shortenURI(Object.keys(result[res])[0]+"")+"</a></td>"
+        }else if(Object.keys(result[res])[0]!="instancecount"){
+            dialogcontent+="<td>"+Object.keys(result[res])[0]+"</td>"
         }else{
-            dialogcontent+="<td>"+result[res][0]+"</td>"
+            dialogcontent+="<td></td>"
         }
         dialogcontent+="</tr>"
     }
@@ -641,13 +727,21 @@ function getClassRelationDialog(node){
         props=node.data
      }
      console.log(nodetype)
-     if(nodetype=="class" || nodetype=="geoclass" || node.type=="collectionclass"){
+     if(nodetype=="class" || nodetype=="geoclass" || nodetype=="collectionclass" || nodetype=="halfgeoclass"){
         console.log(props)
         dialogcontent=formatHTMLTableForClassRelations(props,nodeicon,nodelabel,nodeid)
         document.getElementById("classrelationdialog").innerHTML=dialogcontent
         $('#classrelationstable').DataTable();
         document.getElementById("classrelationdialog").showModal();
      }
+}
+
+function getPropRelationDialog(propuri,propicon){
+     dialogcontent=formatHTMLTableForPropertyRelations(propuri,proprelations[propuri],propicon)
+     console.log(dialogcontent)
+     document.getElementById("classrelationdialog").innerHTML=dialogcontent
+     $('#classrelationstable').DataTable();
+     document.getElementById("classrelationdialog").showModal();
 }
 
 function getDataSchemaDialog(node){
@@ -660,7 +754,7 @@ function getDataSchemaDialog(node){
         props=node.data
      }
      console.log(nodetype)
-     if(nodetype=="class" || nodetype=="geoclass" || node.type=="collectionclass"){
+     if(nodetype=="class" || nodetype=="halfgeoclass" || nodetype=="geoclass" || node.type=="collectionclass"){
         console.log(props)
         dialogcontent=formatHTMLTableForResult(props["to"],nodeicon)
         document.getElementById("dataschemadialog").innerHTML=dialogcontent
@@ -689,18 +783,25 @@ function setupJSTree(){
             return (a1.icon > b1.icon) ? 1 : -1;
         }
     }
+    /*for(typee in tree["types"]){
+        if("icon" in tree["types"][typee]){
+            tree["types"][typee]["icon"]=tree["types"][typee]["icon"].replace("https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/",baseurl+"icons/")
+        }
+    }
+    console.log(tree["types"])
+    */
     tree["contextmenu"]["items"]=function (node) {
         nodetype=node.type
         thelinkpart="class"
         if(nodetype=="instance" || nodetype=="geoinstance"){
             thelinkpart="instance"
-        }    
+        }
         contextmenu={
             "lookupdefinition": {
                 "separator_before": false,
                 "separator_after": false,
                 "label": "Lookup definition",
-                "icon": "https://github.com/i3mainz/geopubby/raw/master/public/icons/searchclass.png",
+                "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/searchclass.png",
                 "action": function (obj) {
                     newlink=rewriteLink(node.id)
                     var win = window.open(newlink, '_blank');
@@ -711,40 +812,40 @@ function setupJSTree(){
                 "separator_before": false,
                 "separator_after": false,
                 "label": "Copy URI to clipboard",
-                "icon": "https://github.com/i3mainz/geopubby/raw/master/public/icons/"+thelinkpart+"link.png",
+                "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/"+thelinkpart+"link.png",
                 "action":function(obj){
                     copyText=node.id
                     navigator.clipboard.writeText(copyText);
-                }    
+                }
             },
             "discoverrelations":{
                 "separator_before": false,
                 "separator_after": false,
                 "label": "Discover "+node.type+" relations",
-                "icon": "https://github.com/i3mainz/geopubby/raw/master/public/icons/"+thelinkpart+"link.png",
+                "icon": "https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/"+thelinkpart+"link.png",
                 "action":function(obj){
                     console.log("class relations")
                     if(node.type=="class" || node.type=="geoclass" || node.type=="collectionclass"){
                         getClassRelationDialog(node)
                     }
-                }    
+                }
             },
             "loaddataschema": {
                 "separator_before": false,
                 "separator_after": false,
-                "icon":"https://github.com/i3mainz/geopubby/raw/master/public/icons/"+node.type+"schema.png",
+                "icon":"https://cdn.jsdelivr.net/gh/i3mainz/geopubby@master/public/icons/"+node.type+"schema.png",
                 "label": "Load dataschema for "+node.type,
                 "action": function (obj) {
                     console.log(node)
                     console.log(node.id)
                     console.log(baseurl)
                     if(node.id.includes(baseurl)){
-                        getDataSchemaDialog(node) 
+                        getDataSchemaDialog(node)
                     }else if(node.type=="class" || node.type=="geoclass" || node.type=="collectionclass"){
-                        getDataSchemaDialog(node) 
-                    }                                         
+                        getDataSchemaDialog(node)
+                    }
                 }
-            }                
+            }
         }
         return contextmenu
     }

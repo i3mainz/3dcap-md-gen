@@ -15,4 +15,3 @@
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_mesh_0> <http://www.w3.org/2000/01/rdf-schema#label> "V03_041_SLP_20200825"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_mesh_0> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2> .
 <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_mesh_0> <http://www.w3.org/ns/prov-o/wasGeneratedBy> <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_mesh_0_creation_0_activity> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_mesh_0> <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by-sa/4.0> .

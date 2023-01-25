@@ -1,6 +1,6 @@
 var a00026 =
 [
-    [ "__init__", "a00026.html#aa51cd2a18c1daaeabbd24d74c19b6772", null ],
+    [ "__init__", "a00026.html#a0467f027be809cefa336b3f4dac3fb13", null ],
     [ "assignGeoClassesToTree", "a00026.html#a63b2f2adf3e91502cdc3fd988e04a634", null ],
     [ "checkDepthFromPath", "a00026.html#a2e2e14bb448cc6446fa354be38b7e0ed", null ],
     [ "createHTML", "a00026.html#a8675fcb58fd65bc89df02405e7d799c8", null ],
@@ -10,6 +10,7 @@ var a00026 =
     [ "generateRelativeLinkFromGivenDepth", "a00026.html#aa709eb2b15a947b54e52fe61ffd023f6", null ],
     [ "getAccessFromBaseURL", "a00026.html#ac154185ec6f25889521bd432c665e3b1", null ],
     [ "getClassTree", "a00026.html#a8695f9dffa7c328901a29b03727423a3", null ],
+    [ "getPropertyRelations", "a00026.html#ae374bd4ae17fa0139f5cf938d7fba264", null ],
     [ "processLicense", "a00026.html#acab64b806594c67ed52ab8a8f726ffa7", null ],
     [ "processLiteral", "a00026.html#a4d3629a60ba439e734740c20cd8e7db8", null ],
     [ "processSubjectPath", "a00026.html#a2d60ae113a2214dadd5058f07de1cf39", null ],
@@ -21,6 +22,7 @@ var a00026 =
     [ "labellang", "a00026.html#ac3dc5ad8aba46339c23e75bd27752f9e", null ],
     [ "license", "a00026.html#a4e659be027e258b72df12349200a263e", null ],
     [ "licenseuri", "a00026.html#ab9465f300c879b9345c045c1d1fed3d1", null ],
+    [ "logoname", "a00026.html#afb313323546e7a8ee63e280e8e07348d", null ],
     [ "namespaceshort", "a00026.html#a4d48434afff12a0d8eb8a3cead5e701d", null ],
     [ "outpath", "a00026.html#a0551b9a7684f60f1c9ecfd1049fa01f6", null ],
     [ "prefixes", "a00026.html#a302e350558edcbbd7b85927b33550548", null ],

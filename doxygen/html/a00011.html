@@ -63,6 +63,7 @@ $(document).ready(function(){initNavTree('a00011.html',''); initResizable(); });
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">docgeneration.py File Reference</div>  </div>
@@ -79,8 +80,15 @@ Namespaces</h2></td></tr>
 <tr class="memitem:a00017"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html">docgeneration</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3ad9f4a73811c999ec66719aa414ae5b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a3ad9f4a73811c999ec66719aa414ae5b">resolveTemplate</a> (templatename)</td></tr>
+<tr class="separator:a3ad9f4a73811c999ec66719aa414ae5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a9cf48c3b020fab78000d99f69257773c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a9cf48c3b020fab78000d99f69257773c">templatepath</a> = os.path.abspath(os.path.join(os.path.dirname(__file__), &quot;resources/html/&quot;))</td></tr>
+<tr class="separator:a9cf48c3b020fab78000d99f69257773c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d421946042f084950a2184bdd0a2ad9"><td class="memItemLeft" align="right" valign="top">dictionary&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a1d421946042f084950a2184bdd0a2ad9">labelproperties</a></td></tr>
 <tr class="separator:a1d421946042f084950a2184bdd0a2ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a122bc94b95a13ec95c6d50569b2e87bb"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a122bc94b95a13ec95c6d50569b2e87bb">collectionclasses</a> = [&quot;http://www.opengis.net/ont/geosparql#FeatureCollection&quot;,&quot;http://www.opengis.net/ont/geosparql#GeometryCollection&quot;,&quot;http://www.opengis.net/ont/geosparql#SpatialObjectCollection&quot;,&quot;http://www.w3.org/2004/02/skos/core#Collection&quot;,&quot;http://www.w3.org/2004/02/skos/core#OrderedCollection&quot;,&quot;https://www.w3.org/ns/activitystreams#Collection&quot;,&quot;https://www.w3.org/ns/activitystreams#OrderedCollection&quot;]</td></tr>
@@ -157,28 +165,38 @@ Variables</h2></td></tr>
 <tr class="separator:ab1000d1f2ea9878f60bc119650013894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a302e350558edcbbd7b85927b33550548"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a302e350558edcbbd7b85927b33550548">prefixes</a> = json.load(f)</td></tr>
 <tr class="separator:a302e350558edcbbd7b85927b33550548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a666f67c1c4af806bb273d7bd2daa8374"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a666f67c1c4af806bb273d7bd2daa8374">prefixnsshort</a> = &quot;cuneidict&quot;</td></tr>
+<tr class="memitem:a666f67c1c4af806bb273d7bd2daa8374"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a666f67c1c4af806bb273d7bd2daa8374">prefixnsshort</a> = &quot;suni&quot;</td></tr>
 <tr class="separator:a666f67c1c4af806bb273d7bd2daa8374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ffa1f1fccfb3b402b88fd1f51c1dc81"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a8ffa1f1fccfb3b402b88fd1f51c1dc81">prefixnamespace</a> = &quot;http://purl.org/cuneiform/&quot;</td></tr>
 <tr class="separator:a8ffa1f1fccfb3b402b88fd1f51c1dc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b0df2d8b18e862fa63bf6f4cc08a8cb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a3b0df2d8b18e862fa63bf6f4cc08a8cb">license</a> = &quot;CC BY-SA 4.0&quot;</td></tr>
+<tr class="memitem:a3b0df2d8b18e862fa63bf6f4cc08a8cb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a3b0df2d8b18e862fa63bf6f4cc08a8cb">license</a> = &quot;&quot;</td></tr>
 <tr class="separator:a3b0df2d8b18e862fa63bf6f4cc08a8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0551b9a7684f60f1c9ecfd1049fa01f6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a0551b9a7684f60f1c9ecfd1049fa01f6">outpath</a> = &quot;signlist_htmls/&quot;</td></tr>
-<tr class="separator:a0551b9a7684f60f1c9ecfd1049fa01f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af927dd0562e0aa6a55952087e206a1ef"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#af927dd0562e0aa6a55952087e206a1ef">outpath</a> = []</td></tr>
+<tr class="separator:af927dd0562e0aa6a55952087e206a1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9acefadda1609438e9abf7727b9137"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#abd9acefadda1609438e9abf7727b9137">labellang</a> = &quot;en&quot;</td></tr>
 <tr class="separator:abd9acefadda1609438e9abf7727b9137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81423d9c1a7c90fb6ffc88304a6330aa"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a81423d9c1a7c90fb6ffc88304a6330aa">templatename</a> = &quot;default&quot;</td></tr>
+<tr class="separator:a81423d9c1a7c90fb6ffc88304a6330aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8ad379377e39535ea15a5524b81582d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ad8ad379377e39535ea15a5524b81582d">createIndexPages</a> = True</td></tr>
 <tr class="separator:ad8ad379377e39535ea15a5524b81582d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03d872533f5f6255a26b393857fd90e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a03d872533f5f6255a26b393857fd90e9">filepath</a> = sys.argv[1]</td></tr>
-<tr class="separator:a03d872533f5f6255a26b393857fd90e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b051267830d5e674ca02086923a6163"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a8b051267830d5e674ca02086923a6163">filestoprocess</a> = []</td></tr>
+<tr class="separator:a8b051267830d5e674ca02086923a6163"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08ce2737451bc2027c289bc8ffbeb35a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a08ce2737451bc2027c289bc8ffbeb35a">indexp</a> = sys.argv[5]</td></tr>
 <tr class="separator:a08ce2737451bc2027c289bc8ffbeb35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07a9e4a831349086aa885723cdc93d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ab07a9e4a831349086aa885723cdc93d6">fcounter</a> = 0</td></tr>
+<tr class="separator:ab07a9e4a831349086aa885723cdc93d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73c18c59a39b18382081ec00bb456d43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a73c18c59a39b18382081ec00bb456d43">g</a> = Graph()</td></tr>
 <tr class="separator:a73c18c59a39b18382081ec00bb456d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1711fd3241a2840b54803b4e36049579"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a1711fd3241a2840b54803b4e36049579">docgen</a> = OntDocGeneration(prefixes,prefixnamespace,prefixnsshort,license,labellang,outpath,g,createIndexPages)</td></tr>
+<tr class="memitem:a1711fd3241a2840b54803b4e36049579"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a1711fd3241a2840b54803b4e36049579">docgen</a> = OntDocGeneration(prefixes,prefixnamespace,prefixnsshort,license,labellang,outpath[fcounter],g,createIndexPages)</td></tr>
 <tr class="separator:a1711fd3241a2840b54803b4e36049579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14ca374b0171c2d86a0025a00a5bd8be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a14ca374b0171c2d86a0025a00a5bd8be">dataformat</a></td></tr>
 <tr class="separator:a14ca374b0171c2d86a0025a00a5bd8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a858301729093463af3cb4e756cc6f58d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a858301729093463af3cb4e756cc6f58d">indexf</a> = open(outpath[0]+&quot;/index.html&quot;,&quot;w&quot;,encoding=&quot;utf-8&quot;)</td></tr>
+<tr class="separator:a858301729093463af3cb4e756cc6f58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ed7733f9d0335b255ecbec3f0ad5ac0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a9ed7733f9d0335b255ecbec3f0ad5ac0">indexhtml</a> = htmltemplate.replace(&quot;{{logo}}&quot;,&quot;&quot;).replace(&quot;{{baseurl}}&quot;, prefixnamespace).replace(&quot;{{relativedepth}}&quot;,&quot;0&quot;).replace(&quot;{{toptitle}}&quot;,&quot;Index page&quot;).replace(&quot;{{title}}&quot;,&quot;Index page&quot;).replace(&quot;{{startscriptpath}}&quot;, &quot;startscripts.js&quot;).replace(&quot;{{stylepath}}&quot;, &quot;style.css&quot;)\</td></tr>
+<tr class="separator:a9ed7733f9d0335b255ecbec3f0ad5ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67802bf554dc41dfc007cc66b846b9e7"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a67802bf554dc41dfc007cc66b846b9e7">subfolders</a> = [f.path for f in os.scandir(outpath[0]) if f.is_dir()]</td></tr>
+<tr class="separator:a67802bf554dc41dfc007cc66b846b9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
