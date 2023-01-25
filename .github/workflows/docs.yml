@@ -12,10 +12,16 @@ jobs:
          prefixnsshort: ex
          indexpages: true
          ghpages: false
+  
   doxygen:
     needs: build
     runs-on: ubuntu-latest
     steps:
+       - name: Download build-output artifact
+         uses: actions/download-artifact@master
+         with:
+           name: build-output
+           path: docs/
        - name: Create Doxygen Documentation 🔧
          run: |
            sudo apt-get install doxygen graphviz -y 
