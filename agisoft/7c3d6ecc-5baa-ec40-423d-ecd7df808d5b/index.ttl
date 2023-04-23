@@ -1,8 +1,0 @@
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://objects.mainzed.org/ont#acquisitionTechnology> "structure from motion"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://objects.mainzed.org/ont#measurementSeries> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://objects.mainzed.org/ont#numberOfChunks> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://objects.mainzed.org/ont#projectfile> "Holz.psx"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://purl.org/dc/terms/creator> <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#MeasurementProject> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://www.w3.org/2000/01/rdf-schema#label> "Holz"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> <http://www.w3.org/ns/prov-o/wasDerivedFrom> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0> .

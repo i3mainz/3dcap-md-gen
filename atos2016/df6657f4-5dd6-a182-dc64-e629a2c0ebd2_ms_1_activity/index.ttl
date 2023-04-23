@@ -1,4 +1,0 @@
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov-o/Activity> .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> <http://www.w3.org/2000/01/rdf-schema#label> " Messreihe 1 ()"@de .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> <http://www.w3.org/2000/01/rdf-schema#label> "MS 1 Activity ()"@en .
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> <http://www.w3.org/ns/prov-o/wasAssociatedWith> <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .

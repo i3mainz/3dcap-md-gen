@@ -1,5 +1,0 @@
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement1_rp86_r_x_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "241.847585802"^^<http://www.w3.org/2001/XMLSchema#float> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement1_rp86_r_x_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement1_rp86_r_x_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement1_rp86_r_x_value> <http://www.w3.org/2000/01/rdf-schema#label> "x-Koordinate Messwert ( MS 0 Measurement 13 RP86)"@de .
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement1_rp86_r_x_value> <http://www.w3.org/2000/01/rdf-schema#label> "x-coordinate Measurement Value ( MS 0 Measurement 13 RP86)"@en .

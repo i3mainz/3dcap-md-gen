@@ -1,6 +1,0 @@
-<http://objects.mainzed.org/data/ATOS2016> <http:///www.wikidata.org/entity/Q1595572#http:///www.wikidata.org/entity/Q15955723> "agisoft-metashape_3dcap-metadata.py"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/ATOS2016> <http:///www.wikidata.org/entity/Q2063165#http:///www.wikidata.org/entity/Q20631656> "0.1.3"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/ATOS2016> <http:///www.wikidata.org/entity/Q36#http:///www.wikidata.org/entity/Q364> "https://github.com/i3mainz/3dcap-md-gen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://objects.mainzed.org/data/ATOS2016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#Software> .
-<http://objects.mainzed.org/data/ATOS2016> <http://www.w3.org/2000/01/rdf-schema#label> "ATOS2016"@en .
-<http://objects.mainzed.org/data/ATOS2016> <http://www.w3.org/ns/prov#startedAtTime> "2022-12-21T14:56:05"^^<http://www.w3.org/2001/XMLSchema#dateTime> .

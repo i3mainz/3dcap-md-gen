@@ -1,5 +1,0 @@
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "0.16584212965047027"^^<http://www.w3.org/2001/XMLSchema#float> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance_value> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance_value> <http://www.w3.org/2000/01/rdf-schema#label> "average point distance Measurement Value ( MS 0  0)"@en .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance_value> <http://www.w3.org/2000/01/rdf-schema#label> "durchschnittlicher Punktabstand Messwert ( MS 0  0)"@de .

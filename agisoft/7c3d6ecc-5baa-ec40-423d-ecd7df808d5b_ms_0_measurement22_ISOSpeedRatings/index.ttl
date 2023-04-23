@@ -1,4 +1,0 @@
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement22_ISOSpeedRatings> <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement22_ISOSpeedRatings_value> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement22_ISOSpeedRatings> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://objects.mainzed.org/ont#ISOSpeedRatings> .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement22_ISOSpeedRatings> <http://www.w3.org/2000/01/rdf-schema#label> "ISOSpeedRatings ( MS 0 Measurement 22)"@en .
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement22_ISOSpeedRatings> <http://www.w3.org/2000/01/rdf-schema#label> "Isowert ( MS 0 Measurement 22)"@de .
