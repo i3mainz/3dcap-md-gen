@@ -18,7 +18,7 @@ jobs:
           createnonNSPages: true
           createVOWL: true
           preferredlang: en
-          ghpages: false
+          ghpages: true
 
   ontdocII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
@@ -34,7 +34,7 @@ jobs:
           createnonNSPages: true
           createVOWL: true
           preferredlang: en
-          ghpages: false
+          ghpages: true
   ontdocIII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
     name: Ontdoc III      
@@ -49,7 +49,7 @@ jobs:
           createnonNSPages: true
           createVOWL: true
           preferredlang: en
-          ghpages: false
+          ghpages: true
 
   build:
 
