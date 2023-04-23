@@ -19,6 +19,7 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: true
+          ghpagesfolder: atos62/
 
   ontdocII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
@@ -35,6 +36,7 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: true
+          ghpagesfolder: atos2016/
   ontdocIII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
     name: Ontdoc III      
@@ -50,6 +52,7 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: true
+          ghpagesfolder: agisoft/
 
   build:
 
