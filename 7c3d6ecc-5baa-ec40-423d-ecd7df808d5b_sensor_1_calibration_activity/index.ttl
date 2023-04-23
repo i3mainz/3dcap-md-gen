@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_activity> a ns1:Activity ;
+    rdfs:label "Sensor 1 Messvorgang 17 Kalibrierung "@de,
+        "MS 1 Measurement 17 Calibration Activity "@en ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> .
+

@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_1_scalebar_distance> a <http://objects.mainzed.org/ont#Scalebar_distance> ;
+    rdfs:label "Abstand ( MS 0  1)"@de,
+        "distance ( MS 0  1)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_1_scalebar_distance_value> .
+

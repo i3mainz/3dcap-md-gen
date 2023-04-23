@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement48_activity> a ns1:Activity ;
+    rdfs:label "Messreihe 0 Messvorgang 48 ()"@de,
+        "MS 0 Measurement 0 Activity"@en,
+        "MS 0 Measurement 48 Activity ()"@en ;
+    ns1:used <http://objects.mainzed.org/data/ATOS2016> ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> .
+
