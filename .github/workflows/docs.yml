@@ -3,19 +3,15 @@ name: Java CI
 on: [push]
 
 jobs:
+  ontdoc:
+    needs: build
+    
   build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-    - name: Create Doxygen Documentation 🔧
-      run: |
-         sudo apt-get install doxygen graphviz -y
-         mkdir atos2016
-         mkdir atos62     
-         cd docs
-         doxygen Doxyfile 
     - name: Ontdoc I
       uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
       with: 
@@ -58,6 +54,11 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: false
+    - name: Create Doxygen Documentation 🔧
+      run: |
+         sudo apt-get install doxygen graphviz -y   
+         cd docs
+         doxygen Doxyfile 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
