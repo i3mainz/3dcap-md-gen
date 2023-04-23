@@ -15,8 +15,9 @@ jobs:
          mkdir atos2016
          mkdir atos62     
          cd docs
-         doxygen Doxyfile      
-    - uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+         doxygen Doxyfile 
+    - name: Ontdoc I
+      uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
       with: 
           rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl
           docpath: docs/atos62/
@@ -29,7 +30,8 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: false
-    - uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+    - name: Ontdoc II
+      uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
       with: 
           rdffilepath: sampledata/V03_041_SLP_20200825_meta_atos2016.ttl
           docpath: docs/atos2016/
@@ -42,7 +44,8 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: false
-    - uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+    - name: Ontdoc III
+      uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
       with: 
           rdffilepath: sampledata/Holz_meta_agisoft.ttl
           docpath: docs/agisoft/
