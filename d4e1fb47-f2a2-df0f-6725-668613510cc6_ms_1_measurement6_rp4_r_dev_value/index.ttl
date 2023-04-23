@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement6_rp4_r_dev_value> a ns1:Measure ;
+    rdfs:label "Punktabweichung Messwert ( MS 1 Measurement 63 RP4)"@de,
+        "Point deviation Measurement Value ( MS 1 Measurement 63 RP4)"@en ;
+    ns1:hasNumericalValue "0.00264385043469"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+

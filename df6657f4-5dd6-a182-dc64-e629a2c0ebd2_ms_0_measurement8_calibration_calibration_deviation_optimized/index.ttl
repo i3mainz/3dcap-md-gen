@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement8_calibration_calibration_deviation_optimized> a <http://objects.mainzed.org/ont#Calibration_deviation_optimized> ;
-    rdfs:label "Kalibrierabweichung (optimiert) ( MS 0 Measurement 8 Calibration)"@de,
-        "Calibration deviation (optimized) ( MS 0 Measurement 8 Calibration)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement8_calibration_calibration_deviation_optimized_value> .
-

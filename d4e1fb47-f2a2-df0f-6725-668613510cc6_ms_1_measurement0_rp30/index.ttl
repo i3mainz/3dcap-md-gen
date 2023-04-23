@@ -1,0 +1,21 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_rp30> a ns2:ReferencePoint ;
+    rdfs:label "RP30 ( Messreihe 1 Messung 0)"@de,
+        "RP30 ( MS 1 Measurement 0)"@en ;
+    ns2:commonReferencepoint false ;
+    ns2:pointID 30 ;
+    ns2:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_rp30_r_dev> ;
+    ns2:pointMeasurementState "ok"^^xsd:string ;
+    ns2:pointProjectState "photogrammetric point"^^xsd:string ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_rp30_r_x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_rp30_r_y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_rp30_r_z> ;
+    geo:asWKT "POINT(238.614307 10.3058562254 -106.0803467)"^^geo:wktLiteral ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_algorithm> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement0_activity> .
+

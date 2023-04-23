@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0_calibration_calibration_volume_length> a <http://objects.mainzed.org/ont#Calibration_volume_length> ;
-    rdfs:label "Kalibriervolumenlänge ( MS 1 Measurement 0 Calibration)"@de,
-        "Calibration volume length ( MS 1 Measurement 0 Calibration)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0_calibration_calibration_volume_length_value> .
-

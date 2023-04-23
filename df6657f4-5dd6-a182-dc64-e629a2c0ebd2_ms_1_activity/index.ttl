@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.w3.org/ns/prov-o/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> a ns1:Activity ;
-    rdfs:label " Messreihe 1 ()"@de,
-        "MS 1 Activity ()"@en ;
-    ns1:wasAssociatedWith <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .
-
