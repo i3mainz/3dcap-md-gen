@@ -11,18 +11,50 @@ jobs:
     - uses: actions/checkout@v1
     - name: Create Doxygen Documentation 🔧
       run: |
-         sudo apt-get install doxygen graphviz python3-dev python3-pip -y
-         sudo apt-get install python3-venv python3-wheel -y
-         sudo pip3 install wheel pylode==2.13.2 rdflib shapely
+         sudo apt-get install doxygen graphviz -y
          mkdir atos2016
-         mkdir atos62
-         wget https://raw.githubusercontent.com/sparqlunicorn/sparqlunicornGoesGIS-ontdoc/main/docgeneration.py 
-         wget https://raw.githubusercontent.com/sparqlunicorn/sparqlunicornGoesGIS-ontdoc/main/prefixes.json 
-         python3 docgeneration.py sampledata/V03_041_SLP_20120113_e.ttl docs/atos62/ http://objects.mainzed.org/data/ ex False
-         python3 docgeneration.py sampledata/V03_041_SLP_20200825_meta_atos2016.ttl docs/atos2016/ http://objects.mainzed.org/data/ ex False
-         python3 docgeneration.py sampledata/Holz_meta_agisoft.ttl docs/agisoft/ http://objects.mainzed.org/data/ ex False      
+         mkdir atos62     
          cd docs
          doxygen Doxyfile      
+    - uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+      with: 
+          rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl
+          docpath: docs/atos62/
+          prefixns: http://objects.mainzed.org/data/
+          prefixnsshort: ex
+          indexpages: true
+          metadatatable: true
+          createcollections: false
+          createnonNSPages: true
+          createVOWL: true
+          preferredlang: en
+          ghpages: false
+    - uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+      with: 
+          rdffilepath: sampledata/V03_041_SLP_20200825_meta_atos2016.ttl
+          docpath: docs/atos2016/
+          prefixns: http://objects.mainzed.org/data/
+          prefixnsshort: ex
+          indexpages: true
+          metadatatable: true
+          createcollections: false
+          createnonNSPages: true
+          createVOWL: true
+          preferredlang: en
+          ghpages: false
+    - uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+      with: 
+          rdffilepath: sampledata/Holz_meta_agisoft.ttl
+          docpath: docs/agisoft/
+          prefixns: http://objects.mainzed.org/data/
+          prefixnsshort: ex
+          indexpages: true
+          metadatatable: true
+          createcollections: false
+          createnonNSPages: true
+          createVOWL: true
+          preferredlang: en
+          ghpages: false
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
