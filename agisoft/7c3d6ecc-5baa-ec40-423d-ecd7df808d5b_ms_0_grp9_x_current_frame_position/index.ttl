@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp9_x_current_frame_position> a <http://objects.mainzed.org/ont#X_current_frame_position> ;
+    rdfs:label "x-Postion in der aktuellen Ansicht ( MS 0 GRP9)"@de,
+        "x position in current frame ( MS 0 GRP9)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp9_x_current_frame_position_value> .
+

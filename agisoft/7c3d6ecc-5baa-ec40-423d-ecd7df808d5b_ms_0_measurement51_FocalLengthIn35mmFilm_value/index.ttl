@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement51_FocalLengthIn35mmFilm_value> a ns1:Measure ;
+    rdfs:label "FocalLengthIn35mmFilm Messwert ( MS 0 Measurement 51)"@de,
+        "FocalLengthIn35mmFilm Measurement Value ( MS 0 Measurement 51)"@en ;
+    ns1:hasNumericalValue "60"^^xsd:string ;
+    ns1:hasUnit ns1:millimetre .
+
