@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_calibration_setup_calibration_remaining_sensor_warmup_time_value> a ns1:Measure ;
+    rdfs:label "Verbleibende Sensor-Aufwärmzeit Messwert ( MS 0 Measurement 7 Calibration Setup)"@de,
+        "Remaining sensor warm up time Measurement Value ( MS 0 Measurement 7 Calibration Setup)"@en ;
+    ns1:hasNumericalValue 0 ;
+    ns1:hasUnit ns1:minute-Time .
+

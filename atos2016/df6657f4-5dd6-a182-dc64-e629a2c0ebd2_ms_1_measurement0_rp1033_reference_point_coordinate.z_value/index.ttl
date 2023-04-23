@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0_rp1033_reference_point_coordinate.z_value> a ns1:Measure ;
+    rdfs:label "Referenzpunktkoordinate Z Messwert ( MS 1 Measurement 35 RP1033)"@de,
+        "Reference point coordinate Z Measurement Value ( MS 1 Measurement 35 RP1033)"@en ;
+    ns1:hasNumericalValue "62.52520036953015"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+

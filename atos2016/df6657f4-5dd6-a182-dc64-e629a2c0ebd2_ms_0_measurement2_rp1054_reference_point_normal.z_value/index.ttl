@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement2_rp1054_reference_point_normal.z_value> a ns1:Measure ;
+    rdfs:label "Referenzpunktnormale Z Messwert ( MS 0 Measurement 33 RP1054)"@de,
+        "Reference point normal Z Measurement Value ( MS 0 Measurement 33 RP1054)"@en ;
+    ns1:hasNumericalValue "0.5821024179458618"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+

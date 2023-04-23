@@ -1,0 +1,9 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement8_calibration_activity> a ns1:Activity ;
+    rdfs:label "Messreihe 0 Messvorgang 8 Kalibrierung "@de,
+        "MS 0 Measurement 8 Calibration Activity "@en ;
+    ns1:used <http://objects.mainzed.org/data/CP40-320-53034_calibration_object> ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .
+
