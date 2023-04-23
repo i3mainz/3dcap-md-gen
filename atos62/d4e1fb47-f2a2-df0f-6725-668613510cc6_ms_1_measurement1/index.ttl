@@ -1,0 +1,26 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1> a ns1:Measurement ;
+    rdfs:label "M2",
+        "MS 1 Measurement 1 for "@en ;
+    ns1:avoidPointsOnShinyAreas true ;
+    ns1:avoidStrongBrightnessDifferencePoints true ;
+    ns1:avoidTripleScanPoints true ;
+    ns1:calibration <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_calibration> ;
+    ns1:capturingdevice <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_capturingdevice> ;
+    ns1:cornerMask <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_m_corner_mask> ;
+    ns1:measurementTransformationMethod "reference_points"^^xsd:string ;
+    ns1:minimumFringeContrastLeftImage <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_m_mod_left> ;
+    ns1:numberOfPoints 4018 ;
+    ns1:numberOfReferencePoints 69 ;
+    ns1:numberOfTransformationPoints 66 ;
+    ns1:setup <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_mssetup> ;
+    ns1:usePointsOnShinyAreas false ;
+    ns1:useStrongColorTransitionsPoints false ;
+    ns1:useTripleScanPoints false ;
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/29835bbe-f2d9-8caa-5761-b40f2757c7da> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_activity> .
+
