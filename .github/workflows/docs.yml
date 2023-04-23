@@ -3,6 +3,9 @@ name: Java CI
 on: [push]
 
 jobs:
+
+  call-workflow-in-local-repo:
+    uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
     
   build:
 
