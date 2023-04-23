@@ -3,16 +3,14 @@ name: Java CI
 on: [push]
 
 jobs:
-
-  call-workflow-in-local-repo:
-    uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
     
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Initial checkout
+      uses: actions/checkout@v1
     - name: Ontdoc I
       uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
       with: 
