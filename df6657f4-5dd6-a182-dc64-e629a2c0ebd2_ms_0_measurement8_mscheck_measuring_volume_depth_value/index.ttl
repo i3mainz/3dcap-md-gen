@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement8_mscheck_measuring_volume_depth_value> a ns1:Measure ;
+    rdfs:label "Messvolumentiefe Messwert ( MS 0 Measurement 8 Measurement Check)"@de,
+        "Measuring volume depth Measurement Value ( MS 0 Measurement 8 Measurement Check)"@en ;
+    ns1:hasNumericalValue "280.0"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+

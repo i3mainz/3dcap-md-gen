@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_automatic_exposure_time_mode> a <http://objects.mainzed.org/ont#Automatic_exposure_time_mode> ;
+    rdfs:label "Automatische Belichtungszeit(Modus) "@de,
+        "Automatic exposure time (mode) "@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_automatic_exposure_time_mode_value> .
+

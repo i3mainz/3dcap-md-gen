@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/CP40-320-53034_calibration_object_calibration_object_certification_temperature_value> a ns1:Measure ;
+    rdfs:label "Zertifizierungstemperatur Messwert (CP40-320-53034 Calibration Object)"@de,
+        "Certification temperature Measurement Value (CP40-320-53034 Calibration Object)"@en ;
+    ns1:hasNumericalValue "20.0"^^xsd:float ;
+    ns1:hasUnit ns1:degreeCelsius .
+

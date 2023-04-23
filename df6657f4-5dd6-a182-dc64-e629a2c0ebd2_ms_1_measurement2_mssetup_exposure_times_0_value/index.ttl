@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2_mssetup_exposure_times_0_value> a ns1:Measure ;
+    rdfs:label "Belichtungszeit 0 Messwert ( MS 1 Measurement 2 Setup)"@de,
+        "Exposure time Measurement Value ( MS 1 Measurement 2 Setup)"@en ;
+    ns1:hasNumericalValue "0.267852"^^xsd:float ;
+    ns1:hasUnit ns1:second-Time .
+

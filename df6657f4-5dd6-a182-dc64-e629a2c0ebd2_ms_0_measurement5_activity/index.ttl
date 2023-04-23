@@ -1,0 +1,42 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_activity> a ns1:Activity ;
+    rdfs:label "Messreihe 0 Messvorgang 5 ()"@de,
+        "MS 0 Measurement 0 Activity"@en,
+        "MS 0 Measurement 1 Activity"@en,
+        "MS 0 Measurement 10 Activity"@en,
+        "MS 0 Measurement 11 Activity"@en,
+        "MS 0 Measurement 12 Activity"@en,
+        "MS 0 Measurement 13 Activity"@en,
+        "MS 0 Measurement 14 Activity"@en,
+        "MS 0 Measurement 15 Activity"@en,
+        "MS 0 Measurement 16 Activity"@en,
+        "MS 0 Measurement 17 Activity"@en,
+        "MS 0 Measurement 18 Activity"@en,
+        "MS 0 Measurement 19 Activity"@en,
+        "MS 0 Measurement 2 Activity"@en,
+        "MS 0 Measurement 20 Activity"@en,
+        "MS 0 Measurement 21 Activity"@en,
+        "MS 0 Measurement 22 Activity"@en,
+        "MS 0 Measurement 23 Activity"@en,
+        "MS 0 Measurement 24 Activity"@en,
+        "MS 0 Measurement 25 Activity"@en,
+        "MS 0 Measurement 26 Activity"@en,
+        "MS 0 Measurement 27 Activity"@en,
+        "MS 0 Measurement 28 Activity"@en,
+        "MS 0 Measurement 29 Activity"@en,
+        "MS 0 Measurement 3 Activity"@en,
+        "MS 0 Measurement 30 Activity"@en,
+        "MS 0 Measurement 31 Activity"@en,
+        "MS 0 Measurement 32 Activity"@en,
+        "MS 0 Measurement 4 Activity"@en,
+        "MS 0 Measurement 5 Activity"@en,
+        "MS 0 Measurement 5 Activity ()"@en,
+        "MS 0 Measurement 6 Activity"@en,
+        "MS 0 Measurement 7 Activity"@en,
+        "MS 0 Measurement 8 Activity"@en,
+        "MS 0 Measurement 9 Activity"@en ;
+    ns1:used <http://objects.mainzed.org/data/ATOS_Professional_2016_Hotfix_11> ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> .
+
