@@ -1,12 +1,12 @@
-@prefix ns1: <http://objects.mainzed.org/ont#> .
-@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1> a ns1:MeasurementSeries ;
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1> a ns2:MeasurementSeries ;
     rdfs:label "Measurement Series 1 for "@en ;
-    ns1:commonReferencePointTransformationResidual "0.007620174610736443"^^xsd:float ;
-    ns1:measurement <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0>,
+    ns2:commonReferencePointTransformationResidual "0.007620174610736443"^^xsd:float ;
+    ns2:measurement <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement1>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3>,
@@ -14,9 +14,9 @@
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7> ;
-    ns1:numberOfUsedCommonReferencePoints 5 ;
-    ns2:wasAttributedTo <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> ;
-    ns2:wasDerivedFrom <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0>,
+    ns2:numberOfUsedCommonReferencePoints 5 ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> ;
+    ns1:wasDerivedFrom <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement0>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement1>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement2>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3>,
@@ -24,5 +24,5 @@
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6>,
         <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7> ;
-    ns2:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> .
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_activity> .
 
