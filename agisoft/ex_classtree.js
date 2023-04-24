@@ -11616,7 +11616,7 @@ var tree={
           "from": {
             "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Coordinate_x": 1
+              "http://objects.mainzed.org/ont#Estimated_coordinate_z": 1
             }
           }
         },
@@ -16893,7 +16893,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 5
+              "instancecount": 3
             },
             "http://www.w3.org/ns/prov-o/actedOnBehalfOf": {
               "instancecount": 1,
@@ -16904,11 +16904,11 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasAttributedTo": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 5
+              "http://objects.mainzed.org/ont#ReferencePoint": 3
             }
           }
         },
-        "instancecount": 7
+        "instancecount": 5
       },
       {
         "id": "http://www.w3.org/ns/prov-o/Agent",
@@ -18346,7 +18346,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 8
+              "instancecount": 7
             },
             "http://www.w3.org/ns/prov-o/used": {
               "instancecount": 1,
@@ -18361,12 +18361,12 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasGeneratedBy": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 6,
+              "http://objects.mainzed.org/ont#ReferencePoint": 5,
               "http://objects.mainzed.org/ont#Measurement": 1
             }
           }
         },
-        "instancecount": 11
+        "instancecount": 10
       },
       {
         "id": "http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_tangential_distortion_coefficient_p2",
@@ -19133,9 +19133,9 @@ var tree={
             }
           },
           "from": {
-            "http://objects.mainzed.org/ont#focalLengthCamera": {
+            "http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/focalLength": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#CapturingDevice": 1
+              "http://objects.mainzed.org/ont#Calibration": 1
             }
           }
         },
@@ -20325,7 +20325,7 @@ var tree={
           "from": {
             "http://objects.mainzed.org/ont#sensor": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Measurement": 30
+              "http://objects.mainzed.org/ont#Measurement": 28
             }
           }
         },
