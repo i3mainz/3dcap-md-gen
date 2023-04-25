@@ -8,7 +8,7 @@ Source Code Documentation: [Doxygen Documentation](http://i3mainz.github.io/3dca
 ## Agisoft Metashape
  
 ### Getting started
-
+ 
 #### Software
 *  To use the script you need a **license** for the **Professional Edition** of **Agisoft Metashape** 
 * Agisoft project files also store the metadata of input data, processes and results. They can be accessed with the Python module of Agisoft Metashape. The keys for accessing the metadata have changed during version upgrades. The scripts were applied to the following Agisoft versions:  1.8.4 / 1.7.2 / 1.6.2 / 1.5.5 / 1.5.4 / 1.5.1 / 1.5.0 / and older versions
