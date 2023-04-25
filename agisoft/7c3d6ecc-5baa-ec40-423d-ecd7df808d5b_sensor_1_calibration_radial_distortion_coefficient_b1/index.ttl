@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_radial_distortion_coefficient_b1> a <http://objects.mainzed.org/ont#Radial_distortion_coefficient_b1> ;
-    rdfs:label "Radialer Verzerrungskoeffizient B1 ( MS 1 Sensor 17 Calibration)"@de,
-        "radial distortion coefficient b1 ( MS 1 Sensor 17 Calibration)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_radial_distortion_coefficient_b1_value> .
-

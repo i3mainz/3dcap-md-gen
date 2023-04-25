@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp50_diameter> a <http://objects.mainzed.org/ont#Diameter> ;
-    rdfs:label "Durchmesser ( MS 1 GRP50)"@de,
-        "Diameter ( MS 1 GRP50)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp50_diameter_value> .
-
