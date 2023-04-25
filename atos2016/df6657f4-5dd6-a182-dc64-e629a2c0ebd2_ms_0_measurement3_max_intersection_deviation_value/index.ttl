@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement3_max_intersection_deviation_value> a ns1:Measure ;
+    rdfs:label "Maximale Einschneideabweichung Messwert ( MS 0 Measurement 3)"@de,
+        "Max. intersection deviation Measurement Value ( MS 0 Measurement 3)"@en ;
+    ns1:hasNumericalValue "0.08649628082583251"^^xsd:float ;
+    ns1:hasUnit ns1:pixel .
+

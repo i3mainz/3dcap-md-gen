@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement3_calibration_calibration_volume_length_value> a ns1:Measure ;
+    rdfs:label "Kalibriervolumenlänge Messwert ( MS 1 Measurement 3 Calibration)"@de,
+        "Calibration volume length Measurement Value ( MS 1 Measurement 3 Calibration)"@en ;
+    ns1:hasNumericalValue "334.9379739609805"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+

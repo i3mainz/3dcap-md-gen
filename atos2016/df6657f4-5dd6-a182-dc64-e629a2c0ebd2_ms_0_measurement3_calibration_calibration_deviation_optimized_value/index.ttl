@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement3_calibration_calibration_deviation_optimized_value> a ns1:Measure ;
+    rdfs:label "Kalibrierabweichung (optimiert) Messwert ( MS 0 Measurement 3 Calibration)"@de,
+        "Calibration deviation (optimized) Measurement Value ( MS 0 Measurement 3 Calibration)"@en ;
+    ns1:hasNumericalValue "0.013060468622393764"^^xsd:float ;
+    ns1:hasUnit ns1:pixel .
+

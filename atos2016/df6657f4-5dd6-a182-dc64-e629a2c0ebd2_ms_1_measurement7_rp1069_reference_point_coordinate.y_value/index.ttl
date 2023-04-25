@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement7_rp1069_reference_point_coordinate.y_value> a ns1:Measure ;
+    rdfs:label "Referenzpunktkoordinate Y Messwert ( MS 1 Measurement 19 RP1069)"@de,
+        "Reference point coordinate Y Measurement Value ( MS 1 Measurement 19 RP1069)"@en ;
+    ns1:hasNumericalValue "-57.60865226236932"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+

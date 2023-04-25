@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_calibration_calibration_height_variance_value> a ns1:Measure ;
+    rdfs:label "Höhenänderung Messwert ( MS 0 Measurement 4 Calibration)"@de,
+        "height variance Measurement Value ( MS 0 Measurement 4 Calibration)"@en ;
+    ns1:hasNumericalValue "254.28292058122497"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+
