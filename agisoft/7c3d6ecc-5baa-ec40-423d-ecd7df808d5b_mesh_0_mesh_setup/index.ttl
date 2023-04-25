@@ -1,0 +1,31 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_mesh_setup> a ns1:MeshSetup ;
+    rdfs:label "  MS 0  0 Mesh Setup" ;
+    ns1:buildDepthMaps_downscale "2"^^xsd:string ;
+    ns1:buildDepthMaps_filter_mode "1"^^xsd:string ;
+    ns1:buildDepthMaps_max_neighbors "16"^^xsd:string ;
+    ns1:buildDepthMaps_max_workgroup_size "100"^^xsd:string ;
+    ns1:buildDepthMaps_reuse_depth "false"^^xsd:string ;
+    ns1:buildDepthMaps_subdivide_task "true"^^xsd:string ;
+    ns1:buildDepthMaps_workitem_size_cameras "20"^^xsd:string ;
+    ns1:buildModel_face_count "0"^^xsd:string ;
+    ns1:buildModel_face_count_custom "11304596"^^xsd:string ;
+    ns1:buildModel_interpolation "0"^^xsd:string ;
+    ns1:buildModel_keep_depth "true"^^xsd:string ;
+    ns1:buildModel_max_workgroup_size "100"^^xsd:string ;
+    ns1:buildModel_source_data "6"^^xsd:string ;
+    ns1:buildModel_subdivide_task "true"^^xsd:string ;
+    ns1:buildModel_surface_type "0"^^xsd:string ;
+    ns1:buildModel_trimming_radius "10"^^xsd:string ;
+    ns1:buildModel_vertex_colors "true"^^xsd:string ;
+    ns1:buildModel_vertex_confidence "true"^^xsd:string ;
+    ns1:buildModel_volumetric_masks "false"^^xsd:string ;
+    ns1:buildModel_workitem_size_cameras "20"^^xsd:string ;
+    ns1:lastSavedDateTime "2022-11-04T11:01:31"^^xsd:dateTime ;
+    ns1:lastSavedSoftwareVersion "1.8.1.13915"^^xsd:string ;
+    ns1:originalDateTime "2022-11-04T10:14:35"^^xsd:dateTime ;
+    ns1:originalSoftwareVersion "1.8.1.13915"^^xsd:string .
+

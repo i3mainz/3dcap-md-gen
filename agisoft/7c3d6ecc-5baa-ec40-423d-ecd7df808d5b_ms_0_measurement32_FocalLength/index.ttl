@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement32_FocalLength> a <http://objects.mainzed.org/ont#FocalLength> ;
+    rdfs:label "Brennweite ( MS 0 Measurement 32)"@de,
+        "focallength ( MS 0 Measurement 32)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement32_FocalLength_value> .
+
