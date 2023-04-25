@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement3_rp87_r_x_value> a ns1:Measure ;
+    rdfs:label "x-Koordinate Messwert ( MS 0 Measurement 53 RP87)"@de,
+        "x-coordinate Measurement Value ( MS 0 Measurement 53 RP87)"@en ;
+    ns1:hasNumericalValue "-193.955450514"^^xsd:float ;
+    ns1:hasUnit ns1:millimetre .
+
