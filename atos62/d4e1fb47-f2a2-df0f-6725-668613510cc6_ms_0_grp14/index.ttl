@@ -1,0 +1,22 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp14> a ns2:GRP ;
+    rdfs:label "GRP14 ( Messreihe 0)"@de,
+        "GRP14 ( Measurement Series 0)"@en ;
+    ns2:commonReferencepoint true ;
+    ns2:pointID 14 ;
+    ns2:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp14_r_dev> ;
+    ns2:pointMeasurementState "ok"^^xsd:string ;
+    ns2:pointProjectState "atos point"^^xsd:string ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp14_r_x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp14_r_y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp14_r_z> ;
+    geo:asWKT "POINT(18.033077217 81.8479310791 -90.5156902982)"^^geo:wktLiteral ;
+    ns1:wasDerivedFrom <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp14>,
+        <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement7_rp14> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_grp_calculation_activity> .
+
