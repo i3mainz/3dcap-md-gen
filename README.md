@@ -7,7 +7,7 @@ Source Code Documentation: [Doxygen Documentation](http://i3mainz.github.io/3dca
 
 ## Agisoft Metashape
  
-### Getting started
+### Getting started 
  
 #### Software
 *  To use the script you need a **license** for the **Professional Edition** of **Agisoft Metashape** 
