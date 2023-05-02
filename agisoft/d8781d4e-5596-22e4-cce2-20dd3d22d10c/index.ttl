@@ -1,7 +1,0 @@
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> a <http://www.w3.org/ns/prov-o/Agent>,
-        foaf:Person ;
-    rdfs:label "Creator of " .
-

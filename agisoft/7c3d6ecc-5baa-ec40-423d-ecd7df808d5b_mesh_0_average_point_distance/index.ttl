@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance> a <http://objects.mainzed.org/ont#Average_point_distance> ;
-    rdfs:label "durchschnittlicher Punktabstand ( MS 0  0)"@de,
-        "average point distance ( MS 0  0)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_mesh_0_average_point_distance_value> .
-
