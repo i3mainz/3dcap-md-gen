@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_14_scalebar_accuracy> a <http://objects.mainzed.org/ont#Scalebar_accuracy> ;
-    rdfs:label "Genauigkeit ( MS 0  14)"@de,
-        "accuracy ( MS 0  14)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_14_scalebar_accuracy_value> .
-

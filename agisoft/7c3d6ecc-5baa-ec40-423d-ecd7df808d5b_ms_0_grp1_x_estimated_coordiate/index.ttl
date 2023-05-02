@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp1_x_estimated_coordiate> a <http://objects.mainzed.org/ont#X_estimated_coordiate> ;
-    rdfs:label "Geschätzte Koordinate X ( MS 0 GRP1)"@de,
-        "estimated coordinate X ( MS 0 GRP1)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp1_x_estimated_coordiate_value> .
-
