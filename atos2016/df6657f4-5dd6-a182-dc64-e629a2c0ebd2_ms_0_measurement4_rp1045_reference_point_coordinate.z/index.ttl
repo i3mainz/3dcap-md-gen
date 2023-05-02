@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1045_reference_point_coordinate.z> a <http://objects.mainzed.org/ont#Reference_point_coordinate.z> ;
+    rdfs:label "Referenzpunktkoordinate Z ( MS 0 Measurement 27 RP1045)"@de,
+        "Reference point coordinate Z ( MS 0 Measurement 27 RP1045)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1045_reference_point_coordinate.z_value> .
+

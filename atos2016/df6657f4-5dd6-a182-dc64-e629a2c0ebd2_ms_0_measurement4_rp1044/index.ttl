@@ -1,0 +1,20 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044> a ns1:ReferencePoint ;
+    rdfs:label "RP1044 ( Messreihe 0 Messung 4)"@de,
+        "RP1044 ( MS 0 Measurement 4)"@en ;
+    ns1:pointID 1044 ;
+    ns1:xCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044_reference_point_coordinate.x> ;
+    ns1:xNormal <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044_reference_point_normal.x> ;
+    ns1:yCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044_reference_point_coordinate.y> ;
+    ns1:yNormal <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044_reference_point_normal.y> ;
+    ns1:zCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044_reference_point_coordinate.z> ;
+    ns1:zNormal <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_rp1044_reference_point_normal.z> ;
+    geo:asWKT "POINT(100.55214309749435 -68.59695687676901 6.560508733145723)"^^geo:wktLiteral ;
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_algorithm> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement4_activity> .
+
