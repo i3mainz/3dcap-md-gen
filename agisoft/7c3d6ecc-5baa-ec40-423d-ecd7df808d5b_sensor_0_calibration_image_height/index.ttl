@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_0_calibration_image_height> a <http://objects.mainzed.org/ont#Image_height> ;
+    rdfs:label "Bildhöhe ( MS 0 Sensor 17 Calibration)"@de,
+        "image height ( MS 0 Sensor 17 Calibration)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_0_calibration_image_height_value> .
+

@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp_calculation_activity> a ns1:Activity ;
+    rdfs:label "GRP Berechnung"@de,
+        "GRP Calculation Activity"@en ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/ont#GRP_calculation_algorithm> .
+

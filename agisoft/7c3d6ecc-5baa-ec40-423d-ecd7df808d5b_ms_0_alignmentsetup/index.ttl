@@ -1,0 +1,31 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> a ns1:AlignmentSetup ;
+    rdfs:label "MS 0 Alignment Setup" ;
+    ns1:adaptive_fitting "false"^^xsd:string ;
+    ns1:descriptor_type "binary"^^xsd:string ;
+    ns1:descriptor_version "1.1.0"^^xsd:string ;
+    ns1:filter_stationary_points "true"^^xsd:string ;
+    ns1:guided_matching "false"^^xsd:string ;
+    ns1:keep_keypoints "false"^^xsd:string ;
+    ns1:lastSavedDateTime "2022-11-23T14:09:41"^^xsd:dateTime ;
+    ns1:lastSavedSoftwareVersion "1.8.1.13915"^^xsd:string ;
+    ns1:match_downscale "1"^^xsd:string ;
+    ns1:match_point_limit <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup_match_point_limit> ;
+    ns1:match_preselection_generic "true"^^xsd:string ;
+    ns1:match_tiepoint_limit "4000"^^xsd:string ;
+    ns1:matchingAccuracy "high"^^xsd:string ;
+    ns1:max_workgroup_size "100"^^xsd:string ;
+    ns1:min_image "2"^^xsd:string ;
+    ns1:optimize_fit_flags "f cx cy k1 k2 k3 p1 p2"^^xsd:string ;
+    ns1:optimize_sigma0 "0.200262608804541"^^xsd:string ;
+    ns1:reference_preselection "false"^^xsd:string ;
+    ns1:reference_preselection_mode "0"^^xsd:string ;
+    ns1:reset_alignment "false"^^xsd:string ;
+    ns1:reset_matches "true"^^xsd:string ;
+    ns1:subdivide_task "true"^^xsd:string ;
+    ns1:workitem_size_cameras "20"^^xsd:string ;
+    ns1:workitem_size_pairs "80"^^xsd:string .
+
