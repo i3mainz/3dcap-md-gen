@@ -1,0 +1,16 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp56> a ns2:GRP ;
+    rdfs:label "GRP56 ( Messreihe 1)"@de,
+        "GRP56 ( Measurement Series 1)"@en ;
+    ns2:diameter <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp56_diameter> ;
+    ns2:pointThickness <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp56_point_thickness> ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp56_coordinate.x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp56_coordinate.y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp56_coordinate.z> ;
+    geo:asWKT "POINT(36.303558192902344 -104.22058742273654 123.99097525712484)"^^geo:wktLiteral ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> .
+

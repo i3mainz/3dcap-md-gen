@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement3_capturingdevice_measuring_volume_depth> a <http://objects.mainzed.org/ont#Measuring_volume_depth> ;
+    rdfs:label "Messvolumentiefe ( MS 0 Measurement 3 Caturing Device)"@de,
+        "Measuring volume depth ( MS 0 Measurement 3 Caturing Device)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement3_capturingdevice_measuring_volume_depth_value> .
+

@@ -1,0 +1,26 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6> a ns2:Measurement ;
+    rdfs:label "M7",
+        "MS 1 Measurement 6 for "@en ;
+    ns2:acquisitionTime "2020-08-25T12:26:07"^^xsd:dateTime ;
+    ns2:avoidTripleScanPoints false ;
+    ns2:avoidTripleScanPointsWithBrightnessDifference false ;
+    ns2:calibration <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_calibration> ;
+    ns2:capturingdevice <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_capturingdevice> ;
+    ns2:cornerMask <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_corner_mask_size> ;
+    ns2:maxIntersectionDeviation <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_max_intersection_deviation> ;
+    ns2:measurementId 17 ;
+    ns2:minimumFringeContrast <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_min_fringe_contrast> ;
+    ns2:numberOfCommonReferencePoints 33 ;
+    ns2:numberOfReferencePoints 40 ;
+    ns2:numberOfTransformationPoints 35 ;
+    ns2:setup <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_mssetup> ;
+    ns2:transformationDeviation <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_transformation_deviation> ;
+    ns2:verification <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_mscheck> ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_activity> .
+

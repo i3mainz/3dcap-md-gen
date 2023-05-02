@@ -1,0 +1,7 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement2_mscheck_calibration_camera_focal_length> rdfs:label "Brennweite (Kamera) ( MS 0 Measurement 2 Measurement Check)"@de,
+        "Focal length camera ( MS 0 Measurement 2 Measurement Check)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement2_mscheck_calibration_camera_focal_length_value> .
+

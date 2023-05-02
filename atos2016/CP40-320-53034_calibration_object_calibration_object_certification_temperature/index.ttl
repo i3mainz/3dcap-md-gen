@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/CP40-320-53034_calibration_object_calibration_object_certification_temperature> a <http://objects.mainzed.org/ont#Calibration_object_certification_temperature> ;
+    rdfs:label "Zertifizierungstemperatur (CP40-320-53034 Calibration Object)"@de,
+        "Certification temperature (CP40-320-53034 Calibration Object)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/CP40-320-53034_calibration_object_calibration_object_certification_temperature_value> .
+

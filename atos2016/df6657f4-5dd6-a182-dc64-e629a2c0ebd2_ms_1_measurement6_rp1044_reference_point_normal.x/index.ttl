@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_rp1044_reference_point_normal.x> a <http://objects.mainzed.org/ont#Reference_point_normal.x> ;
+    rdfs:label "Referenzpunktnormale X ( MS 1 Measurement 17 RP1044)"@de,
+        "Reference point normal X ( MS 1 Measurement 17 RP1044)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement6_rp1044_reference_point_normal.x_value> .
+
