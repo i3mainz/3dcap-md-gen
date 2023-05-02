@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_ISOSpeedRatings_value> a ns1:Measure ;
+    rdfs:label "Isowert Messwert ( MS 0 Measurement 7)"@de,
+        "ISOSpeedRatings Measurement Value ( MS 0 Measurement 7)"@en ;
+    ns1:hasNumericalValue "1000"^^xsd:string ;
+    ns1:hasUnit <http://www.w3.org/2003/12/exif/isoSpeedRatings> .
+
