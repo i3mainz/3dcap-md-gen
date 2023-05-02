@@ -1,0 +1,8 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement6_rp126_r_z> a <http://objects.mainzed.org/ont#R_z> ;
+    rdfs:label "z-Koordinate ( MS 1 Measurement 4 RP126)"@de,
+        "z-coordinate ( MS 1 Measurement 4 RP126)"@en ;
+    ns1:hasValue <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement6_rp126_r_z_value> .
+

@@ -1,0 +1,21 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_rp77> a ns1:ReferencePoint ;
+    rdfs:label "RP77 ( Messreihe 0 Messung 5)"@de,
+        "RP77 ( MS 0 Measurement 5)"@en ;
+    ns1:commonReferencepoint false ;
+    ns1:pointID 77 ;
+    ns1:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_rp77_r_dev> ;
+    ns1:pointMeasurementState "ok"^^xsd:string ;
+    ns1:pointProjectState "photogrammetric point"^^xsd:string ;
+    ns1:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_rp77_r_x> ;
+    ns1:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_rp77_r_y> ;
+    ns1:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_rp77_r_z> ;
+    geo:asWKT "POINT(-59.3947549939 -0.0419164244779 -168.933853669)"^^geo:wktLiteral ;
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_algorithm> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement5_activity> .
+
