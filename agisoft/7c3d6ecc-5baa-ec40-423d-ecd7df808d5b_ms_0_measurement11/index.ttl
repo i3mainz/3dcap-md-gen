@@ -1,15 +1,15 @@
-@prefix ns1: <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/> .
-@prefix ns10: <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/> .
+@prefix ns1: <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/> .
+@prefix ns10: <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/> .
 @prefix ns11: <http://www.w3.org/2003/12/exif/mode#http://www.w3.org/2003/12/exif/> .
-@prefix ns12: <http://www.w3.org/2003/12/exif/ExposureTim#http://www.w3.org/2003/12/exif/> .
+@prefix ns12: <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/> .
 @prefix ns2: <http://objects.mainzed.org/ont#> .
-@prefix ns3: <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/> .
-@prefix ns4: <http://www.w3.org/ns/prov-o/> .
-@prefix ns5: <http://www.w3.org/2003/12/exif/softwar#http://www.w3.org/2003/12/exif/> .
-@prefix ns6: <http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/> .
-@prefix ns7: <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/> .
-@prefix ns8: <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/> .
-@prefix ns9: <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/> .
+@prefix ns3: <http://www.w3.org/2003/12/exif/ExposureTim#http://www.w3.org/2003/12/exif/> .
+@prefix ns4: <http://www.w3.org/2003/12/exif/softwar#http://www.w3.org/2003/12/exif/> .
+@prefix ns5: <http://www.w3.org/ns/prov-o/> .
+@prefix ns6: <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/> .
+@prefix ns7: <http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/> .
+@prefix ns8: <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/> .
+@prefix ns9: <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -28,16 +28,16 @@
        [-0.12061659101790431, -0.40084908849962075, -0.9081693929109497, 4.28215286106365],\r
        [-0.08943900379321795, -0.9067397416910763, 0.4120967185485431, -6.594341974120575],\r
        [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string ;
-    ns12:ExposureTime <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_ExposureTime> ;
-    ns8:FNumber "22"^^xsd:string ;
-    ns10:dateTimeOriginal "2022-11-03T14:20:59"^^xsd:dateTime ;
-    ns6:focalLength <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_FocalLength> ;
-    ns7:focalLengthIn35mmFilm <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_FocalLengthIn35mmFilm> ;
-    ns3:imageHeight "4912"^^xsd:string ;
-    ns9:imageWidth "7360"^^xsd:string ;
-    ns1:make "NIKON CORPORATION"^^xsd:string ;
+    ns3:ExposureTime <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_ExposureTime> ;
+    ns12:FNumber "22"^^xsd:string ;
+    ns9:dateTimeOriginal "2022-11-03T14:20:59"^^xsd:dateTime ;
+    ns7:focalLength <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_FocalLength> ;
+    ns10:focalLengthIn35mmFilm <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_FocalLengthIn35mmFilm> ;
+    ns1:imageHeight "4912"^^xsd:string ;
+    ns8:imageWidth "7360"^^xsd:string ;
+    ns6:make "NIKON CORPORATION"^^xsd:string ;
     ns11:model "NIKON D800"^^xsd:string ;
-    ns5:software "Ver.1.10 "^^xsd:string ;
-    ns4:wasAttributedTo <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> ;
-    ns4:wasGeneratedBy <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_activity> .
+    ns4:software "Ver.1.10 "^^xsd:string ;
+    ns5:wasAttributedTo <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> ;
+    ns5:wasGeneratedBy <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement11_activity> .
 

@@ -1,15 +1,15 @@
 @prefix ns1: <http://objects.mainzed.org/ont#> .
-@prefix ns10: <http://www.w3.org/2003/12/exif/ExposureTim#http://www.w3.org/2003/12/exif/> .
-@prefix ns11: <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/> .
-@prefix ns12: <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/> .
-@prefix ns2: <http://www.w3.org/ns/prov-o/> .
-@prefix ns3: <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/> .
-@prefix ns4: <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/> .
-@prefix ns5: <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/> .
-@prefix ns6: <http://www.w3.org/2003/12/exif/softwar#http://www.w3.org/2003/12/exif/> .
-@prefix ns7: <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/> .
-@prefix ns8: <http://www.w3.org/2003/12/exif/mode#http://www.w3.org/2003/12/exif/> .
-@prefix ns9: <http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/> .
+@prefix ns10: <http://www.w3.org/2003/12/exif/softwar#http://www.w3.org/2003/12/exif/> .
+@prefix ns11: <http://www.w3.org/2003/12/exif/ExposureTim#http://www.w3.org/2003/12/exif/> .
+@prefix ns12: <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/> .
+@prefix ns2: <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/> .
+@prefix ns3: <http://www.w3.org/ns/prov-o/> .
+@prefix ns4: <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/> .
+@prefix ns5: <http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/> .
+@prefix ns6: <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/> .
+@prefix ns7: <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/> .
+@prefix ns8: <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/> .
+@prefix ns9: <http://www.w3.org/2003/12/exif/mode#http://www.w3.org/2003/12/exif/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -28,16 +28,16 @@
        [-0.5507190697982867, -0.8063589415214847, -0.2156241257115284, 1.0120325642187837],\r
        [0.7679137408364481, -0.38821820395005785, -0.509504772064368, -2.2461401333876365],\r
        [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string ;
-    ns10:ExposureTime <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_ExposureTime> ;
-    ns5:FNumber "22"^^xsd:string ;
-    ns12:dateTimeOriginal "2022-11-03T14:20:36"^^xsd:dateTime ;
-    ns9:focalLength <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_FocalLength> ;
-    ns3:focalLengthIn35mmFilm <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_FocalLengthIn35mmFilm> ;
-    ns4:imageHeight "4912"^^xsd:string ;
-    ns7:imageWidth "7360"^^xsd:string ;
-    ns11:make "NIKON CORPORATION"^^xsd:string ;
-    ns8:model "NIKON D800"^^xsd:string ;
-    ns6:software "Ver.1.10 "^^xsd:string ;
-    ns2:wasAttributedTo <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> ;
-    ns2:wasGeneratedBy <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_activity> .
+    ns11:ExposureTime <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_ExposureTime> ;
+    ns7:FNumber "22"^^xsd:string ;
+    ns4:dateTimeOriginal "2022-11-03T14:20:36"^^xsd:dateTime ;
+    ns5:focalLength <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_FocalLength> ;
+    ns12:focalLengthIn35mmFilm <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_FocalLengthIn35mmFilm> ;
+    ns8:imageHeight "4912"^^xsd:string ;
+    ns2:imageWidth "7360"^^xsd:string ;
+    ns6:make "NIKON CORPORATION"^^xsd:string ;
+    ns9:model "NIKON D800"^^xsd:string ;
+    ns10:software "Ver.1.10 "^^xsd:string ;
+    ns3:wasAttributedTo <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> ;
+    ns3:wasGeneratedBy <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement7_activity> .
 

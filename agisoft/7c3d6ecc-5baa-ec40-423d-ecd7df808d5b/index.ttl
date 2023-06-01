@@ -1,15 +1,15 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.w3.org/ns/prov-o/> .
-@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> a ns2:MeasurementProject ;
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b> a ns1:MeasurementProject ;
     rdfs:label "Holz"^^xsd:string ;
-    ns2:acquisitionTechnology "structure from motion"^^xsd:string ;
-    ns2:measurementSeries <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0> ;
-    ns2:numberOfChunks 1 ;
-    ns2:projectfile "Holz.psx"^^xsd:string ;
+    ns1:acquisitionTechnology "structure from motion"^^xsd:string ;
+    ns1:measurementSeries <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0> ;
+    ns1:numberOfChunks 1 ;
+    ns1:projectfile "Holz.psx"^^xsd:string ;
     dcterms:creator <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> ;
-    ns1:wasDerivedFrom <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0> .
+    ns2:wasDerivedFrom <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0> .
 
