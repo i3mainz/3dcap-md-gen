@@ -1,9 +1,12 @@
 @prefix ns1: <http://www.w3.org/ns/prov-o/> .
 @prefix ns2: <http://objects.mainzed.org/ont#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement14_rp_noid_1> a ns2:ReferencePoint ;
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement14_rp_noid_1> a ns2:ReferencePoint,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "target 117"^^xsd:string,
         "RP_noid_1 ( Messreihe 0 Messung 14)"@de,
         "RP_noid_1 ( MS 0 Measurement 14)"@en ;
@@ -11,6 +14,7 @@
     ns2:coordinate_y <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement14_rp_noid_1_coordinate_y> ;
     ns2:enabled true ;
     ns2:referencepoint_id 13 ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> ;
     ns1:wasAttributedTo <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement14_algorithm> ;
     ns1:wasGeneratedBy <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement14_activity> .
 

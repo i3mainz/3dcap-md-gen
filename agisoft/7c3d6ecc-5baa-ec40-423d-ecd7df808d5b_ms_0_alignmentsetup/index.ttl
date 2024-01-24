@@ -1,8 +1,11 @@
 @prefix ns1: <http://objects.mainzed.org/ont#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> a ns1:AlignmentSetup ;
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_alignmentsetup> a ns1:AlignmentSetup,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "MS 0 Alignment Setup" ;
     ns1:adaptive_fitting "false"^^xsd:string ;
     ns1:descriptor_type "binary"^^xsd:string ;
@@ -27,5 +30,6 @@
     ns1:reset_matches "true"^^xsd:string ;
     ns1:subdivide_task "true"^^xsd:string ;
     ns1:workitem_size_cameras "20"^^xsd:string ;
-    ns1:workitem_size_pairs "80"^^xsd:string .
+    ns1:workitem_size_pairs "80"^^xsd:string ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> .
 

@@ -1,10 +1,14 @@
 @prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_covariance_matrix_value> a ns1:Measure ;
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_covariance_matrix_value> a ns1:Measure,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "Kovarianzmatrix Messwert ( MS 1 Sensor 17 Calibration)"@de,
         "covariance matrix Measurement Value ( MS 1 Sensor 17 Calibration)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> ;
     ns1:hasNumericalValue """Matrix([[6.849825995868572, -1.0661402168447467, -9.311397960815256, -0.0011292596952481317, 0.014371412909777616, -0.0805112842045057, -1.028681731599356e-05, -6.611289299285346e-05],\r
        [-1.0661402168447467, 3.934654717350362, 1.2330052742504627, -0.00011095066210426134, 0.005126296550211879, -0.03498587972232904, 0.00010997915672780956, -2.2000833784012592e-07],\r
        [-9.311397960815256, 1.2330052742504627, 15.541559327046507, 0.0005915523852616433, 0.0017415962976667697, -0.004152818699856468, 9.728407324225883e-06, 0.0001709927807951872],\r

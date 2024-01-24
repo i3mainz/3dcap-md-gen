@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/dataset_> a void:Linkset,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Linkset: dataset - "@en ;
+    void:linkPredicate <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit>,
+        rdf:type,
+        <http://www.w3.org/ns/prov-o/wasAssociatedWith> ;
+    void:objectsTarget <http://objects.mainzed.org/ont#> ;
+    void:subjectsTarget <http://objects.mainzed.org/data/dataset> ;
+    void:triples 1,
+        1451 .
+

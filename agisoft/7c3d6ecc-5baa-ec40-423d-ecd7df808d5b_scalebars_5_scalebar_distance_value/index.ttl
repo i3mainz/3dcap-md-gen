@@ -1,10 +1,14 @@
 @prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5_scalebar_distance_value> a ns1:Measure ;
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_scalebars_5_scalebar_distance_value> a ns1:Measure,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "Abstand Messwert ( MS 0  5)"@de,
         "distance Measurement Value ( MS 0  5)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> ;
     ns1:hasNumericalValue "339.94"^^xsd:float ;
     ns1:hasUnit ns1:millimetre .
 
