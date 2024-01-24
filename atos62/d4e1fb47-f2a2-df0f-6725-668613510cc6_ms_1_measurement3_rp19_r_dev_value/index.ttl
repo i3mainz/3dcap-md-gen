@@ -1,10 +1,14 @@
 @prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement3_rp19_r_dev_value> a ns1:Measure ;
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement3_rp19_r_dev_value> a ns1:Measure,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "Punktabweichung Messwert ( MS 1 Measurement 59 RP19)"@de,
         "Point deviation Measurement Value ( MS 1 Measurement 59 RP19)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> ;
     ns1:hasNumericalValue "0.00563098118181"^^xsd:float ;
     ns1:hasUnit ns1:millimetre .
 

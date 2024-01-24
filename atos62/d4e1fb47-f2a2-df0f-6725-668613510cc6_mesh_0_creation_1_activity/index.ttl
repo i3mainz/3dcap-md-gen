@@ -1,11 +1,15 @@
 @prefix ns1: <http://www.w3.org/ns/prov-o/> .
 @prefix ns2: <http://objects.mainzed.org/ont#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_1_activity> a ns1:Activity ;
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_1_activity> a <http://www.w3.org/ns/ldp#Resource>,
+        ns1:Activity,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "Mesherstellungsschritt 1: smooth"@de,
         "Mesh Creation Activity 1: smooth"@en ;
     ns2:processname "smooth"^^xsd:string ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> ;
     ns1:wasInformedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_mesh_0_creation_0_activity> .
 

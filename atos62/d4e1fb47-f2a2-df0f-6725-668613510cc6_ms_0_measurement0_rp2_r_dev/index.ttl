@@ -1,8 +1,12 @@
 @prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp2_r_dev> a <http://objects.mainzed.org/ont#R_dev> ;
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp2_r_dev> a <http://objects.mainzed.org/ont#R_dev>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "Punktabweichung ( MS 0 Measurement 51 RP2)"@de,
         "Point deviation ( MS 0 Measurement 51 RP2)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/dataset> ;
     ns1:hasValue <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement0_rp2_r_dev_value> .
 
