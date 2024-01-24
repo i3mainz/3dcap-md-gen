@@ -9,6 +9,7 @@ jobs:
     name: Ontdoc I      
     with: 
           rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl
+          version: v017dev
           docpath: docs/atos62/
           prefixns: http://objects.mainzed.org/data/
           prefixnsshort: ex
@@ -27,6 +28,7 @@ jobs:
     with: 
           rdffilepath: sampledata/V03_041_SLP_20200825_meta_atos2016.ttl
           docpath: docs/atos2016/
+          version: v017dev
           prefixns: http://objects.mainzed.org/data/
           prefixnsshort: ex
           indexpages: true
@@ -44,6 +46,7 @@ jobs:
     with: 
           rdffilepath: sampledata/Holz_meta_agisoft.ttl
           docpath: docs/agisoft/
+          version: v017dev
           prefixns: http://objects.mainzed.org/data/
           prefixnsshort: ex
           indexpages: true
