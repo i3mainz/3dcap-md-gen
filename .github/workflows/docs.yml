@@ -21,10 +21,12 @@ jobs:
           preferredlang: en
           ghpages: true
           ghpagesfolder: atos62/
+          sleepafter: 200
 
   ontdocII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
-    name: Ontdoc II      
+    name: Ontdoc II     
+    needs: ontdocI
     with: 
           rdffilepath: sampledata/V03_041_SLP_20200825_meta_atos2016.ttl
           docpath: docs/atos2016/
@@ -39,10 +41,12 @@ jobs:
           preferredlang: en
           ghpages: true
           ghpagesfolder: atos2016/
+          sleepafter: 200
   
   ontdocIII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
-    name: Ontdoc III      
+    name: Ontdoc III  
+    needs: ontdocII
     with: 
           rdffilepath: sampledata/Holz_meta_agisoft.ttl
           docpath: docs/agisoft/
@@ -57,11 +61,12 @@ jobs:
           preferredlang: en
           ghpages: true
           ghpagesfolder: agisoft/
+          sleepafter: 200
 
   build:
 
     runs-on: ubuntu-latest
-
+    needs: ontdocIII
     steps:
     - name: Initial checkout
       uses: actions/checkout@v1
