@@ -6,7 +6,8 @@ jobs:
     
   ontdocI:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
-    name: Ontdoc I      
+    name: Ontdoc I  
+    needs: build
     with: 
           rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl
           version: v018
@@ -65,13 +66,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    needs: ontdocIII
     steps:
     - name: Initial checkout
       uses: actions/checkout@v1
     - name: Create Doxygen Documentation 🔧
       run: |
-         sleep 300
          sudo apt-get install doxygen graphviz -y   
          cd docs
          doxygen Doxyfile 
