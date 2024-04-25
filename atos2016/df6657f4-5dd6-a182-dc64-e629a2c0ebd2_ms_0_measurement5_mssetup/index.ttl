@@ -1,0 +1,21 @@
+@prefix ns1: <http://www.w3.org/2003/12/exif/exposureTim#http://www.w3.org/2003/12/exif/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix ns3: <http://www.w3.org/2003/12/exif/imageLengt#http://www.w3.org/2003/12/exif/> .
+@prefix ns4: <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_mssetup> a ns2:MeasurementSetup,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label " MS 0 Measurement 5 Setup"@en ;
+    ns2:numberOfShutterTimes 1 ;
+    ns2:partOf <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_activity> ;
+    ns2:reflectionDetectionActivated "off"^^xsd:string ;
+    ns2:shutterTime <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_mssetup_reference_point_exposure_time> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:exposureTime <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_mssetup_exposure_times_0> ;
+    ns3:imageLength <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_mssetup_image_height> ;
+    ns4:imageWidth <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement5_mssetup_image_width> .
+
