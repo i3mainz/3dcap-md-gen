@@ -18481,7 +18481,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 3
+              "instancecount": 5
             },
             "http://www.w3.org/ns/prov-o/used": {
               "instancecount": 0,
@@ -18497,11 +18497,11 @@ var tree={
             "http://www.w3.org/ns/prov-o/wasGeneratedBy": {
               "instancecount": 0,
               "http://objects.mainzed.org/ont#Measurement": 1,
-              "http://objects.mainzed.org/ont#ReferencePoint": 2
+              "http://objects.mainzed.org/ont#ReferencePoint": 4
             }
           }
         },
-        "instancecount": 3
+        "instancecount": 5
       },
       {
         "id": "http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_sensor_1_calibration_tangential_distortion_coefficient_p2",
@@ -20620,7 +20620,7 @@ var tree={
           "from": {
             "http://objects.mainzed.org/ont#sensor": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Measurement": 28
+              "http://objects.mainzed.org/ont#Measurement": 30
             }
           }
         },
