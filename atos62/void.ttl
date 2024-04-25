@@ -1,0 +1,1483 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vext: <http://ldf.fi/void-ext#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/adms_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/adms# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/brick_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary https://brickschema.org/schema/Brick# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/csvw_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/csvw# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/dc_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/dc/elements/1.1/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/dcam_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/dc/dcam/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/dcat_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/dcat# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/dcmitype_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/dc/dcmitype/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/dcterms_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/dc/terms/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/doap_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://usefulinc.com/ns/doap# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/ex_dataset_objects.mainzed.org_ont_> a void:Linkset ;
+    rdfs:label "Linkset: ex_dataset - giga:"@en ;
+    void:linkPredicate rdf:type,
+        <http://www.w3.org/ns/prov-o/wasAssociatedWith> ;
+    void:objectsTarget <http://objects.mainzed.org/ont#> ;
+    void:subjectsTarget <http://objects.mainzed.org/data/ex_dataset> ;
+    void:triples 2,
+        7360 .
+
+<http://objects.mainzed.org/data/ex_dataset_www.ontology-of-units-of-measure.org_resource_om-2_> a void:Linkset ;
+    rdfs:label "Linkset: ex_dataset - Ontology of Units of Measurement (om:)"@en ;
+    void:linkPredicate <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit>,
+        rdf:type ;
+    void:objectsTarget <http://www.ontology-of-units-of-measure.org/resource/om-2/> ;
+    void:subjectsTarget <http://objects.mainzed.org/data/ex_dataset> ;
+    void:triples 5862,
+        5878 .
+
+<http://objects.mainzed.org/data/ex_dataset_www.w3.org_ns_prov-o_> a void:Linkset ;
+    rdfs:label "Linkset: ex_dataset - prov1:"@en ;
+    void:linkPredicate rdf:type ;
+    void:objectsTarget <http://www.w3.org/ns/prov-o/> ;
+    void:subjectsTarget <http://objects.mainzed.org/data/ex_dataset> ;
+    void:triples 42 .
+
+<http://objects.mainzed.org/data/ex_dataset_xmlns.com_foaf_0.1_> a void:Linkset ;
+    rdfs:label "Linkset: ex_dataset - Friend Of A Friend Ontology (foaf:)"@en ;
+    void:linkPredicate rdf:type ;
+    void:objectsTarget foaf: ;
+    void:subjectsTarget <http://objects.mainzed.org/data/ex_dataset> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/foaf_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://xmlns.com/foaf/0.1/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    voaf:occurrences 2 .
+
+<http://objects.mainzed.org/data/geo_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.opengis.net/ont/geosparql# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/odrl_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/odrl/2/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/org_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/org# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/owl_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/2002/07/owl# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/prof_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/dx/prof/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/prov_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/prov# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/qb_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/linked-data/cube# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/rdf_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/1999/02/22-rdf-syntax-ns# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/rdfs_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/2000/01/rdf-schema# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/schema_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary https://schema.org/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/sh_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/shacl# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/skos_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/2004/02/skos/core# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/sosa_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/sosa/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/ssn_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/ns/ssn/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/time_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/2006/time# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/vann_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/vocab/vann/ in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/vext_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://ldf.fi/void-ext# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/voaf_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://purl.org/vocommons/voaf# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/void_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://rdfs.org/ns/void# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/wgs_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary https://www.w3.org/2003/01/geo/wgs84_pos# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/xml_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/XML/1998/namespace in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://objects.mainzed.org/data/xsd_ex_dataset_occ> a voaf:DatasetOccurrence ;
+    rdfs:label "Occurrences of vocabulary http://www.w3.org/2001/XMLSchema# in ex_dataset" ;
+    voaf:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<https://github.com/i3mainz/3dcap-md-gen> a adms:AssetRepository ;
+    rdfs:label "Repository for ex_dataset"@en ;
+    dcat:accessURL "https://github.com/i3mainz/3dcap-md-gen"^^xsd:anyURI ;
+    dcat:dataset <http://objects.mainzed.org/data/ex_dataset> .
+
+<http://dbpedia.org/resource/Location> rdfs:label "Location"@en .
+
+<http://dbpedia.org/resource/OGC_GeoSPARQL> rdfs:label "OGC GeoSPARQL"@en .
+
+<http://dbpedia.org/resource/Time> rdfs:label "Time Data"@en .
+
+vext: a voaf:Vocabulary ;
+    rdfs:label "vext Vocabulary"@en ;
+    vann:preferredNamespacePrefix "vext"^^xsd:string ;
+    vann:preferredNamespaceUri "http://ldf.fi/void-ext#"^^xsd:anyURI ;
+    voaf:usageInDataset vext:_ex_dataset_occ .
+
+<http://objects.mainzed.org/data/ex_dataset_Activity> a void:Dataset ;
+    rdfs:label "Class Partition: Activity"@en ;
+    void:class <http://www.w3.org/ns/prov-o/Activity> ;
+    void:entities 40 .
+
+<http://objects.mainzed.org/data/ex_dataset_Agent> a void:Dataset ;
+    rdfs:label "Class Partition: Agent"@en ;
+    void:class <http://www.w3.org/ns/prov-o/Agent> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Algorithm> a void:Dataset ;
+    rdfs:label "Class Partition: Algorithm"@en ;
+    void:class <http://objects.mainzed.org/ont#Algorithm> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_Area> a void:Dataset ;
+    rdfs:label "Class Partition: Area"@en ;
+    void:class <http://objects.mainzed.org/ont#Area> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Boundb_maxx> a void:Dataset ;
+    rdfs:label "Class Partition: Boundb_maxx"@en ;
+    void:class <http://objects.mainzed.org/ont#Boundb_maxx> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Boundb_maxy> a void:Dataset ;
+    rdfs:label "Class Partition: Boundb_maxy"@en ;
+    void:class <http://objects.mainzed.org/ont#Boundb_maxy> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Boundb_maxz> a void:Dataset ;
+    rdfs:label "Class Partition: Boundb_maxz"@en ;
+    void:class <http://objects.mainzed.org/ont#Boundb_maxz> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Boundb_minx> a void:Dataset ;
+    rdfs:label "Class Partition: Boundb_minx"@en ;
+    void:class <http://objects.mainzed.org/ont#Boundb_minx> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Boundb_miny> a void:Dataset ;
+    rdfs:label "Class Partition: Boundb_miny"@en ;
+    void:class <http://objects.mainzed.org/ont#Boundb_miny> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Boundb_minz> a void:Dataset ;
+    rdfs:label "Class Partition: Boundb_minz"@en ;
+    void:class <http://objects.mainzed.org/ont#Boundb_minz> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Calibration> a void:Dataset ;
+    rdfs:label "Class Partition: Calibration"@en ;
+    void:class <http://objects.mainzed.org/ont#Calibration> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_CalibrationObject> a void:Dataset ;
+    rdfs:label "Class Partition: CalibrationObject"@en ;
+    void:class <http://objects.mainzed.org/ont#CalibrationObject> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_CalibrationSetup> a void:Dataset ;
+    rdfs:label "Class Partition: CalibrationSetup"@en ;
+    void:class <http://objects.mainzed.org/ont#CalibrationSetup> .
+
+<http://objects.mainzed.org/data/ex_dataset_CapturingDevice> a void:Dataset ;
+    rdfs:label "Class Partition: CapturingDevice"@en ;
+    void:class <http://objects.mainzed.org/ont#CapturingDevice> .
+
+<http://objects.mainzed.org/data/ex_dataset_Entity> a void:Dataset ;
+    rdfs:label "Class Partition: Entity"@en ;
+    void:class <http://www.w3.org/ns/prov-o/Entity> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_GRP> a void:Dataset ;
+    rdfs:label "Class Partition: GRP"@en ;
+    void:class <http://objects.mainzed.org/ont#GRP> ;
+    void:entities 288 .
+
+<http://objects.mainzed.org/data/ex_dataset_Geometry> a void:Dataset ;
+    rdfs:label "Class Partition: Geometry"@en ;
+    void:class geo:Geometry .
+
+<http://objects.mainzed.org/data/ex_dataset_Image_height> a void:Dataset ;
+    rdfs:label "Class Partition: Image_height"@en ;
+    void:class <http://objects.mainzed.org/ont#Image_height> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_Image_width> a void:Dataset ;
+    rdfs:label "Class Partition: Image_width"@en ;
+    void:class <http://objects.mainzed.org/ont#Image_width> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_IntermediateMeshResult> a void:Dataset ;
+    rdfs:label "Class Partition: IntermediateMeshResult"@en ;
+    void:class <http://objects.mainzed.org/ont#IntermediateMeshResult> ;
+    void:entities 3 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_cam_angle> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_cam_angle"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_cam_angle> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_ref_temp> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_ref_temp"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_ref_temp> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_residual> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_residual"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_residual> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_scale_dev> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_scale_dev"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_scale_dev> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_depth> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_sensor_depth"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_sensor_depth> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_height> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_sensor_height"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_sensor_height> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_width> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_sensor_width"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_sensor_width> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_temp> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_temp"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_temp> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_cal_var_height> a void:Dataset ;
+    rdfs:label "Class Partition: M_cal_var_height"@en ;
+    void:class <http://objects.mainzed.org/ont#M_cal_var_height> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_corner_mask> a void:Dataset ;
+    rdfs:label "Class Partition: M_corner_mask"@en ;
+    void:class <http://objects.mainzed.org/ont#M_corner_mask> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_mod_left> a void:Dataset ;
+    rdfs:label "Class Partition: M_mod_left"@en ;
+    void:class <http://objects.mainzed.org/ont#M_mod_left> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_ref_shutter> a void:Dataset ;
+    rdfs:label "Class Partition: M_ref_shutter"@en ;
+    void:class <http://objects.mainzed.org/ont#M_ref_shutter> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_shutter_time0> a void:Dataset ;
+    rdfs:label "Class Partition: M_shutter_time0"@en ;
+    void:class <http://objects.mainzed.org/ont#M_shutter_time0> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_shutter_time1> a void:Dataset ;
+    rdfs:label "Class Partition: M_shutter_time1"@en ;
+    void:class <http://objects.mainzed.org/ont#M_shutter_time1> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_M_x2006_brightness> a void:Dataset ;
+    rdfs:label "Class Partition: M_x2006_brightness"@en ;
+    void:class <http://objects.mainzed.org/ont#M_x2006_brightness> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_Measure> a void:Dataset ;
+    rdfs:label "Class Partition: Measure"@en ;
+    void:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure> ;
+    void:entities 5878 .
+
+<http://objects.mainzed.org/data/ex_dataset_Measurement> a void:Dataset ;
+    rdfs:label "Class Partition: Measurement"@en ;
+    void:class <http://objects.mainzed.org/ont#Measurement> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_MeasurementCheck> a void:Dataset ;
+    rdfs:label "Class Partition: MeasurementCheck"@en ;
+    void:class <http://objects.mainzed.org/ont#MeasurementCheck> .
+
+<http://objects.mainzed.org/data/ex_dataset_MeasurementProject> a void:Dataset ;
+    rdfs:label "Class Partition: MeasurementProject"@en ;
+    void:class <http://objects.mainzed.org/ont#MeasurementProject> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_MeasurementSeries> a void:Dataset ;
+    rdfs:label "Class Partition: MeasurementSeries"@en ;
+    void:class <http://objects.mainzed.org/ont#MeasurementSeries> ;
+    void:entities 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_MeasurementSetup> a void:Dataset ;
+    rdfs:label "Class Partition: MeasurementSetup"@en ;
+    void:class <http://objects.mainzed.org/ont#MeasurementSetup> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_Mesh> a void:Dataset ;
+    rdfs:label "Class Partition: Mesh"@en ;
+    void:class <http://objects.mainzed.org/ont#Mesh> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Person> a void:Dataset ;
+    rdfs:label "Class Partition: Person"@en ;
+    void:class foaf:Person ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_Point> a void:Dataset ;
+    rdfs:label "Class Partition: Point"@en ;
+    void:class geo:Point .
+
+<http://objects.mainzed.org/data/ex_dataset_Prj_ellipse_quality> a void:Dataset ;
+    rdfs:label "Class Partition: Prj_ellipse_quality"@en ;
+    void:class <http://objects.mainzed.org/ont#Prj_ellipse_quality> ;
+    void:entities 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_Prj_max_movement> a void:Dataset ;
+    rdfs:label "Class Partition: Prj_max_movement"@en ;
+    void:class <http://objects.mainzed.org/ont#Prj_max_movement> ;
+    void:entities 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_Prj_measurement_temperature> a void:Dataset ;
+    rdfs:label "Class Partition: Prj_measurement_temperature"@en ;
+    void:class <http://objects.mainzed.org/ont#Prj_measurement_temperature> ;
+    void:entities 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_Q193540> a void:Dataset ;
+    rdfs:label "Class Partition: Q193540"@en ;
+    void:class <http://www.wikidata.org/entity/Q193540> .
+
+<http://objects.mainzed.org/data/ex_dataset_Quantity> a void:Dataset ;
+    rdfs:label "Class Partition: Quantity"@en ;
+    void:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity> .
+
+<http://objects.mainzed.org/data/ex_dataset_R_dev> a void:Dataset ;
+    rdfs:label "Class Partition: R_dev"@en ;
+    void:class <http://objects.mainzed.org/ont#R_dev> ;
+    void:entities 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_R_x> a void:Dataset ;
+    rdfs:label "Class Partition: R_x"@en ;
+    void:class <http://objects.mainzed.org/ont#R_x> ;
+    void:entities 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_R_y> a void:Dataset ;
+    rdfs:label "Class Partition: R_y"@en ;
+    void:class <http://objects.mainzed.org/ont#R_y> ;
+    void:entities 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_R_z> a void:Dataset ;
+    rdfs:label "Class Partition: R_z"@en ;
+    void:class <http://objects.mainzed.org/ont#R_z> ;
+    void:entities 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_ReferencePoint> a void:Dataset ;
+    rdfs:label "Class Partition: ReferencePoint"@en ;
+    void:class <http://objects.mainzed.org/ont#ReferencePoint> ;
+    void:entities 1106 .
+
+<http://objects.mainzed.org/data/ex_dataset_Scanner> a void:Dataset ;
+    rdfs:label "Class Partition: Scanner"@en ;
+    void:class <http://objects.mainzed.org/ont#Scanner> .
+
+<http://objects.mainzed.org/data/ex_dataset_Setup> a void:Dataset ;
+    rdfs:label "Class Partition: Setup"@en ;
+    void:class <http://objects.mainzed.org/ont#Setup> .
+
+<http://objects.mainzed.org/data/ex_dataset_Software> a void:Dataset ;
+    rdfs:label "Class Partition: Software"@en ;
+    void:class <http://objects.mainzed.org/ont#Software> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_StructuredLightScanner> a void:Dataset ;
+    rdfs:label "Class Partition: StructuredLightScanner"@en ;
+    void:class <http://objects.mainzed.org/ont#StructuredLightScanner> ;
+    void:entities 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_Thing> a void:Dataset ;
+    rdfs:label "Class Partition: Thing"@en ;
+    void:class owl:Thing .
+
+<http://objects.mainzed.org/data/ex_dataset_Tool> a void:Dataset ;
+    rdfs:label "Class Partition: Tool"@en ;
+    void:class <http://objects.mainzed.org/ont#Tool> .
+
+<http://objects.mainzed.org/data/ex_dataset_UnitOfMeasure> a void:Dataset ;
+    rdfs:label "Class Partition: UnitOfMeasure"@en ;
+    void:class <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitOfMeasure> .
+
+<http://objects.mainzed.org/data/ex_dataset_Verification> a void:Dataset ;
+    rdfs:label "Class Partition: Verification"@en ;
+    void:class <http://objects.mainzed.org/ont#Verification> .
+
+<http://objects.mainzed.org/data/ex_dataset_Volume> a void:Dataset ;
+    rdfs:label "Class Partition: Volume"@en ;
+    void:class <http://objects.mainzed.org/ont#Volume> ;
+    void:entities 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_aCTUAL_SESSION_FILE> a void:Dataset ;
+    rdfs:label "Property Partition: aCTUAL_SESSION_FILE"@en ;
+    void:property <http://objects.mainzed.org/ont#aCTUAL_SESSION_FILE> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_acquisitionTime> a void:Dataset ;
+    rdfs:label "Property Partition: acquisitionTime"@en ;
+    void:property <http://objects.mainzed.org/ont#acquisitionTime> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_actedOnBehalfOf> a void:Dataset ;
+    rdfs:label "Property Partition: actedOnBehalfOf"@en ;
+    void:property <http://www.w3.org/ns/prov-o/actedOnBehalfOf> ;
+    void:triples 17 .
+
+<http://objects.mainzed.org/data/ex_dataset_alignment> a void:Dataset ;
+    rdfs:label "Property Partition: alignment"@en ;
+    void:property <http://objects.mainzed.org/ont#alignment> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_areMeasurementsAligned> a void:Dataset ;
+    rdfs:label "Property Partition: areMeasurementsAligned"@en ;
+    void:property <http://objects.mainzed.org/ont#areMeasurementsAligned> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_asWKT> a void:Dataset ;
+    rdfs:label "Property Partition: asWKT"@en ;
+    void:property geo:asWKT ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_automatic> a void:Dataset ;
+    rdfs:label "Property Partition: automatic"@en ;
+    void:property <http://objects.mainzed.org/ont#automatic> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_avoidPointsOnShinyAreas> a void:Dataset ;
+    rdfs:label "Property Partition: avoidPointsOnShinyAreas"@en ;
+    void:property <http://objects.mainzed.org/ont#avoidPointsOnShinyAreas> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_avoidStrongBrightnessDifferencePoints> a void:Dataset ;
+    rdfs:label "Property Partition: avoidStrongBrightnessDifferencePoints"@en ;
+    void:property <http://objects.mainzed.org/ont#avoidStrongBrightnessDifferencePoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_avoidTripleScanPoints> a void:Dataset ;
+    rdfs:label "Property Partition: avoidTripleScanPoints"@en ;
+    void:property <http://objects.mainzed.org/ont#avoidTripleScanPoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibration> a void:Dataset ;
+    rdfs:label "Property Partition: calibration"@en ;
+    void:property <http://objects.mainzed.org/ont#calibration> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationDate> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationDate"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationDate> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationDeviation> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationDeviation"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationDeviation> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationObjectName> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationObjectName"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationObjectName> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationTemperature> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationTemperature"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationTemperature> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationVolumeDepth> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationVolumeDepth"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationVolumeDepth> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationVolumeLength> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationVolumeLength"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationVolumeLength> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationVolumeWidth> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationVolumeWidth"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationVolumeWidth> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_calibrationobject> a void:Dataset ;
+    rdfs:label "Property Partition: calibrationobject"@en ;
+    void:property <http://objects.mainzed.org/ont#calibrationobject> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_cameraAngle> a void:Dataset ;
+    rdfs:label "Property Partition: cameraAngle"@en ;
+    void:property <http://objects.mainzed.org/ont#cameraAngle> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_capturingdevice> a void:Dataset ;
+    rdfs:label "Property Partition: capturingdevice"@en ;
+    void:property <http://objects.mainzed.org/ont#capturingdevice> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_commonReferencepoint> a void:Dataset ;
+    rdfs:label "Property Partition: commonReferencepoint"@en ;
+    void:property <http://objects.mainzed.org/ont#commonReferencepoint> ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_cornerMask> a void:Dataset ;
+    rdfs:label "Property Partition: cornerMask"@en ;
+    void:property <http://objects.mainzed.org/ont#cornerMask> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_creator> a void:Dataset ;
+    rdfs:label "Property Partition: creator"@en ;
+    void:property dcterms:creator ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_dist_ttl> a adms:AssetDistribution ;
+    rdfs:label "ex_dataset TTL Distribution"@en ;
+    dcat:downloadURL "https://i3mainz.github.io/3dcap-md-gen/atos62//index.ttl"^^xsd:anyURI ;
+    dcat:mediaType <http://www.w3.org/ns/formats/Turtle> .
+
+<http://objects.mainzed.org/data/ex_dataset_domain> a void:Dataset ;
+    rdfs:label "Property Partition: domain"@en ;
+    void:property rdfs:domain ;
+    void:triples 108 .
+
+<http://objects.mainzed.org/data/ex_dataset_ellipseQuality> a void:Dataset ;
+    rdfs:label "Property Partition: ellipseQuality"@en ;
+    void:property <http://objects.mainzed.org/ont#ellipseQuality> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_expansionCoefficient> a void:Dataset ;
+    rdfs:label "Property Partition: expansionCoefficient"@en ;
+    void:property <http://objects.mainzed.org/ont#expansionCoefficient> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_exposureTimeForReferencePoints> a void:Dataset ;
+    rdfs:label "Property Partition: exposureTimeForReferencePoints"@en ;
+    void:property <http://objects.mainzed.org/ont#exposureTimeForReferencePoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_focalLengthCamera> a void:Dataset ;
+    rdfs:label "Property Partition: focalLengthCamera"@en ;
+    void:property <http://objects.mainzed.org/ont#focalLengthCamera> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_hOME> a void:Dataset ;
+    rdfs:label "Property Partition: hOME"@en ;
+    void:property <http://objects.mainzed.org/ont#hOME> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_hasNumericalValue> a void:Dataset ;
+    rdfs:label "Property Partition: hasNumericalValue"@en ;
+    void:property <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> ;
+    void:triples 5878 .
+
+<http://objects.mainzed.org/data/ex_dataset_hasUnit> a void:Dataset ;
+    rdfs:label "Property Partition: hasUnit"@en ;
+    void:property <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> ;
+    void:triples 5878 .
+
+<http://objects.mainzed.org/data/ex_dataset_hasValue> a void:Dataset ;
+    rdfs:label "Property Partition: hasValue"@en ;
+    void:property <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> ;
+    void:triples 5878 .
+
+<http://objects.mainzed.org/data/ex_dataset_heightVariance> a void:Dataset ;
+    rdfs:label "Property Partition: heightVariance"@en ;
+    void:property <http://objects.mainzed.org/ont#heightVariance> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/ImageHeight> a void:Dataset ;
+    rdfs:label "Property Partition: http://www.w3.org/2003/12/exif/ImageHeight"@en ;
+    void:property <http://www.w3.org/2003/12/exif/ImageHeigh#http://www.w3.org/2003/12/exif/ImageHeight> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/ImageWidth> a void:Dataset ;
+    rdfs:label "Property Partition: http://www.w3.org/2003/12/exif/ImageWidth"@en ;
+    void:property <http://www.w3.org/2003/12/exif/ImageWidt#http://www.w3.org/2003/12/exif/ImageWidth> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/exposureTime> a void:Dataset ;
+    rdfs:label "Property Partition: http://www.w3.org/2003/12/exif/exposureTime"@en ;
+    void:property <http://www.w3.org/2003/12/exif/exposureTim#http://www.w3.org/2003/12/exif/exposureTime> ;
+    void:triples 32 .
+
+<http://objects.mainzed.org/data/ex_dataset_isDefinedBy> a void:Dataset ;
+    rdfs:label "Property Partition: isDefinedBy"@en ;
+    void:property rdfs:isDefinedBy ;
+    void:triples 83 .
+
+<http://objects.mainzed.org/data/ex_dataset_isQuickCalibrated> a void:Dataset ;
+    rdfs:label "Property Partition: isQuickCalibrated"@en ;
+    void:property <http://objects.mainzed.org/ont#isQuickCalibrated> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_lANGUAGE> a void:Dataset ;
+    rdfs:label "Property Partition: lANGUAGE"@en ;
+    void:property <http://objects.mainzed.org/ont#lANGUAGE> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_label> a void:Dataset ;
+    rdfs:label "Property Partition: label"@en ;
+    void:property rdfs:label ;
+    void:triples 28893 .
+
+<http://objects.mainzed.org/data/ex_dataset_lightControlActivated> a void:Dataset ;
+    rdfs:label "Property Partition: lightControlActivated"@en ;
+    void:property <http://objects.mainzed.org/ont#lightControlActivated> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_lightFactorCalibrationEnvironment> a void:Dataset ;
+    rdfs:label "Property Partition: lightFactorCalibrationEnvironment"@en ;
+    void:property <http://objects.mainzed.org/ont#lightFactorCalibrationEnvironment> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_lightIntensity> a void:Dataset ;
+    rdfs:label "Property Partition: lightIntensity"@en ;
+    void:property <http://objects.mainzed.org/ont#lightIntensity> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_maximumSensorMovement> a void:Dataset ;
+    rdfs:label "Property Partition: maximumSensorMovement"@en ;
+    void:property <http://objects.mainzed.org/ont#maximumSensorMovement> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_maximumXCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: maximumXCoordinate"@en ;
+    void:property <http://www.gigamesh.eu/ont#maximumXCoordinate> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_maximumYCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: maximumYCoordinate"@en ;
+    void:property <http://www.gigamesh.eu/ont#maximumYCoordinate> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_maximumZCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: maximumZCoordinate"@en ;
+    void:property <http://www.gigamesh.eu/ont#maximumZCoordinate> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_measurement> a void:Dataset ;
+    rdfs:label "Property Partition: measurement"@en ;
+    void:property <http://objects.mainzed.org/ont#measurement> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_measurementSeries> a void:Dataset ;
+    rdfs:label "Property Partition: measurementSeries"@en ;
+    void:property <http://objects.mainzed.org/ont#measurementSeries> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_measurementTemperature> a void:Dataset ;
+    rdfs:label "Property Partition: measurementTemperature"@en ;
+    void:property <http://objects.mainzed.org/ont#measurementTemperature> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_measurementTransformationMethod> a void:Dataset ;
+    rdfs:label "Property Partition: measurementTransformationMethod"@en ;
+    void:property <http://objects.mainzed.org/ont#measurementTransformationMethod> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_minimumFringeContrastLeftImage> a void:Dataset ;
+    rdfs:label "Property Partition: minimumFringeContrastLeftImage"@en ;
+    void:property <http://objects.mainzed.org/ont#minimumFringeContrastLeftImage> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_minimumXCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: minimumXCoordinate"@en ;
+    void:property <http://www.gigamesh.eu/ont#minimumXCoordinate> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_minimumYCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: minimumYCoordinate"@en ;
+    void:property <http://www.gigamesh.eu/ont#minimumYCoordinate> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_minimumZCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: minimumZCoordinate"@en ;
+    void:property <http://www.gigamesh.eu/ont#minimumZCoordinate> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_movementControlActivated> a void:Dataset ;
+    rdfs:label "Property Partition: movementControlActivated"@en ;
+    void:property <http://objects.mainzed.org/ont#movementControlActivated> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfCameras> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfCameras"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfCameras> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfPhaseSteps> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfPhaseSteps"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfPhaseSteps> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfPoints> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfPoints"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfPoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfReferencePoints> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfReferencePoints"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfReferencePoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfScales> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfScales"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfScales> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfShutterTimes> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfShutterTimes"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfShutterTimes> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_numberOfTransformationPoints> a void:Dataset ;
+    rdfs:label "Property Partition: numberOfTransformationPoints"@en ;
+    void:property <http://objects.mainzed.org/ont#numberOfTransformationPoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_pROJECT.DATE> a void:Dataset ;
+    rdfs:label "Property Partition: pROJECT.DATE"@en ;
+    void:property <http://objects.mainzed.org/ont#pROJECT.DATE> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_pROJECT.TYPE> a void:Dataset ;
+    rdfs:label "Property Partition: pROJECT.TYPE"@en ;
+    void:property <http://objects.mainzed.org/ont#pROJECT.TYPE> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_pROJECT.VERSION> a void:Dataset ;
+    rdfs:label "Property Partition: pROJECT.VERSION"@en ;
+    void:property <http://objects.mainzed.org/ont#pROJECT.VERSION> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_pROJECTDIR> a void:Dataset ;
+    rdfs:label "Property Partition: pROJECTDIR"@en ;
+    void:property <http://objects.mainzed.org/ont#pROJECTDIR> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_partOf> a void:Dataset ;
+    rdfs:label "Property Partition: partOf"@en ;
+    void:property <http://objects.mainzed.org/ont#partOf> ;
+    void:triples 32 .
+
+<http://objects.mainzed.org/data/ex_dataset_pointID> a void:Dataset ;
+    rdfs:label "Property Partition: pointID"@en ;
+    void:property <http://objects.mainzed.org/ont#pointID> ;
+    void:triples 1338 .
+
+<http://objects.mainzed.org/data/ex_dataset_pointMeasurementDeviation> a void:Dataset ;
+    rdfs:label "Property Partition: pointMeasurementDeviation"@en ;
+    void:property <http://objects.mainzed.org/ont#pointMeasurementDeviation> ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_pointMeasurementState> a void:Dataset ;
+    rdfs:label "Property Partition: pointMeasurementState"@en ;
+    void:property <http://objects.mainzed.org/ont#pointMeasurementState> ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_pointProjectState> a void:Dataset ;
+    rdfs:label "Property Partition: pointProjectState"@en ;
+    void:property <http://objects.mainzed.org/ont#pointProjectState> ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_polyRaster> a void:Dataset ;
+    rdfs:label "Property Partition: polyRaster"@en ;
+    void:property <http://objects.mainzed.org/ont#polyRaster> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_processname> a void:Dataset ;
+    rdfs:label "Property Partition: processname"@en ;
+    void:property <http://objects.mainzed.org/ont#processname> ;
+    void:triples 3 .
+
+<http://objects.mainzed.org/data/ex_dataset_range> a void:Dataset ;
+    rdfs:label "Property Partition: range"@en ;
+    void:property rdfs:range ;
+    void:triples 101 .
+
+<http://objects.mainzed.org/data/ex_dataset_referenceTemperature> a void:Dataset ;
+    rdfs:label "Property Partition: referenceTemperature"@en ;
+    void:property <http://objects.mainzed.org/ont#referenceTemperature> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_refpoints> a void:Dataset ;
+    rdfs:label "Property Partition: refpoints"@en ;
+    void:property <http://objects.mainzed.org/ont#refpoints> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_sOFTWAREDIR> a void:Dataset ;
+    rdfs:label "Property Partition: sOFTWAREDIR"@en ;
+    void:property <http://objects.mainzed.org/ont#sOFTWAREDIR> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_sameAs> a void:Dataset ;
+    rdfs:label "Property Partition: sameAs"@en ;
+    void:property owl:sameAs ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_scaleDeviation> a void:Dataset ;
+    rdfs:label "Property Partition: scaleDeviation"@en ;
+    void:property <http://objects.mainzed.org/ont#scaleDeviation> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_sensorType> a void:Dataset ;
+    rdfs:label "Property Partition: sensorType"@en ;
+    void:property <http://objects.mainzed.org/ont#sensorType> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_serialNumber> a void:Dataset ;
+    rdfs:label "Property Partition: serialNumber"@en ;
+    void:property <http://objects.mainzed.org/ont#serialNumber> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_setup> a void:Dataset ;
+    rdfs:label "Property Partition: setup"@en ;
+    void:property <http://objects.mainzed.org/ont#setup> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_strongAmbientLight> a void:Dataset ;
+    rdfs:label "Property Partition: strongAmbientLight"@en ;
+    void:property <http://objects.mainzed.org/ont#strongAmbientLight> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_subClassOf> a void:Dataset ;
+    rdfs:label "Property Partition: subClassOf"@en ;
+    void:property rdfs:subClassOf ;
+    void:triples 62 .
+
+<http://objects.mainzed.org/data/ex_dataset_tEMPDIR> a void:Dataset ;
+    rdfs:label "Property Partition: tEMPDIR"@en ;
+    void:property <http://objects.mainzed.org/ont#tEMPDIR> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_totalArea> a void:Dataset ;
+    rdfs:label "Property Partition: totalArea"@en ;
+    void:property <http://www.gigamesh.eu/ont#totalArea> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_totalNumberOfFaces> a void:Dataset ;
+    rdfs:label "Property Partition: totalNumberOfFaces"@en ;
+    void:property <http://www.gigamesh.eu/ont#totalNumberOfFaces> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_totalNumberOfVertices> a void:Dataset ;
+    rdfs:label "Property Partition: totalNumberOfVertices"@en ;
+    void:property <http://www.gigamesh.eu/ont#totalNumberOfVertices> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_transformationCheck> a void:Dataset ;
+    rdfs:label "Property Partition: transformationCheck"@en ;
+    void:property <http://objects.mainzed.org/ont#transformationCheck> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_type> a void:Dataset ;
+    rdfs:label "Property Partition: type"@en ;
+    void:property rdf:type ;
+    void:triples 13454 .
+
+<http://objects.mainzed.org/data/ex_dataset_usePointsOnShinyAreas> a void:Dataset ;
+    rdfs:label "Property Partition: usePointsOnShinyAreas"@en ;
+    void:property <http://objects.mainzed.org/ont#usePointsOnShinyAreas> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_useStrongColorTransitionsPoints> a void:Dataset ;
+    rdfs:label "Property Partition: useStrongColorTransitionsPoints"@en ;
+    void:property <http://objects.mainzed.org/ont#useStrongColorTransitionsPoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_useTripleScanPoints> a void:Dataset ;
+    rdfs:label "Property Partition: useTripleScanPoints"@en ;
+    void:property <http://objects.mainzed.org/ont#useTripleScanPoints> ;
+    void:triples 16 .
+
+<http://objects.mainzed.org/data/ex_dataset_used> a void:Dataset ;
+    rdfs:label "Property Partition: used"@en ;
+    void:property <http://www.w3.org/ns/prov-o/used> ;
+    void:triples 1085 .
+
+<http://objects.mainzed.org/data/ex_dataset_volume> a void:Dataset ;
+    rdfs:label "Property Partition: volume"@en ;
+    void:property <http://objects.mainzed.org/ont#volume> ;
+    void:triples 1 .
+
+<http://objects.mainzed.org/data/ex_dataset_wasAssociatedWith> a void:Dataset ;
+    rdfs:label "Property Partition: wasAssociatedWith"@en ;
+    void:property <http://www.w3.org/ns/prov-o/wasAssociatedWith> ;
+    void:triples 36 .
+
+<http://objects.mainzed.org/data/ex_dataset_wasAttributedTo> a void:Dataset ;
+    rdfs:label "Property Partition: wasAttributedTo"@en ;
+    void:property <http://www.w3.org/ns/prov-o/wasAttributedTo> ;
+    void:triples 1124 .
+
+<http://objects.mainzed.org/data/ex_dataset_wasDerivedFrom> a void:Dataset ;
+    rdfs:label "Property Partition: wasDerivedFrom"@en ;
+    void:property <http://www.w3.org/ns/prov-o/wasDerivedFrom> ;
+    void:triples 1071 .
+
+<http://objects.mainzed.org/data/ex_dataset_wasGeneratedBy> a void:Dataset ;
+    rdfs:label "Property Partition: wasGeneratedBy"@en ;
+    void:property <http://www.w3.org/ns/prov-o/wasGeneratedBy> ;
+    void:triples 1415 .
+
+<http://objects.mainzed.org/data/ex_dataset_wasInformedBy> a void:Dataset ;
+    rdfs:label "Property Partition: wasInformedBy"@en ;
+    void:property <http://www.w3.org/ns/prov-o/wasInformedBy> ;
+    void:triples 3 .
+
+<http://objects.mainzed.org/data/ex_dataset_wasInvalidatedBy> a void:Dataset ;
+    rdfs:label "Property Partition: wasInvalidatedBy"@en ;
+    void:property <http://www.w3.org/ns/prov-o/wasInvalidatedBy> ;
+    void:triples 2 .
+
+<http://objects.mainzed.org/data/ex_dataset_xCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: xCoordinate"@en ;
+    void:property <http://objects.mainzed.org/ont#xCoordinate> ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_yCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: yCoordinate"@en ;
+    void:property <http://objects.mainzed.org/ont#yCoordinate> ;
+    void:triples 1394 .
+
+<http://objects.mainzed.org/data/ex_dataset_zCoordinate> a void:Dataset ;
+    rdfs:label "Property Partition: zCoordinate"@en ;
+    void:property <http://objects.mainzed.org/ont#zCoordinate> ;
+    void:triples 1394 .
+
+dcam: a voaf:Vocabulary ;
+    rdfs:label "dcam Vocabulary"@en ;
+    vann:preferredNamespacePrefix "dcam"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/dc/dcam/"^^xsd:anyURI ;
+    voaf:usageInDataset dcam:_ex_dataset_occ .
+
+dcmitype: a voaf:Vocabulary ;
+    rdfs:label "dcmitype Vocabulary"@en ;
+    vann:preferredNamespacePrefix "dcmitype"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/dc/dcmitype/"^^xsd:anyURI ;
+    voaf:usageInDataset dcmitype:_ex_dataset_occ .
+
+dc: a voaf:Vocabulary ;
+    rdfs:label "dc Vocabulary"@en ;
+    vann:preferredNamespacePrefix "dc"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/dc/elements/1.1/"^^xsd:anyURI ;
+    voaf:usageInDataset dc:_ex_dataset_occ .
+
+dcterms: a voaf:Vocabulary ;
+    rdfs:label "dcterms Vocabulary"@en ;
+    vann:preferredNamespacePrefix "dcterms"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/dc/terms/"^^xsd:anyURI ;
+    voaf:usageInDataset dcterms:_ex_dataset_occ .
+
+qb: a voaf:Vocabulary ;
+    rdfs:label "qb Vocabulary"@en ;
+    vann:preferredNamespacePrefix "qb"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/linked-data/cube#"^^xsd:anyURI ;
+    voaf:usageInDataset qb:_ex_dataset_occ .
+
+vann: a voaf:Vocabulary ;
+    rdfs:label "vann Vocabulary"@en ;
+    vann:preferredNamespacePrefix "vann"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/vocab/vann/"^^xsd:anyURI ;
+    voaf:usageInDataset vann:_ex_dataset_occ .
+
+voaf: a voaf:Vocabulary ;
+    rdfs:label "voaf Vocabulary"@en ;
+    vann:preferredNamespacePrefix "voaf"^^xsd:string ;
+    vann:preferredNamespaceUri "http://purl.org/vocommons/voaf#"^^xsd:anyURI ;
+    voaf:usageInDataset voaf:_ex_dataset_occ .
+
+void: a voaf:Vocabulary ;
+    rdfs:label "Vocabulary of Interlinked Datasets (VoID)"@en ;
+    vann:preferredNamespacePrefix "void"^^xsd:string ;
+    vann:preferredNamespaceUri "http://rdfs.org/ns/void#"^^xsd:anyURI ;
+    voaf:usageInDataset void:_ex_dataset_occ .
+
+doap: a voaf:Vocabulary ;
+    rdfs:label "doap Vocabulary"@en ;
+    vann:preferredNamespacePrefix "doap"^^xsd:string ;
+    vann:preferredNamespaceUri "http://usefulinc.com/ns/doap#"^^xsd:anyURI ;
+    voaf:usageInDataset doap:_ex_dataset_occ .
+
+geo: a voaf:Vocabulary ;
+    rdfs:label "The GeoSPARQL Ontology"@en ;
+    vann:preferredNamespacePrefix "geo"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+    voaf:usageInDataset geo:_ex_dataset_occ .
+
+rdf: a voaf:Vocabulary ;
+    rdfs:label "The RDF Concepts Vocabulary (RDF)"@en ;
+    vann:preferredNamespacePrefix "rdf"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    voaf:usageInDataset rdf:_ex_dataset_occ .
+
+rdfs: a voaf:Vocabulary ;
+    rdfs:label "The RDF Schema vocabulary (RDFS)"@en ;
+    vann:preferredNamespacePrefix "rdfs"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+    voaf:usageInDataset rdfs:_ex_dataset_occ .
+
+xsd: a voaf:Vocabulary ;
+    rdfs:label "XML Schema"@en ;
+    vann:preferredNamespacePrefix "xsd"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+    voaf:usageInDataset xsd:_ex_dataset_occ .
+
+owl: a voaf:Vocabulary ;
+    rdfs:label "Web Ontology Language 2 Vocabulary"@en ;
+    vann:preferredNamespacePrefix "owl"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
+    voaf:usageInDataset owl:_ex_dataset_occ .
+
+skos: a voaf:Vocabulary ;
+    rdfs:label "skos Vocabulary"@en ;
+    vann:preferredNamespacePrefix "skos"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+    voaf:usageInDataset skos:_ex_dataset_occ .
+
+time: a voaf:Vocabulary ;
+    rdfs:label "time Vocabulary"@en ;
+    vann:preferredNamespacePrefix "time"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/2006/time#"^^xsd:anyURI ;
+    voaf:usageInDataset time:_ex_dataset_occ .
+
+xml: a voaf:Vocabulary ;
+    rdfs:label "xml Vocabulary"@en ;
+    vann:preferredNamespacePrefix "xml"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/XML/1998/namespace"^^xsd:anyURI ;
+    voaf:usageInDataset xml:_ex_dataset_occ .
+
+adms: a voaf:Vocabulary ;
+    rdfs:label "adms Vocabulary"@en ;
+    vann:preferredNamespacePrefix "adms"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
+    voaf:usageInDataset adms:_ex_dataset_occ .
+
+csvw: a voaf:Vocabulary ;
+    rdfs:label "csvw Vocabulary"@en ;
+    vann:preferredNamespacePrefix "csvw"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/csvw#"^^xsd:anyURI ;
+    voaf:usageInDataset csvw:_ex_dataset_occ .
+
+dcat: a voaf:Vocabulary ;
+    rdfs:label "DCAT Vocabulary"@en ;
+    vann:preferredNamespacePrefix "dcat"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+    voaf:usageInDataset dcat:_ex_dataset_occ .
+
+prof: a voaf:Vocabulary ;
+    rdfs:label "prof Vocabulary"@en ;
+    vann:preferredNamespacePrefix "prof"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/dx/prof/"^^xsd:anyURI ;
+    voaf:usageInDataset prof:_ex_dataset_occ .
+
+odrl: a voaf:Vocabulary ;
+    rdfs:label "odrl Vocabulary"@en ;
+    vann:preferredNamespacePrefix "odrl"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
+    voaf:usageInDataset odrl:_ex_dataset_occ .
+
+org: a voaf:Vocabulary ;
+    rdfs:label "org Vocabulary"@en ;
+    vann:preferredNamespacePrefix "org"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/org#"^^xsd:anyURI ;
+    voaf:usageInDataset org:_ex_dataset_occ .
+
+prov: a voaf:Vocabulary ;
+    rdfs:label "W3C Provenance Ontology"@en ;
+    vann:preferredNamespacePrefix "prov"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
+    voaf:usageInDataset prov:_ex_dataset_occ .
+
+sh: a voaf:Vocabulary ;
+    rdfs:label "Shapes Constraint Language (SHACL)"@en ;
+    vann:preferredNamespacePrefix "sh"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
+    voaf:usageInDataset sh:_ex_dataset_occ .
+
+sosa: a voaf:Vocabulary ;
+    rdfs:label "Sensor, Observation, Sample, and Actuator (SOSA) Ontology"@en ;
+    vann:preferredNamespacePrefix "sosa"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/sosa/"^^xsd:anyURI ;
+    voaf:usageInDataset sosa:_ex_dataset_occ .
+
+ssn: a voaf:Vocabulary ;
+    rdfs:label "ssn Vocabulary"@en ;
+    vann:preferredNamespacePrefix "ssn"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/ssn/"^^xsd:anyURI ;
+    voaf:usageInDataset ssn:_ex_dataset_occ .
+
+<http://www.wikidata.org/entity/Q121810372> rdfs:label "geospatial data"@en .
+
+brick: a voaf:Vocabulary ;
+    rdfs:label "brick Vocabulary"@en ;
+    vann:preferredNamespacePrefix "brick"^^xsd:string ;
+    vann:preferredNamespaceUri "https://brickschema.org/schema/Brick#"^^xsd:anyURI ;
+    voaf:usageInDataset brick:_ex_dataset_occ .
+
+schema: a voaf:Vocabulary ;
+    rdfs:label "schema Vocabulary"@en ;
+    vann:preferredNamespacePrefix "schema"^^xsd:string ;
+    vann:preferredNamespaceUri "https://schema.org/"^^xsd:anyURI ;
+    voaf:usageInDataset schema:_ex_dataset_occ .
+
+wgs: a voaf:Vocabulary ;
+    rdfs:label "wgs Vocabulary"@en ;
+    vann:preferredNamespacePrefix "wgs"^^xsd:string ;
+    vann:preferredNamespaceUri "https://www.w3.org/2003/01/geo/wgs84_pos#"^^xsd:anyURI ;
+    voaf:usageInDataset wgs:_ex_dataset_occ .
+
+foaf: a voaf:Vocabulary ;
+    rdfs:label "Friend Of A Friend Ontology"@en ;
+    vann:preferredNamespacePrefix "foaf"^^xsd:string ;
+    vann:preferredNamespaceUri "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
+    voaf:usageInDataset foaf:_ex_dataset_occ .
+
+foaf:Person rdfs:label "Person"@en .
+
+<http://objects.mainzed.org/data/ex_dataset> a void:Dataset,
+        adms:Asset ;
+    rdfs:label "ex_dataset"@en ;
+    vext:averageLiteralLength 0 ;
+    vext:averageObjectIRILength 50 ;
+    vext:averagePropertyIRILength 48 ;
+    vext:averageSubjectIRILength 96 ;
+    vext:datatypes 0 ;
+    vext:distinctBlankNodes 0 ;
+    vext:distinctIRIReferences 59997 ;
+    vext:distinctLiterals 0 ;
+    vext:distinctRDFNodes 59997 ;
+    vext:languages 0 ;
+    vext:propertyClasses 0 ;
+    dc:language <http://www.lexvo.org/page/iso639-1/en> ;
+    dcterms:modified "2024-04-25T19:51:29"^^xsd:dateTime ;
+    dcterms:subject <http://dbpedia.org/resource/Location>,
+        <http://dbpedia.org/resource/OGC_GeoSPARQL>,
+        <http://dbpedia.org/resource/Time>,
+        <http://www.wikidata.org/entity/Q121810372>,
+        foaf:Person ;
+    dcterms:title "ex_dataset"@en ;
+    vann:preferredNamespacePrefix "ex"^^xsd:string ;
+    vann:preferredNamespaceUri "http://objects.mainzed.org/data/"^^xsd:anyURI ;
+    void:classPartition <http://objects.mainzed.org/data/ex_dataset_Activity>,
+        <http://objects.mainzed.org/data/ex_dataset_Agent>,
+        <http://objects.mainzed.org/data/ex_dataset_Algorithm>,
+        <http://objects.mainzed.org/data/ex_dataset_Area>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_maxx>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_maxy>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_maxz>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_minx>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_miny>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_minz>,
+        <http://objects.mainzed.org/data/ex_dataset_Calibration>,
+        <http://objects.mainzed.org/data/ex_dataset_CalibrationObject>,
+        <http://objects.mainzed.org/data/ex_dataset_CalibrationSetup>,
+        <http://objects.mainzed.org/data/ex_dataset_CapturingDevice>,
+        <http://objects.mainzed.org/data/ex_dataset_Entity>,
+        <http://objects.mainzed.org/data/ex_dataset_GRP>,
+        <http://objects.mainzed.org/data/ex_dataset_Geometry>,
+        <http://objects.mainzed.org/data/ex_dataset_Image_height>,
+        <http://objects.mainzed.org/data/ex_dataset_Image_width>,
+        <http://objects.mainzed.org/data/ex_dataset_IntermediateMeshResult>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_cam_angle>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_ref_temp>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_residual>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_scale_dev>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_depth>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_height>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_width>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_temp>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_var_height>,
+        <http://objects.mainzed.org/data/ex_dataset_M_corner_mask>,
+        <http://objects.mainzed.org/data/ex_dataset_M_mod_left>,
+        <http://objects.mainzed.org/data/ex_dataset_M_ref_shutter>,
+        <http://objects.mainzed.org/data/ex_dataset_M_shutter_time0>,
+        <http://objects.mainzed.org/data/ex_dataset_M_shutter_time1>,
+        <http://objects.mainzed.org/data/ex_dataset_M_x2006_brightness>,
+        <http://objects.mainzed.org/data/ex_dataset_Measure>,
+        <http://objects.mainzed.org/data/ex_dataset_Measurement>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementCheck>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementProject>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementSeries>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementSetup>,
+        <http://objects.mainzed.org/data/ex_dataset_Mesh>,
+        <http://objects.mainzed.org/data/ex_dataset_Person>,
+        <http://objects.mainzed.org/data/ex_dataset_Point>,
+        <http://objects.mainzed.org/data/ex_dataset_Prj_ellipse_quality>,
+        <http://objects.mainzed.org/data/ex_dataset_Prj_max_movement>,
+        <http://objects.mainzed.org/data/ex_dataset_Prj_measurement_temperature>,
+        <http://objects.mainzed.org/data/ex_dataset_Q193540>,
+        <http://objects.mainzed.org/data/ex_dataset_Quantity>,
+        <http://objects.mainzed.org/data/ex_dataset_R_dev>,
+        <http://objects.mainzed.org/data/ex_dataset_R_x>,
+        <http://objects.mainzed.org/data/ex_dataset_R_y>,
+        <http://objects.mainzed.org/data/ex_dataset_R_z>,
+        <http://objects.mainzed.org/data/ex_dataset_ReferencePoint>,
+        <http://objects.mainzed.org/data/ex_dataset_Scanner>,
+        <http://objects.mainzed.org/data/ex_dataset_Setup>,
+        <http://objects.mainzed.org/data/ex_dataset_Software>,
+        <http://objects.mainzed.org/data/ex_dataset_StructuredLightScanner>,
+        <http://objects.mainzed.org/data/ex_dataset_Thing>,
+        <http://objects.mainzed.org/data/ex_dataset_Tool>,
+        <http://objects.mainzed.org/data/ex_dataset_UnitOfMeasure>,
+        <http://objects.mainzed.org/data/ex_dataset_Verification>,
+        <http://objects.mainzed.org/data/ex_dataset_Volume> ;
+    void:classes 63 ;
+    void:dataDump <https://i3mainz.github.io/3dcap-md-gen/atos62//index.ttl> ;
+    void:distinctObjects 46405 ;
+    void:distinctSubjects 13486 ;
+    void:entities 13312 ;
+    void:feature <http://www.w3.org/ns/formats/RDFa>,
+        <http://www.w3.org/ns/formats/Turtle> ;
+    void:properties 106 ;
+    void:propertyPartition <http://objects.mainzed.org/data/ex_dataset_aCTUAL_SESSION_FILE>,
+        <http://objects.mainzed.org/data/ex_dataset_acquisitionTime>,
+        <http://objects.mainzed.org/data/ex_dataset_actedOnBehalfOf>,
+        <http://objects.mainzed.org/data/ex_dataset_alignment>,
+        <http://objects.mainzed.org/data/ex_dataset_areMeasurementsAligned>,
+        <http://objects.mainzed.org/data/ex_dataset_asWKT>,
+        <http://objects.mainzed.org/data/ex_dataset_automatic>,
+        <http://objects.mainzed.org/data/ex_dataset_avoidPointsOnShinyAreas>,
+        <http://objects.mainzed.org/data/ex_dataset_avoidStrongBrightnessDifferencePoints>,
+        <http://objects.mainzed.org/data/ex_dataset_avoidTripleScanPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_calibration>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationDate>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationDeviation>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationObjectName>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationTemperature>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationVolumeDepth>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationVolumeLength>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationVolumeWidth>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationobject>,
+        <http://objects.mainzed.org/data/ex_dataset_cameraAngle>,
+        <http://objects.mainzed.org/data/ex_dataset_capturingdevice>,
+        <http://objects.mainzed.org/data/ex_dataset_commonReferencepoint>,
+        <http://objects.mainzed.org/data/ex_dataset_cornerMask>,
+        <http://objects.mainzed.org/data/ex_dataset_creator>,
+        <http://objects.mainzed.org/data/ex_dataset_domain>,
+        <http://objects.mainzed.org/data/ex_dataset_ellipseQuality>,
+        <http://objects.mainzed.org/data/ex_dataset_expansionCoefficient>,
+        <http://objects.mainzed.org/data/ex_dataset_exposureTimeForReferencePoints>,
+        <http://objects.mainzed.org/data/ex_dataset_focalLengthCamera>,
+        <http://objects.mainzed.org/data/ex_dataset_hOME>,
+        <http://objects.mainzed.org/data/ex_dataset_hasNumericalValue>,
+        <http://objects.mainzed.org/data/ex_dataset_hasUnit>,
+        <http://objects.mainzed.org/data/ex_dataset_hasValue>,
+        <http://objects.mainzed.org/data/ex_dataset_heightVariance>,
+        <http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/ImageHeight>,
+        <http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/ImageWidth>,
+        <http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/exposureTime>,
+        <http://objects.mainzed.org/data/ex_dataset_isDefinedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_isQuickCalibrated>,
+        <http://objects.mainzed.org/data/ex_dataset_lANGUAGE>,
+        <http://objects.mainzed.org/data/ex_dataset_label>,
+        <http://objects.mainzed.org/data/ex_dataset_lightControlActivated>,
+        <http://objects.mainzed.org/data/ex_dataset_lightFactorCalibrationEnvironment>,
+        <http://objects.mainzed.org/data/ex_dataset_lightIntensity>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumSensorMovement>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumXCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumYCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumZCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_measurement>,
+        <http://objects.mainzed.org/data/ex_dataset_measurementSeries>,
+        <http://objects.mainzed.org/data/ex_dataset_measurementTemperature>,
+        <http://objects.mainzed.org/data/ex_dataset_measurementTransformationMethod>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumFringeContrastLeftImage>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumXCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumYCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumZCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_movementControlActivated>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfCameras>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfPhaseSteps>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfReferencePoints>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfScales>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfShutterTimes>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfTransformationPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECT.DATE>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECT.TYPE>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECT.VERSION>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECTDIR>,
+        <http://objects.mainzed.org/data/ex_dataset_partOf>,
+        <http://objects.mainzed.org/data/ex_dataset_pointID>,
+        <http://objects.mainzed.org/data/ex_dataset_pointMeasurementDeviation>,
+        <http://objects.mainzed.org/data/ex_dataset_pointMeasurementState>,
+        <http://objects.mainzed.org/data/ex_dataset_pointProjectState>,
+        <http://objects.mainzed.org/data/ex_dataset_polyRaster>,
+        <http://objects.mainzed.org/data/ex_dataset_processname>,
+        <http://objects.mainzed.org/data/ex_dataset_range>,
+        <http://objects.mainzed.org/data/ex_dataset_referenceTemperature>,
+        <http://objects.mainzed.org/data/ex_dataset_refpoints>,
+        <http://objects.mainzed.org/data/ex_dataset_sOFTWAREDIR>,
+        <http://objects.mainzed.org/data/ex_dataset_sameAs>,
+        <http://objects.mainzed.org/data/ex_dataset_scaleDeviation>,
+        <http://objects.mainzed.org/data/ex_dataset_sensorType>,
+        <http://objects.mainzed.org/data/ex_dataset_serialNumber>,
+        <http://objects.mainzed.org/data/ex_dataset_setup>,
+        <http://objects.mainzed.org/data/ex_dataset_strongAmbientLight>,
+        <http://objects.mainzed.org/data/ex_dataset_subClassOf>,
+        <http://objects.mainzed.org/data/ex_dataset_tEMPDIR>,
+        <http://objects.mainzed.org/data/ex_dataset_totalArea>,
+        <http://objects.mainzed.org/data/ex_dataset_totalNumberOfFaces>,
+        <http://objects.mainzed.org/data/ex_dataset_totalNumberOfVertices>,
+        <http://objects.mainzed.org/data/ex_dataset_transformationCheck>,
+        <http://objects.mainzed.org/data/ex_dataset_type>,
+        <http://objects.mainzed.org/data/ex_dataset_usePointsOnShinyAreas>,
+        <http://objects.mainzed.org/data/ex_dataset_useStrongColorTransitionsPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_useTripleScanPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_used>,
+        <http://objects.mainzed.org/data/ex_dataset_volume>,
+        <http://objects.mainzed.org/data/ex_dataset_wasAssociatedWith>,
+        <http://objects.mainzed.org/data/ex_dataset_wasAttributedTo>,
+        <http://objects.mainzed.org/data/ex_dataset_wasDerivedFrom>,
+        <http://objects.mainzed.org/data/ex_dataset_wasGeneratedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_wasInformedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_wasInvalidatedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_xCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_yCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_zCoordinate> ;
+    void:triples 91646 ;
+    void:uriSpace "http://objects.mainzed.org/data/"^^xsd:string ;
+    void:vocabulary vext:,
+        dcam:,
+        dcmitype:,
+        dc:,
+        dcterms:,
+        qb:,
+        vann:,
+        voaf:,
+        void:,
+        doap:,
+        geo:,
+        rdf:,
+        rdfs:,
+        xsd:,
+        owl:,
+        skos:,
+        time:,
+        xml:,
+        adms:,
+        csvw:,
+        dcat:,
+        prof:,
+        odrl:,
+        org:,
+        prov:,
+        sh:,
+        sosa:,
+        ssn:,
+        foaf:,
+        brick:,
+        schema:,
+        wgs: ;
+    dcat:distribution <http://objects.mainzed.org/data/ex_dataset_dist_ttl> ;
+    dcat:keyword "Location"@en,
+        "OGC GeoSPARQL"@en,
+        "Person"@en,
+        "Q121810372"@en,
+        "Time"@en ;
+    dcat:landingPage <https://i3mainz.github.io/3dcap-md-gen/atos62/> ;
+    foaf:homepage <https://i3mainz.github.io/3dcap-md-gen/atos62/> ;
+    foaf:page <https://i3mainz.github.io/3dcap-md-gen/atos62//index.html> .
+
