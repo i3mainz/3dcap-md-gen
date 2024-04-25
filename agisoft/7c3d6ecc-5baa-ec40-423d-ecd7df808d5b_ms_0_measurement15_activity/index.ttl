@@ -1,0 +1,18 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement15_activity> a <http://www.w3.org/ns/ldp#Resource>,
+        ns1:Activity,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Messreihe 0 Messvorgang 15 ()"@de,
+        "MS 0 Measurement 0 Activity"@en,
+        "MS 0 Measurement 1 Activity"@en,
+        "MS 0 Measurement 15 Activity ()"@en,
+        "MS 0 Measurement 2 Activity"@en,
+        "MS 0 Measurement 3 Activity"@en,
+        "MS 0 Measurement 4 Activity"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:used <http://objects.mainzed.org/data/ATOS2016> ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/data/d8781d4e-5596-22e4-cce2-20dd3d22d10c> .
+
