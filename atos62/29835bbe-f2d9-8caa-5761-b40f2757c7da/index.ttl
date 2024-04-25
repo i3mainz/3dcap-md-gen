@@ -1,0 +1,11 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/29835bbe-f2d9-8caa-5761-b40f2757c7da> a <http://www.w3.org/ns/ldp#Resource>,
+        <http://www.w3.org/ns/prov-o/Agent>,
+        foaf:Person,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Creator of " ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
