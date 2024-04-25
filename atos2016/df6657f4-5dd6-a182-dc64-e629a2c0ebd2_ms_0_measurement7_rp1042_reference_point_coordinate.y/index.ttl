@@ -1,8 +1,0 @@
-@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_rp1042_reference_point_coordinate.y> a <http://objects.mainzed.org/ont#Reference_point_coordinate.y> ;
-    rdfs:label "Referenzpunktkoordinate Y ( MS 0 Measurement 2 RP1042)"@de,
-        "Reference point coordinate Y ( MS 0 Measurement 2 RP1042)"@en ;
-    ns1:hasValue <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement7_rp1042_reference_point_coordinate.y_value> .
-
