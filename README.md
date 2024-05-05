@@ -6,7 +6,7 @@ Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orc
 Source Code Documentation: [Doxygen Documentation](http://i3mainz.github.io/3dcap-md-gen)
  
 ## Agisoft Metashape
- 
+  
 ### Getting started
  
 #### Software
