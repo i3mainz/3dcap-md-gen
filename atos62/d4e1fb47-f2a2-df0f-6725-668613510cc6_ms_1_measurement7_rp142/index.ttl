@@ -1,0 +1,25 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp142> a ns2:ReferencePoint,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "RP142 ( Messreihe 1 Messung 7)"@de,
+        "RP142 ( MS 1 Measurement 7)"@en ;
+    ns2:commonReferencepoint false ;
+    ns2:pointID 142 ;
+    ns2:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp142_r_dev> ;
+    ns2:pointMeasurementState "ok"^^xsd:string ;
+    ns2:pointProjectState "photogrammetric point"^^xsd:string ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp142_r_x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp142_r_y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_rp142_r_z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    geo:asWKT "POINT(77.6923402638 -173.218800886 12.4682607023)"^^geo:wktLiteral ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_algorithm> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement7_activity> .
+
