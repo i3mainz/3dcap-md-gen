@@ -26,8 +26,8 @@ var NAVTREE =
 [
   [ "3dcap-md-gen", "index.html", [
     [ "Packages", "namespaces.html", [
-      [ "Packages", "namespaces.html", "namespaces_dup" ],
-      [ "Package Functions", "namespacemembers.html", [
+      [ "Package List", "namespaces.html", "namespaces_dup" ],
+      [ "Package Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ]
@@ -52,8 +52,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.html",
-"a00011.html#a06a03f905024bddb40ceb5584caa1a27",
-"a00018.html#a23457bc3005bec9d5485232b84b2cff7"
+"a00011.html#a0417857734d1738d56886c76164ced62",
+"a00018.html#a03d872533f5f6255a26b393857fd90e9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
