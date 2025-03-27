@@ -1,0 +1,30 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1> a ns1:Measurement,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "M2",
+        "MS 0 Measurement 1 for "@en ;
+    ns1:acquisitionTime "2020-08-25T12:17:10"^^xsd:dateTime ;
+    ns1:avoidTripleScanPoints false ;
+    ns1:avoidTripleScanPointsWithBrightnessDifference false ;
+    ns1:calibration <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_calibration> ;
+    ns1:capturingdevice <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_capturingdevice> ;
+    ns1:cornerMask <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_corner_mask_size> ;
+    ns1:maxIntersectionDeviation <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_max_intersection_deviation> ;
+    ns1:measurementId 2 ;
+    ns1:minimumFringeContrast <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_min_fringe_contrast> ;
+    ns1:numberOfCommonReferencePoints 23 ;
+    ns1:numberOfReferencePoints 39 ;
+    ns1:numberOfTransformationPoints 39 ;
+    ns1:setup <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_mssetup> ;
+    ns1:transformationDeviation <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_transformation_deviation> ;
+    ns1:verification <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_mscheck> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/efa92918-9687-219e-4f44-c6e054a8aa1c> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_0_measurement1_activity> .
+

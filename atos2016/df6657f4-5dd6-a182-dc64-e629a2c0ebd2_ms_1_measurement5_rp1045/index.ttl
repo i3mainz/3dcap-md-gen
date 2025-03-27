@@ -1,0 +1,24 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045> a ns2:ReferencePoint,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "RP1045 ( Messreihe 1 Messung 5)"@de,
+        "RP1045 ( MS 1 Measurement 5)"@en ;
+    ns2:pointID 1045 ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045_reference_point_coordinate.x> ;
+    ns2:xNormal <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045_reference_point_normal.x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045_reference_point_coordinate.y> ;
+    ns2:yNormal <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045_reference_point_normal.y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045_reference_point_coordinate.z> ;
+    ns2:zNormal <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_rp1045_reference_point_normal.z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    geo:asWKT "POINT(-44.88601754109403 -80.32859651765267 23.154941456265686)"^^geo:wktLiteral ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_algorithm> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_measurement5_activity> .
+
