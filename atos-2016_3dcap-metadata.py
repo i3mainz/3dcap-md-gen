@@ -1,75 +1,76 @@
 # -*- coding: utf-8 -*-
 #
 # GOM-Script-Version: 2016
-
-# Anja Cramer / RGZM
+# ZEISS-Script-Version: 2023
+						
+# Anja Cramer / LEIZA
 # Timo Homburg / i3mainz
 # Laura Raddatz / i3mainz
-# 2020/2021
-
-#import gom
+# 2020/2021/2022/2023/2024/2025
+						
+import gom
 import json, math, time
 import xml, time, os, random
 import datetime
-
+						
 production=True
 #production=False
-
+						
 ## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
-#includeonlypropswithuri=False
-includeonlypropswithuri=True
-
-
+includeonlypropswithuri=False
+#includeonlypropswithuri=True
+						
+						
 # python script version
 script_name = "atos-2016_3dcap_metadata.py"
 script_label = "ATOS 2016 3DCAP Metadata Script"
-github_release = "0.1.2"
-
-
+github_release = "1.0.0"
+						
+						
 ####################### TTL Export #############################
-
+						
 ## Mapping of datatypes present in the JSON dictionary to datatypes present in the TTL file .
 datatypes={"float":"xsd:float","double":"xsd:double","str":"xsd:string","date":"xsd:date","int":"xsd:integer","bool":"xsd:boolean","NoneType":"xsd:string", "dateTime":"xsd:dateTime", "list":"xsd:list"}
-
+						
 ## Namespace for classes defined in the resulting ontology model .
 ontologynamespace="http://objects.mainzed.org/ont#"
-
+						
 ## Prefix name for the data namespace .
 dataprefix="ex"
 # variable python script
 script_uri=str(dataprefix)+":"+script_name
-
+						
 ## Prefix name for the class namespace .
 ontologyprefix="giga"
-
+						
 toolnamespace="http://objects.mainzed.org/tool/"
-
+						
 toolpropnamespace="http://objects.mainzed.org/tool/atos/62/"
-
+						
 ## Namespace for instances defined in the TTL export .
 datanamespace="http://objects.mainzed.org/data/"
-
+						
 ## Prefix name for the exif namespace .
 exifnamespace="http://www.w3.org/2003/12/exif/"
-
+						
 ## Prefix name for the exif namespace .
 om="http://www.ontology-of-units-of-measure.org/resource/om-2/"
-
+						
 ## Prefix name for the rdfs namespace .
 rdfs='http://www.w3.org/2000/01/rdf-schema#'
-
+						
 ##Prefix name for the  gigamesh namespace
 giganamespace="http://www.gigamesh.eu/ont#"
-
+						
 # Prefix name for prov-o namespace .
 provnamespace = "http://www.w3.org/ns/prov#"
-
+						
 #atos 2016
 referencepointid="reference_point_id"
 globalreferencepointid="point_id"
-
-
-
+						
+						
+						
 ## Provenance dictionary: Might be used to change the provenance vocabulary .
 provenancedict_prov_o={
 	"entity":"prov:Entity",
@@ -78,7 +79,7 @@ provenancedict_prov_o={
 	"used":"prov:used",
 	"person":"foaf:Person"
 }
-
+						
 ## Provenance dictionary cidoc crm: Might be used to change the provenance vocabulary .
 provenancedict_crmdig={
 	"entity":"http://www.cidoc-crm.org/cidoc-crm/D1",
@@ -87,29 +88,29 @@ provenancedict_crmdig={
 	"used":"prov:used",
 	"person":"http://www.cidoc-crm.org/cidoc-crm/D21"
 }
-
+						
 sensorTypeToClass={
 "ATOS III Rev.01": str(ontologyprefix)+":StructuredLightScanner",
 "ATOS Core": str(ontologyprefix)+":StructuredLightScanner",
 "ATOS II (first generation)": str(ontologyprefix)+":StructuredLightScanner",
 "ATOS III Rev.02": str(ontologyprefix)+":StructuredLightScanner",
 }
-
+						
 provenancedict=provenancedict_prov_o
-
+						
 ## Key for the german label as present in the JSON dictionary .
 germanlabel="key_deu"
-
+						
 ## Key for the english label as present in the JSON dictionary .
 englishlabel="key_eng"
-
-
-
+						
+						
+						
 artifactURI=None
-
+						
 ## Header for the TTL export which includes all necessary namespaces.
-ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
-
+ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix frapo: <http://purl.org/cerif/frapo>.\n@prefix geocrs: <http://www.opengis.net/ont/crs/>.\n@prefix geocrsaxis: <http://www.opengis.net/ont/crs/cs/axis/> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
+						
 ## Generates a UUID.
 def generate_uuid():
 	random_string = ''
@@ -121,7 +122,7 @@ def generate_uuid():
 		if i != n:
 			random_string += '-'
 	return random_string[:-1]
-
+						
 ## Turns the first character of a String to lowercase .
 #  @param s The string to modify .
 #  @return a String with the first character to lowercase
@@ -130,7 +131,7 @@ def first_upper(s):
 		return s
 	else:
 		return s[0].upper() + s[1:]
-				
+										
 ## Turns the first character of a String to lowercase .
 #  @param s The string to modify .
 #  @return a String with the first character to lowercase
@@ -139,7 +140,7 @@ def first_lower(s):
 		return s
 	else:
 		return s[0].lower() + s[1:]
-
+						
 ## Reads a TTL file, splits its header and body and merges it to the internal TTL set .
 #  @param filepath The filepath of the TTL file to read .
 #  @param ttlstring The set of triples to append to .
@@ -153,7 +154,7 @@ def readInputTTL(filepath,ttlstring):
 		else:
 			ttlstring.add(line)
 	file1.close()
-
+						
 ## Extracts the ID of a previously created object to extend its provenance hierarchy .
 #  @param ttlstring The set of triples to append to .
 #  @param filterclass The class to use for filtering .
@@ -168,7 +169,7 @@ def filterLastId(ttlstring,filterclass):
 		return None
 	if len(concernedtriples)==1 and concernedtriples[0].contains("rdf:type"):
 		return concernedtriples.split(" ")[0];
-		
+								
 ## Reads an artifact description given in a text file and converts its information to TLL .
 #  @param filepath the path of the text file to process
 #  @param ttlstring the set of triples to store the result in
@@ -208,7 +209,7 @@ def readInputTXTForArtifactDescription(filepath,ttlstring):
 		else:
 			artifactURI=datanamespace+entities[0]			
 	file1.close()
-
+						
 ## Reads an instance present in a JSON representation and appends its TTL representation to the triple set .
 #  @param jsonobj The JSON object to process 
 #  @param id The id of the current instance 
@@ -241,7 +242,67 @@ def exportInformationFromIndAsTTL(jsonobj,id,classs,labelprefix,ttlstring):
 			ttlstring=handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,jsonobj[info]["value"],str(ontologyprefix)+":"+first_upper(str(info)).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","").replace("[","_").replace("]",""))
 	#print ("ttlstring")
 	return ttlstring
-
+						
+def checkfornewline(literal):
+				if '\n' in literal or '\r' in literal:
+								return "\"\"+literal+\"\""
+				else:
+								return literal
+						
+units={}
+def csAsSVG(csdef):
+				svgstr= """<svg width=\"400\" height=\"250\" viewbox=\"0 0 375 220\"><defs><marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"2\" orient=\"auto\"><polygon points=\"0 0, 4 2, 0 4\" /></marker></defs>"""
+#				print(csdef)
+				if len(csdef["axis_list"])>0:
+																				if csdef["axis_list"][0]["unit_name"] in units:
+																																				svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"200\" y2=\"200\" stroke=\"red\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"110\" y=\"220\" class=\"small\">"""+str(csdef["axis_list"][0]["abbrev"])+": "+str(csdef["axis_list"][0]["name"])+" ("+str(units[csdef["axis_list"][0]["unit_name"]])+") ("+str(csdef["axis_list"][0]["direction"])+")</text>"
+																				else:
+																																				svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"200\" y2=\"200\" stroke=\"red\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"110\" y=\"220\" class=\"small\">"""+str(csdef["axis_list"][0]["abbrev"])+": "+str(csdef["axis_list"][0]["name"])+" ("+str(csdef["axis_list"][0]["unit_name"])+") ("+str(csdef["axis_list"][0]["direction"])+")</text>"
+				if len(csdef["axis_list"])>1:
+																				if csdef["axis_list"][1]["unit_name"] in units:
+																																				svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"20\" y2=\"20\" stroke=\"green\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"35\" y=\"20\" class=\"small\">"""+str(csdef["axis_list"][1]["abbrev"])+": "+str(csdef["axis_list"][1]["name"])+" ("+str(units[csdef["axis_list"][1]["unit_name"]])+") ("+str(csdef["axis_list"][1]["direction"])+")</text>"
+																				else:
+																																				svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"20\" y2=\"20\" stroke=\"green\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"35\" y=\"20\" class=\"small\">"""+str(csdef["axis_list"][1]["abbrev"])+": "+str(csdef["axis_list"][1]["name"])+" ("+str(csdef["axis_list"][1]["unit_name"])+") ("+str(csdef["axis_list"][1]["direction"])+")</text>"
+				if len(csdef["axis_list"])>2:
+																				if csdef["axis_list"][2]["unit_name"] in units:
+																																				svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"190\" y2=\"30\" stroke=\"blue\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"210\" y=\"25\" class=\"small\">"""+str(csdef["axis_list"][2]["abbrev"])+": "+str(csdef["axis_list"][2]["name"])+" ("+str(units[csdef["axis_list"][2]["unit_name"]])+") ("+str(csdef["axis_list"][2]["direction"])+")</text>"
+																				else:
+																																				svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"190\" y2=\"30\" stroke=\"blue\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"210\" y=\"25\" class=\"small\">"""+str(csdef["axis_list"][2]["abbrev"])+": "+str(csdef["axis_list"][2]["name"])+" ("+str(csdef["axis_list"][2]["unit_name"])+") ("+str(csdef["axis_list"][2]["direction"])+")</text>"
+				return svgstr.replace("\"","'")+"</svg>"
+						
+						
+def csAxisAsSVG(axisdef):
+				svgstr= """<svg width=\"400\" height=\"100\" viewbox=\"0 0 275 100\"><defs><marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"2\" orient=\"auto\"><polygon points=\"0 0, 4 2, 0 4\" /></marker></defs>"""
+				if axisdef["unit_name"] in units:
+																				svgstr+="""<line x1=\"20\" y1=\"50\" x2=\"200\" y2=\"50\" stroke=\"gray\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"30\" y=\"70\" class=\"small\">"""+str(axisdef["abbrev"])+": "+str(axisdef["name"])+" ("+str(units[axisdef["unit_name"]])+") ("+str(axisdef["direction"])+")</text>"
+				else:
+																				svgstr+="""<line x1=\"20\" y1=\"50\" x2=\"200\" y2=\"50\" stroke=\"gray\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"30\" y=\"70\" class=\"small\">"""+str(axisdef["abbrev"])+": "+str(axisdef["name"])+" ("+str(axisdef["unit_name"])+") ("+str(axisdef["direction"])+")</text>"
+				return svgstr.replace("\"","'")+"</svg>"
+						
+						
+def csFromPoint(pointind,x,y,z,ttlstring):
+	crsid=str(dataprefix)+":cs_3d_x_"+str(x["unit"]).replace("om:","")+"_y_"+str(y["unit"]).replace("om:","")+"_z_"+str(z["unit"]).replace("om:","")
+	ttlstring.add(str(pointind)+" geo:inSRS "+str(crsid)+" .\n")
+	ttlstring.add(str(crsid)+" geocrs:asSVG \""+str(csAsSVG({"axis_list":[{"unit_name":x["unit"],"direction":"x","abbrev":"x","name":"x"},{"unit_name":y["unit"],"direction":"y","abbrev":"y","name":"y"},{"unit_name":z["unit"],"direction":"z","abbrev":"z","name":"z"}]}))+"\"^^xsd:string .\n")
+	ttlstring.add(str(crsid)+" rdfs:label \"Local 3D Coordinate System X("+str(x["unit"])+") Y("+str(y["unit"])+") Z("+str(z["unit"])+")\" . \n")
+	ttlstring.add(str(crsid)+" rdf:type geocrs:CoordinateSystem . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_xaxis .\n")
+	axisid=str(crsid)+"_xaxis"
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":x["unit"],"direction":"x","abbrev":"x","name":"x"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("x").replace("\"","'")+"\"^^xsd:string . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_yaxis .\n")
+	axisid=str(crsid)+"_yaxis"
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":y["unit"],"direction":"y","abbrev":"y","name":"y"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("y").replace("\"","'")+"\"^^xsd:string . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_zaxis .\n")
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":z["unit"],"direction":"z","abbrev":"z","name":"z"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("z").replace("\"","'")+"\"^^xsd:string . \n")
+	return ttlstring
+						
+						
 ## Processes a given property depending on its type .
 def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputvalue,propclass):
 	if "unit" in jsonobj[info] and jsonobj[info]["unit"]!=None and jsonobj[info]["unit"]!="":
@@ -251,24 +312,24 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 		if englishlabel in jsonobj[info] and jsonobj[info][englishlabel]!=None and str(jsonobj[info][englishlabel])!="" and str(jsonobj[info][englishlabel]).strip()!="...":
 			ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+"\"@en .\n")
 			if labelprefix=="":
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" \"@en .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" Measurement Value \"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" \"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" Measurement Value \"@en .\n")
 			else:
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" ("+str(labelprefix)+")\"@en .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+" Measurement Value ("+str(labelprefix)+")\"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" ("+str(labelprefix)+")\"@en .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][englishlabel]).replace("\"","'"))+" Measurement Value ("+str(labelprefix)+")\"@en .\n")
 		if germanlabel in jsonobj[info] and jsonobj[info][germanlabel]!=None and str(jsonobj[info][germanlabel])!="" and str(jsonobj[info][germanlabel])!="...":
 			ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+"\"@de .\n")
 			if labelprefix=="":
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" \"@de .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" Messwert \"@de .\n")			
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" \"@de .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" Messwert \"@de .\n")			
 			else:
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" ("+str(labelprefix)+")\"@de .\n")
-				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+" Messwert ("+str(labelprefix)+")\"@de .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" ("+str(labelprefix)+")\"@de .\n")
+				ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value rdfs:label \""+checkfornewline(str(jsonobj[info][germanlabel]).replace("\"","'"))+" Messwert ("+str(labelprefix)+")\"@de .\n")
 		if "measurementclass" in jsonobj[info] and jsonobj[info]["measurementclass"]!=None and str(jsonobj[info]["measurementclass"])!="":
 			if ":" in jsonobj[info]["measurementclass"]:
 				if jsonobj[info]["measurementclass"].startswith("http"):
 					ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdf:type owl:Class .\n") 
-					ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdfs:label \""+jsonobj[info]["measurementclass"].replace("\"","'")+"\"@en .\n") 
+					ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdfs:label \""+checkfornewline(jsonobj[info]["measurementclass"].replace("\"","'"))+"\"@en .\n") 
 					ttlstring.add("<"+jsonobj[info]["measurementclass"].replace(" ","")+"> rdfs:subClassOf om:Quantity .\n")				
 				else:
 					ttlstring.add(str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+" rdf:type owl:Class .\n") 
@@ -289,14 +350,14 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 		if jsonobj[info]["unit"].startswith("http"):
 			ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasUnit <"+str(jsonobj[info]["unit"])+"> .\n")
 			ttlstring.add("<"+str(jsonobj[info]["unit"])+"> rdf:type om:UnitOfMeasure .\n")
-			ttlstring.add("<"+str(jsonobj[info]["unit"])+"> rdfs:label \""+jsonobj[info]["unit"].replace("\"","'")+"\"@en .\n")
+			ttlstring.add("<"+str(jsonobj[info]["unit"])+"> rdfs:label \""+checkfornewline(jsonobj[info]["unit"].replace("\"","'"))+"\"@en .\n")
 		elif ":" in jsonobj[info]["unit"]:
 			ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasUnit "+str(jsonobj[info]["unit"].replace(" ",""))+" .\n")
 			ttlstring.add(str(jsonobj[info]["unit"].replace(" ",""))+" rdf:type om:UnitOfMeasure .\n")
-			ttlstring.add(str(jsonobj[info]["unit"].replace(" ",""))+" rdfs:label \""+jsonobj[info]["unit"].replace("\"","'")+"\" .\n")
+			ttlstring.add(str(jsonobj[info]["unit"].replace(" ",""))+" rdfs:label \""+checkfornewline(jsonobj[info]["unit"].replace("\"","'"))+"\" .\n")
 		else:
 			ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasUnit \""+str(jsonobj[info]["unit"])+"\" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasNumericalValue \""+str(inputvalue).replace("\\","\\\\")+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")		  
+		ttlstring.add(str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+"_value om:hasNumericalValue \""+str(inputvalue).replace("\\","\\\\")+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
 		ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" "+str(dataprefix)+":"+str(id)+"_"+str(info).replace(" ","").replace("[","_").replace("]","").replace("(","").replace(")","")+" .\n")
 	elif "value_type" in jsonobj[info] and jsonobj[info]["value_type"]=="enumeration":
 		ttlstring.add(str(propuri)+" rdf:type owl:ObjectProperty .\n")
@@ -304,7 +365,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 		if "measurementclass" in jsonobj[info] and jsonobj[info]["measurementclass"]!=None and str(jsonobj[info]["measurementclass"])!="":
 			if ":" in jsonobj[info]["measurementclass"]:
 				ttlstring.add(str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+" rdf:type owl:Class .\n") 
-				ttlstring.add(str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+" rdfs:label \""+jsonobj[info]["measurementclass"].replace("\"","'")+"\"@en .\n") 
+				ttlstring.add(str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+" rdfs:label \"\"\""+jsonobj[info]["measurementclass"].replace("\"","'")+"\"\"\"@en .\n")
 				ttlstring.add(str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+" rdfs:subClassOf "+str(ontologyprefix)+":Enumeration .\n") 
 				ttlstring.add(str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+"_"+inputvalue+" rdf:type "+str(ontologyprefix)+":"+jsonobj[info]["measurementclass"].replace(" ","")+" .\n") 
 				ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" "+str(ontologyprefix)+":"+jsonobj[info]["measurementclass"]+"_"+str(inputvalue)+" .\n") 
@@ -323,24 +384,113 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 	else:
 		if propuri=="http://www.w3.org/2000/01/rdf-schema#label" or  propuri=="rdfs:label" or propuri=="http://www.w3.org/2000/01/rdf-schema#comment" or propuri=="rdfs:comment":
 			ttlstring.add(str(propuri)+" rdf:type owl:AnnotationProperty .\n")
-			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+str(inputvalue)+"\" .\n")
+			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \"\"\""+str(inputvalue)+"\"\"\" .\n")
 		else:
 			ttlstring.add(str(propuri)+" rdf:type owl:DatatypeProperty .\n")
 			ttlstring.add(str(propuri)+" rdfs:domain "+str(classs)+" .\n")
 			if englishlabel in jsonobj[info] and jsonobj[info][englishlabel]!=None and str(jsonobj[info][englishlabel])!="" and str(jsonobj[info][englishlabel])!="...":
-				ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][englishlabel]).replace("\"","'")+"\"@en .\n")
+				ttlstring.add(str(propuri)+" rdfs:label \"\"\""+str(jsonobj[info][englishlabel]).replace("\"","'")+"\"\"\"@en .\n")
 			if germanlabel in jsonobj[info] and jsonobj[info][germanlabel]!=None and str(jsonobj[info][germanlabel])!="" and str(jsonobj[info][germanlabel])!="...":
-				ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+"\"@de .\n")
+				ttlstring.add(str(propuri)+" rdfs:label \"\"\""+str(jsonobj[info][germanlabel]).replace("\"","'")+"\"\"\"@de .\n")
 			ttlstring.add(str(propuri)+" rdfs:range "+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
-			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+str(inputvalue).replace("\\","\\\\")+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
+			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \"\"\""+str(inputvalue).replace("\\","\\\\")+"\"\"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
 	#print("handled Property")
 	return ttlstring
-
+						
+def entryToTTL(idd,realobj,ttlstring):
+#				print(realobj)
+				ttlstring.add("<"+idd+"> <"+realobj["value"]+" <"+realobj["value"]+"> .\n")
+				ttlstring.add("<"+realobj["value"]+"> rdfs:label \""+realobj["key_eng"]+"\"@en .\n")
+				ttlstring.add("<"+realobj["value"]+"> rdfs:label \""+realobj["key_deu"]+"\"@de .\n")
+				return ttlstring
+						
+def addUserMetadataToId(ttlstring,usermetadata,theid):
+#				print (usermetadata)
+				data=usermetadata["projects"][0]["general"]				
+				realobj=data["real_object"][0]
+				robjid=theid+"_robj"
+				for key in realobj:
+					ttlstring=entryToTTL(robjid,realobj[key],ttlstring)
+				if "3d_creator" in data["3d_creation"]:				
+					realobj=data["3d_creation"]["3d_creator"]
+					if "orcid_id" in realobj:
+						creatorid=realobj["orcid_id"]["value"]
+					else:
+						creatorid=str(generate_uuid())
+					ttlstring.add("<"+theid+"> dc:creator <"+creatorid+"> .\n")
+					ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+					ttlstring.add("<"+creatorid+"> rdfs:label \""+realobj["person_first_name"]["value"]+" "+realobj["person_surname"]["value"]+"\"@en .\n")
+					for key in realobj:
+						ttlstring=entryToTTL(creatorid,realobj[key],ttlstring)  
+				if "3d_contributors" in data["3d_creation"]:
+					realobj=data["3d_creation"]["3d_contributors"]
+					for cont in realobj:
+						if "orcid_id" in cont:
+							creatorid=cont["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+						ttlstring.add("<"+theid+"> dc:contributor <"+creatorid+"> .\n")
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+cont["person_first_name"]["value"]+" "+cont["person_surname"]["value"]+"\"@en .\n")
+						for key in cont:
+							ttlstring=entryToTTL(creatorid,cont[key],ttlstring)							
+				if "persons_responsible" in data["3d_creation"]:
+					realobj=data["3d_creation"]["persons_responsible"]
+					for cont in realobj:
+						if "orcid_id" in cont:
+							creatorid=cont["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+#						creatorid=cont["orcid_id"]["value"]
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+cont["person_first_name"]["value"]+" "+cont["person_surname"]["value"]+"\"@en .\n")
+						for key in cont:
+							ttlstring=entryToTTL(creatorid,cont[key],ttlstring)     
+				if "research_project" in data:
+					realobj=data["research_project"]
+					if "research_project_name" in realobj:
+									rpid=realobj["research_project_name"]["value"].replace(" ","_")
+					else:
+									rpid=str(generate_uuid())
+					ttlstring.add("<"+rpid+"> rdf:type <http://xmlns.com/foaf/0.1/Project> .\n")
+					ttlstring.add("<"+rpid+"> rdfs:label \""+realobj["research_project_name"]["value"]+"\"@en .\n")
+				if "description" in realobj:        
+								ttlstring.add("<"+rpid+"> skos:definition \""+realobj["description"]["value"]+"\"@en .\n")
+				if "funding" in realobj:
+								ttlstring.add("<"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> rdf:type <http://purl.org/cerif/frapo/FundingAgency> .\n")
+								ttlstring.add("<"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> rdfs:label \""+realobj["funding"]["value"]+"\"@en .\n")
+								ttlstring.add("<"+rpid+"> <http://purl.org/cerif/frapo/hasFundingAgency> <"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> .\n")
+				if "applicants" in realobj:
+								for app in realobj["applicants"]:
+												ttlstring.add("<"+rpid+"> <http://purl.org/cerif/frapo/isAppliedForBy> <"+app["institute"]["value"]+"> .\n")
+												ttlstring.add("<"+app["institute"]["value"]+"> rdf:type <http://purl.org/cerif/frapo/ResearchInstitute> .\n")
+												#ttlstring.add("<"+app["institute"]["value"]+"> rdfs:label \""+app["institute"]["value_label"]+"\" .\n")      
+												ttlstring.add("<"+app["institute"]["value"]+"> rdfs:label \""+app["institute"]["value"]+"\" .\n")  
+				if "duration" in realobj and "project_start" in realobj["duration"]:
+								ttlstring.add("<"+rpid+"> <http://www.w3.org/2006/time#hasBeginning> \""+realobj["duration"]["project_start"]["value"]+"\"^^xsd:date .\n")
+				if "duration" in realobj and "project_end" in realobj["duration"]:
+								ttlstring.add("<"+rpid+"> <http://www.w3.org/2006/time#hasEnd> \""+realobj["duration"]["project_end"]["value"]+"\"^^xsd:date .\n")
+				if "license" in data:
+								realobj=data["license"]
+								if "license_3d_model" in realobj:
+												ttlstring.add("<"+theid+"> <http://purl.org/dc/terms/license> <"+realobj["license_3d_model"]["value"]+"> .\n")
+												ttlstring.add("<"+realobj["license_3d_model"]["value"]+"> rdf:type <"+realobj["license_3d_model"]["uri"]+"> .\n")
+												ttlstring.add("<"+realobj["license_3d_model"]["value"]+"> rdfs:label \""+realobj["license_3d_model"]["value_label"]+"\"@en .\n")
+								if "license_metadata" in realobj:
+												ttlstring.add("<"+theid+"> <http://www.w3.org/ns/dcat#resource> <"+theid+"_metadata> .\n")
+												ttlstring.add("<"+theid+"_metadata> <http://www.w3.org/ns/dcat#resource> <http://www.w3.org/ns/dcat#Dataset>.\n")
+												ttlstring.add("<"+theid+"_metadata> <http://purl.org/dc/terms/license> <"+realobj["license_metadata"]["uri"]+"> .\n")
+												ttlstring.add("<"+theid+"_metadata> rdfs:label \"Metadata License: "+realobj["license_metadata"]["value_label"]+"\"@en .\n")
+								if "rights_holder" in realobj:
+												ttlstring.add("<"+theid+"> <http://purl.org/dc/terms/rightsHolder> <"+realobj["rights_holder"]["value"]+"> .\n")
+												ttlstring.add("<"+realobj["rights_holder"]["value"]+"> rdfs:label \""+realobj["rights_holder"]["value_label"]+"\"@en .\n")
+				return ttlstring
+										
+						
 ## Converts a preformatted dictionary to a set of triples .
 #  @param dict the dictionary to export from
 #  @param measurementToExport indicates whether to export measurements
-def exportToTTL(dict,measurementToExport,ttlstring):
-	###print ("drin in exportToTTL")
+def exportToTTL(dict,measurementToExport,ttlstring,usermetadata=None):
 	projectid=str(generate_uuid())
 	userid=str(generate_uuid())
 	projlabelkey="prj_n"
@@ -558,9 +708,10 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 			ttlstring.add(str(dataprefix)+":"+str(projectid)+" "+str(dataprefix)+":metadata "+str(dataprefix)+":"+str(projectid)+"_metadata .\n")
 			#print(pro[projinfokey])
 			ttlstring=exportInformationFromIndAsTTL(pro[projinfokey],projectid,str(ontologyprefix)+":MeasurementProject",labelprefix,ttlstring)
-		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdf:type foaf:Person, "+provenancedict.get("agent")+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(projectid)+" dc:creator "+str(dataprefix)+":"+str(userid)+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdfs:label \"Creator of "+str(labelprefix)+"\" .\n")
+#		print (usermetadata)
+#		print (len(usermetadata))
+		if len(usermetadata) > 0:
+			ttlstring=addUserMetadataToId(ttlstring,usermetadata,projectid)
 		#print(pro[applicationkey])
 		if applicationkey in pro:
 			for appl in pro[applicationkey]:
@@ -596,8 +747,7 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 				if measurmentserieskey in project:
 					#print(project[measurmentserieskey])
 					ttlstring=exportInformationFromIndAsTTL(project[measurmentserieskey],str(projectid)+"_ms_"+str(msindex),str(ontologyprefix)+":MeasurementSeries",labelprefix,ttlstring)
-					if measurementToExport==None:
-						#print ("measurementToExport==None:")			
+					if measurementToExport==None:			
 						if projkey in project:						
 							#print (project[projinfokey])
 							if projinfokey in project:
@@ -638,9 +788,11 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 							#print("266: "+str(grp))
 							ttlstring=exportInformationFromIndAsTTL(grp,grpid,str(ontologyprefix)+":GRP",labelprefix+" MS "+str(msindex)+" GRP"+str(index),ttlstring)
 							if "r_x" in grp and "r_y" in grp and "r_z" in grp:
-								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")					
+								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")
+								ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["r_x"],grp["r_y"],grp["r_z"],ttlstring)
 							elif "coordinate.x" in grp and "coordinate.y" in grp and "coordinate.z" in grp:
 								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["coordinate.x"]["value"])+" "+str(grp["coordinate.y"]["value"])+" "+str(grp["coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+								ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["coordinate.x"],grp["coordinate.y"],grp["coordinate.z"],ttlstring)
 				if sensorskey in project:
 					for seindex, sensor in enumerate(project[sensorskey]):
 						sensorid=str(projectid)+"_sensor_"+str(seindex)
@@ -756,10 +908,12 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 									ttlstring=exportInformationFromIndAsTTL(rp,rpuri,str(ontologyprefix)+":ReferencePoint",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" RP"+str(index2),ttlstring)
 									if "r_x" in rp and "r_y" in rp and "r_z" in rp:
 									### atos v6.2
-										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")			
+										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")
+										ttlstring=csFromPoint(str(dataprefix)+":"+str(rpuri),rp["r_x"],rp["r_y"],rp["r_z"],ttlstring)
 									###atos 2016
 									elif "reference_point_coordinate.x" in rp and "reference_point_coordinate.y" in rp and "reference_point_coordinate.z" in rp:
 										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["reference_point_coordinate.x"]["value"])+" "+str(rp["reference_point_coordinate.y"]["value"])+" "+str(rp["reference_point_coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+										ttlstring=csFromPoint(str(dataprefix)+":"+str(rpuri),rp["reference_point_coordinate.x"],rp["reference_point_coordinate.y"],rp["reference_point_coordinate.z"],ttlstring)
 									#print(rp)
 									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity . \n")
 									ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity\"@en. \n")
@@ -837,150 +991,171 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 					ttlstring.add(str(dataprefix)+":"+str(meshid)+" owl:sameAs "+str(lastprocid)+" .\n")
 				ttlstring=exportInformationFromIndAsTTL(mesh[meshinfokey],meshid,str(ontologyprefix)+":Mesh",labelprefix+" Mesh Attribute ",ttlstring)							
 	return ttlstring
-
-
+						
+						
 #####################################################################################################
-
-
-
+						
+						
+						
 ## Method for collecting metadata of the measurement series, measurements and networks
 ## An externally created dictionary with user information can be given
-
-def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
-		
-
+						
+def createMetaDic(dic_user, meshname_suffix): # befor exportjson(), now createMetaDic()
+				
 	dic_dig = {}
 	dic_dig_app={}
 	list_app=[]
-	
-	list_project_info=[]
+							
 	project = {}
 	project_info ={}
 	sensor_id = 0 
-	
+							
 	list_app.append(dic_dig_app)
-	
+							
 	# add script version infos
 	list_app.append(script_version())
-	
+							
 	# import userkey / general information 
 	if "projects" in dic_user:
 		for e in dic_user["projects"]:
 			if 'general' in e:
+				print ("in createMstadic, in dic_user")
 				project['general'] = e['general']
-
-	def infos_app (keyword,beschreibung,unit,description,uri,measurementclass, value, from_application):		
+				print ("e['general']")
+				print (e['general'])
+				print ("project['general']")
+				print (project['general'])
+					
+	def infos_app (keyword,beschreibung,unit,description,uri,measurementclass, value, from_application):
 		dir = {}
 		dir.clear()
-		dir["value"] = gom.app.get(keyword)
-		dir["key_deu"] = beschreibung
-		if description!=None:
-			dir["key_eng"] = description		
-		if uri!=None:
-			dir["uri"] = uri	
-		if measurementclass!=None:
-			dir["measurementclass"] = measurementclass			
-		dir["value_type"] = type(gom.app.get(keyword)).__name__
-		if unit!=None:
-			dir["unit"] = unit
-		if from_application!=None:
-			dir["from_application"] = from_application
-			
-		if keyword == 'PROJECT.DATE':
-			value_new = dir["value"]
-			
-		if keyword == "application_build_information.date": 
-			dir["value_type"]="date"
-			
-		if dir["value"] != None:
-			if len(str(dir["value"])) != 0:
-				dic_dig_app[keyword] = {}		
-				dic_dig_app[keyword] = dir
-				
-	# Applikationsname
-	keyword= 'application_name'
-	beschreibung = "Applikationsname"
-	unit= None
-	description="application name" 
-	uri= None
-	measurementclass=None
-	value= gom.app.get ('application_name')
-	from_application= "true"
-	infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
-	
-	# Applilationsbuild-Informationen / Version
-	keyword= 'application_build_information.version'
-	beschreibung = "Applikationsbuild-Informationen / Version"
-	unit= None
-	description='application build information / version'
-	uri= None
-	measurementclass=None
-	value=  gom.app.get(keyword)
-	from_application= "true"
-	infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
-	
-	# Applilationsbuild-Informationen / Revision
-	keyword= 'application_build_information.revision'
-	beschreibung = "Applikationsbuild-Informationen / Revision"
-	unit= None
-	description='application build information / Revision'
-	uri= None
-	measurementclass=None
-	value=  gom.app.get(keyword)
-	from_application= "true"
-	infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)  
-
-	# Applilationsbuild-Informationen / Datum
-	keyword= 'application_build_information.date'
-	beschreibung = "Applikationsbuild-Informationen / Datum"
-	unit= None
-	description='application build information / date'
-	uri= None
-	measurementclass=None
-	value=  gom.app.get(keyword)
-	from_application= "true"
-	infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
-	
-
-	
+		try:
+			dir["value"] = gom.app.get(keyword)
+			dir["key_deu"] = beschreibung
+			if description!=None:
+				dir["key_eng"] = description		
+			if uri!=None:
+				dir["uri"] = uri	
+			if measurementclass!=None:
+				dir["measurementclass"] = measurementclass			
+			dir["value_type"] = type(gom.app.get(keyword)).__name__
+			if unit!=None:
+				dir["unit"] = unit
+			if from_application!=None:
+				dir["from_application"] = from_application
+																						
+			if keyword == 'PROJECT.DATE':
+				value_new = dir["value"]
+																						
+			if keyword == "application_build_information.date": 
+				dir["value_type"]="date"
+																						
+			if dir["value"] != None:
+				if len(str(dir["value"])) != 0:
+					dic_dig_app[keyword] = {}		
+					dic_dig_app[keyword] = dir
+		except Exception as e:
+			print(e)
+							
+	try:
+								# Applikationsname
+		keyword= 'application_name'
+		beschreibung = "Applikationsname"
+		unit= None
+		description="application name" 
+		uri= None
+		measurementclass=None
+		value= gom.app.get ('application_name')
+		from_application= "true"
+		infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
+	except Exception as e:
+		print(e)
+							
+	try:
+		# Applilationsbuild-Informationen / Version
+		keyword= 'application_build_information.version'
+		beschreibung = "Applikationsbuild-Informationen / Version"
+		unit= None
+		description='application build information / version'
+		uri= None
+		measurementclass=None
+		value=  gom.app.get(keyword)
+		from_application= "true"
+		infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
+	except Exception as e:
+		print(e)
+							
+	try:
+								# Applilationsbuild-Informationen / Revision
+		keyword= 'application_build_information.revision'
+		beschreibung = "Applikationsbuild-Informationen / Revision"
+		unit= None
+		description='application build information / Revision'
+		uri= None
+		measurementclass=None
+		value=  gom.app.get(keyword)
+		from_application= "true"
+		infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)  
+	except Exception as e:
+		print(e)
+						
+	try:
+								# Applilationsbuild-Informationen / Datum
+		keyword= 'application_build_information.date'
+		beschreibung = "Applikationsbuild-Informationen / Datum"
+		unit= None
+		description='application build information / date'
+		uri= None
+		measurementclass=None
+		value=  gom.app.get(keyword)
+		from_application= "true"
+		infos_app(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application) 
+	except Exception as e:
+		print(e)
+							
+						
+							
 	#project 
 	def infos_p (keyword, beschreibung,unit=None,description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 		dir = {}
-		if value== None:
-			dir["value"] = gom.app.project.get(keyword)
-		else:
-			dir["value"]= value 			
-		dir["key_deu"] = beschreibung
-		if  description != None:
-			dir["key_eng"] =  description
-		if  uri != None:
-			dir["uri"] =  uri
-		if  unit != None:
-			dir["unit"] =  unit
-		if measurementclass!=None:
-			dir["measurementclass"] = measurementclass
-		dir["from_application"]=from_application
-		
 		try:
-			dir["value_type"] = type(gom.app.project.get(keyword)).__name__
-		except:
-			dir["value_type"] = type(dir["value"]).__name__
-				
-		if dir["value"] != None:
-			if len(str(dir["value"])) != 0:
-				if includeonlypropswithuri and "uri" in dir:
-					project_info[keyword] = {}		
-					project_info[keyword] = dir
-				
-				if not includeonlypropswithuri:			
-					project_info[keyword] ={}		
-					project_info[keyword] = dir
-		
-			
+			if value== None:
+				dir["value"] = gom.app.project.get(keyword)
+			else:
+				dir["value"]= value 			
+			dir["key_deu"] = beschreibung
+			if  description != None:
+				dir["key_eng"] =  description
+			if  uri != None:
+				dir["uri"] =  uri
+			if  unit != None:
+				dir["unit"] =  unit
+			if measurementclass!=None:
+				dir["measurementclass"] = measurementclass
+			dir["from_application"]=from_application
+																		
+			try:
+				dir["value_type"] = type(gom.app.project.get(keyword)).__name__
+			except:
+				dir["value_type"] = type(dir["value"]).__name__
+																										
+			if dir["value"] != None:
+				if len(str(dir["value"])) != 0:
+					if includeonlypropswithuri and "uri" in dir:
+						project_info[keyword] = {}		
+						project_info[keyword] = dir
+																										
+					if not includeonlypropswithuri:			
+						project_info[keyword] ={}		
+						project_info[keyword] = dir
+		except Exception as e:
+			print(e)
+								
+									
 	### Projektinformationen 
-	
+							
 	anz_messungen = 0
-		
+								
 	##Benutzerdefinierte Keywords
 	# Abteilung
 	keyword= 'user_department'
@@ -990,7 +1165,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Bauteil
 	keyword= 'user_part'
 	beschreibung = "Bauteil"
@@ -999,7 +1174,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Chargen-Nr.
 	keyword= 'user_charge_nr'
 	beschreibung = "Chargen-Nr."
@@ -1008,7 +1183,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)  
-	
+							
 	# Datenstand
 	keyword= 'user_version'
 	beschreibung = "Datenstand"
@@ -1017,15 +1192,15 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Fehlermeldung 
-	
+							
 	## Datum
 	#keyword= 'user_date'
 	#beschreibung = "Datum"
 	#unit= None 
 	#infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Firma
 	keyword= 'user_company'
 	beschreibung = "Firma"
@@ -1034,7 +1209,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ort 
 	keyword= 'user_location'
 	beschreibung = "Ort"
@@ -1043,7 +1218,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Projekt 
 	keyword= 'user_project'
 	beschreibung = "Projekt"
@@ -1052,7 +1227,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Prüfer
 	keyword= 'user_inspector'
 	beschreibung = "Prüfer"
@@ -1061,7 +1236,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# System 
 	keyword= 'user_system'
 	beschreibung = "System"
@@ -1070,7 +1245,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Teile-Nr. 
 	keyword= 'user_part_nr'
 	beschreibung = "Teile-Nr."
@@ -1079,9 +1254,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	## Information
-	
+							
 	# Erzeugungszeit des Projektes 
 	keyword= 'project_creation_time'
 	beschreibung = "Erzeugungszeit des Projektes"
@@ -1090,7 +1265,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Name 
 	keyword= 'name'
 	beschreibung = "Name"
@@ -1099,7 +1274,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Projektdatei 
 	keyword= 'project_file'
 	beschreibung = "Projektdatei"
@@ -1108,7 +1283,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Projektdateigröße
 	keyword= 'project_file_size'
 	beschreibung = "Projektdateigröße"
@@ -1117,7 +1292,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Projektdatenreduzierung 
 	keyword= 'project_data_reduction'
 	beschreibung = "Project data reduction"
@@ -1126,7 +1301,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Projektname
 	keyword= 'project_name'
 	beschreibung = "Projektname"
@@ -1135,7 +1310,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= rdfs+"label"
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Änderungszeit des Projektes 
 	keyword= 'project_modification_time'
 	beschreibung = "Änderungszeit des Projektes"
@@ -1144,9 +1319,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	## Projektinformation 
-	
+							
 	# Aktuelle Reportseite
 	keyword = 'current_report_page'
 	beschreibung = "Aktuelle Reportseite"
@@ -1155,7 +1330,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Aktueller Stufenbereich
 	keyword = 'current_stage_range'
 	beschreibung = "Aktueller Stufenbereich"
@@ -1164,7 +1339,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Anzahl der Belichtungszeiten 
 	keyword = 'number_of_exposure_times'
 	beschreibung = "Anzahl der Belichtungszeiten"
@@ -1173,7 +1348,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Art der Referenzpunktqualität für Photogrammetrie
 	keyword = 'ellipse_quality_type_for_photogrammetry'
 	beschreibung = "Art der Referenzpunktqualität für Photogrammetrie"
@@ -1182,7 +1357,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Art der Referenzpunktqualität für Scannen 
 	keyword = 'ellipse_quality_type'
 	beschreibung = "Art der Referenzpunktqualität für Scannen"
@@ -1191,7 +1366,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None   
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Lichtänderung": Abbruch?
 	keyword = 'exception_lighting_change_abort'
 	beschreibung = 'Ausnahme "Lichtänderung": Abbruch?'
@@ -1200,7 +1375,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None   
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Lichtänderung": Anzahl der Wiederholungen 
 	keyword = 'exception_lighting_change_number_of_repetitions'
 	beschreibung = 'Ausnahme "Lichtänderung": Anzahl der Wiederholungen'
@@ -1209,7 +1384,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Lichtänderung": Verzögerung
 	keyword = 'exception_lighting_change_delay'
 	beschreibung = 'Ausnahme "Lichtänderung": Verzögerung'
@@ -1218,7 +1393,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Sensor dekalibriert": Verzögerung
 	keyword = 'exception_decalibrated_sensor_delay'
 	beschreibung = 'Ausnahme "Sensor dekalibriert": Verzögerung'
@@ -1227,7 +1402,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Sensor dekalibriert": Abbruch?
 	keyword = 'exception_decalibrated_sensor_abort'
 	beschreibung = 'Ausnahme "Sensor dekalibriert": Abbruch?'
@@ -1236,7 +1411,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Sensor dekalibriert": Anzahl der Wiederholungen 
 	keyword = 'exception_decalibrated_sensor_number_of_repetitions'
 	beschreibung = 'Ausnahme "Sensor dekalibriert": Anzahl der Wiederholungen'
@@ -1245,7 +1420,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Sensorbewegung": Abbruch?
 	keyword = 'exception_sensor_movement_abort'
 	beschreibung = 'Ausnahme "Sensorbewegung": Abbruch?'
@@ -1254,7 +1429,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Sensorbewegung": Anzahl der Wiederholungen 
 	keyword = 'exception_sensor_movement_number_of_repetitions'
 	beschreibung = 'Ausnahme "Sensorbewegung": Anzahl der Wiederholungen'
@@ -1263,7 +1438,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Sensorbewegung": Verzögerung
 	keyword = 'exception_sensor_movement_delay' 
 	beschreibung = 'Ausnahme "Sensorbewegung": Verzögerung'
@@ -1272,7 +1447,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Transformation": Abbruch?
 	keyword = 'exception_transformation_abort'
 	beschreibung = 'Ausnahme "Transformation": Abbruch?'
@@ -1281,7 +1456,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Transformation": Anzahl der Wiederholungen
 	keyword = 'exception_transformation_number_of_repetitions'
 	beschreibung = 'Ausnahme "Transformation": Anzahl der Wiederholungen'
@@ -1290,9 +1465,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausnahme "Transformation": Verzögerung
-	
+							
 	##--Ausrichtung 
 	#-Name
 	keyword = 'alignment.name'
@@ -1302,7 +1477,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 	#Abweichung
 	keyword = 'alignment.deviation'
 	beschreibung= 'Abweichung'
@@ -1311,7 +1486,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 	# Drehung X
 	keyword = 'alignment.rotation.x'
 	beschreibung= 'Drehung X'
@@ -1320,7 +1495,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'alignmentRotationX'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Drehung Y
 	keyword = 'alignment.rotation.y'
 	beschreibung= 'Drehung Y'
@@ -1329,7 +1504,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'alignmentRotationY'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Drehung Z
 	keyword = 'alignment.rotation.z'
 	beschreibung= 'Drehung Z'
@@ -1338,7 +1513,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'alignmentRotationZ'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 	# Verschiebung X
 	keyword = 'alignment.translation.x'
 	beschreibung= 'Verschiebung X'
@@ -1347,7 +1522,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'alignmentTranslationX'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Verschiebung Y
 	keyword = 'alignment.translation.y'
 	beschreibung= 'Verschiebung Y'
@@ -1356,7 +1531,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'alignmentTranslationY'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 	# Verschiebung Z 
 	keyword = 'alignment.translation.z'
 	beschreibung= 'Verschiebung Z'
@@ -1365,8 +1540,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'alignmentTranslationZ'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
-	
-	
+							
+							
 	## Benutzerdefinierte Keywords
 	# Ausrichtungsresiduum (Messungen)
 	keyword = 'measurement_alignment_residual'
@@ -1376,7 +1551,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'MeasurementAlignmentResidual'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausrichtungsresiduum (Refernzpunkte)
 	keyword = 'measurement_reference_point_alignment_residual'
 	beschreibung = 'Ausrichtungsresiduum (Referenzpunkte)'
@@ -1385,7 +1560,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'MeasurementPointAlignmentResidual'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ausrichtungsresiduum (Vorschaunetze)
 	keyword = 'measurement_mesh_alignment_residual'
 	beschreibung = 'Ausrichtungsresiduum (Vorschaunetze)'
@@ -1394,7 +1569,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'MeasurementMeshAlignmentResidual'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Automatische Belichtungszeit(Modus)
 	keyword = 'automatic_exposure_time_mode'
 	beschreibung = 'Automatische Belichtungszeit(Modus)'
@@ -1403,7 +1578,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Benutzerdefinierte Referenzpunktfarbe
 	keyword = 'user_defined_reference_point_color'
 	beschreibung = 'Benutzerdefinierte Referenzpunktfarbe'
@@ -1412,25 +1587,28 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
-	# Benutzte Norm "Allgemeine Toleranzen" (Toleranztabelle)
-	keyword = 'used_general_tolerances'
-	beschreibung = 'Benutzte Norm "Allgemeine Toleranzen" (Toleranztabelle)'
-	unit= None
-	description='Used standard "General tolerances"(tolerance table)'
-	uri= None
-	measurementclass=None
-	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
-	# Benutzte Norm "Form/Lage Toleranzen" (Toleranztabelle) 
-	keyword = 'used_gdat_tolerances'
-	beschreibung = 'Benutzte Norm "Form/Lage Toleranzen" (Toleranztabelle)'
-	unit= None
-	description='Used standard "GD&T tolerances"(tolerance table)'
-	uri= None
-	measurementclass=None 
-	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+				
+	# ab ZEISS INSPECT nicht mehr enthalten
+	if gom.app.get ('application_name') == 'GOM Inspect Professional':	
+						
+		# Benutzte Norm "Allgemeine Toleranzen" (Toleranztabelle)		
+		keyword = 'used_general_tolerances'
+		beschreibung = 'Benutzte Norm "Allgemeine Toleranzen" (Toleranztabelle)'
+		unit= None
+		description='Used standard "General tolerances"(tolerance table)'
+		uri= None
+		measurementclass=None
+		infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
+					
+		# Benutzte Norm "Form/Lage Toleranzen" (Toleranztabelle) 
+		keyword = 'used_gdat_tolerances'
+		beschreibung = 'Benutzte Norm "Form/Lage Toleranzen" (Toleranztabelle)'
+		unit= None
+		description='Used standard "GD&T tolerances"(tolerance table)'
+		uri= None
+		measurementclass=None 
+		infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
+								
 	# CAD-Gruppe
 	keyword = 'cad_group'
 	beschreibung = 'CAD-Gruppe'
@@ -1439,9 +1617,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	#-- Digitalisierungs- und Inspektionsmodul 
-	
+							
 	# Eindeutiger Indentifikator des Automatisierungsmoduls
 	keyword = 'project_building_block_uuid_draft'
 	beschreibung = 'Eindeutiger Indentifikator des Automatisierungsmoduls'
@@ -1450,7 +1628,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ellipsenfinder-Qualität für Photogrammetrie 
 	keyword = 'ellipse_quality_for_photogrammetry'
 	beschreibung = 'Ellipsenfinder-Qualität für Photogrammetrie'
@@ -1459,7 +1637,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'EllipseQualityForPhotogrammetry'
 	measurementclass=None	 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ellipsenfinder-Qualität für Scannen
 	keyword = 'ellipse_quality'
 	beschreibung = 'Ellipsenfinder-Qualität für Scannen'
@@ -1468,7 +1646,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'EllipseQuality'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)  
-	
+							
 	# Ellipsenmindestgröße für Photogrammetrie
 	keyword = 'min_ellipse_radius_for_photogrammetry'
 	beschreibung = 'Ellipsenmindestgröße für Photogrammetrie'
@@ -1477,7 +1655,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)  
-	
+							
 	# Ellipsenmindestgröße für Scannen
 	keyword = 'min_ellipse_radius'
 	beschreibung = 'Ellipsenmindestgröße für Scannen'
@@ -1486,7 +1664,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Inspektionselement (Liste) - nicht in Reports
 	keyword = 'inspections_not_in_reports'
 	beschreibung = 'Inspektionselement (Liste) - nicht in Reports'
@@ -1495,7 +1673,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Ist-Master
 	keyword = 'actual_master'
 	beschreibung = 'Ist-Master'
@@ -1504,7 +1682,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Max.Blickwinkel Sensor/Fläche
 	keyword = 'max_viewing_angle_sensor_surface'
 	beschreibung = 'Max.Blickwinkel Sensor/Fläche'
@@ -1513,7 +1691,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None	
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Max. Residuum
 	keyword = 'max_residual'
 	beschreibung = 'Max. Residuum'
@@ -1522,7 +1700,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Max. Sensorbewegung
 	keyword = 'max_sensor_movement'
 	beschreibung = 'Max. Sensorbewegung'
@@ -1531,34 +1709,46 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'MaximumSensorMovement'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
-	# Max. Tiefenbegrenzung
-	keyword = 'max_depth_limitation'
-	beschreibung = 'Max. Tiefenbegrenzung'
-	unit= None
-	description='Max. depth limitation'
-	uri= None
-	measurementclass=None 
-	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+				
+	# ab ZEISS INSPECT nicht mehr enthalten
+	if gom.app.get ('application_name') == 'GOM Inspect Professional':
+					
+		# Max. Tiefenbegrenzung
+		keyword = 'max_depth_limitation'
+		beschreibung = 'Max. Tiefenbegrenzung'
+		unit= None
+		description='Max. depth limitation'
+		uri= None
+		measurementclass=None 
+		infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
+						
+		# Min. Tiefenbegrenzung 
+		keyword = 'min_depth_limitation'
+		beschreibung = 'Min. Tiefenbegrenzung'
+		unit= None
+		description='Min. depth limitation'
+		uri= None
+		measurementclass=None  
+		infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
+									
 	# Messauflösung
 	keyword = 'measurement_resolution'
 	beschreibung = 'Messauflösung'
 	unit= None
-	description='Measurment resolution'
+	description='Measurement resolution'
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Messtemperatur
 	keyword = 'measurement_temperature'
 	beschreibung = 'Messtemperatur'
 	unit=om+"degreeCelsius"
-	description='Measurment temperature'
+	description='Measurement temperature'
 	uri= ontologynamespace+'MeasurementTemperature'
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Min. Streifenkontrast
 	keyword = 'min_fringe_contrast'
 	beschreibung = 'Min. Streifenkontrast'
@@ -1567,16 +1757,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
-	# Min. Tiefenbegrenzung 
-	keyword = 'min_depth_limitation'
-	beschreibung = 'Min. Tiefenbegrenzung'
-	unit= None
-	description='Min. depth limitation'
-	uri= None
-	measurementclass=None  
-	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
+				
+							
 	# Minimaler Ellipsenkontrast für Photogrammetrie
 	keyword = 'min_ellipse_contrast_for_photogrammetry'
 	beschreibung = 'Minimaler Ellipsenkontrast für Photogrammetrie'
@@ -1585,7 +1768,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Minimaler Ellipsenkontrast für Scannen 
 	keyword = 'min_ellipse_contrast_for_scanning'
 	beschreibung = 'Minimaler Ellipsenkontrast für Scannen'
@@ -1594,9 +1777,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# -- Photogrammetriemodul
-	
+							
 	# Projekt-Kexwords (Liste der Projekt-Keywords) 
 	keyword = 'project_keywords'
 	beschreibung = 'Projekt-Keywords (Liste der Projekt-Keywords)'
@@ -1605,7 +1788,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Qualitätskontrolle Triple-Scan-Punkte
 	keyword = 'quality_triple_scan_points_mode'
 	beschreibung = 'Qualitätskontrolle Triple-Scan-Punkte'
@@ -1614,7 +1797,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Referenzpunktgröße 
 	keyword = 'reference_point_size'
 	beschreibung = 'Referenzpunktgröße'
@@ -1623,7 +1806,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None	 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Referenzpunktmaterialstärke
 	keyword = 'reference_point_thickness'
 	beschreibung = 'Referenzpunktmaterialstärke'
@@ -1632,7 +1815,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)  
-	
+							
 	# Referenzpunkttyp 
 	keyword = 'reference_point_type'
 	beschreibung = 'Referenzpunkttyp'
@@ -1641,9 +1824,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# -- Referenzstufe
-	
+							
 	# Reflexionserkennung
 	keyword = 'reflection_detection'
 	beschreibung = 'Reflexionserkennung' 
@@ -1652,7 +1835,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Schwellwert für Qualität der Triple-Scan-Punkte
 	keyword = 'quality_triple_scan_points_threshold'
 	beschreibung = 'Schwellwert für Qualität der Triple-Scan-Punkte'
@@ -1661,7 +1844,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Benutzerdefinierte Refernzpunktgröße benutzt?
 	keyword = 'use_user_defined_reference_point_size[0]'
 	beschreibung = 'Status: Benutzerdefinierte Refernzpunktgröße benutzt?'
@@ -1670,7 +1853,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Einfluss von Randbereichen bei Polygonisierung reduzieren?
 	keyword = 'reduce_influence_of_border_areas'
 	beschreibung = 'Status: Einfluss von Randbereichen bei Polygonisierung reduzieren?'
@@ -1679,7 +1862,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Grauwert-Features berücksichtigen?
 	keyword = 'observe_gray_value_feature'
 	beschreibung = 'Status: Grauwert-Features berücksichtigen?'
@@ -1688,7 +1871,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Kontrolle "Lichtänderung"?
 	keyword = 'check_lighting_change'
 	beschreibung = 'Status: Kontrolle "Lichtänderung"?'
@@ -1697,7 +1880,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'lightningChangeCheck'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Kontrolle "Sensor dekalibriert"?
 	keyword = 'check_decalibrated_sensor'
 	beschreibung = 'Status: Kontrolle "Sensor dekalibriert"?'
@@ -1706,7 +1889,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'sensorDecalibrationCheck'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Kontrolle "Sensorbewegung"?
 	keyword = 'check_sensor_movement'
 	beschreibung = 'Status: Kontrolle "Sensorbewegung"?'
@@ -1715,7 +1898,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'movementControlActivated'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Kontrolle "Transformation"?
 	keyword = 'check_transformation'
 	beschreibung = 'Status: Kontrolle "Transformation"?'
@@ -1724,7 +1907,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'transformationCheck'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Kontrolle fehlender Referenzpunkte?
 	keyword = 'check_missing_reference_points'
 	beschreibung = 'Status: Kontrolle fehlender Referenzpunkte?'
@@ -1733,7 +1916,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'missingReferencePointCheck'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Status: Nach Abbruch zur Endposition fahren?
 	keyword = 'automation_move_to_endposition_on_abort'
 	beschreibung = 'Status: Nach Abbruch zur Endposition fahren?'
@@ -1742,7 +1925,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Punnkte an Nutkanten vermeiden?
 	keyword = 'avoid_points_on_groove_edges'
 	beschreibung = 'Status: Punnkte an Nutkanten vermeiden?'
@@ -1751,7 +1934,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Punkte an Scan-Bereichsgrenzen vermeiden?
 	keyword = 'avoid_points_on_borders_in_scan_area'
 	beschreibung = 'Status: Punkte an Scan-Bereichsgrenzen vermeiden?'
@@ -1760,7 +1943,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'avoidScanningAreaBorderPoints'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Punkte auf Glanzstellen vermeiden?
 	keyword = 'avoid_points_on_shiny_surfaces'
 	beschreibung = 'Status: Punkte auf Glanzstellen vermeiden?'
@@ -1769,7 +1952,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Punkte bei starken Helligkeitsunterschieden vermeiden?
 	keyword = 'avoid_points_at_strong_brightness_differences'
 	beschreibung = 'Status: Punkte bei starken Helligkeitsunterschieden vermeiden?'
@@ -1778,7 +1961,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Punkte in Schattenbereichen vermeiden
 	keyword = 'avoid_points_in_shadow_areas'
 	beschreibung = 'Status: Punkte in Schattenbereichen vermeiden'
@@ -1787,7 +1970,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Referenzpunktgröße benutzt?
 	keyword = 'use_reference_point_size'
 	beschreibung = 'Status: Referenzpunktgröße benutzt?'
@@ -1796,7 +1979,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Status: Sind Messungen ausgerichtet?
 	keyword = 'are_measurements_aligned'
 	beschreibung = 'Status: Sind Messungen ausgerichtet?'
@@ -1805,7 +1988,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= ontologynamespace+'areMeasurementsAligned'
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-		
+								
 	# Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden? 
 	keyword = 'avoid_triple_scan_points_at_strong_brightness_differences'
 	beschreibung = 'Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden?'
@@ -1814,7 +1997,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Status: Triple-Scan-Punkte vermeiden?
 	keyword = 'avoid_triple_scan_points'
 	beschreibung = 'Status: Triple-Scan-Punkte vermeiden?'
@@ -1822,8 +2005,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	description='State: Avoid Triple Scan points ?'
 	uri= ontologynamespace+'avoidTripleScanPoints'
 	measurementclass=None 
-	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+	infos_p(keyword,beschreibung,unit,description,uri,measurementclass)
+						
 	# Status: Wird Qualität der Triple-Scan-Punkte geprüft?
 	keyword = 'is_quality_triple_scan_points_checked'
 	beschreibung = 'Status: Wird Qualität der Triple-Scan-Punkte geprüft?'
@@ -1832,9 +2015,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None  
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# -- Stufe
-	
+						
 	# Tiefenbegrenzungsmodus
 	keyword = 'depth_limitation_mode'
 	beschreibung = 'Tiefenbegrenzungsmodus'
@@ -1843,7 +2026,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Typ der Messungstransformation
 	keyword = 'measurement_transformation_type'
 	beschreibung = 'Typ der Messungstransformation'
@@ -1852,7 +2035,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# Typ des Automatisierungsmoduls 
 	keyword = 'project_building_block_type_draft'
 	beschreibung = 'Typ des Automatisierungsmoduls'
@@ -1861,56 +2044,61 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	uri= None
 	measurementclass=None 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 	# -- VMR-Modul 
-	
+							
 	# -- Vorlageninformation
-	
+							
 	# measurementseries
-	
+							
 	list_messreihen = []
 	mr = 0
-	
+							
 	while mr < len(gom.app.project.measurement_series):
-		
+								
 		messreihe = {}
 		messreihe_infos = {}
-		
+			
+		print ("measurement_series" + str(mr))
+								
 		def infos_mr (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
-			if keyword == 'reference_points_master_series':
-				dir["value"] = gom.app.project.measurement_series[mr].get(keyword).get('name')
-				dir["value_type"] = type(dir["value"]).__name__
-			elif value == None:
-				dir["value"] = gom.app.project.measurement_series[mr].get(keyword)
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].get(keyword)).__name__
-			else:
-				dir["value"] = value 
-				dir["value_type"] = type(dir["value"]).__name__
-			
-			dir["key_deu"] = beschreibung
-			if  description != None:
-				dir["key_eng"] =  description
-			if  uri != None:
-				dir["uri"] =  uri
-			if  unit != None:
-				dir["unit"] =  unit
-			if  measurementclass != None:
-				dir["measurementclass"] =  measurementclass
-
-			dir["from_application"]=from_application
-			
-			if dir["value"] != None:
-				if len(str(dir["value"])) != 0:
-					if includeonlypropswithuri and "uri" in dir:
-						messreihe_infos[keyword] ={}		
-						messreihe_infos[keyword] = dir			
-
-					if not includeonlypropswithuri:			
-						messreihe_infos[keyword] ={}		
-						messreihe_infos[keyword] = dir
-
-		
+			try:
+				if keyword == 'reference_points_master_series':
+					dir["value"] = gom.app.project.measurement_series[mr].get(keyword).get('name')
+					dir["value_type"] = type(dir["value"]).__name__
+				elif value == None:
+					dir["value"] = gom.app.project.measurement_series[mr].get(keyword)
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].get(keyword)).__name__
+				else:
+					dir["value"] = value 
+					dir["value_type"] = type(dir["value"]).__name__
+										
+				dir["key_deu"] = beschreibung
+				if  description != None:
+					dir["key_eng"] =  description
+				if  uri != None:
+					dir["uri"] =  uri
+				if  unit != None:
+					dir["unit"] =  unit
+				if  measurementclass != None:
+					dir["measurementclass"] =  measurementclass
+							
+				dir["from_application"]=from_application
+										
+				if dir["value"] != None:
+					if len(str(dir["value"])) != 0:
+						if includeonlypropswithuri and "uri" in dir:
+							messreihe_infos[keyword] ={}		
+							messreihe_infos[keyword] = dir			
+							
+						if not includeonlypropswithuri:			
+							messreihe_infos[keyword] ={}		
+							messreihe_infos[keyword] = dir							
+			except Exception as e:
+				print (e)					
+						
+								
 		##  Icons		
 		# Icon des Objekttyps
 		keyword = 'icon (type)'
@@ -1920,7 +2108,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Icon des Objekttyps und des Status 
 		keyword = 'icon (explorer_type_and_state)'
 		beschreibung = "Icon des Objekttyps und des Status"
@@ -1929,9 +2117,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		## Informationen
-	
+							
 		# Anzahl der benutzten gemeinsamen Referenzpunkte
 		keyword = 'number_of_used_common_reference_points'
 		beschreibung = "Anzahl der benutzten gemeinsamen Referenzpunkte"
@@ -1940,7 +2128,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=ontologynamespace+'numberOfUsedCommonReferencePoints'
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Ausdehnungskoeffizient des Referenzpunktrahmens
 		keyword = 'reference_point_frame_expansion_coefficient'
 		beschreibung = "Ausdehnungskoeffizient des Referenzpunktrahmens"
@@ -1949,7 +2137,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Benötigte Ausrichtung zur Berechnung
 		keyword = 'alignment_at_calculation'
 		beschreibung = "Benötigte Ausrichtung zur Berechnung"
@@ -1958,7 +2146,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Benötigte Starrkörperbewegungskorrektur zur Berechnung 
 		keyword = 'rigid_body_motion_compensation_at_calculation'
 		beschreibung = "Benötigte Starrkörperbewegungskorrektur zur Berechnung"
@@ -1967,7 +2155,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None		
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Berechnungsinformationen 
 		keyword = 'computation_information'
 		beschreibung = "Berechnungsinformationen"
@@ -1976,7 +2164,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 		# Element-Keywords (Liste der Element-Keywords)
 		keyword = 'element_keywords'
 		beschreibung = "Element-Keywords (Liste der Element-Keywords)"
@@ -1985,7 +2173,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Explorerkategorie
 		keyword = 'explorer_category'
 		beschreibung = "Explorerkategorie"
@@ -1994,7 +2182,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Externe Photogrammetriedatei
 		keyword = 'external_photogrammetry_file'
 		beschreibung = "Externe Photogrammetriedatei"
@@ -2003,7 +2191,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None		
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Importdatei
 		keyword = 'import_file'
 		beschreibung = "Importdatei"
@@ -2012,7 +2200,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Importdateiname
 		keyword = 'import_file_name'
 		beschreibung = "Importdateiname"
@@ -2021,7 +2209,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Kalibriertemperatur des Referenzpunktrahmens 
 		keyword = 'reference_point_frame_calibration_temperature'
 		beschreibung = "Kalibriertemperatur des Referenzpunktrahmens"
@@ -2030,7 +2218,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Kommentar
 		keyword = 'comment'
 		beschreibung = "Kommentar"
@@ -2039,7 +2227,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Messaufbau
 		keyword = 'measuring_setup'
 		beschreibung = "Messaufbau"
@@ -2048,7 +2236,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Name
 		keyword = 'name'
 		beschreibung = "Name"
@@ -2057,7 +2245,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Name(importiert)
 		keyword = 'imported_name'
 		beschreibung = "Name(importiert)"
@@ -2066,7 +2254,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Name des Referenzpunktrahmens
 		keyword = 'reference_point_frame_name'
 		beschreibung = "Name des Referenzpunktrahmens"
@@ -2075,7 +2263,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 		# Residuum der Transformation über gemeinsame Referenzpunkte
 		keyword = 'common_reference_point_transformation_residual'
 		beschreibung = "Residuum der Transformation über gemeinsame Referenzpunkte"
@@ -2084,7 +2272,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=ontologynamespace+'CommonReferencePointTransformationResidual'
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 		# Status: ExternePhotogrammetrie GSI Einheit in 'mm'?
 		keyword = 'external_photogrammetry_gsi_unit_is_mm'
 		beschreibung = "Status: ExternePhotogrammetrie GSI Einheit in 'mm'?"
@@ -2093,7 +2281,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Ist ASCII als GSI geladen (externe Photogrammetrie)?
 		keyword = 'external_photogrammetry_load_ascii_as_gsi'
 		beschreibung = "Status: Ist ASCII als GSI geladen (externe Photogrammetrie)?"
@@ -2102,7 +2290,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Ist Element selektiert? 
 		keyword = 'is_selected'
 		beschreibung = "Status: Ist Element selektiert? "
@@ -2111,7 +2299,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Ist Element sichtbar?
 		keyword = 'is_visible'
 		beschreibung = "Status: Ist Element sichtbar?"
@@ -2120,7 +2308,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 		# Status: Ist Sichtbarkeitszustand gesperrt?
 		keyword = 'is_visibility_locked'
 		beschreibung = "Status: Ist Sichtbarkeitszustand gesperrt?"
@@ -2129,7 +2317,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 		# Status: Ist in Inspektionselement referenziert?
 		keyword = 'is_referenced_in_inspection'
 		beschreibung = "Status: Ist in Inspektionselement referenziert?"
@@ -2138,7 +2326,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 		# Status: Ist über gemeinsameReferenzpunkte transformiert?
 		keyword = 'is_transformed_by_common_reference_points'
 		beschreibung = "Status: Ist über gemeinsameReferenzpunkte transformiert?"
@@ -2147,7 +2335,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Name erzeugt? 
 		keyword = 'is_name_generated'
 		beschreibung = "Status: Name erzeugt? "
@@ -2156,7 +2344,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Punkte außerhalb CAD ausschneiden?
 		keyword = 'cut_out_points_outside_cad'
 		beschreibung = "Status: Punkte außerhalb CAD ausschneiden?"
@@ -2165,7 +2353,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Punkte für VDI Test ausschneiden?
 		keyword = 'cut_out_points_for_vdi'
 		beschreibung = "Status: Punkte für VDI Test ausschneiden?"
@@ -2174,7 +2362,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Punkte hinter Ebene ausschneiden?
 		keyword = 'cut_out_points_below_plane'
 		beschreibung = "Status: Punkte hinter Ebene ausschneiden?"
@@ -2183,7 +2371,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Status: Schattenpunkte der Vorrichtung ausschneiden?
 		keyword = 'cut_out_shadow_points_of_fixture'
 		beschreibung = "Status: Schattenpunkte der Vorrichtung ausschneiden?"
@@ -2192,7 +2380,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# Tags (Liste der Elementtags)
 		keyword = 'tags'
 		beschreibung = "Tags (Liste der Elementtags)"
@@ -2201,7 +2389,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 		# Transformationsmodus 
 		keyword = 'transformation_mode'
 		beschreibung = "Transformationsmodus"
@@ -2210,7 +2398,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 #		# Reference points master measurement series
 		if (gom.app.project.measurement_series[mr].get ('transformation_mode')) == 'depends on other':
 			keyword = 'reference_points_master_series'
@@ -2220,7 +2408,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# VDI-Aufnahme/Überwachung
 		keyword = 'vdi_acceptance_test'
 		beschreibung = "VDI-Aufnahme/Überwachung"
@@ -2229,7 +2417,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# berechnete Werte 
 		# Anzahl Messungen pro Messreihe 
 		keyword = 'number of measurements'
@@ -2242,16 +2430,18 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		value= len(gom.app.project.measurement_series[mr].measurements)
 		anz_messungen = anz_messungen + value
 		infos_mr(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-		
-	
+								
+							
 		# Einzelmessungen 
 		list_messungen = []
 		list_sensors = []
 		temp_list_cal_time =[]
 		m = 0
-		
+								
 		while m < (len(gom.app.project.measurement_series[mr].measurements)):
 				
+			print ("measurements " + str(m))
+										
 			messung = {}
 			dic_measurement_setup= {}
 			dic_measurement_check={}
@@ -2264,7 +2454,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			dic_measurement_cal_calobject= {}
 			dic_measurement_cal_calsetup= {}
 			dic_measurement_cal_calresults= {}
-			
+									
 			# Messverfahren 	
 			# nur wenn es Messungen gibt, kann es auch eine Aufnahmeverfahren geben
 			keyword= 'acquisition_technology'
@@ -2276,293 +2466,12 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			measurementclass=ontologynamespace+"FringeProjection"
 			from_application= 'false'
 			infos_p(keyword,beschreibung,unit,description,uri,measurementclass, value,from_application)	
-			
+									
 			# measurements			
 			def infos_m (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
 				dir = {}
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "acquisition_time": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-						
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							messung[keyword] = {}		
-							messung[keyword] = dir
-						if not includeonlypropswithuri:			
-							messung[keyword] = {}		
-							messung[keyword] = dir
-					
-								
-			def infos_m_setup (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
-				dir = {}
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "acquisition_time": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-					
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_setup[keyword] = {}		
-							dic_measurement_setup[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_setup[keyword] = {}		
-							dic_measurement_setup[keyword] = dir
-		
-			def infos_m_check (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
-				dir = {}
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "acquisition_time": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_check[keyword] = {}		
-							dic_measurement_check[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_check[keyword] = {}
-							dic_measurement_check[keyword] = dir
-				
-			def infos_m_properties (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
-				dir = {}
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "acquisition_time": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_info[keyword] = {}		
-							dic_measurement_info[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_info[keyword] = {}
-							dic_measurement_info[keyword] = dir	
-							
-
-			## capturing device 	
-						
-			def infos_capturing_device (keyword, beschreibung, value, unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
-				dir = {}
-				dir["value"] = value
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(value).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "acquisition_time": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_sensor[keyword] = {}		
-							dic_measurement_sensor[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_sensor[keyword] = {}		
-							dic_measurement_sensor[keyword] = dir
-
-			## calibration	
-			
-			def infos_cali (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
-				dir = {}
-				
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-								
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							calibration[keyword] = {}		
-							calibration[keyword] = dir
-						if not includeonlypropswithuri:			
-							calibration[keyword] = {}
-							calibration[keyword] = dir
-				
-
-			def infos_cali_calobject (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
-				dir = {}
-				
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_cal_calobject[keyword] = {}		
-							dic_measurement_cal_calobject[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_cal_calobject[keyword] = {}
-							dic_measurement_cal_calobject[keyword] = dir
-
-
-			def infos_cali_calsetup (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
-				dir = {}
-				
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				## calibration_light_intensity, als int ohne '%' im value 
-				if keyword == 'calibration_light_intensity':
-					value= dir['value']
-					value_new= value.replace('%','')
-					value= int(value_new)
-					dir["value_type"] = type(value).__name__
-					dir["value"]= value 	
-				
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_cal_calsetup[keyword] = {}		
-							dic_measurement_cal_calsetup[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_cal_calsetup[keyword] = {}
-							dic_measurement_cal_calsetup[keyword] = dir
-
-					
-			def infos_cali_calproperties (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
-				dir = {}
-				
-				dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
-				dir["key_deu"] = beschreibung
-				if  description != None:
-					dir["key_eng"] =  description
-				if  uri != None:
-					dir["uri"] =  uri
-				if  unit != None:
-					dir["unit"] =  unit
-				if  measurementclass != None:
-					dir["measurementclass"] =  measurementclass
-				dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
-				dir["from_application"]= from_application
-				
-				if keyword == "calibration_date": 
-					t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('calibration_date'), "%a %b %d %H:%M:%S %Y")
-					capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
-					dir["value"] = capturetime
-					dir["value_type"]="dateTime"
-
-				if dir["value"] != None:
-					if len(str(dir["value"])) != 0:
-						if includeonlypropswithuri and "uri" in dir:
-							dic_measurement_cal_calresults[keyword] = {}		
-							dic_measurement_cal_calresults[keyword] = dir
-						if not includeonlypropswithuri:			
-							dic_measurement_cal_calresults[keyword] = {}
-							dic_measurement_cal_calresults[keyword] = dir
-					
-				
-			## lokale Referenzpunkte
-					
-			rp_local = 0 
-			list_rp_local= []
-		
-			while rp_local < gom.app.project.measurement_series[mr].measurements[m].get ('number_of_reference_points'):
-				
-				refpoints_local ={}
-				def local_rp (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
-					dir = {}
-					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get(keyword+"["+str(rp_local)+"]")
+				try:
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 					dir["key_deu"] = beschreibung
 					if  description != None:
 						dir["key_eng"] =  description
@@ -2572,19 +2481,334 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 						dir["unit"] =  unit
 					if  measurementclass != None:
 						dir["measurementclass"] =  measurementclass
-					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword+"["+str(rp_local)+"]")).__name__
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
 					dir["from_application"]= from_application
-					
+											
+					if keyword == "acquisition_time": 
+						t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
+						capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+						dir["value"] = capturetime
+						dir["value_type"]="dateTime"
+													
+#					if dir["value"] != None:
+#						if len(str(dir["value"])) != 0:
+#							if includeonlypropswithuri and "uri" in dir:
+#								messung[keyword] = {}		
+#								messung[keyword] = dir
+#							if not includeonlypropswithuri:			
+#								messung[keyword] = {}		
+#								messung[keyword] = dir
 					if dir["value"] != None:
 						if len(str(dir["value"])) != 0:
 							if includeonlypropswithuri and "uri" in dir:
-								refpoints_local[keyword] = {}		
-								refpoints_local[keyword] = dir
+								dic_measurement_setup[keyword] = {}		
+								dic_measurement_setup[keyword] = dir
 							if not includeonlypropswithuri:			
-								refpoints_local[keyword] = {}
-								refpoints_local[keyword] = dir
+								dic_measurement_setup[keyword] = {}		
+								dic_measurement_setup[keyword] = dir
 													
-
+				except Exception as e:
+					print (e)						
+											
+														
+			def infos_m_setup (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
+				dir = {}
+				try:
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+											
+					if keyword == "acquisition_time": 
+						t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
+						capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+						dir["value"] = capturetime
+						dir["value_type"]="dateTime"
+												
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_setup[keyword] = {}		
+								dic_measurement_setup[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_setup[keyword] = {}		
+								dic_measurement_setup[keyword] = dir
+				except Exception as e:
+					print (e)
+						
+			def infos_m_check (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
+				dir = {}
+				try:
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+											
+					if keyword == "acquisition_time": 
+						t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
+						capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+						dir["value"] = capturetime
+						dir["value_type"]="dateTime"
+							
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_check[keyword] = {}		
+								dic_measurement_check[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_check[keyword] = {}
+								dic_measurement_check[keyword] = dir
+									
+				except Exception as e:
+					print (e)
+				
+				
+											
+			def infos_m_properties (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true" ):
+				dir = {}
+				try:
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+											
+					if keyword == "acquisition_time": 
+						t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
+						capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+						dir["value"] = capturetime
+						dir["value_type"]="dateTime"
+							
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_info[keyword] = {}		
+								dic_measurement_info[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_info[keyword] = {}
+								dic_measurement_info[keyword] = dir	
+				except Exception as e:
+					print (e)									
+						
+			## capturing device	
+			def infos_capturing_device (keyword, beschreibung, value, unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				try:
+					if keyword == 'theoretical_measuring_point_distance':
+						dir["value"] = value
+					else:
+						dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(value).__name__
+					dir["from_application"]= from_application
+											
+					if keyword == "acquisition_time": 
+						t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('acquisition_time'), "%a %b %d %H:%M:%S %Y")
+						capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+						dir["value"] = capturetime
+						dir["value_type"]="dateTime"
+							
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_sensor[keyword] = {}		
+								dic_measurement_sensor[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_sensor[keyword] = {}		
+								dic_measurement_sensor[keyword] = dir
+				except Exception as e:
+					print (e)
+						
+			## calibration
+			def infos_cali (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				try:		
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+															
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								calibration[keyword] = {}		
+								calibration[keyword] = dir
+							if not includeonlypropswithuri:			
+								calibration[keyword] = {}
+								calibration[keyword] = dir
+				except Exception as e:
+					print (e)				
+										
+						
+			def infos_cali_calobject (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				try:		
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+											
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_cal_calobject[keyword] = {}		
+								dic_measurement_cal_calobject[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_cal_calobject[keyword] = {}
+								dic_measurement_cal_calobject[keyword] = dir
+				except Exception as e:
+					print (e)
+						
+						
+			def infos_cali_calsetup (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				try:
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+					## calibration_light_intensity, als int ohne '%' im value 
+					if keyword == 'calibration_light_intensity':
+						value= dir['value']
+						value_new= value.replace('%','')
+						value= int(value_new)
+						dir["value_type"] = type(value).__name__
+						dir["value"]= value 	
+											
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_cal_calsetup[keyword] = {}		
+								dic_measurement_cal_calsetup[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_cal_calsetup[keyword] = {}
+								dic_measurement_cal_calsetup[keyword] = dir
+				except Exception as e:
+					print (e)
+									
+											
+			def infos_cali_calproperties (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+				dir = {}
+				try:		
+					dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+					dir["key_deu"] = beschreibung
+					if  description != None:
+						dir["key_eng"] =  description
+					if  uri != None:
+						dir["uri"] =  uri
+					if  unit != None:
+						dir["unit"] =  unit
+					if  measurementclass != None:
+						dir["measurementclass"] =  measurementclass
+					dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword)).__name__
+					dir["from_application"]= from_application
+											
+					if keyword == "calibration_date": 
+						t = time.strptime(gom.app.project.measurement_series[mr].measurements[m].get ('calibration_date'), "%a %b %d %H:%M:%S %Y")
+						capturetime = (time.strftime("%Y-%m-%dT%H:%M:%S",t))
+						dir["value"] = capturetime
+						dir["value_type"]="dateTime"
+							
+					if dir["value"] != None:
+						if len(str(dir["value"])) != 0:
+							if includeonlypropswithuri and "uri" in dir:
+								dic_measurement_cal_calresults[keyword] = {}		
+								dic_measurement_cal_calresults[keyword] = dir
+							if not includeonlypropswithuri:			
+								dic_measurement_cal_calresults[keyword] = {}
+								dic_measurement_cal_calresults[keyword] = dir
+				except Exception as e:
+					print (e)							
+										
+										
+			## lokale Referenzpunkte							
+			rp_local = 0 
+			list_rp_local= []				
+			while rp_local < gom.app.project.measurement_series[mr].measurements[m].get ('number_of_reference_points'):
+				refpoints_local ={}
+								
+				def local_rp (keyword, beschreibung,unit=None, description=None, uri=None, measurementclass=None, from_application="true"):
+					dir = {}
+					try:
+						dir["value"] = gom.app.project.measurement_series[mr].measurements[m].get(keyword+"["+str(rp_local)+"]")
+						dir["key_deu"] = beschreibung
+						if  description != None:
+							dir["key_eng"] =  description
+						if  uri != None:
+							dir["uri"] =  uri
+						if  unit != None:
+							dir["unit"] =  unit
+						if  measurementclass != None:
+							dir["measurementclass"] =  measurementclass
+						dir["value_type"] = type(gom.app.project.measurement_series[mr].measurements[m].get(keyword+"["+str(rp_local)+"]")).__name__
+						dir["from_application"]= from_application
+												
+						if dir["value"] != None:
+							if len(str(dir["value"])) != 0:
+								if includeonlypropswithuri and "uri" in dir:
+									refpoints_local[keyword] = {}		
+									refpoints_local[keyword] = dir
+								if not includeonlypropswithuri:			
+									refpoints_local[keyword] = {}
+									refpoints_local[keyword] = dir
+					except Exception as e:
+						print (e)
+																			
 				# Referenzpunktindex
 				keyword = 'reference_point_id'
 				beschreibung = "Referenzpunktindex"
@@ -2593,69 +2817,69 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=ontologynamespace+ 'PointID'
 				measurementclass=None	
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 				# Referenzpunktkoordinate X
 				keyword = 'reference_point_coordinate.x'
 				beschreibung = "Referenzpunktkoordinate X"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Reference point coordinate X'
 				uri=ontologynamespace+ 'xCoordinate'
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Referenzpunktkoordinate Y
 				keyword = 'reference_point_coordinate.y'
 				beschreibung = "Referenzpunktkoordinate Y"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Reference point coordinate Y'
 				uri=ontologynamespace+ 'yCoordinate'
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Referenzpunktkoordinate Z
 				keyword = 'reference_point_coordinate.z'
 				beschreibung = "Referenzpunktkoordinate Z"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Reference point coordinate Z'
 				uri=ontologynamespace+ 'zCoordinate'
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Referenzpunktnormale X
 				keyword = 'reference_point_normal.x'
 				beschreibung = "Referenzpunktnormale X"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Reference point normal X'
 				uri=ontologynamespace+"xNormal"
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Referenzpunktnormale Y
 				keyword = 'reference_point_normal.y'
 				beschreibung = "Referenzpunktnormale Y"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Reference point normal Y'
 				uri=ontologynamespace+"yNormal"
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Referenzpunktnormale Z
 				keyword = 'reference_point_normal.z'
 				beschreibung = "Referenzpunktnormale Z"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Reference point normal Z'
 				uri=ontologynamespace+"zNormal"
 				measurementclass=None
 				local_rp(keyword,beschreibung,unit,description,uri,measurementclass)
-			
-				
+									
+										
 				if len(refpoints_local) > 0:
 					list_rp_local.append(refpoints_local)
-				
+										
 				rp_local= rp_local+1
-					
+											
 			## Icons
-			
+									
 			# Icon des Objekttyps
 			keyword = 'icon (type)'
 			beschreibung = "Icon des Objekttyps"
@@ -2664,7 +2888,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Icon des Objekttyps und des Status
 			keyword = 'icon (explorer_type_and_state)'
 			beschreibung = "Icon des Objekttyps und des Status"
@@ -2673,9 +2897,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			## Informationen 
-			
+									
 			# Aktuelle Kameratemperatur(ATOS IIe Rev.01 / ATOS III Rev.01)
 			keyword = 'current_camera_temperature'
 			beschreibung = "Aktuelle Kameratemperatur(ATOS IIe Rev.01 / ATOS III Rev.01)"
@@ -2684,7 +2908,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'CameraTemperature'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 			# Anzahl der Belichtungszeiten 
 			keyword = 'number_of_exposure_times'
 			beschreibung = "Anzahl der Belichtungszeiten"
@@ -2693,7 +2917,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfShutterTimes'
 			measurementclass=None
 			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Anzahl der Kameras
 			keyword = 'number_of_cameras'
 			beschreibung = "Anzahl der Kameras"
@@ -2702,7 +2926,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfCameras'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-
+						
 			# Anzahl der Referenzkameras 
 			keyword = 'number_of_reference_cameras'
 			beschreibung = "Anzahl der Referenzkameras"
@@ -2711,7 +2935,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfReferenceCameras'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Anzahl der Referenzpunkte
 			keyword = 'number_of_reference_points'
 			beschreibung = "Anzahl der Referenzpunkte"
@@ -2720,7 +2944,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfReferencePoints'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Anzahl der Transformationspunkte 
 			keyword = 'number_of_transformation_points'
 			beschreibung = "Anzahl der Transformationspunkte "
@@ -2729,7 +2953,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfTransformationPoints'
 			measurementclass=None
 			infos_m_properties(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Anzahl der Vorschaupunkte
 			keyword = 'number_of_preview_points'
 			beschreibung = "Anzahl der Vorschaupunkte"
@@ -2738,7 +2962,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Anzahl der Wiederholungen
 			keyword = 'number_of_repetitions'
 			beschreibung = "Anzahl der Wiederholungen"
@@ -2747,7 +2971,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Automatische Belichtungszeit (Modus)
 			keyword = 'automatic_exposure_time_mode'
 			beschreibung = "Automatische Belichtungszeit (Modus)"
@@ -2756,7 +2980,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Automatisierung: Achsposition
 			keyword = 'automation_axis_position'
 			beschreibung = "Automatisierung: Achsposition"
@@ -2765,7 +2989,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Automatisierung: Kartesische Position (Ist-Wert)
 			keyword = 'automation_cartesian_position_actual'
 			beschreibung = "Automatisierung: Kartesische Position (Ist-Wert)"
@@ -2774,7 +2998,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Automatisierung: Kartesische Position (Soll-Wert)
 			keyword ='automation_cartesian_position' 
 			beschreibung = "Automatisierung: Kartesische Position (Soll-Wert)"
@@ -2783,7 +3007,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Automatisierung: Positionsabweichung (Soll/Ist) kartesisch
 			keyword ='automation_cartesian_position_discrepancy'
 			beschreibung = "Automatisierung: Positionsabweichung (Soll/Ist) kartesisch"
@@ -2792,7 +3016,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Automatisierungsgerät
 			keyword ='automation_device'
 			beschreibung = "Automatisierungsgerät"
@@ -2801,7 +3025,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-								
+														
 			# Benötigte Ausrichtung zur Berechnung 
 			keyword ='alignment_at_calculation'
 			beschreibung = "Benötigte Ausrichtung zur Berechnung"
@@ -2810,7 +3034,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Benötigte Starrkörperbewegungskorrektur zur Berechnung 
 			keyword = 'rigid_body_motion_compensation_at_calculation'
 			beschreibung = "Benötigte Starrkörperbewegungskorrektur zur Berechnung "
@@ -2819,7 +3043,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Berechnungsgrundlage
 			keyword = 'computation_basis'
 			beschreibung = "Berechnungsgrundlage"
@@ -2828,7 +3052,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Berechnungsinformation
 			keyword = 'computation_information'
 			beschreibung = "Berechnungsinformation"
@@ -2837,7 +3061,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Berechnungsmodus
 			keyword ='computation_mode'
 			beschreibung = "Berechnungsmodus"
@@ -2846,7 +3070,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Beschleunigung des Sensor
 			keyword ='sensor_acceleration'
 			beschreibung = "Beschleunigung des Sensor"
@@ -2855,7 +3079,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Element-Keywords (Liste der Element-Keywords)
 			keyword ='element_keywords'
 			beschreibung = "Element-Keywords (Liste der Element-Keywords)"
@@ -2864,7 +3088,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Ergebnis der Dekalibrierungskontrolle 
 			keyword = 'decalibrated_sensor_check_result'
 			beschreibung = "Ergebnis der Dekalibrierungskontrolle "
@@ -2873,7 +3097,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Importdatei 
 			keyword = 'import_file'
 			beschreibung = "Importdatei"
@@ -2882,7 +3106,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass) 
-			
+									
 			# Importdateiname
 			keyword = 'import_file_name'
 			beschreibung = "Importdateiname"
@@ -2891,7 +3115,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Index im Pfad
 			keyword = 'index_in_path'
 			beschreibung = "Index im Pfad"
@@ -2900,7 +3124,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Kamera-Betriebstemperatur (ATOS IIe Rev.01)
 			keyword = 'camera_operating_temperature'
 			beschreibung = "Kamera-Betriebstemperatur (ATOS IIe Rev.01)"
@@ -2909,7 +3133,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'operatingTemperature'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Kamerakennung
 			keyword = 'camera_identifiers'
 			beschreibung = "Kamerakennung"
@@ -2918,7 +3142,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Kameratyp 
 			keyword = 'camera_type'
 			beschreibung = "Kameratyp"
@@ -2927,7 +3151,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Kommentar
 			keyword = 'comment'
 			beschreibung = "Kommentar"
@@ -2936,7 +3160,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Lichtfaktor (ATOS IIe Rev.01 / ATOS III Rev.01)
 			keyword = 'light_factor'
 			beschreibung = "Lichtfaktor (ATOS IIe Rev.01 / ATOS III Rev.01)"
@@ -2945,7 +3169,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Lichtintensität (ATOS IIe Rev.01 / ATOS III Rev.01)
 			keyword = 'light_intensity'
 			beschreibung = "Lichtintensität (ATOS IIe Rev.01 / ATOS III Rev.01)"
@@ -2954,7 +3178,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Max. Blickwinkel Sensor/Fläche
 			keyword = 'max_viewing_angle_sensor_surface'
 			beschreibung = "Max. Blickwinkel Sensor/Fläche"
@@ -2963,7 +3187,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Max. Residuum 
 			keyword = 'max_residual'
 			beschreibung = "Max. Residuum"
@@ -2972,16 +3196,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'MaximumResidual'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
-			# Max. Tiefenbegrenzung
-			keyword = 'max_depth_limitation'
-			beschreibung = "Max. Tiefenbegrenzung"
-			unit=None
-			description= 'Max depth limitation'
-			uri=None
-			measurementclass=None
-			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Messauflösung
 			keyword = 'measurement_resolution'
 			beschreibung = "Messauflösung"
@@ -2990,16 +3205,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			# Min. Tiefenbegrenzung 
-			keyword = 'min_depth_limitation'
-			beschreibung = "Min. Tiefenbegrenzung "
-			unit=None
-			description= 'Min. depth limitation'
-			uri=None
-			measurementclass=None
-			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Mittlere Einschneideabweichung
 			keyword = 'mean_intersection_deviation'
 			beschreibung = "Mittlere Einschneideabweichung"
@@ -3008,7 +3214,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'MeanIntersectionDeviation'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Name(importiert)
 			keyword = 'imported_name'
 			beschreibung = "Name(importiert)"
@@ -3017,7 +3223,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 			# Neigungswinkel des Sensors 
 			keyword = 'sensor_tilt_angle'
 			beschreibung = "Neigungswinkel des Sensors"
@@ -3026,7 +3232,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Pfadstatus 
 			keyword = 'path_status'
 			beschreibung = "Pfadstatus"
@@ -3035,7 +3241,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Positionsabweichung (real/virtuell)
 			keyword = 'position_discrepancy_real_virtual'
 			beschreibung = "Positionsabweichung (real/virtuell)"
@@ -3044,7 +3250,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Qualität Triple-Scan-Punkte
 			keyword = 'quality_triple_scan_points'
 			beschreibung = "Qualität Triple-Scan-Punkte"
@@ -3053,7 +3259,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Qualitätskontrolle Triple-Scan-Punkte
 			keyword = 'quality_triple_scan_points_mode'
 			beschreibung = "Qualitätskontrolle Triple-Scan-Punkte"
@@ -3062,7 +3268,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Referenzkamerakennung 
 			keyword = 'reference_camera_identifiers'
 			beschreibung = "Referenzkamerakennung"
@@ -3071,7 +3277,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Rotationswinkel des Sensors 
 			keyword = 'sensor_rotation_angle'
 			beschreibung = "Rotationswinkel des Sensors"
@@ -3080,7 +3286,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Schwellwert für Qualität der Triple-Scan-Punkte
 			keyword = 'quality_triple_scan_points_threshold'
 			beschreibung = "Schwellwert für Qualität der Triple-Scan-Punkte"
@@ -3089,7 +3295,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Schätzwert für die Transformationsstabilität 
 			keyword = 'transformation_stability_rating'
 			beschreibung = "Schätzwert für die Transformationsstabilität"
@@ -3098,7 +3304,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)		
-			
+									
 			# Sekunden seit der letzten Lichtfaktorkalibrierung 
 			keyword = 'seconds_since_last_light_factor_calibration'
 			beschreibung = "Sekunden seit der letzten Lichtfaktorkalibrierung"
@@ -3107,7 +3313,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Aktuelle Position?
 			keyword = 'is_current_position'
 			beschreibung = ""
@@ -3116,7 +3322,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Einfluss von Randbereichen bei Polygonisierung reduzieren?
 			keyword = 'reduce_influence_of_border_areas'
 			beschreibung = "Status: Einfluss von Randbereichen bei Polygonisierung reduzieren?"
@@ -3125,7 +3331,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Grauwert-Features berücksichtigen?
 			keyword = 'observe_gray_value_feature'
 			beschreibung = "Status: Grauwert-Features berücksichtigen?"
@@ -3134,7 +3340,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass) 
-	
+							
 			# Status: Ist Element selektiert?
 			keyword = 'is_selected'
 			beschreibung = "Status: Ist Element selektiert?"
@@ -3143,7 +3349,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Ist Element sichtbar?
 			keyword = 'is_visible'
 			beschreibung = "Status: Ist Element sichtbar?"
@@ -3152,7 +3358,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Ist Kameratemperatur gültig (ATOS IIe Rev.01 / ATOS III Rev.01)?
 			keyword = 'is_camera_temperature_valid'
 			beschreibung = "Status: Ist Kameratemperatur gültig (ATOS IIe Rev.01 / ATOS III Rev.01)?"
@@ -3161,7 +3367,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Ist Kameratemperatur ok (ATOS IIe Rev.01 / ATOS III Rev.01)?	
 			keyword = 'is_camera_temperature_ok'
 			beschreibung = "Status: Ist Kameratemperatur ok (ATOS IIe Rev.01 / ATOS III Rev.01)?"
@@ -3170,7 +3376,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Ist Lampenaufwärmung gültig (ATOS IIe Rev.01 / ATOS III Rev.01)?
 			keyword = 'is_lamp_warmup_valid'
 			beschreibung = "Status: Ist Lampenaufwärmung gültig (ATOS IIe Rev.01 / ATOS III Rev.01)?"
@@ -3179,7 +3385,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-					
+											
 			# Status: Ist Mehrfachaufnahme aktiviert? 
 			keyword = 'is_double_snap_enabled'
 			beschreibung = "Status: Ist Mehrfachaufnahme aktiviert? "
@@ -3188,7 +3394,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Ist Sichtbarkeitszustand gesperrt?
 			keyword = 'is_visibility_locked'
 			beschreibung = "Status: Ist Sichtbarkeitszustand gesperrt?"
@@ -3197,7 +3403,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Ist geringe Genauigkeit für Best-Fit Transformation erlaubt?
 			keyword = 'transformation_low_best_fit_accuracy'
 			beschreibung = "Status: Ist geringe Genauigkeit für Best-Fit Transformation erlaubt?"
@@ -3206,7 +3412,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Status: Ist in Inspektionselement referenziert?  
 			keyword = 'is_referenced_in_inspection'
 			beschreibung = "Status: Ist in Inspektionselement referenziert?"
@@ -3215,7 +3421,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Status: Lichtfaktorkalibrierung Status (ATOS IIe Rev.01 / ATOS III Rev.01)? 
 			keyword = 'is_light_factor_calibrated'
 			beschreibung = "Status: Lichtfaktorkalibrierung Status (ATOS IIe Rev.01 / ATOS III Rev.01)?"
@@ -3224,7 +3430,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'lightFactorCalibrated'
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Name erzeugt?
 			keyword = 'is_name_generated'
 			beschreibung = "Status: Name erzeugt?"
@@ -3233,7 +3439,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Punkte an Nutkanten vermeiden?
 			keyword = 'avoid_points_on_groove_edges'
 			beschreibung = "Status: Punkte an Nutkanten vermeiden?"
@@ -3242,7 +3448,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Punkte an Scan-Bereichsgrenzen vermeiden?
 			keyword = 'avoid_points_on_borders_in_scan_area'
 			beschreibung = "Status: Punkte an Scan-Bereichsgrenzen vermeiden?"
@@ -3251,7 +3457,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Punkte in Schattenbereichen vermeiden? 
 			keyword = 'avoid_points_in_shadow_areas'
 			beschreibung = "Status: Punkte in Schattenbereichen vermeiden?"
@@ -3260,7 +3466,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Scan-Bereich definiert? 
 			keyword = 'is_scan_area_defined'
 			beschreibung = "Status: Scan-Bereich definiert? "
@@ -3269,7 +3475,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Sind Aufnahmeparameter gültig?
 			keyword = 'are_acquisition_parameters_valid'
 			beschreibung = "Status: Sind Aufnahmeparameter gültig?"
@@ -3278,7 +3484,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Sind Kamera- und Sensorkennungen gültig?
 			keyword = 'are_camera_and_sensor_identifiers_valid'
 			beschreibung = "Status: Sind Kamera- und Sensorkennungen gültig?"
@@ -3287,7 +3493,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Wird Qualität der Triple-Scan-Punkte geprüft?
 			keyword = 'is_quality_triple_scan_points_checked'
 			beschreibung = "Status: Wird Qualität der Triple-Scan-Punkte geprüft?"
@@ -3296,7 +3502,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Tags (Liste der Elementtags)
 			keyword = 'tags'
 			beschreibung = "Tags (Liste der Elementtags)"
@@ -3305,7 +3511,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Temperatur der Hauptplatine (Sensor)
 			keyword = 'sensor_main_board_temperature'
 			beschreibung = "Temperatur der Hauptplatine (Sensor)"
@@ -3314,7 +3520,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Temperatur der Hauptstromversorgung (Sensor)
 			keyword = 'sensor_main_power_supply_temperature'
 			beschreibung = "Temperatur der Hauptstromversorgung (Sensor)"
@@ -3323,7 +3529,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Temperatur der LED (Sensor)
 			keyword = 'sensor_led_temperature'
 			beschreibung = "Temperatur der LED (Sensor)"
@@ -3332,7 +3538,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Temperatur der LED-Stromversorgung (Sensor)
 			keyword = 'sensor_led_power_supply_temperature'
 			beschreibung = "Temperatur der LED-Stromversorgung (Sensor)"
@@ -3341,7 +3547,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Temperatur der Projektionseinheit (Sensor)
 			keyword = 'sensor_projection_unit_temperature'
 			beschreibung = "Temperatur der Projektionseinheit (Sensor)"
@@ -3350,7 +3556,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Temperatur des Kameraträgers (Sensor)
 			keyword = 'sensor_camera_support_temperature'
 			beschreibung = "Temperatur des Kameraträgers (Sensor)"
@@ -3359,7 +3565,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Temperatur des LED-Kühlkörpers (Sensor)
 			keyword = 'sensor_led_heatsink_temperature'
 			beschreibung = "Temperatur des LED-Kühlkörpers (Sensor)"
@@ -3368,8 +3574,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Tiefenbegrenzungsmodus
+			# Depth limitation
 			keyword = 'depth_limitation_mode'
 			beschreibung = "Tiefenbegrenzungsmodus"
 			unit=None
@@ -3377,7 +3584,121 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+				
+			if gom.app.get ('application_name') == 'GOM Inspect Professional':
+				if gom.app.project.measurement_series[mr].measurements[m].get ('depth_limitation_mode') == 'manual':
+					#print ("Tiefenbegrenzung GOM Inspect Professional")
+									
+					# Min. Tiefenbegrenzung 
+					# Min. depth limitation (scan and reference points) far away from sensor
+					keyword = 'min_depth_limitation'
+					beschreibung = "Min. Tiefenbegrenzung "
+					unit=None
+					description= 'Min. depth limitation (scan surface and reference points) far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+																		
+					# Max. Tiefenbegrenzung
+					# Max. depth limitation (scan and reference points) close to sensor
+					keyword = 'max_depth_limitation'
+					beschreibung = "Max. Tiefenbegrenzung"
+					unit=None
+					description= 'Max. depth limitation (scan surface and reference points) close to sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+		
+			elif gom.app.application_name == 'GOM Software':
+				#print (gom.app.project.measurement_series[mr].measurements[m].depth_limitation_mode)
+				if gom.app.project.measurement_series[mr].measurements[m].depth_limitation_mode == 'manual':
+					#print ("Tiefenbegrenzung ZEISS")
+									
+					# Min. Tiefenbegrenzung Scan
+					# Min. depth limitation scan surface far away from sensor
+					keyword = 'min_scan_surface_depth_limitation'
+					beschreibung = "Min. Tiefenbegrenzung "
+					unit=None
+					description= 'Min. depth limitation scan surface far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+													
+					# Max. Tiefenbegrenzung Scan
+					# Max. depth limitation scan surface far away from sensor
+					keyword = 'max_scan_surface_depth_limitation'
+					beschreibung = "Max. Tiefenbegrenzung"
+					unit=None
+					description= 'Max. depth limitation scan surface far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+									
+					# Min. Tiefenbegrenzung Referenzpunkte
+					# Min. depth limitation reference points far away from sensor
+					keyword = 'min_reference_points_depth_limitation'
+					beschreibung = "Min. Tiefenbegrenzung Referenzpunkte"
+					unit=None
+					description= 'Min. depth limitation reference points far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+													
+					# Max. Tiefenbegrenzung Referenzpunkte
+					# Max. depth limitation reference points close to sensor
+					keyword = 'max_reference_points_depth_limitation'
+					beschreibung = "Max. Tiefenbegrenzung Referenzpunkte"
+					unit=None
+					description= 'Max. depth limitation reference points close to sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+							
+			elif gom.app.application_name == 'ZEISS INSPECT':
+				#print (gom.app.project.measurement_series[mr].measurements[m].depth_limitation_mode)
+				if gom.app.project.measurement_series[mr].measurements[m].depth_limitation_mode == 'manual':
+					#print ("Tiefenbegrenzung ZEISS")
+									
+					# Min. Tiefenbegrenzung Scan
+					# Min. depth limitation scan surface far away from sensor
+					keyword = 'min_scan_surface_depth_limitation'
+					beschreibung = "Min. Tiefenbegrenzung "
+					unit=None
+					description= 'Min. depth limitation scan surface far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+													
+					# Max. Tiefenbegrenzung Scan
+					# Max. depth limitation scan surface far away from sensor
+					keyword = 'max_scan_surface_depth_limitation'
+					beschreibung = "Max. Tiefenbegrenzung"
+					unit=None
+					description= 'Max. depth limitation scan surface far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+									
+					# Min. Tiefenbegrenzung Referenzpunkte
+					# Min. depth limitation reference points far away from sensor
+					keyword = 'min_reference_points_depth_limitation'
+					beschreibung = "Min. Tiefenbegrenzung Referenzpunkte"
+					unit=None
+					description= 'Min. depth limitation reference points far away from sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+													
+					# Max. Tiefenbegrenzung Referenzpunkte
+					# Max. depth limitation reference points close to sensor
+					keyword = 'max_reference_points_depth_limitation'
+					beschreibung = "Max. Tiefenbegrenzung Referenzpunkte"
+					unit=None
+					description= 'Max. depth limitation reference points close to sensor'
+					uri=None
+					measurementclass=None
+					infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
+				
 			# Typ der Projektorkalibrierung
 			keyword = 'projector_calibration_type'
 			beschreibung = "Typ der Projektorkalibrierung"
@@ -3386,7 +3707,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Umgebungstemperatur
 			keyword = 'ambient_temperature'
 			beschreibung = "Umgebungstemperatur"
@@ -3395,7 +3716,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01)
 			keyword = 'remaining_lamp_warmup_time'
 			beschreibung = "Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01)"
@@ -3404,7 +3725,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Wiederholungsgrund 
 			keyword = 'reason_for_repetition'
 			beschreibung = "Wiederholungsgrund"
@@ -3413,8 +3734,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-			
+									
+									
 			## properties ## setup ## check 
 			# Anzahl der gemeinsamen Referenzpunkte
 			keyword = 'number_of_common_reference_points'
@@ -3424,7 +3745,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfCommonReferencePoints'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Aufnahmezeit 
 			keyword = 'acquisition_time'
 			beschreibung = "Aufnahmezeit"
@@ -3433,7 +3754,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'acquisitionTime'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Maximale Einschneideabweichung
 			keyword = 'max_intersection_deviation'
 			beschreibung = "Maximale Einschneideabweichung"
@@ -3442,7 +3763,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'MaxIntersectionDeviation'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Messungs-ID (eindeutig über alle Messreihen)
 			keyword = 'unique_measurement_id'
 			beschreibung = "Messungs-ID (eindeutig über alle Messreihen)"
@@ -3451,7 +3772,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'measurementId'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Min. Streifenkontrast
 			keyword ='min_fringe_contrast'
 			beschreibung = "Min. Streifenkontrast"
@@ -3460,10 +3781,10 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'MinimumFringeContrast'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# schleife damit alle belichtungszeiten rausgeschrieben werden 
 			for i in range(gom.app.project.measurement_series[mr].measurements[m].get ('number_of_exposure_times')):
-				
+										
 				# Belichtungszeiten
 				keyword = 'exposure_times ['+ str(i) +']'
 				beschreibung = "Belichtungszeit "+ str(i)
@@ -3472,7 +3793,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=exifnamespace+'exposureTime'
 				measurementclass=None
 				infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 				# Anzahl der Punkte pro Belichtungszeit
 				keyword = 'points_per_exposure_time ['+ str(i) +']'
 				beschreibung = "Anzahl der Punkte für Belichtungszeit "+ str(i)
@@ -3481,7 +3802,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=None
 				measurementclass=None
 				infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Bildbreite
 			keyword = 'image_width'
 			beschreibung = "Bildbreite"
@@ -3490,7 +3811,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=exifnamespace+'imageWidth'
 			measurementclass=None
 			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Bildhöhe
 			keyword = 'image_height'
 			beschreibung = "Bildhöhe"
@@ -3499,7 +3820,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=exifnamespace + 'imageHeight'
 			measurementclass=None
 			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Eckenmaskierungsgröße 
 			keyword = 'corner_mask_size'
 			beschreibung = "Eckenmaskierungsgröße"
@@ -3508,7 +3829,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'CornerMask'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# check 
 			# Ergebnis der Lichtänderungskontrolle
 			keyword = 'lighting_change_check_result'
@@ -3518,7 +3839,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Ergebnis der Sensorbewegungskontrolle 
 			keyword = 'sensor_movement_check_result'
 			beschreibung = "Ergebnis der Sensorbewegungskontrolle "
@@ -3527,7 +3848,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'sensorMovementCheck'
 			measurementclass=None
 			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Lichtänderung (Sigma)
 			keyword = 'lighting_change_sigma'
 			beschreibung = "Lichtänderung (Sigma)"
@@ -3536,7 +3857,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'LightChangeSigma'
 			measurementclass=None
 			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Mittlere Lichtänderung
 			keyword = 'lighting_change_mean'
 			beschreibung = "Mittlere Lichtänderung"
@@ -3545,7 +3866,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace +'MeanLightingChange'
 			measurementclass=None
 			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Name 
 			keyword = 'name'
 			beschreibung = "Name"
@@ -3554,7 +3875,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=rdfs+"label"
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Referenzpunktbelichtungszeit 
 			keyword = 'reference_point_exposure_time'
 			beschreibung = "Referenzpunktbelichtungszeit"
@@ -3563,7 +3884,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'ShutterTime'
 			measurementclass=None
 			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Sensorbewegung 
 			keyword = 'sensor_movement'
 			beschreibung = "Sensorbewegung"
@@ -3572,7 +3893,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'SensorMovement'
 			measurementclass=None
 			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-
+						
 			# Status: Ist Messung transformiert?
 			keyword = 'is_measurement_transformed'
 			beschreibung = "Status: Ist Messung transformiert?"
@@ -3581,7 +3902,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Punkte auf Glanzstellen vermeiden 
 			keyword ='avoid_points_on_shiny_surfaces'
 			beschreibung = "Status: Punkte auf Glanzstellen vermeiden"
@@ -3590,7 +3911,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Punkte bei starken Helligkeitsunterschieden vermeiden?
 			keyword = 'avoid_points_at_strong_brightness_differences'
 			beschreibung = "Status: Punkte bei starken Helligkeitsunterschieden vermeiden?"
@@ -3599,7 +3920,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Reflexionserkennung
 			keyword = 'reflection_detection'
 			beschreibung = "Status: Reflexionserkennung"
@@ -3608,7 +3929,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'reflectionDetectionActivated'
 			measurementclass=None
 			infos_m_setup (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Sensor-Betriebstemperatur erreicht?
 			keyword ='sensor_operation_temperature_reached'
 			beschreibung = "Status: Sensor-Betriebstemperatur erreicht?"
@@ -3617,7 +3938,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'SensorTemperature'
 			measurementclass=None
 			infos_m_check (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden? 
 			keyword = 'avoid_triple_scan_points_at_strong_brightness_differences'
 			beschreibung = "Status: Triple-Scan-Punkte bei starken Helligkeitsunterschieden vermeiden?"
@@ -3626,7 +3947,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'avoidTripleScanPointsWithBrightnessDifference'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Status: Triple-Scan-Punkte vermeiden? 
 			keyword = 'avoid_triple_scan_points'
 			beschreibung = "Status: Triple-Scan-Punkte vermeiden?"
@@ -3635,7 +3956,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'avoidTripleScanPoints'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Transformationsabweichung
 			keyword = 'transformation_deviation'
 			beschreibung = "Transformationsabweichung"
@@ -3644,7 +3965,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'TransformationDeviation'
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Transformationsmethode
 			keyword = 'transformation_method'
 			beschreibung = "Transformationsmethode"
@@ -3653,7 +3974,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Transformationsstabilität
 			keyword = 'transformation_stability'
 			beschreibung = "Transformationsstabilität"
@@ -3662,9 +3983,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_m_properties (keyword,beschreibung,unit,description,uri,measurementclass)
-				
-				
-				
+																						
 			# Sensor 
 			# capturing device 
 			# Sensorkennung
@@ -3674,9 +3993,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Sensor identifier'
 			uri=ontologynamespace +'serialNumber'
 			measurementclass='http://www.wikidata.org/entity/Q1198578'
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-	
+							
 			# Sensortyp 
 			keyword = 'sensor_type'
 			beschreibung = "Sensortyp"
@@ -3684,12 +4003,12 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Sensor type'
 			uri=ontologynamespace+'sensorType'
 			measurementclass=None
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-			
-			
+									
+									
 			## Messungskalibrierung
-			
+									
 			# Anzahl der Kameras
 			keyword = 'calibration_number_of_cameras'
 			beschreibung = "Anzahl der Kameras"
@@ -3697,9 +4016,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Number of cameras'
 			uri=ontologynamespace+'numberOfCameras'
 			measurementclass=None
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-	
+							
 			# Anzahl der Maßstäbe
 			keyword = 'calibration_number_of_scales'
 			beschreibung = "Anzahl der Maßstäbe"
@@ -3708,7 +4027,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'numberOfScales'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Aufnahmemodus
 			keyword = 'calibration_snap_mode'
 			beschreibung = "Aufnahmemodus"
@@ -3717,7 +4036,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Ausdehnungskoeffizient 
 			keyword = 'calibration_object_expansion_coefficient'
 			beschreibung = "Ausdehnungskoeffizient"
@@ -3726,7 +4045,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'ExpansionCoefficient'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Brennweite (Kamera)
 			keyword = 'calibration_camera_focal_length'
 			beschreibung = "Brennweite (Kamera)"
@@ -3734,9 +4053,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Focal length camera'
 			uri= ontologynamespace + "FocalLengthCamera"
 			measurementclass="http://www.wikidata.org/entity/Q193540"
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-		
+								
 			# Brennweite (Projektor)
 			keyword = 'calibration_projector_focal_length'
 			beschreibung = "Brennweite (Projektor)"
@@ -3744,9 +4063,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Focal length projector'
 			uri=ontologynamespace + "FocalLengthProjector"
 			measurementclass="http://www.wikidata.org/entity/Q193540"
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-		
+								
 			# Grenzwert Kalibrierabweichung
 			keyword = 'limit_value_calibration_deviation' 
 			beschreibung = "Grenzwert Kalibrierabweichung"
@@ -3755,7 +4074,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Grenzwert Maßstabsabweichung
 			keyword = 'limit_value_calibration_scale_deviation'
 			beschreibung = "Grenzwert Maßstabsabweichung"
@@ -3764,7 +4083,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Grenzwert Projektorkalibrierabweichung
 			keyword = 'limit_value_calibration_projector_deviation'
 			beschreibung = "Grenzwert Projektorkalibrierabweichung"
@@ -3773,7 +4092,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Höhenänderung
 			keyword = 'calibration_height_variance'
 			beschreibung = "Höhenänderung"
@@ -3782,7 +4101,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'HeightVariance'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Identifizierungspunkt-ID
 			keyword = 'calibration_object_identification_point_id'
 			beschreibung = "Identifizierungspunkt-ID"
@@ -3791,7 +4110,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Kalibrierabweichung
 			keyword = 'calibration_deviation'
 			beschreibung = "Kalibrierabweichung"
@@ -3800,7 +4119,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'CalibrationDeviation'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Kalibrierabweichung (optimiert)
 			keyword = 'calibration_deviation_optimized'
 			beschreibung = "Kalibrierabweichung (optimiert)"
@@ -3809,7 +4128,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+ 'CalibrationDeviationOptimized'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Kalibrierdatum 
 			keyword = 'calibration_date'
 			beschreibung = "Kalibrierdatum"
@@ -3819,7 +4138,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			measurementclass=None
 			from_application ="true"		
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass, from_application)
-		
+								
 			# Kalibrierobjekttyp 
 			keyword = 'calibration_object_type'
 			beschreibung = "Kalibrierobjekttyp"
@@ -3828,7 +4147,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Kalibriervolumenbreite
 			keyword = 'calibration_volume_width'
 			beschreibung = "Kalibriervolumenbreite"
@@ -3837,7 +4156,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'CalibrationVolumeWidth'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Kalibriervolumenlänge
 			keyword = 'calibration_volume_length'
 			beschreibung = "Kalibriervolumenlänge"
@@ -3846,7 +4165,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'CalibrationVolumeLength'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+					
 			# Kalibriervolumentiefe
 			keyword = 'calibration_volume_depth' 
 			beschreibung = "Kalibriervolumentiefe"
@@ -3855,7 +4174,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'CalibrationVolumeDepth'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+				
 			# Kamerawinkel 
 			keyword = 'calibration_camera_angle'
 			beschreibung = "Kamerawinkel"
@@ -3864,7 +4183,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri= ontologynamespace + "CameraAngle"
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+							
+				
 			# Lichtintensität 
 			keyword = 'calibration_light_intensity'
 			beschreibung = "Lichtintensität"
@@ -3873,7 +4193,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'LightIntensity'
 			measurementclass=None
 			infos_cali_calsetup (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
+				
+							
 			# Max. Ellipsenqualität 
 			keyword = 'calibration_max_ellipse_quality'
 			beschreibung = "Max. Ellipsenqualität"
@@ -3882,7 +4204,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Max. Tiefenbegrenzung (kalibriert)
 			keyword = 'calibration_max_z'
 			beschreibung = "Max. Tiefenbegrenzung (kalibriert)"
@@ -3891,7 +4213,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Max. Tiefenbegrenzung (kalibriert, Referenzvolumen)
 			keyword = 'calibration_reference_point_max_z'
 			beschreibung = "Max. Tiefenbegrenzung (kalibriert, Referenzvolumen)"
@@ -3900,7 +4222,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Maßstabsabweichung 
 			keyword = 'calibration_scale_deviation'
 			beschreibung = "Maßstabsabweichung"
@@ -3909,7 +4231,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'ScaleDeviation'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 			# Messtemperatur 
 			keyword = 'calibration_measurement_temperature'
 			beschreibung = "Messtemperatur"
@@ -3918,7 +4240,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace + 'CalibrationTemperature'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Messvolumenbreite
 			keyword = 'measuring_volume_width'
 			beschreibung = "Messvolumenbreite"
@@ -3926,9 +4248,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Measuring volume width'
 			uri=ontologynamespace+'MeasuringVolumeWidth'
 			measurementclass=None
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-		
+								
 			# Messvolumenlänge
 			keyword = 'measuring_volume_length'
 			beschreibung = "Messvolumenlänge"
@@ -3936,33 +4258,118 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Measuring volume length'
 			uri=ontologynamespace+'MeasuringVolumeLength'
 			measurementclass=None
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
+									
+#			# theroretischer Messpunktabstand für Atos Triple Scan 8MP
+#			# MV100, MV170, MV560, MV700, MV1400
+#			mv_length = gom.app.project.measurement_series[mr].measurements[m].get ('measuring_volume_length')
+#			if 80 < mv_length < 120:
+#				value = 0.031
+#			elif 140 < mv_length <200 :
+#				value = 0.053
+#			elif 280 < mv_length < 360:
+#				value = 0.104
+#			elif 400 < mv_length < 500:
+#				value = 0.195
+#			elif 650 < mv_length < 750:
+#				value = 0.213
+#			elif 1200 < mv_length < 1500:
+#				value = 0.399
+#			keyword = 'theoretical_measuring_point_distance'
+#			beschreibung = "Theoretischer Messpunktabstand"
+#			unit =om+"millimetre"
+#			description= 'theoretical measuring point distance'
+#			uri=ontologynamespace+'TheoreticalMeasuringPointDistance'
+#			measurementclass=None
+#			from_application= 'derived from the used measuring volume'
+#			infos_capturing_device (keyword,beschreibung, value, unit,description,uri,measurementclass,from_application)
+				
+			# theroretischer Messpunktabstand
+			try:
+				if gom.app.get ('application_name') == 'GOM Inspect Professional':
+					sensor = gom.app.project.measurement_series[mr].measurements[m].sensor_type
+					mv_length = gom.app.project.measurement_series[mr].measurements[m].get ('measuring_volume_length')
+				elif gom.app.application_name == 'GOM Software':
+					sensor = gom.app.project.measurement_series[mr].measurements[m].sensor_type
+					mv_length = gom.app.project.measurement_series[mr].measurements[m].measuring_volume_length
+				elif gom.app.application_name == 'ZEISS INSPECT':
+					sensor = gom.app.project.measurement_series[mr].measurements[m].sensor_type
+					mv_length = gom.app.project.measurement_series[mr].measurements[m].measuring_volume_length
+#				print (sensor)
+#				print (mv_length)
+				if sensor == 'ATOS III Rev.01':
+					if 20 < mv_length < 40:
+						value = 0.02
+					elif 55 < mv_length < 75 :
+						value = 0.03
+					elif 90 < mv_length < 110:
+						value = 0.05
+					elif 130 < mv_length < 170:
+						value = 0.07
+					elif 280 < mv_length < 320:
+						value = 0.15
+					elif 480 < mv_length < 520:
+						value = 0.25
+					elif 900 < mv_length < 1100:
+						value = 0.50
+					elif 1400 < mv_length < 1600:
+						value = 0.75
+				elif sensor == 'ATOS III Rev.02':
+					if 80 < mv_length < 120:
+						value = 0.031
+					elif 150 < mv_length < 190 :
+						value = 0.053
+					elif 280 < mv_length < 360:
+						value = 0.104
+					elif 520 < mv_length < 600:
+						value = 0.176
+					elif 650 < mv_length < 750:
+						value = 0.213
+					elif 900 < mv_length < 1100:
+						value = 0.332
+					elif 1200 < mv_length < 1500:
+						value = 0.399
+				elif sensor == 'ATOS Q (8M)':
+					if 40 < mv_length < 60:
+						value = 0.015
+					elif 80 < mv_length < 120 :
+						value = 0.035
+					elif 140 < mv_length < 200:
+						value = 0.054
+					elif 240 < mv_length < 300:
+						value = 0.078
+					elif 310 < mv_length < 390:
+						value = 0.112
+					elif 450 < mv_length < 550:
+						value = 0.152
+				else:
+					value=None
+					print ("Sensor not defined inside the skript")
+#				print (value)
+#				print ("\n")
+				keyword = 'theoretical_measuring_point_distance'
+				beschreibung = "Theoretischer Messpunktabstand"
+				unit =om+"millimetre"
+				description= 'theoretical measuring point distance'
+				uri=ontologynamespace+'TheoreticalMeasuringPointDistance'
+				measurementclass=None
+				from_application= 'derived from the used measuring volume'
+				infos_capturing_device (keyword, beschreibung, value, unit,description,uri,measurementclass,from_application)
+			except Exception as e:
+				print(e)
+							
 			
-			# theroretischer Messpunktabstand für Atos Triple Scan 8MP
-			# MV100, MV170, MV560, MV700, MV1400
-			mv_length = gom.app.project.measurement_series[mr].measurements[m].get ('measuring_volume_length')
-			if 80 < mv_length < 120:
-				value = 0.031
-			elif 140 < mv_length <200 :
-				value = 0.053
-			elif 280 < mv_length < 360:
-				value = 0.104
-			elif 400 < mv_length < 500:
-				value = 0.195
-			elif 650 < mv_length < 750:
-				value = 0.213
-			elif 1200 < mv_length < 1500:
-				value = 0.399
-			keyword = 'theoretical_measuring_point_distance'
-			beschreibung = "Theoretischer Messpunktabstand"
-			unit =om+"millimetre"
-			description= 'theoretical measuring point distance'
-			uri=ontologynamespace+'TheoreticalMeasuringPointDistance'
-			measurementclass=None
-			from_application= 'derived from the used measuring volume'
-			infos_capturing_device (keyword,beschreibung, value, unit,description,uri,measurementclass,from_application)		
-	
+#			if gom.app.get ('application_name') == 'ATOS Q (8M)':
+#				mv_length = gom.app.project.measurement_series[mr].measurements[m].get ('measuring_volume_length')
+#				gom.app.project.measurement_series['Scan 1'].measurements['M1'].measuring_volume_length
+#				print (gom.app.project.measurement_series[mr].measurements[m].sensor_type)
+			# für Atos Triple Scan 8MP
+			# Atos core
+			# Atos Q
+						
+						
+							
 			# Messvolumentiefe
 			keyword = 'measuring_volume_depth'
 			beschreibung = "Messvolumentiefe"
@@ -3970,9 +4377,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'Measuring volume depth'
 			uri=ontologynamespace+'MeasuringVolumeDepth'
 			measurementclass=None
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-	
+							
 			# Min. Tiefenbegrenzung (kalibriert) 
 			keyword = 'calibration_min_z'
 			beschreibung = "Min. Tiefenbegrenzung (kalibriert)"
@@ -3981,7 +4388,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Min. Tiefenbegrenzung (kalibriert, Referenzvolumen)
 			keyword = 'calibration_reference_point_min_z'
 			beschreibung = "Min. Tiefenbegrenzung (kalibriert, Referenzvolumen)"
@@ -3990,7 +4397,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Name des Kalibrierobjekts 
 			keyword = 'calibration_object_name'
 			beschreibung = "Name des Kalibrierobjekts"
@@ -3999,7 +4406,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=rdfs+ 'label'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Projektorkalibrierabweichung 
 			keyword = 'calibration_projector_deviation'
 			beschreibung = "Projektorkalibrierabweichung"
@@ -4008,7 +4415,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace + 'ProjectorDeviation'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Projektorkalibrierabweichung (optimiert)
 			keyword = 'calibration_projector_deviation_optimized'
 			beschreibung = "Projektorkalibrierabweichung (optimiert)"
@@ -4018,7 +4425,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			#uri=ontologynamespace + 'ProjectorDeviationOptimized'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Referenzvolumenbreite
 			keyword = 'reference_volume_width'
 			beschreibung = "Referenzvolumenbreite"
@@ -4028,7 +4435,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			#uri=ontologynamespace+'ReferenceVolumeWidth'
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+				
 			# Referenzvolumenhöhe
 			keyword = 'reference_volume_length'
 			beschreibung = "Referenzvolumenhöhe"
@@ -4038,7 +4445,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			#uri=ontologynamespace+'ReferenceVolumeLength'
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Referenzvolumentiefe
 			keyword = 'reference_volume_depth'
 			beschreibung = "Referenzvolumentiefe"
@@ -4047,7 +4454,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Schwellwert für Bewegungskontrolle 
 			keyword = 'calibration_movement_check_threshold'
 			beschreibung = "Schwellwert für Bewegungskontrolle"
@@ -4056,7 +4463,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Ist Sensor mit Retro-Kalibrierung kalibriert?
 			keyword = 'sensor_is_retro_calibrated'
 			beschreibung = "Status: Ist Sensor mit Retro-Kalibrierung kalibriert?"
@@ -4065,7 +4472,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Status: Ist Sensor mit Schnellkalibrierung kalibriert?
 			keyword = 'calibration_is_quick_calibrated'
 			beschreibung = "Status: Ist Sensor mit Schnellkalibrierung kalibriert?"
@@ -4074,7 +4481,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'isQuickCalibrated'
 			measurementclass=None
 			infos_cali_calproperties (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Status: Ist Sensoreinstellung gültig? 
 			keyword = 'calibration_is_sensor_setup_valid'
 			beschreibung = "Status: Ist Sensoreinstellung gültig?"
@@ -4082,9 +4489,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			description= 'State: Is sensor setup valid?'
 			uri=ontologynamespace+'sensorSetupValid'
 			measurementclass=None
-			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
+#			value = gom.app.project.measurement_series[mr].measurements[m].get (keyword)
 			infos_capturing_device (keyword,beschreibung,value,unit,description,uri,measurementclass)
-	
+							
 			# Status: Kalibrierobjekt rezertifiziert? 
 			keyword = 'calibration_object_recertified'
 			beschreibung = "Status: Kalibrierobjekt rezertifiziert?"
@@ -4093,7 +4500,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Status: Überbelichtungsprüfung ignoriert?
 			keyword = 'calibration_is_overexposure_check_ignored'
 			beschreibung = "Status: Überbelichtungsprüfung ignoriert?"
@@ -4102,7 +4509,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			infos_cali (keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Verbleibende Sensor-Aufwärmzeit 
 			keyword = 'calibration_remaining_sensor_warmup_time'
 			beschreibung = "Verbleibende Sensor-Aufwärmzeit"
@@ -4111,7 +4518,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'RemainingSensorWarmupTime'
 			measurementclass=None
 			infos_cali_calsetup (keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Zertifizierungstemperatur
 			keyword = 'calibration_object_certification_temperature'
 			beschreibung = "Zertifizierungstemperatur"
@@ -4120,8 +4527,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=ontologynamespace+'ReferenceTemperature'
 			measurementclass=None
 			infos_cali_calobject (keyword,beschreibung,unit,description,uri,measurementclass)
-			
-	
+									
 			dir_mea = {}	
 			#dir_mea["measurement_information"] = messung			
 			if len(list_rp_local)>0:			
@@ -4131,7 +4537,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			dir_mea["measurement_properties"]=dic_measurement_info 
 			dic_sensor["calibration"]=calibration
 			dic_sensor["capturing_device"]=dic_measurement_sensor
-			
+									
 			if len(dir_mea)>0:
 				list_messungen.append(dir_mea)
 			if len(list_messungen) >0:
@@ -4142,15 +4548,15 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				calibration["cal_setup"]=dic_measurement_cal_calsetup
 			if len(dic_measurement_cal_calresults) >0:
 				calibration["cal_properties"]=dic_measurement_cal_calresults
-			
-
+									
+						
 			# temporäre Vergleichsliste mit allen Kalibrierzeiten anlegen und wenn noch nicht in Liste "temp_list_cal_time", dann rein einen "sensor" anlegen
-			
+									
 			if "calibration_date" in dic_measurement_cal_calresults:
 				cal_time_new = dic_measurement_cal_calresults["calibration_date"]["value"]
 			else:
 				cal_time_new = None
-				
+										
 			if cal_time_new in temp_list_cal_time:
 				for s in list_sensors:
 					if "cal_properties" in s["calibration"]:
@@ -4159,10 +4565,10 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 								cal_time_store = s["calibration"]["cal_properties"]["calibration_date"]["value"]
 								if cal_time_store == cal_time_new:
 									dic_measurement_info["sensor_id"] = s["capturing_device"]["sensor_id"]
-								
+														
 			if not cal_time_new in temp_list_cal_time:
 				temp_list_cal_time.append(cal_time_new)
-				
+										
 				dic_s ={}
 				dic_s["value"] = sensor_id
 				dic_s["key_deu"] = "Sensor ID"
@@ -4171,28 +4577,28 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				dic_s["uri"] = ontologynamespace + "sensor_id"
 				dic_s["value_type"] = type(dic_s["value"]).__name__
 				dic_sensor["capturing_device"]["sensor_id"] = dic_s
-				
+										
 				dic_measurement_info["sensor_id"] = dic_s
-				
+										
 				sensor_id = + 1 
-				
+										
 				list_sensors.append(dic_sensor)
-		
+								
 			m=m+1
-		
-	
+								
+							
 		# Referenzpunkte (in Schleife Messreihe)	
 		# hier gibt es allgemeneine Informationen, die für alle Refernzpunkte dieser Messreihe gelten 
-		
+								
 		list_refpoints =[]
 		refpoints={}
 		refpoints_information={}
-		
+								
 		try:
 			rp = gom.app.project.measurement_series[mr].results['points'].get ('num_points')
 		except: 
 			rp = None		
-
+						
 		if rp is not None:
 			def refpoints_mr (keyword, beschreibung, unit=None, description=None,  uri=None, measurementclass=None, from_application="true"):
 				dir = {}
@@ -4208,7 +4614,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					dir["measurementclass"] =  measurementclass
 				dir["value_type"] = type(gom.app.project.measurement_series[mr].results['points'].get(keyword)).__name__
 				dir["from_application"]= from_application				
-				
+										
 				if dir["value"] != None:
 					if len(str(dir["value"])) != 0:
 						if includeonlypropswithuri and "uri" in dir:
@@ -4217,17 +4623,17 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 						if not includeonlypropswithuri:			
 							refpoints_information[keyword] = {}		
 							refpoints_information[keyword] = dir			
-				
-				
+										
+										
 			# Anzahl der Punkte
 			keyword='num_points' 
 			beschreibung="Anzahl der Punkte"
 			unit=None
 			description= 'Number of points'
-			uri=ontologynamespace+'totalNumberOfVertices'
+			uri=ontologynamespace+'numberOfReferencepoints'
 			measurementclass=None
 			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+						
 			# Benötigte Ausrichtung zur Berechnung
 			keyword='alignment_at_calculation'
 			beschreibung="Benötigte Ausrichtung zur Berechnung"
@@ -4236,7 +4642,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Benötigte Starrkörperbewegungskorrektur zur Berechnung
 			keyword='rigid_body_motion_compensation_at_calculation'
 			beschreibung="Benötigte Starrkörperbewegungskorrektur zur Berechnung"
@@ -4245,7 +4651,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 			# Berechnungsinformationen
 			keyword='computation_information'
 			beschreibung="Berechnungsinformationen"
@@ -4254,7 +4660,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 			# Name
 			keyword='name'
 			beschreibung="Name"
@@ -4263,7 +4669,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 			# Name(importiert) 
 			keyword='imported_name'
 			beschreibung="Name(importiert)"
@@ -4272,16 +4678,16 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			uri=None
 			measurementclass=None
 			refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
-		
+									
+								
 			# neue Schleife innerhalb der globalen Referenzpunkten 
 			# hier gibt es Informationen, die nur für einen bestimmten Referenzpunkt gelten 
-			
+									
 			p= 0 
 			list_rp_individual= []
-			
+									
 			while p < gom.app.project.measurement_series[mr].results['points'].get ('num_points'):
-					
+											
 				refpoints_individual ={}
 				def individual_refpoints_mr (keyword, beschreibung, unit=None, description=None, uri=None,measurementclass=None, from_application="true"):
 					dir = {}
@@ -4297,7 +4703,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 						dir["measurementclass"] =  measurementclass
 					dir["value_type"] = type(gom.app.project.measurement_series[mr].results['points'].get(keyword+"["+str(p)+"]")).__name__
 					dir["from_application"]=from_application
-						
+												
 					if dir["value"] != None:
 						if len(str(dir["value"])) != 0:
 							if includeonlypropswithuri and "uri" in dir:
@@ -4306,8 +4712,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							if not includeonlypropswithuri:			
 								refpoints_individual[keyword] = {}		
 								refpoints_individual[keyword] = dir			
-				
-		
+										
+								
 				# Beobachtungswinkel 
 				keyword='observation_angle'
 				beschreibung="Beobachtungswinkel"
@@ -4316,7 +4722,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Anzahl der Beobachtugen 
 				keyword='number_of_observations'			
 				beschreibung='Anzahl der Beobachtugen'
@@ -4325,7 +4731,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Punkt-ID 
 				keyword='point_id'
 				beschreibung= "Punkt-ID"
@@ -4334,7 +4740,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=ontologynamespace+ 'PointID'
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Punkt-Materialstärke
 				keyword= 'point_thickness'
 				beschreibung= "Punkt-Materialstärke"
@@ -4343,7 +4749,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=ontologynamespace+'PointThickness'
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Punkttyp 
 				keyword='point_type'
 				beschreibung= "Punkttyp"
@@ -4352,7 +4758,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-					
+											
 				# Durchmesser
 				keyword='diameter'
 				beschreibung= "Durchmesser"
@@ -4361,70 +4767,70 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=ontologynamespace+'diameter'
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 				# Koordinate X
 				keyword='coordinate.x'
 				beschreibung= "Koordinate X"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Coordinate X'
 				uri=ontologynamespace+'xCoordinate'
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 				# Koordinate Y
 				keyword='coordinate.y'
 				beschreibung= "Koordinate Y"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Coordinate Y'
 				uri=ontologynamespace+'yCoordinate'
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 				# Koordinate Z
 				keyword='coordinate.z'
 				beschreibung= "Koordinate Z"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Coordinate Z'
 				uri=ontologynamespace+'zCoordinate'
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Normale X
 				keyword='normal.x'
 				beschreibung= "Normale X"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Normal X'
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 				# Normale Y
 				keyword='normal.y'
 				beschreibung= "Normale Y"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Normal Y'
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-				
+										
 				# Normale Z
 				keyword='normal.z'
 				beschreibung= "Normale Z"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Normale Z'
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 				# Residuum 
 				keyword= 'residual'
 				beschreibung= "Residuum"
-				unit='om:millimetre'
+				unit=om+'millimetre'
 				description= 'Residual'
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
+									
 				# Status: Benutzerdefinierte Referenzpunktgröße benutzt? 
 				keyword='use_user_defined_reference_point_size'
 				beschreibung= "Status: Benutzerdefinierte Referenzpunktgröße benutzt?"
@@ -4433,46 +4839,58 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				uri=None
 				measurementclass=None
 				individual_refpoints_mr(keyword,beschreibung,unit,description,uri,measurementclass)
-			
-				
+									
+										
 				if len(refpoints_individual) > 0:
 					list_rp_individual.append(refpoints_individual)
 				if len(list_rp_individual) > 0:
 					refpoints["referencepoints"]= list_rp_individual
-	
+							
 				p = p+1
-			
+									
 			if len(refpoints_information)>0:	
 				refpoints["global_referencepoints_information"]= refpoints_information
 			if len(refpoints) >0:
 				messreihe["global_referencepoints"]= refpoints
-					
+											
 		if len(messreihe_infos)>0:
 			messreihe["measurement_series_information"]=messreihe_infos
 		if len(list_sensors)>0:
 			messreihe["sensors"]=list_sensors	
 		if len(messreihe) > 0: 
 			list_messreihen.append(messreihe) 
-
-			
+						
+									
 		mr = mr +1 
-		
-	# Netze 		
-			
+								
+	## Netze
+							
+	# Suffix für den Namen, falls mehrere gibt und man nur für eins die Metadaten  benötigt
+						
+										
 	list_meshes = []
 	n = 0
 	anz_n = 0 
 	netz_name=[]
 	for e in gom.app.project.actual_elements:
 		etype = e.get ('icon (type)')
+		ename = e.get('name')
 		if etype == "mesh":
-			anz_n=anz_n+1
-			netz_name.append(e.get ('name'))
-			
+			if meshname_suffix == None:
+				anz_n=anz_n+1
+				netz_name.append(e.get ('name'))
+			if meshname_suffix == "":
+				anz_n=anz_n+1
+				netz_name.append(e.get ('name'))
+			elif ename.replace(ename[:-2],'') == meshname_suffix:
+				anz_n=anz_n+1
+				netz_name.append(e.get ('name'))
+						
+#	print (netz_name)	
 	list_meshes = []
-	
+							
 	while n < anz_n:
-		
+								
 		dic_mesh = {}	
 		dic_mesh_info = {}
 		dic_mesh_processing={}
@@ -4480,7 +4898,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		dic_mesh_processing_poly_setup={}
 		dic_mesh_processing_poly_post={}
 		list_mesh_processing_poly_post=[]
-
+						
 		#mesh information		
 		def infos_n (keyword, beschreibung, unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
@@ -4498,7 +4916,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				dir["measurementclass"] =  measurementclass
 			dir["value_type"] = type(value).__name__
 			dir["from_application"]= from_application		
-			
+									
 			if dir["value"] != None:
 				if len(str(dir["value"])) != 0:
 					if includeonlypropswithuri and "uri" in dir:
@@ -4507,8 +4925,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					if not includeonlypropswithuri:			
 						dic_mesh_info[keyword] = {}		
 						dic_mesh_info[keyword] = dir	
-						
-			
+												
+									
 		#Anzahl der Dreiecke
 		keyword= 'num_triangles'
 		beschreibung= 'Anzahl der Dreiecke'
@@ -4517,7 +4935,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'TotalNumberOfFaces'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Anzahl der Löcher 
 		keyword= 'number_of_holes'
 		beschreibung= 'Anzahl der Löcher'
@@ -4526,7 +4944,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=ontologynamespace+'numberOfHoles'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Anzahl der Punkte
 		keyword= 'num_points'
 		beschreibung= 'Anzahl der Punkte'
@@ -4535,7 +4953,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'TotalNumberOfVertices'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Fläche 
 		keyword= 'area'
 		beschreibung= 'Fläche'
@@ -4544,7 +4962,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'TotalArea'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Name 
 		keyword= 'name'
 		beschreibung= 'Name'
@@ -4553,16 +4971,16 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=rdfs+'label'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Volumen 
 		keyword= 'volume'
 		beschreibung= 'Volumen'
-		unit = 'om:cubicMillimetre' 
+		unit = om+'cubicMillimetre' 
 		description= 'Volume'
 		uri=ontologynamespace+'volume'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Kommentar
 		keyword= 'comment'
 		beschreibung= 'Kommentar'
@@ -4571,7 +4989,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=None
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Minimum X
 		keyword= 'bounding_box.min.x'
 		beschreibung= 'Minimum X'
@@ -4580,7 +4998,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'MinimumXCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Minimum Y
 		keyword= 'bounding_box.min.y'
 		beschreibung= 'Minimum Y'
@@ -4589,7 +5007,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'MinimumYCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Minimun Z
 		keyword= 'bounding_box.min.z'
 		beschreibung= 'Minimun Z'
@@ -4598,7 +5016,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'MinimumZCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Maximum X
 		keyword= 'bounding_box.max.x'
 		beschreibung= 'Maximum X'
@@ -4607,7 +5025,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'MaximumXCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Maximum Y
 		keyword= 'bounding_box.max.y'
 		beschreibung= 'Maximum Y'
@@ -4616,7 +5034,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'maximumYCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-	
+							
 		# Maximum Z
 		keyword= 'bounding_box.max.z'
 		beschreibung= 'Maximum Z'
@@ -4625,7 +5043,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		uri=giganamespace+'maximumZCoordinate'
 		measurementclass=None
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass)
-		
+								
 		# berechneter Wert 
 		# durchschnittliche Auflösung pro mm²
 		keyword= 'average resolution'
@@ -4639,7 +5057,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		flaeche_netz= gom.app.project.actual_elements[netz_name[n]].get ('area')
 		value = anz_punkte_netz / flaeche_netz
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass, value,from_application)
-		
+								
 		# berechneter Wert
 		# durchschnittlicher Punktabstand 
 		keyword= 'average_point_distance'
@@ -4651,19 +5069,19 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		from_application= "script-based calculation"
 		value = 1/math.sqrt(anz_punkte_netz / flaeche_netz)
 		infos_n(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-		
-		
+								
+								
 		# processing 	
 		def infos_poly_processname (keyword, value):
 			dir = {}
 			dir["value"] = value 			
 			dir["value_type"] = type(value).__name__
 			dic_mesh_processing[keyword] = dir
-				
-						
+										
+												
 		def infos_poly_setup (keyword, beschreibung, unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
-			
+									
 			if value == None:
 				dir["value"] = gom.app.project.actual_elements[netz_name[n]].get (keyword)
 			else:
@@ -4679,7 +5097,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				dir["measurementclass"] =  measurementclass
 			dir["value_type"] = type(value).__name__
 			dir["from_application"]= from_application
-				
+										
 			if dir["value"] != None:
 				if len(str(dir["value"])) != 0:
 					if includeonlypropswithuri and "uri" in dir:
@@ -4688,8 +5106,8 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					if not includeonlypropswithuri:			
 						dic_mesh_processing_poly_setup[keyword] = {}		
 						dic_mesh_processing_poly_setup[keyword] = dir
-		
-		
+								
+								
 		def infos_poly_post_smooth (keyword, beschreibung, unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
 			if keyword == "automatic" or keyword == "processname":
@@ -4713,7 +5131,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					dir["measurementclass"] =  measurementclass
 				dir["value_type"] = type(value).__name__
 				dir["from_application"]= from_application
-				
+										
 			if dir["value"] != None:
 				if len(str(dir["value"])) != 0:
 					if includeonlypropswithuri and "uri" in dir:
@@ -4722,8 +5140,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					if not includeonlypropswithuri:			
 						dic_smooth[keyword] = {}		
 						dic_smooth[keyword] = dir
-						
-						
+																		
 		def infos_poly_post_thin (keyword, beschreibung, unit=None, description=None, uri=None, measurementclass=None, value=None, from_application="true"):
 			dir = {}
 			if keyword == "automatic" or keyword == "processname":
@@ -4747,7 +5164,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					dir["measurementclass"] =  measurementclass
 				dir["value_type"] = type(value).__name__
 				dir["from_application"]= from_application
-			
+									
 			if dir["value"] != None:
 				if len(str(dir["value"])) != 0:
 					if includeonlypropswithuri and "uri" in dir:
@@ -4756,24 +5173,24 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 					if not includeonlypropswithuri:			
 						dic_thin[keyword] = {}		
 						dic_thin[keyword] = dir
-
+						
 		# Kommentar aufdröseln
 		mesh_comment = gom.app.project.actual_elements[netz_name[n]].get ('comment')
 		for k in mesh_comment.split("\n\n"):
 			if "POLYGONISATION:" in k:
-				
+										
 				# processname 
 				keyword= 'processname'
 				value='polygonisation'
 				infos_poly_processname(keyword,value)
-				
+										
 				for poly in k.replace("BASIC POLYGONISATION:\n","").split("\n"):
 					liste = poly.replace("mm","").split(" = ")
-	
+							
 					if len(liste) == 2:			
 						# Basic Polygonisation
 						## Setup 
-		
+								
 						if liste[0] == "creation tolerance":
 						###creation tolerance 
 							keyword= 'creation tolerance'
@@ -4785,7 +5202,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=float(liste[1])
 							from_application="True, part value from keyword='comment'"
 							infos_poly_setup(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)	
-							
+													
 						elif liste[0] == "merge tolerance":
 						# merge tolerance
 							keyword= 'merge tolerance'
@@ -4797,7 +5214,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=float(liste[1])
 							from_application="True, part value from keyword='comment'"
 							infos_poly_setup(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)	
-							
+													
 						elif liste[0] == "maximum gap":
 						# maximum gap
 							keyword= 'maximum gap'
@@ -4809,7 +5226,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=float(liste[1])
 							from_application="True, part value from keyword='comment'"
 							infos_poly_setup(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-							
+													
 						elif liste[0] == "maximum edge length":
 						# maximum edge length
 							keyword= 'maximum edge length'
@@ -4821,7 +5238,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=float(liste[1])
 							from_application="True, part value from keyword='comment'"
 							infos_poly_setup(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-
+						
 						elif liste[0] == "unit edge length":
 						# unit edge length 
 							keyword= 'unit edge length'
@@ -4833,7 +5250,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=float(liste[1])
 							from_application="True, part value from keyword='comment'"
 							infos_poly_setup(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-
+						
 			if "'Polygonize large data volumes' is ON" in k:
 				# lage data volume
 				keyword= 'Polygonize large data volumes'
@@ -4845,9 +5262,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 				value=True
 				from_application="True, part value from keyword='comment'"
 				infos_poly_setup(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-			
+									
 			# Postprocessing
-					
+											
 			if "POSTPROCESSING:" in k:
 				for post in k.replace("POSTPROCESSING:\n","").split("\n"):
 					post=post.replace("mm","").replace(")","")	
@@ -4868,7 +5285,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							smooth_mode_value = smooth_item_mode[1]
 							smooth_tolerance = smooth_item_tolerance[0]
 							smooth_tolerance_value = smooth_item_tolerance[1]
-	
+							
 							#smooth
 							##processname
 							keyword='processname'
@@ -4880,7 +5297,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=pp_title
 							from_application=None
 							infos_poly_post_smooth(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-			
+									
 							##automatic
 							keyword='automatic'
 							beschreibung= None
@@ -4891,7 +5308,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=True
 							from_application=False
 							infos_poly_post_smooth(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-							
+													
 							##size
 							keyword= 'size'
 							beschreibung= 'Größe'
@@ -4902,7 +5319,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=int(smooth_size_value)
 							from_application="True, part value from keyword='comment'"
 							infos_poly_post_smooth(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-							
+													
 							##mode
 							keyword= 'mode'
 							beschreibung= 'Modus'
@@ -4913,7 +5330,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=int(smooth_mode_value)
 							from_application="True, part value from keyword='comment'"
 							infos_poly_post_smooth(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-							
+													
 							##tolerance
 							keyword= 'tolerance'
 							beschreibung= 'Toleranz'
@@ -4924,9 +5341,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 							value=float(smooth_tolerance_value)
 							from_application="True, part value from keyword='comment'"
 							infos_poly_post_smooth(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-							
+													
 							list_mesh_processing_poly_post.append(dic_smooth)
-					
+											
 						elif "thin" in pp_title:
 							dic_thin = {}
 							thin_items = pp_values.split(",")
@@ -4937,7 +5354,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 								thin_maxedge_value = thin_item_maxedge[1].replace(" ","")
 								thin_tolerance = thin_item_tolerance[0]
 								thin_tolerance_value = thin_item_tolerance[1]
-							
+													
 								#thin
 								##processname
 								keyword='processname'
@@ -4949,7 +5366,7 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 								value=pp_title
 								from_application=None
 								infos_poly_post_thin(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-				
+										
 								##automatic
 								keyword='automatic'
 								beschreibung= None
@@ -4960,18 +5377,18 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 								value=True 
 								from_application=False
 								infos_poly_post_thin(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-									
+															
 								##maximum edge length
 								keyword= 'maximum_edge_length'
 								beschreibung= 'maximale Kantenlänge'
-								unit='om:millimetre'
+								unit=om+'millimetre'
 								description= 'maximum edge length'
 								uri=ontologynamespace + 'MaximumEdgeLength'
 								measurementclass=None
 								value=float(thin_maxedge_value)
 								from_application="True, part value from keyword='comment'"
 								infos_poly_post_thin(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-				
+										
 								##tolerance
 								keyword= 'tolerance'
 								beschreibung= 'Toleranz'
@@ -4982,13 +5399,13 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 								value=float(thin_tolerance_value)
 								from_application="True, part value from keyword='comment'"
 								infos_poly_post_thin(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-								
-								
+														
+														
 								list_mesh_processing_poly_post.append(dic_thin)
-									
+															
 		# Struktur Mesh		
-
-
+						
+						
 		if len(list_mesh_processing_poly_post)>0:
 			dic_mesh_processing["postprocessing"] = list_mesh_processing_poly_post
 		if len(dic_mesh_processing_poly_setup)>0:
@@ -5001,9 +5418,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 			dic_mesh["processing"] = list_mesh_processing
 		if len(dic_mesh)>0:
 			list_meshes.append(dic_mesh)
-
+						
 		n = n +1
-
+						
 	# Projektinformationen 
 	# berechneter Wert 
 	# Anzahl Messungen (gesamtes Projekt)
@@ -5016,10 +5433,9 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 	from_application= "script-based calculation"
 	value = anz_messungen 
 	infos_p(keyword,beschreibung,unit,description,uri,measurementclass, value, from_application)
-			
+									
 	# Ausgabe
-	
-	#list_project_info.append(project_info)
+							
 	if len(project_info)>0:
 		project["project_information"] = project_info
 	if len(list_messreihen)>0:	
@@ -5028,31 +5444,31 @@ def createMetaDic(dic_user): # befor exportjson(), now createMetaDic()
 		project["meshes"]= list_meshes
 	if len(list_app)>0:
 		project["applications"]=list_app
-	
+							
 	list_prj = []
 	if len(project)>0:
 		list_prj.append(project)
-	
+							
 	if len(list_prj)>0:
 		dic_dig["projects"] = list_prj
-		
+								
 	return dic_dig
-	
-	
+							
+							
 ######### Methode zu Ende
-
-
+						
+						
 ######### Methode zum Speichern der Skript Informationen 
-
+						
 def script_version():
-	
+							
 	# Zeitpunkt
 	now = datetime.datetime.now()
 	now_string = str(now.year)+"-"+str(now.month).zfill(2)+"-"+str(now.day).zfill(2)+'T'+str(now.hour).zfill(2)+':'+str(now.minute).zfill(2)+':'+str(now.second).zfill(2)
-	
+							
 	# def dictionary
 	dic_script = {}
-	
+							
 	dic_script["github"]={}
 	dic_script["github"]["key_deu"]="GitHub Repository"
 	dic_script["github"]["key_eng"]="GitHub Repository"
@@ -5060,7 +5476,7 @@ def script_version():
 	dic_script["github"]["value_type"]="str"
 	dic_script["github"]["uri"]="http:///www.wikidata.org/entity/Q364"
 	dic_script["github"]["from_application"]="false"
-	
+							
 	dic_script["github_release"]={}
 	dic_script["github_release"]["key_deu"]="GitHub Release"
 	dic_script["github_release"]["key_eng"]="GitHub Release"
@@ -5068,7 +5484,7 @@ def script_version():
 	dic_script["github_release"]["value_type"]="str"
 	dic_script["github_release"]["uri"]="http:///www.wikidata.org/entity/Q20631656"
 	dic_script["github_release"]["from_application"]="false"
-	
+							
 	dic_script["script_name"]={}
 	dic_script["script_name"]["key_deu"]="Python Skript Name"
 	dic_script["script_name"]["key_eng"]="Python Script name"
@@ -5076,7 +5492,7 @@ def script_version():
 	dic_script["script_name"]["value_type"]="str"
 	dic_script["script_name"]["uri"]="http:///www.wikidata.org/entity/Q15955723"
 	dic_script["script_name"]["from_application"]="false"
-	
+							
 	dic_script["start_time_script"]={}
 	dic_script["start_time_script"]["key_deu"]="Skriptausführungszeit"
 	dic_script["start_time_script"]["key_eng"]="Script execution time"
@@ -5084,37 +5500,61 @@ def script_version():
 	dic_script["start_time_script"]["value_type"]="dateTime"
 	dic_script["start_time_script"]["uri"]=provnamespace+"startedAtTime"
 	dic_script["start_time_script"]["from_application"]="false"
-	
+							
 	return dic_script
-
-
+						
+						
+						
+						
 #########     HAUPTMETHODE     ##########################
-
-def exportMeta(manualmetadatapathJSON=None):
-	
+						
+def exportMeta(meshname_suffix=None, manualmetadatapathJSON=None):
+							
+	print ("in exportMeta()")
+	print ("_")
+							
 	#Definition von Variablen
-	
-#	try:
-	
+							
+	try:
 		pfad = gom.app.project.get('project_file')
 		x = pfad.split("\\")
 		out_file = pfad.replace(x[-1],(gom.app.project.get('name')))
-	
-		out_file_json = out_file+"_meta_atos2016.json"
-		e=out_file+"_meta_atos2016.csv"
-		out_file_ttl=out_file+"_meta_atos2016.ttl"
 		
+		if meshname_suffix == None:
+			pfad = gom.app.project.get('project_file')
+			x = pfad.split("\\")
+			out_file_meta = pfad.replace(x[-1],(gom.app.project.get('name')))
+		elif meshname_suffix == "":
+			pfad = gom.app.project.get('project_file')
+			x = pfad.split("\\")
+			out_file_meta = pfad.replace(x[-1],(gom.app.project.get('name')))
+		elif len(meshname_suffix) > 0:
+			pfad = gom.app.project.get('project_file')
+			x = pfad.split("\\")
+			out_file_meta = pfad.replace(x[-1],(gom.app.project.get('name'))+meshname_suffix)
+						
+##		# testing filename suffix
+##		print (((gom.app.get('application_name')).split(" "))[0])
+##		print (((gom.app.get ('application_build_information.version')).split(" "))[0])
+##		filenamesuffix = (((gom.app.application_name).split(" "))[0]) + (((gom.app.application_build_information.version).split(" "))[0])
+#							
+##		out_file_json = out_file_meta+"_metadata_" + filenamesuffix + ".json"
+#		out_file_json = out_file_meta+"_metadata_atos2016.json"
+#		e=out_file_meta+"_meta_atos2016.csv"
+#		out_file_ttl=out_file_meta+"_meta_atos2016.ttl"
+								
 		objectdescriptionpathTTL = out_file+"_objdesc.ttl"
 		objectdescriptionpathTXT = out_file+"_objdesc.txt"
 		manualmetadatapathTTL = out_file+"_manualmetadata.ttl"
 		if manualmetadatapathJSON == None:
 			manualmetadatapathJSON = out_file+"_manualmetadata.json"
 		manualmetadatapathYAML = out_file+"_manualmetadata.yaml"
-		
+								
 		## import externer Infos in einen ttl-string
 		## import externer Infos in ein dictionary
 		ttlstring=set()
 		dic_dig = {}
+		dic_dig["userdata"] = {}
 		if os.path.isfile(objectdescriptionpathTTL):
 			readInputTTL(objectdescriptionpathTTL,ttlstring)
 		elif os.path.isfile(objectdescriptionpathTXT):
@@ -5122,51 +5562,76 @@ def exportMeta(manualmetadatapathJSON=None):
 		if os.path.isfile(manualmetadatapathTTL):
 			readInputTTL(manualmetadatapathTTL,ttlstring)
 		elif os.path.isfile(manualmetadatapathJSON):		### ÜBERPRÜFEN .....
-			with open(manualmetadatapathJSON) as json_file:
-				#dic_dig["userdata"]=json.load(json_file)
-				dic_dig=json.load(json_file)
+			print ("manualmetadatapathJSON:")
+			print (manualmetadatapathJSON)
+			with open(manualmetadatapathJSON, 'r',encoding='utf8') as json_file:
+				dic_dig["userdata"]=json.load(json_file)
+#				dic_dig=json.load(json_file)
+#				print ('dic_dig nach import von userdata:')
+#				print (dic_dig)
+				#dic_dig=json.load(json_file)
 		elif os.path.isfile(manualmetadatapathYAML):
 			with open(manualmetadatapathYAML) as yaml_file:
 				dic_dig["userdata"]=yaml.load(yaml_file)
-				
-	
+									
 		# Methode zum Abreifen der Metadaten wird aufgerufen und in einem Dictionary gespeichert
 		# externe Infos in dictionary wird übergeben
-		dic_prj = createMetaDic(dic_dig)
-		
-		
+		dic_prj = createMetaDic(dic_dig["userdata"],meshname_suffix)
+#		dic_prj = createMetaDic(dic_dig,meshname_suffix)
+				
+		###### filenamesuffix = Softwareversion			
+		try:
+			if gom.app.get ('application_name') == 'GOM Inspect Professional':
+				filenamesuffix = ((gom.app.get('application_name')).split(" ")[0]) + ((gom.app.get('application_build_information.version')).split(" ")[0])
+			elif gom.app.application_name == 'GOM Software':
+				filenamesuffix = (((gom.app.application_name).split(" "))[0]) + (((gom.app.application_build_information.version).split(" "))[0])
+			elif gom.app.application_name == 'ZEISS INSPECT':
+				filenamesuffix = (((gom.app.application_name).split(" "))[0]) + (((gom.app.application_build_information.version).split(" "))[0])				
+		except:
+			filenamesuffix = 'atos'
+						
+					
+		out_file_json = out_file_meta+"_metadata_" + filenamesuffix + ".json"
+		e=out_file_meta+"_meta_atos2016.csv"
+		out_file_ttl=out_file_meta+"_metadata_" + filenamesuffix + ".ttl"
+				
 		###### export der Metadaten in JSON-File
-		with open(out_file_json, 'w') as fp:
+		with open(out_file_json, 'w',encoding='utf8') as fp:
 			json.dump(dic_prj, fp, indent = 4, ensure_ascii=False)
-	
+					
 		# Methode zum Umwandeln des Dictionary in TTL 
 		# externe Infos aus ttlstring werden übergeben
-		fertiges_ttl = exportToTTL(dic_prj, None, ttlstring)
-		
+		if dic_dig!=None and dic_dig!={} and "userdata" in dic_dig:
+			fertiges_ttl = exportToTTL(dic_prj, None, ttlstring,dic_dig["userdata"])
+		else:
+			fertiges_ttl=exportToTTL(dic_prj, None, ttlstring) 
+	
 		###### export der Metadaten in TTL-File
 		with open(out_file_ttl, 'w',encoding='utf8') as text_file:
 			text_file.write(ttlstringhead)
 			for item in fertiges_ttl:
 				text_file.write("%s" % item)
 		text_file.close()
-	
-#	except:
-#		print ("weiter gehts")
-
+						
+	except Exception as e:
+		print ("weiter gehts")
+		print(e)
+						
 #######################################################################################################
-#### Skript hier starten 
-
+						
 if production:	
+	print ("ist in produktion")
 	exportMeta()	
-
+						
 else:
+	print ("ist NICHT in produktion")	
 	ttlstring=set()
-	path="test_laura.json"
+	path="V03_041_SLP_20200825_meta_atos2016.json"
 	objectdescriptionpathTTL = path+"_objdesc.ttl"
 	objectdescriptionpathTXT = path+"_objdesc.txt"
-	manualmetadatapathTTL = path+"_manualmetadata.ttl"
-	manualmetadatapathJSON = path+"_manualmetadata.json"
-	manualmetadatapathYAML = path+"_manualmetadata.yaml"
+	manualmetadatapathTTL = path.replace(".json","")+"_manualmetadata.ttl"
+	manualmetadatapathJSON = path.replace(".json","")+"_manualmetadata.json"
+	manualmetadatapathYAML = path.replace(".json","")+"_manualmetadata.yaml"
 	ttlstring=set()
 	if os.path.isfile(objectdescriptionpathTTL):
 		readInputTTL(objectdescriptionpathTTL,ttlstring)     
@@ -5177,21 +5642,25 @@ else:
 		readInputTTL(manualmetadatapathTTL,ttlstring)
 	elif os.path.isfile(manualmetadatapathJSON):
 		with open(manualmetadatapathJSON) as json_file:
-			dic_dig["userdata"]=json.load(json_file)
+			dic_dig["userdata"]=json.load(json_file)  
 	elif os.path.isfile(manualmetadatapathYAML):
 		with open(manualmetadatapathYAML) as yaml_file:
 			dic_dig["userdata"]=yaml.load(yaml_file)
-	with open('test_proc.json', 'r') as myfile:
+	with open(path, 'r') as myfile:
 		data=myfile.read()
 	dic_prj=json.loads(data)
-	###print(ttlstring)
+	print(ttlstring)
 	if True:
-		fertiges_ttl = exportToTTL(dic_prj, None,ttlstring)
+		if dic_dig!=None and dic_dig!={} and "userdata" in dic_dig:
+			fertiges_ttl = exportToTTL(dic_prj, None, ttlstring,dic_dig["userdata"])
+		else:
+			fertiges_ttl=exportToTTL(dic_prj, None, ttlstring)  
 		text_file = open("out.ttl", "w",encoding='utf8')	
 		text_file.write(ttlstringhead)
 		for item in fertiges_ttl:
 			text_file.write("%s" % item)
 		text_file.close()
-		
+				
+print ("_")						
 print ("fertsch 3dcap")
-
+						
