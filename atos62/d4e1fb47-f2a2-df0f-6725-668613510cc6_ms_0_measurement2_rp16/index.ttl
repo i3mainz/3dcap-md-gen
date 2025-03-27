@@ -1,25 +1,25 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://www.w3.org/ns/prov-o/> .
-@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16> a ns2:ReferencePoint,
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16> a ns1:ReferencePoint,
         <http://www.w3.org/ns/ldp#Resource>,
         <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "RP16 ( Messreihe 0 Messung 2)"@de,
         "RP16 ( MS 0 Measurement 2)"@en ;
-    ns2:commonReferencepoint false ;
-    ns2:pointID 16 ;
-    ns2:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_dev> ;
-    ns2:pointMeasurementState "ok"^^xsd:string ;
-    ns2:pointProjectState "photogrammetric point"^^xsd:string ;
-    ns2:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_x> ;
-    ns2:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_y> ;
-    ns2:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_z> ;
+    ns1:commonReferencepoint false ;
+    ns1:pointID 16 ;
+    ns1:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_dev> ;
+    ns1:pointMeasurementState "ok"^^xsd:string ;
+    ns1:pointProjectState "photogrammetric point"^^xsd:string ;
+    ns1:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_x> ;
+    ns1:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_y> ;
+    ns1:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_rp16_r_z> ;
     void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
     geo:asWKT "POINT(95.7303849157 -43.992123246 -117.15221814)"^^geo:wktLiteral ;
-    ns1:wasAttributedTo <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_algorithm> ;
-    ns1:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_activity> .
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_algorithm> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement2_activity> .
 
