@@ -1,0 +1,20 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp27> a ns1:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GRP27 ( Messreihe 1)"@de,
+        "GRP27 ( Measurement Series 1)"@en ;
+    ns1:diameter <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp27_diameter> ;
+    ns1:pointThickness <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp27_point_thickness> ;
+    ns1:xCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp27_coordinate.x> ;
+    ns1:yCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp27_coordinate.y> ;
+    ns1:zCoordinate <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp27_coordinate.z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    geo:asWKT "POINT(-85.48197649896939 -4.630846070341324 -96.61869998996333)"^^geo:wktLiteral ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/df6657f4-5dd6-a182-dc64-e629a2c0ebd2_ms_1_grp_calculation_activity> .
+
