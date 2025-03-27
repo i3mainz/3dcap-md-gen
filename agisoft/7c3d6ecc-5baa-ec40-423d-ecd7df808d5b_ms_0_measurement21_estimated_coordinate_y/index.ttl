@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement21_estimated_coordinate_y> a <http://objects.mainzed.org/ont#Estimated_coordinate_y>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Geschätzte Koordinate Y ( MS 0 Measurement 21)"@de,
+        "estimated coordinate y ( MS 0 Measurement 21)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_measurement21_estimated_coordinate_y_value> .
+

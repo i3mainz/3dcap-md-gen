@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp11_x_current_frame_position> a <http://objects.mainzed.org/ont#X_current_frame_position>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "x-Postion in der aktuellen Ansicht ( MS 0 GRP11)"@de,
+        "x position in current frame ( MS 0 GRP11)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/7c3d6ecc-5baa-ec40-423d-ecd7df808d5b_ms_0_grp11_x_current_frame_position_value> .
+
