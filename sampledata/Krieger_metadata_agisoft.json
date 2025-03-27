@@ -1,6 +1,174 @@
 {
     "projects": [
         {
+            "general": {
+                "real_object": [
+                    {
+                        "object": {
+                            "key_eng": "object",
+                            "key_deu": "Gegenstand",
+                            "uri": "http://www.wikidata.org/entity/Q337060",
+                            "value": "Krieger",
+                            "from_application": "false",
+                            "value_type": "str"
+                        },
+                        "collection": {
+                            "key_eng": "collection",
+                            "key_deu": "Sammlung",
+                            "uri": "http://www.wikidata.org/entity/Q2668072",
+                            "value": "i3mainz",
+                            "from_application": "false",
+                            "value_type": "str"
+                        }
+                    }
+                ],
+                "3d_creation": {
+                    "persons_responsible": [
+                        {
+                            "person_first_name": {
+                                "key_eng": "first name",
+                                "key_deu": "Vorname",
+                                "uri": "http://xmlns.com/foaf/0.1/givenName",
+                                "value": "Laura",
+                                "from_application": "false",
+                                "value_type": "str"
+                            },
+                            "person_surname": {
+                                "key_eng": "surname",
+                                "key_deu": "Nachname",
+                                "uri": "http://xmlns.com/foaf/0.1/familyName",
+                                "value": "Raddatz",
+                                "from_application": "false",
+                                "value_type": "str"
+                            },
+                            "employed_by": {
+                                "key_eng": "employed by",
+                                "key_deu": "angestellt bei",
+                                "uri": "http://www.wikidata.org/prop/direct/P108",
+                                "value": "http://www.wikidata.org/entity/Q88965529",
+                                "from_application": "false",
+                                "value_label": "i3mainz",
+                                "value_type": "uri"
+                            },
+                            "orcid_id": {
+                                "key_eng": "ORCID-iD",
+                                "key_deu": "ORCID-iD",
+                                "uri": "http://www.wikidata.org/prop/direct/P496",
+                                "value": "http://orcid.org/0000-0001-7640-1247",
+                                "from_application": "false",
+                                "value_type": "str"
+                            }
+                        }
+                    ],
+                    "3d_creator": {
+                        "person_first_name": {
+                            "key_eng": "first name",
+                            "key_deu": "Vorname",
+                            "uri": "http://xmlns.com/foaf/0.1/givenName",
+                            "value": "Laura",
+                            "from_application": "false",
+                            "value_type": "str"
+                        },
+                        "person_surname": {
+                            "key_eng": "surname",
+                            "key_deu": "Nachname",
+                            "uri": "http://xmlns.com/foaf/0.1/familyName",
+                            "value": "Raddatz",
+                            "from_application": "false",
+                            "value_type": "str"
+                        },
+                        "employed_by": {
+                            "key_eng": "employed by",
+                            "key_deu": "angestellt bei",
+                            "uri": "http://www.wikidata.org/prop/direct/P108",
+                            "value": "http://www.wikidata.org/entity/Q88965529",
+                            "from_application": "false",
+                            "value_label": "i3mainz",
+                            "value_type": "uri"
+                        },
+                        "orcid_id": {
+                            "key_eng": "ORCID-iD",
+                            "key_deu": "ORCID-iD",
+                            "uri": "http://www.wikidata.org/prop/direct/P496",
+                            "value": "http://orcid.org/0000-0001-7640-1247",
+                            "from_application": "false",
+                            "value_type": "str"
+                        }
+                    },
+                    "3d_contributors": [
+                        {
+                            "person_first_name": {
+                                "key_eng": "first name",
+                                "key_deu": "Vorname",
+                                "uri": "http://xmlns.com/foaf/0.1/givenName",
+                                "value": "Laura",
+                                "from_application": "false",
+                                "value_type": "str"
+                            },
+                            "person_surname": {
+                                "key_eng": "surname",
+                                "key_deu": "Nachname",
+                                "uri": "http://xmlns.com/foaf/0.1/familyName",
+                                "value": "Raddatz",
+                                "from_application": "false",
+                                "value_type": "str"
+                            },
+                            "employed_by": {
+                                "key_eng": "employed by",
+                                "key_deu": "angestellt bei",
+                                "uri": "http://www.wikidata.org/prop/direct/P108",
+                                "value": "http://www.wikidata.org/entity/Q88965529",
+                                "from_application": "false",
+                                "value_label": "i3mainz",
+                                "value_type": "uri"
+                            },
+                            "orcid_id": {
+                                "key_eng": "ORCID-iD",
+                                "key_deu": "ORCID-iD",
+                                "uri": "http://www.wikidata.org/prop/direct/P496",
+                                "value": "http://orcid.org/0000-0001-7640-1247",
+                                "from_application": "false",
+                                "value_type": "str"
+                            }
+                        },
+                        {
+                            "person_first_name": {
+                                "key_eng": "first name",
+                                "key_deu": "Vorname",
+                                "uri": "http://xmlns.com/foaf/0.1/givenName",
+                                "value": "Anja",
+                                "from_application": "false",
+                                "value_type": "str"
+                            },
+                            "person_surname": {
+                                "key_eng": "surname",
+                                "key_deu": "Nachname",
+                                "uri": "http://xmlns.com/foaf/0.1/familyName",
+                                "value": "Cramer",
+                                "from_application": "false",
+                                "value_type": "str"
+                            },
+                            "employed_by": {
+                                "key_eng": "employed by",
+                                "key_deu": "angestellt bei",
+                                "uri": "http://www.wikidata.org/prop/direct/P108",
+                                "value": "http://www.wikidata.org/entity/Q115755098",
+                                "from_application": "false",
+                                "value_label": "LEIZA",
+                                "value_type": "uri"
+                            },
+                            "orcid_id": {
+                                "key_eng": "ORCID-iD",
+                                "key_deu": "ORCID-iD",
+                                "uri": "http://www.wikidata.org/prop/direct/P496",
+                                "value": "http://orcid.org/0000-0002-5232-1944",
+                                "from_application": "false",
+                                "value_type": "str"
+                            }
+                        }
+                    ]
+                }
+            },
             "chunks": [
                 {
                     "sensors": [
@@ -493,7 +661,7 @@
                                     "value_type": "int"
                                 },
                                 "area": {
-                                    "value": 31895.925228153195,
+                                    "value": 31895.925228153188,
                                     "key_deu": "Fläche",
                                     "from_application": "true",
                                     "key_eng": "area",
@@ -502,7 +670,7 @@
                                     "value_type": "float"
                                 },
                                 "average_point_distance": {
-                                    "value": 0.16318762881044038,
+                                    "value": 0.16318762881044035,
                                     "key_deu": "durchschnittlicher Punktabstand",
                                     "from_application": "script-based calculation",
                                     "key_eng": "average point distance",
@@ -17963,9 +18131,9 @@
                         },
                         "match_downscale": {
                             "value": "1",
-                            "key_deu": "match_downscale",
+                            "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "match_downscale",
+                            "key_eng": "",
                             "uri": "http://objects.mainzed.org/ont#match_downscale",
                             "value_type": "str"
                         },
@@ -17982,7 +18150,15 @@
                             "key_deu": "Keypunktlimit",
                             "from_application": "true",
                             "key_eng": "Keypoint limit",
-                            "unit": "http://objects.mainzed.org/ont#match_point_limit",
+                            "uri": "http://objects.mainzed.org/ont#match_point_limit",
+                            "value_type": "str"
+                        },
+                        "keypoint_limit_per_mpx": {
+                            "value": "1000",
+                            "key_deu": "",
+                            "from_application": "true",
+                            "key_eng": "keypoint_limit per mpx",
+                            "uri": "http://objects.mainzed.org/ont#keypoint_limit_per_mpx",
                             "value_type": "str"
                         },
                         "match_preselection_generic": {
@@ -18005,7 +18181,7 @@
                             "value": "100",
                             "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "max workgroup size",
+                            "key_eng": "",
                             "value_type": "str"
                         },
                         "reset_matches": {
@@ -18019,14 +18195,14 @@
                             "value": "20",
                             "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "workitem size cameras",
+                            "key_eng": "",
                             "value_type": "str"
                         },
                         "workitem_size_pairs": {
                             "value": "80",
                             "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "workitem size pairs",
+                            "key_eng": "",
                             "value_type": "str"
                         },
                         "descriptor_type": {
@@ -18088,136 +18264,7 @@
                             "uri": "http://objects.mainzed.org/ont#numberOfTiepoints",
                             "value_type": "int"
                         }
-                    },
-                    "densecloud": [
-                        {
-                            "densecloud_information": {
-                                "densecloud_id": {
-                                    "value": 0,
-                                    "key_deu": "Densecloud ID",
-                                    "from_application": "true",
-                                    "key_eng": "densecloud ID",
-                                    "uri": "http://objects.mainzed.org/ont#densecloud_id",
-                                    "value_type": "int"
-                                },
-                                "number of points": {
-                                    "value": 3550069,
-                                    "key_deu": "Anzahl Punkte",
-                                    "from_application": "true",
-                                    "key_eng": "number of points",
-                                    "uri": "http://objects.mainzed.org/ont#numberOfPoints",
-                                    "value_type": "int"
-                                }
-                            },
-                            "densecloud_setup": {
-                                "keep_depth": {
-                                    "value": "true",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "max_neighbors": {
-                                    "value": "16",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "max_workgroup_size": {
-                                    "value": "100",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "point_colors": {
-                                    "value": "true",
-                                    "key_deu": "Berechne Punktfarben",
-                                    "from_application": "true",
-                                    "key_eng": "calculate point Colors",
-                                    "value_type": "str"
-                                },
-                                "point_confidence": {
-                                    "value": "false",
-                                    "key_deu": "Berechne Punkt Konfidenz",
-                                    "from_application": "true",
-                                    "key_eng": "calculate point confidence",
-                                    "value_type": "str"
-                                },
-                                "resolution": {
-                                    "value": "0.000439430115806123",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "subdivide_task": {
-                                    "value": "true",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "BuildDepthMaps_downscale": {
-                                    "value": "2",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "filter_mode": {
-                                    "value": "1",
-                                    "key_deu": "Filtermodus",
-                                    "from_application": "true",
-                                    "key_eng": "Filtering mode",
-                                    "value_type": "str"
-                                },
-                                "reuse_depth": {
-                                    "value": "false",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "workitem_size_cameras": {
-                                    "value": "20",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "LastSavedDateTime": {
-                                    "value": "2022-11-08T10:46:42",
-                                    "key_deu": "Zuletzt gespeichertes Datum Zeit",
-                                    "from_application": "true",
-                                    "key_eng": "last saved date time",
-                                    "value_type": "dateTime"
-                                },
-                                "LastSavedSoftwareVersion": {
-                                    "value": "1.8.1.13915",
-                                    "key_deu": "Zuletzt gespeicherte Softwareversion",
-                                    "from_application": "true",
-                                    "key_eng": "last saved software version",
-                                    "value_type": "str"
-                                },
-                                "OriginalDateTime": {
-                                    "value": "2022-11-04T10:23:39",
-                                    "key_deu": "Original Datum Zeit",
-                                    "from_application": "true",
-                                    "key_eng": "original date time",
-                                    "value_type": "dateTime"
-                                },
-                                "OriginalSoftwareVersion": {
-                                    "value": "1.8.1.13915",
-                                    "key_deu": "Originale Softwareversion",
-                                    "from_application": "true",
-                                    "key_eng": "original software version",
-                                    "value_type": "str"
-                                }
-                            }
-                        }
-                    ]
+                    }
                 }
             ],
             "applications": [
@@ -18233,7 +18280,7 @@
                     "github_release": {
                         "key_deu": "GitHub Release",
                         "key_eng": "GitHub Release",
-                        "value": "0.1.3",
+                        "value": "1.0.0",
                         "value_type": "str",
                         "uri": "http:///www.wikidata.org/entity/Q20631656",
                         "from_application": "false"
@@ -18249,7 +18296,7 @@
                     "start_time_script": {
                         "key_deu": "Skriptausführungszeit",
                         "key_eng": "Script execution time",
-                        "value": "2022-12-21T15:00:28",
+                        "value": "2025-03-26T11:33:08",
                         "value_type": "dateTime",
                         "uri": "http://www.w3.org/ns/prov#startedAtTime",
                         "from_application": "false"
