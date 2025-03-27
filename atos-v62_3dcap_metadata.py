@@ -1,27 +1,30 @@
 # -*- coding: utf-8 -*-
 #
 # GOM-Script-Version: 6.2.0-6
+# Pythonversion 2.4
 
-# Anja Cramer / RGZM
+# Anja Cramer / LEIZA
 # Timo Homburg / i3mainz
 # Laura Raddatz / i3mainz
 # Informationen von atos-Projektdateien (Messdaten: *.amp / *.session)
-# 2020/2021
+# 2020/2021/2022/2023/2024/2025
 
 import gom
 import xml, time, os, random
 import math
 import datetime
 
+# input folder
+input_folder = r"D:\atos-v62_project"
 
 ## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
-#includeonlypropswithuri=False
-includeonlypropswithuri=True
+includeonlypropswithuri=False
+#includeonlypropswithuri=True
 
 # python script version
 script_name = "atos-v62_3dcap_metadata.py"
 script_label = "ATOS v6.2 3DCAP Metadata Script"
-github_release = "0.1.2"
+github_release = "1.0.0"
 
 
 ####################### TTL Export #############################
@@ -106,7 +109,8 @@ englishlabel="key_eng"
 artifactURI=None
 
 ## Header for the TTL export which includes all necessary namespaces.
-ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
+ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix geocrs: <http://www.opengis.net/ont/crs/>.\n@prefix geocrsaxis: <http://www.opengis.net/ont/crs/cs/axis/> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
+
 
 ## Generates a UUID.
 def generate_uuid():
@@ -240,6 +244,59 @@ def exportInformationFromIndAsTTL(jsonobj,id,classs,labelprefix,ttlstring):
 	#print ("ttlstring")
 	return ttlstring
 
+units={}
+def csAsSVG(csdef):
+				svgstr= """<svg width=\"400\" height=\"250\" viewbox=\"0 0 375 220\"><defs><marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"2\" orient=\"auto\"><polygon points=\"0 0, 4 2, 0 4\" /></marker></defs>"""
+				#print(csdef)
+				if len(csdef["axis_list"])>0:
+								if csdef["axis_list"][0]["unit_name"] in units:
+												svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"200\" y2=\"200\" stroke=\"red\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"110\" y=\"220\" class=\"small\">"""+str(csdef["axis_list"][0]["abbrev"])+": "+str(csdef["axis_list"][0]["name"])+" ("+str(units[csdef["axis_list"][0]["unit_name"]])+") ("+str(csdef["axis_list"][0]["direction"])+")</text>"
+								else:
+												svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"200\" y2=\"200\" stroke=\"red\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"110\" y=\"220\" class=\"small\">"""+str(csdef["axis_list"][0]["abbrev"])+": "+str(csdef["axis_list"][0]["name"])+" ("+str(csdef["axis_list"][0]["unit_name"])+") ("+str(csdef["axis_list"][0]["direction"])+")</text>"
+				if len(csdef["axis_list"])>1:
+								if csdef["axis_list"][1]["unit_name"] in units:
+												svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"20\" y2=\"20\" stroke=\"green\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"35\" y=\"20\" class=\"small\">"""+str(csdef["axis_list"][1]["abbrev"])+": "+str(csdef["axis_list"][1]["name"])+" ("+str(units[csdef["axis_list"][1]["unit_name"]])+") ("+str(csdef["axis_list"][1]["direction"])+")</text>"
+								else:
+												svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"20\" y2=\"20\" stroke=\"green\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"35\" y=\"20\" class=\"small\">"""+str(csdef["axis_list"][1]["abbrev"])+": "+str(csdef["axis_list"][1]["name"])+" ("+str(csdef["axis_list"][1]["unit_name"])+") ("+str(csdef["axis_list"][1]["direction"])+")</text>"
+				if len(csdef["axis_list"])>2:
+								if csdef["axis_list"][2]["unit_name"] in units:
+												svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"190\" y2=\"30\" stroke=\"blue\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"210\" y=\"25\" class=\"small\">"""+str(csdef["axis_list"][2]["abbrev"])+": "+str(csdef["axis_list"][2]["name"])+" ("+str(units[csdef["axis_list"][2]["unit_name"]])+") ("+str(csdef["axis_list"][2]["direction"])+")</text>"
+								else:
+												svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"190\" y2=\"30\" stroke=\"blue\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"210\" y=\"25\" class=\"small\">"""+str(csdef["axis_list"][2]["abbrev"])+": "+str(csdef["axis_list"][2]["name"])+" ("+str(csdef["axis_list"][2]["unit_name"])+") ("+str(csdef["axis_list"][2]["direction"])+")</text>"
+				return svgstr.replace("\"","'")+"</svg>"
+
+
+def csAxisAsSVG(axisdef):
+				svgstr= """<svg width=\"400\" height=\"100\" viewbox=\"0 0 275 100\"><defs><marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"2\" orient=\"auto\"><polygon points=\"0 0, 4 2, 0 4\" /></marker></defs>"""
+				if axisdef["unit_name"] in units:
+								svgstr+="""<line x1=\"20\" y1=\"50\" x2=\"200\" y2=\"50\" stroke=\"gray\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"30\" y=\"70\" class=\"small\">"""+str(axisdef["abbrev"])+": "+str(axisdef["name"])+" ("+str(units[axisdef["unit_name"]])+") ("+str(axisdef["direction"])+")</text>"
+				else:
+								svgstr+="""<line x1=\"20\" y1=\"50\" x2=\"200\" y2=\"50\" stroke=\"gray\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"30\" y=\"70\" class=\"small\">"""+str(axisdef["abbrev"])+": "+str(axisdef["name"])+" ("+str(axisdef["unit_name"])+") ("+str(axisdef["direction"])+")</text>"
+				return svgstr.replace("\"","'")+"</svg>"
+
+
+def csFromPoint(pointind,x,y,z,ttlstring):
+	crsid=str(dataprefix)+":cs_3d_x_"+str(x["unit"]).replace("om:","")+"_y_"+str(y["unit"]).replace("om:","")+"_z_"+str(z["unit"]).replace("om:","")
+	ttlstring.add(str(pointind)+" geo:inSRS "+str(crsid)+" .\n")
+	ttlstring.add(str(crsid)+" geocrs:asSVG \""+str(csAsSVG({"axis_list":[{"unit_name":x["unit"],"direction":"x","abbrev":"x","name":"x"},{"unit_name":y["unit"],"direction":"y","abbrev":"y","name":"y"},{"unit_name":z["unit"],"direction":"z","abbrev":"z","name":"z"}]}))+"\"^^xsd:string .\n")
+	ttlstring.add(str(crsid)+" rdfs:label \"Local 3D Coordinate System X("+str(x["unit"])+") Y("+str(y["unit"])+") Z("+str(z["unit"])+")\" . \n")
+	ttlstring.add(str(crsid)+" rdf:type geocrs:CoordinateSystem . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_xaxis .\n")
+	axisid=str(crsid)+"_xaxis"
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":x["unit"],"direction":"x","abbrev":"x","name":"x"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("x").replace("\"","'")+"\"^^xsd:string . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_yaxis .\n")
+	axisid=str(crsid)+"_yaxis"
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":y["unit"],"direction":"y","abbrev":"y","name":"y"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("y").replace("\"","'")+"\"^^xsd:string . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_zaxis .\n")
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":z["unit"],"direction":"z","abbrev":"z","name":"z"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("z").replace("\"","'")+"\"^^xsd:string . \n")
+	return ttlstring
+
 ## Processes a given property depending on its type .
 def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputvalue,propclass):
 	if "unit" in jsonobj[info] and jsonobj[info]["unit"]!=None and jsonobj[info]["unit"]!="":
@@ -321,7 +378,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 	else:
 		if propuri=="http://www.w3.org/2000/01/rdf-schema#label" or  propuri=="rdfs:label" or propuri=="http://www.w3.org/2000/01/rdf-schema#comment" or propuri=="rdfs:comment":
 			ttlstring.add(str(propuri)+" rdf:type owl:AnnotationProperty .\n")
-			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+str(inputvalue)+"\" .\n")
+			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \"\"\""+str(inputvalue)+"\"\"\" .\n")
 		else:
 			ttlstring.add(str(propuri)+" rdf:type owl:DatatypeProperty .\n")
 			ttlstring.add(str(propuri)+" rdfs:domain "+str(classs)+" .\n")
@@ -330,14 +387,14 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 			if germanlabel in jsonobj[info] and jsonobj[info][germanlabel]!=None and str(jsonobj[info][germanlabel])!="" and str(jsonobj[info][germanlabel])!="...":
 				ttlstring.add(str(propuri)+" rdfs:label \""+str(jsonobj[info][germanlabel]).replace("\"","'")+"\"@de .\n")
 			ttlstring.add(str(propuri)+" rdfs:range "+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
-			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+str(inputvalue).replace("\\","\\\\")+"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
+			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \"\"\""+str(inputvalue).replace("\\","\\\\")+"\"\"\"^^"+str(datatypes[jsonobj[info]["value_type"]])+" .\n")
 	#print("handled Property")
 	return ttlstring
 
 ## Converts a preformatted dictionary to a set of triples .
 #  @param dict the dictionary to export from
 #  @param measurementToExport indicates whether to export measurements
-def exportToTTL(dict,measurementToExport,ttlstring):
+def exportToTTL(dict,measurementToExport,ttlstring,usermetadata=None):
 	###print ("drin in exportToTTL")
 	projectid=str(generate_uuid())
 	userid=str(generate_uuid())
@@ -556,9 +613,8 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 			ttlstring.add(str(dataprefix)+":"+str(projectid)+" "+str(dataprefix)+":metadata "+str(dataprefix)+":"+str(projectid)+"_metadata .\n")
 			#print(pro[projinfokey])
 			ttlstring=exportInformationFromIndAsTTL(pro[projinfokey],projectid,str(ontologyprefix)+":MeasurementProject",labelprefix,ttlstring)
-		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdf:type foaf:Person, "+provenancedict.get("agent")+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(projectid)+" dc:creator "+str(dataprefix)+":"+str(userid)+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdfs:label \"Creator of "+str(labelprefix)+"\" .\n")
+		if usermetadata!=None:
+			ttlstring=addUserMetadataToId(ttlstring,usermetadata,projectid)
 		#print(pro[applicationkey])
 		if applicationkey in pro:
 			for appl in pro[applicationkey]:
@@ -632,13 +688,13 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdf:type "+provenancedict.get("activity")+" .\n")
 							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdfs:label \"GRP Calculation Activity\"@en .\n")
 							ttlstring.add(str(dataprefix)+":"+str(projectid)+"_ms_"+str(msindex)+"_grp_calculation_activity rdfs:label \"GRP Berechnung\"@de .\n")
-							#print("265:"+str(project[globalrefpointkey]))
-							#print("266: "+str(grp))
 							ttlstring=exportInformationFromIndAsTTL(grp,grpid,str(ontologyprefix)+":GRP",labelprefix+" MS "+str(msindex)+" GRP"+str(index),ttlstring)
 							if "r_x" in grp and "r_y" in grp and "r_z" in grp:
-								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")					
+								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")
+								ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["r_x"],grp["r_y"],grp["r_z"],ttlstring)
 							elif "coordinate.x" in grp and "coordinate.y" in grp and "coordinate.z" in grp:
 								ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["coordinate.x"]["value"])+" "+str(grp["coordinate.y"]["value"])+" "+str(grp["coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+								ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["coordinate.x"],grp["coordinate.y"],grp["coordinate.z"],ttlstring)
 				if sensorskey in project:
 					for seindex, sensor in enumerate(project[sensorskey]):
 						sensorid=str(projectid)+"_sensor_"+str(seindex)
@@ -754,10 +810,12 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 									ttlstring=exportInformationFromIndAsTTL(rp,rpuri,str(ontologyprefix)+":ReferencePoint",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" RP"+str(index2),ttlstring)
 									if "r_x" in rp and "r_y" in rp and "r_z" in rp:
 									### atos v6.2
-										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")			
+										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")
+										ttlstring=csFromPoint(str(dataprefix)+":"+str(rpuri),rp["r_x"],rp["r_y"],rp["r_z"],ttlstring)
 									###atos 2016
 									elif "reference_point_coordinate.x" in rp and "reference_point_coordinate.y" in rp and "reference_point_coordinate.z" in rp:
 										ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["reference_point_coordinate.x"]["value"])+" "+str(rp["reference_point_coordinate.y"]["value"])+" "+str(rp["reference_point_coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+										ttlstring=csFromPoint(str(dataprefix)+":"+str(rpuri),rp["r_x"],rp["r_y"],rp["r_z"],ttlstring)
 									#print(rp)
 									ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity . \n")
 									ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity\"@en. \n")
@@ -837,6 +895,93 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 	return ttlstring
 
 
+def entryToTTL(idd,realobj,ttlstring):
+				#print(realobj)
+				ttlstring.add("<"+idd+"> <"+realobj["value"]+" <"+realobj["value"]+"> .\n")
+				ttlstring.add("<"+realobj["value"]+"> rdfs:label \""+realobj["key_eng"]+"\"@en .\n")
+				ttlstring.add("<"+realobj["value"]+"> rdfs:label \""+realobj["key_deu"]+"\"@de .\n")
+				return ttlstring
+
+def addUserMetadataToId(ttlstring,usermetadata,theid):
+				data=usermetadata["projects"][0]["general"]
+				realobj=data["real_object"][0]
+				robjid=theid+"_robj"
+				for key in realobj:
+								#print(key)
+								ttlstring=entryToTTL(robjid,realobj[key],ttlstring)
+				if "3d_creator" in data["3d_creation"]:
+					realobj=data["3d_creation"]["3d_creator"]
+					for cont in realobj:
+						if "orcid_id" in realobj:
+							creatorid=realobj["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+						ttlstring.add("<"+theid+"> dc:creator <"+creatorid+"> .\n")
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+realobj["person_first_name"]["value"]+" "+realobj["person_surname"]["value"]+"\"@en .\n")
+						for key in realobj:
+							ttlstring=entryToTTL(creatorid,realobj[key],ttlstring)  
+				if "3d_contributors" in data["3d_creation"]:
+					realobj=data["3d_creation"]["3d_contributors"]
+					for cont in realobj:
+						if "orcid_id" in cont:
+							creatorid=cont["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+						ttlstring.add("<"+theid+"> dc:contributor <"+creatorid+"> .\n")
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+cont["person_first_name"]["value"]+" "+cont["person_surname"]["value"]+"\"@en .\n")
+						for key in cont:
+							ttlstring=entryToTTL(creatorid,cont[key],ttlstring)    
+				if "persons_responsible" in data["3d_creation"]:
+					realobj=data["3d_creation"]["persons_responsible"]
+					for cont in realobj:
+						if "orcid_id" in cont:
+							creatorid=cont["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+cont["person_first_name"]["value"]+" "+cont["person_surname"]["value"]+"\"@en .\n")
+						for key in cont:
+							ttlstring=entryToTTL(creatorid,cont[key],ttlstring)       
+				realobj=data["research_project"]
+				if "research_project_name" in realobj:
+								rpid=realobj["research_project_name"]["value"].replace(" ","_")
+				else:
+								rpid=str(generate_uuid())
+				ttlstring.add("<"+rpid+"> rdf:type <http://xmlns.com/foaf/0.1/Project> .\n")
+				ttlstring.add("<"+rpid+"> rdfs:label \""+realobj["research_project_name"]["value"]+"\"@en .\n")
+				if "description" in realobj:        
+								ttlstring.add("<"+rpid+"> skos:definition \""+realobj["description"]["value"]+"\"@en .\n")
+				if "funding" in realobj:
+								ttlstring.add("<"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> rdf:type <http://purl.org/cerif/frapo/FundingAgency> .\n")
+								ttlstring.add("<"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> rdfs:label \""+realobj["funding"]["value"]+"\"@en .\n")
+								ttlstring.add("<"+rpid+"> <http://purl.org/cerif/frapo/hasFundingAgency> <"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> .\n")
+				if "applicants" in realobj:
+								for app in realobj["applicants"]:
+												ttlstring.add("<"+rpid+"> <http://purl.org/cerif/frapo/isAppliedForBy> <"+app["institute"]["value"]+"> .\n")
+												ttlstring.add("<"+app["institute"]["value"]+"> rdf:type <http://purl.org/cerif/frapo/ResearchInstitute> .\n")
+												ttlstring.add("<"+app["institute"]["value"]+"> rdfs:label \""+app["institute"]["value_label"]+"\" .\n")       
+				if "duration" in realobj and "project_start" in realobj["duration"]:
+								ttlstring.add("<"+rpid+"> <http://www.w3.org/2006/time#hasBeginning> \""+realobj["duration"]["project_start"]["value"]+"\"^^xsd:date .\n")
+				if "duration" in realobj and "project_end" in realobj["duration"]:
+								ttlstring.add("<"+rpid+"> <http://www.w3.org/2006/time#hasEnd> \""+realobj["duration"]["project_end"]["value"]+"\"^^xsd:date .\n")
+				if "license" in data:
+								realobj=data["license"]
+								if "license_3d_model" in realobj:
+												ttlstring.add("<"+theid+"> <http://purl.org/dc/terms/license> <"+realobj["license_3d_model"]["value"]+"> .\n")
+												ttlstring.add("<"+realobj["license_3d_model"]["value"]+"> rdf:type <"+realobj["license_3d_model"]["uri"]+"> .\n")
+												ttlstring.add("<"+realobj["license_3d_model"]["value"]+"> rdfs:label \""+realobj["license_3d_model"]["value_label"]+"\"@en .\n")
+								if "license_metadata" in realobj:
+												ttlstring.add("<"+theid+"> <http://www.w3.org/ns/dcat#resource> <"+theid+"_metadata> .\n")
+												ttlstring.add("<"+theid+"_metadata> <http://www.w3.org/ns/dcat#resource> <http://www.w3.org/ns/dcat#Dataset>.\n")
+												ttlstring.add("<"+theid+"_metadata> <http://purl.org/dc/terms/license> <"+realobj["license_metadata"]["uri"]+"> .\n")
+												ttlstring.add("<"+theid+"_metadata> rdfs:label \"Metadata License: "+realobj["license_metadata"]["value_label"]+"\"@en .\n")
+								if "rights_holder" in realobj:
+												ttlstring.add("<"+theid+"> <http://purl.org/dc/terms/rightsHolder> <"+realobj["rights_holder"]["value"]+"> .\n")
+												ttlstring.add("<"+realobj["rights_holder"]["value"]+"> rdfs:label \""+realobj["rights_holder"]["value_label"]+"\"@en .\n")
+				return ttlstring
+
 ####################################################################################################
 #
 ######### Methode zum Speichern der Skript Informationen 
@@ -892,7 +1037,7 @@ def script_version():
 
 ######## project / measurement series ###############
 
-input_folder = r"F:\3d-data\atos-v62_project"
+
 
 
 
@@ -1126,28 +1271,33 @@ for root, dirs, files in os.walk(input_folder):
 					def infos_projects (beschreibung, description, keyword, einheit, uri, measurementclass, application):		
 						dir = {}
 						dir.clear()
-						dir["value"] = gom.app.projects[p].get(keyword)
-						dir["key_deu"] = beschreibung
-						if description!=None:
-							dir["key_eng"] = description		
-						if uri!=None:
-							dir["uri"] = uri	
-						if measurementclass!=None:
-							dir["measurementclass"] = measurementclass			
-						dir["value_type"] = type(gom.app.projects[p].get(keyword)).__name__
-						if einheit!=None:
-							dir["unit"] = einheit
-						if application!=None:
-							dir["from_application"] = application
-							
-						if dir["value"] != None:				
-							if len(str(dir["value"])) != 0:
-								if includeonlypropswithuri and "uri" in dir:
-									dic_prj_info[keyword] = {}		
-									dic_prj_info[keyword] = dir
-								if not includeonlypropswithuri:
-									dic_prj_info[keyword] = {}		
-									dic_prj_info[keyword] = dir
+						try:
+							dir["value"] = gom.app.projects[p].get(keyword)
+							dir["key_deu"] = beschreibung
+							if description!=None:
+								dir["key_eng"] = description		
+							if uri!=None:
+								dir["uri"] = uri	
+							if measurementclass!=None:
+								dir["measurementclass"] = measurementclass			
+							dir["value_type"] = type(gom.app.projects[p].get(keyword)).__name__
+							if einheit!=None:
+								dir["unit"] = einheit
+							if application!=None:
+								dir["from_application"] = application
+																																
+							if dir["value"] != None:				
+								if len(str(dir["value"])) != 0:
+									if includeonlypropswithuri and "uri" in dir:
+										dic_prj_info[keyword] = {}		
+										dic_prj_info[keyword] = dir
+									if not includeonlypropswithuri:
+										dic_prj_info[keyword] = {}		
+										dic_prj_info[keyword] = dir
+						except:
+							print ("error")
+							print(e)
+																												
 
 				
 					############ get values #############
@@ -1662,28 +1812,32 @@ for root, dirs, files in os.walk(input_folder):
 						def infos_grp(beschreibung, description, keyword, einheit, uri, measurementclass, application):
 								dir = {}
 								dir.clear()
-								dir["value"] = gom.app.projects[p].gref_points[grp].get(keyword)
-								dir["key_deu"] = beschreibung
-								if description!=None:
-									dir["key_eng"] = description
-								if uri!=None:
-									dir["uri"] = uri	
-								if measurementclass!=None:
-									dir["measurementclass"] = measurementclass			
-								dir["value_type"] = type(gom.app.projects[p].gref_points[grp].get(keyword)).__name__
-								if einheit!=None:
-									dir["unit"] = einheit
-								if application!=None:
-									dir["from_application"] = application
-									
-								if dir["value"] != None:				
-									if len(str(dir["value"])) != 0:
-										if includeonlypropswithuri and "uri" in dir:
-											dic_grp[keyword]= {}		
-											dic_grp[keyword]= dir
-										if not includeonlypropswithuri:
-											dic_grp[keyword]= {}		
-											dic_grp[keyword]= dir
+								try:
+									dir["value"] = gom.app.projects[p].gref_points[grp].get(keyword)
+									dir["key_deu"] = beschreibung
+									if description!=None:
+										dir["key_eng"] = description
+									if uri!=None:
+										dir["uri"] = uri	
+									if measurementclass!=None:
+										dir["measurementclass"] = measurementclass			
+									dir["value_type"] = type(gom.app.projects[p].gref_points[grp].get(keyword)).__name__
+									if einheit!=None:
+										dir["unit"] = einheit
+									if application!=None:
+										dir["from_application"] = application
+																																								
+									if dir["value"] != None:				
+										if len(str(dir["value"])) != 0:
+											if includeonlypropswithuri and "uri" in dir:
+												dic_grp[keyword]= {}		
+												dic_grp[keyword]= dir
+											if not includeonlypropswithuri:
+												dic_grp[keyword]= {}		
+												dic_grp[keyword]= dir
+								except:
+									print ("error")
+									print(e)
 							
 								
 						############ get values ############# 	
@@ -1832,334 +1986,357 @@ for root, dirs, files in os.walk(input_folder):
 							dir = {}
 							dir.clear()
 							# zeitangaben
-							if keyword == 'm_cal_time':
-								value = gom.app.projects[p].measurements[m].get(keyword)
-								if value != None:
-									capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
-									dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
-							elif keyword =='theoretical_measuring_point_distance':
-								dir["value"] = value
-							else:
-								dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
-								
-							if keyword == 'm_cal_time':
-								dir["value_type"] = "dateTime"
-							elif keyword =='theoretical_measuring_point_distance':
-								dir["value_type"] = type(value).__name__
-							else:
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
-							dir["key_deu"] = beschreibung
-							if description!=None:
-								dir["key_eng"] = description
-							if uri!=None:
-								dir["uri"] = uri	
-							if measurementclass!=None:
-								dir["measurementclass"] = measurementclass
-							if einheit!=None:
-								dir["unit"] = einheit
-							if application!=None:
-								dir["from_application"] = application
-								
-							if dir["value"] != None:				
-								if len(str(dir["value"])) != 0:
-									if includeonlypropswithuri and "uri" in dir:
-										dic_measurement_sensor[keyword]= {}		
-										dic_measurement_sensor[keyword]= dir
-									if not includeonlypropswithuri:
-										dic_measurement_sensor[keyword] = {}		
-										dic_measurement_sensor[keyword] = dir
-											
+							try:
+								if keyword == 'm_cal_time':
+									value = gom.app.projects[p].measurements[m].get(keyword)
+									if value != None:
+										capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
+										dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
+								elif keyword =='theoretical_measuring_point_distance':
+									dir["value"] = value
+								else:
+									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
+																																				
+								if keyword == 'm_cal_time':
+									dir["value_type"] = "dateTime"
+								elif keyword =='theoretical_measuring_point_distance':
+									dir["value_type"] = type(value).__name__
+								else:
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
+								dir["key_deu"] = beschreibung
+								if description!=None:
+									dir["key_eng"] = description
+								if uri!=None:
+									dir["uri"] = uri	
+								if measurementclass!=None:
+									dir["measurementclass"] = measurementclass
+								if einheit!=None:
+									dir["unit"] = einheit
+								if application!=None:
+									dir["from_application"] = application
+																																				
+								if dir["value"] != None:				
+									if len(str(dir["value"])) != 0:
+										if includeonlypropswithuri and "uri" in dir:
+											dic_measurement_sensor[keyword]= {}		
+											dic_measurement_sensor[keyword]= dir
+										if not includeonlypropswithuri:
+											dic_measurement_sensor[keyword] = {}		
+											dic_measurement_sensor[keyword] = dir
+							except:
+								print ("error")
+								print(e)
 											
 						def measurements_setup (beschreibung, description, keyword, einheit, uri, measurementclass, application):
 							dir = {}
 							dir.clear()
-							
-							if keyword == "invert m_one_cam":
-								dir["value"] = gom.app.projects[p].measurements[m].get('m_one_cam')
-								if dir["value"] == True:
-									dir["value"] = False
-								if dir["value"] == False:
-									dir["value"] = True
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_one_cam')).__name__					
-							elif keyword == "invert m_shiny_points":
-								dir["value"] = gom.app.projects[p].measurements[m].get('m_shiny_points')
-								if dir["value"] == True:
-									dir["value"] = False
-								if dir["value"] == False:
-									dir["value"] = True
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_shiny_points')).__name__					
-							else:
-								dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__					
-							dir["key_deu"] = beschreibung
-							if description!=None:
-								dir["key_eng"] = description
-							if uri!=None:
-								dir["uri"] = uri	
-							if measurementclass!=None:
-								dir["measurementclass"] = measurementclass		
-							if einheit!=None:
-								dir["unit"] = einheit
-							if application!=None:
-								dir["from_application"] = application
-								
-							if dir["value"] != None:				
-								if len(str(dir["value"])) != 0:
-									if includeonlypropswithuri and "uri" in dir:
-										dic_measurement_setup[keyword] = {}		
-										dic_measurement_setup[keyword] = dir
-									if not includeonlypropswithuri:
-										dic_measurement_setup[keyword] = {}		
-										dic_measurement_setup[keyword] = dir
-
-
-						def measurements_check (beschreibung, description, keyword, einheit, uri, measurementclass, application):
-							dir = {}
-							dir.clear()				
-							if keyword == "invert m_one_cam":
-								dir["value"] = gom.app.projects[p].measurements[m].get('m_one_cam')
-								if dir["value"] == True:
-									dir["value"] = False
-								if dir["value"] == False:
-									dir["value"] = True
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_one_cam')).__name__					
-							elif keyword == "invert m_shiny_points":
-								dir["value"] = gom.app.projects[p].measurements[m].get('m_shiny_points')
-								if dir["value"] == True:
-									dir["value"] = False
-								if dir["value"] == False:
-									dir["value"] = True
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_shiny_points')).__name__					
-							else:
-								dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
-								dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__					
-							dir["key_deu"] = beschreibung
-							if description!=None:
-								dir["key_eng"] = description
-							if uri!=None:
-								dir["uri"] = uri	
-							if measurementclass!=None:
-								dir["measurementclass"] = measurementclass		
-							if einheit!=None:
-								dir["unit"] = einheit
-							if application!=None:
-								dir["from_application"] = application
-								
-							if dir["value"] != None:				
-								if len(str(dir["value"])) != 0:
-									if includeonlypropswithuri and "uri" in dir:
-										dic_measurement_check[keyword] = {}		
-										dic_measurement_check[keyword] = dir
-									if not includeonlypropswithuri:
-										dic_measurement_check[keyword] = {}		
-										dic_measurement_check[keyword] = dir		
-											
-						def infos_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application):
-								dir = {}
-								dir.clear()					
-								if keyword == "invert_m_one_cam":
+							try:
+								if keyword == "invert m_one_cam":
 									dir["value"] = gom.app.projects[p].measurements[m].get('m_one_cam')
 									if dir["value"] == True:
 										dir["value"] = False
 									if dir["value"] == False:
 										dir["value"] = True
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_one_cam')).__name__
-								elif keyword == "invert_m_shiny_points":
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_one_cam')).__name__					
+								elif keyword == "invert m_shiny_points":
 									dir["value"] = gom.app.projects[p].measurements[m].get('m_shiny_points')
 									if dir["value"] == True:
 										dir["value"] = False
 									if dir["value"] == False:
 										dir["value"] = True
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_shiny_points')).__name__
-								elif keyword == "invert_m_col_trans":
-									dir["value"] = gom.app.projects[p].measurements[m].get('m_col_trans')
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_shiny_points')).__name__					
+								else:
+									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__					
+								dir["key_deu"] = beschreibung
+								if description!=None:
+									dir["key_eng"] = description
+								if uri!=None:
+									dir["uri"] = uri	
+								if measurementclass!=None:
+									dir["measurementclass"] = measurementclass		
+								if einheit!=None:
+									dir["unit"] = einheit
+								if application!=None:
+									dir["from_application"] = application
+																																				
+								if dir["value"] != None:				
+									if len(str(dir["value"])) != 0:
+										if includeonlypropswithuri and "uri" in dir:
+											dic_measurement_setup[keyword] = {}		
+											dic_measurement_setup[keyword] = dir
+										if not includeonlypropswithuri:
+											dic_measurement_setup[keyword] = {}		
+											dic_measurement_setup[keyword] = dir
+							except:
+								print ("error")
+								print(e)
+
+
+						def measurements_check (beschreibung, description, keyword, einheit, uri, measurementclass, application):
+							dir = {}
+							dir.clear()		
+							try:
+								if keyword == "invert m_one_cam":
+									dir["value"] = gom.app.projects[p].measurements[m].get('m_one_cam')
 									if dir["value"] == True:
 										dir["value"] = False
 									if dir["value"] == False:
 										dir["value"] = True
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_col_trans')).__name__							
-								elif keyword == "adapted_m_trafo_mode":
-									dir["value"] = gom.app.projects[p].measurements[m].get('m_trafo_mode')
-									if dir["value"] == "automatic":
-										dir["value"] = "reference_points"
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_trafo_mode')).__name__	
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_one_cam')).__name__					
+								elif keyword == "invert m_shiny_points":
+									dir["value"] = gom.app.projects[p].measurements[m].get('m_shiny_points')
+									if dir["value"] == True:
+										dir["value"] = False
+									if dir["value"] == False:
+										dir["value"] = True
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_shiny_points')).__name__					
 								else:
 									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__						
+									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__					
 								dir["key_deu"] = beschreibung
 								if description!=None:
 									dir["key_eng"] = description
 								if uri!=None:
 									dir["uri"] = uri	
 								if measurementclass!=None:
-									dir["measurementclass"] = measurementclass			
+									dir["measurementclass"] = measurementclass		
 								if einheit!=None:
 									dir["unit"] = einheit
 								if application!=None:
 									dir["from_application"] = application
-
+																																				
 								if dir["value"] != None:				
 									if len(str(dir["value"])) != 0:
 										if includeonlypropswithuri and "uri" in dir:
-											dic_measurement_info[keyword] = {}		
-											dic_measurement_info[keyword] = dir
+											dic_measurement_check[keyword] = {}		
+											dic_measurement_check[keyword] = dir
 										if not includeonlypropswithuri:
-											dic_measurement_info[keyword] = {}		
-											dic_measurement_info[keyword] = dir
+											dic_measurement_check[keyword] = {}		
+											dic_measurement_check[keyword] = dir
+							except:			
+								print ("error")					
+								print(e)
+											
+						def infos_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application):
+								dir = {}
+								dir.clear()	
+								try:
+									if keyword == "invert_m_one_cam":
+										dir["value"] = gom.app.projects[p].measurements[m].get('m_one_cam')
+										if dir["value"] == True:
+											dir["value"] = False
+										if dir["value"] == False:
+											dir["value"] = True
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_one_cam')).__name__
+									elif keyword == "invert_m_shiny_points":
+										dir["value"] = gom.app.projects[p].measurements[m].get('m_shiny_points')
+										if dir["value"] == True:
+											dir["value"] = False
+										if dir["value"] == False:
+											dir["value"] = True
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_shiny_points')).__name__
+									elif keyword == "invert_m_col_trans":
+										dir["value"] = gom.app.projects[p].measurements[m].get('m_col_trans')
+										if dir["value"] == True:
+											dir["value"] = False
+										if dir["value"] == False:
+											dir["value"] = True
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_col_trans')).__name__							
+									elif keyword == "adapted_m_trafo_mode":
+										dir["value"] = gom.app.projects[p].measurements[m].get('m_trafo_mode')
+										if dir["value"] == "automatic":
+											dir["value"] = "reference_points"
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get('m_trafo_mode')).__name__	
+									else:
+										dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__						
+									dir["key_deu"] = beschreibung
+									if description!=None:
+										dir["key_eng"] = description
+									if uri!=None:
+										dir["uri"] = uri	
+									if measurementclass!=None:
+										dir["measurementclass"] = measurementclass			
+									if einheit!=None:
+										dir["unit"] = einheit
+									if application!=None:
+										dir["from_application"] = application
+
+									if dir["value"] != None:				
+										if len(str(dir["value"])) != 0:
+											if includeonlypropswithuri and "uri" in dir:
+												dic_measurement_info[keyword] = {}		
+												dic_measurement_info[keyword] = dir
+											if not includeonlypropswithuri:
+												dic_measurement_info[keyword] = {}		
+												dic_measurement_info[keyword] = dir
+								except:
+									print ("error")
+									print(e)
 							
-								
 						def cal_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application):
 								dir = {}
 								dir.clear()
-								if keyword == 'm_cal_time':
-									value = gom.app.projects[p].measurements[m].get(keyword)
-									if value != None:
-										capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
-										dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
+								try:
+									if keyword == 'm_cal_time':
+										value = gom.app.projects[p].measurements[m].get(keyword)
+										if value != None:
+											capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
+											dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
+										else:
+											dir["value"] = None
 									else:
-										dir["value"] = None
-								else:
-									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)						
-								if keyword == 'm_cal_time':
-									dir["value_type"] = "dateTime"
-								else:
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
-								dir["key_deu"] = beschreibung
-								if description!=None:
-									dir["key_eng"] = description
-								if uri!=None:
-									dir["uri"] = uri	
-								if measurementclass!=None:
-									dir["measurementclass"] = measurementclass			
-								if einheit!=None:
-									dir["unit"] = einheit
-								if application!=None:
-									dir["from_application"] = application
+										dir["value"] = gom.app.projects[p].measurements[m].get(keyword)						
+									if keyword == 'm_cal_time':
+										dir["value_type"] = "dateTime"
+									else:
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
+									dir["key_deu"] = beschreibung
+									if description!=None:
+										dir["key_eng"] = description
+									if uri!=None:
+										dir["uri"] = uri	
+									if measurementclass!=None:
+										dir["measurementclass"] = measurementclass			
+									if einheit!=None:
+										dir["unit"] = einheit
+									if application!=None:
+										dir["from_application"] = application
 
-								if dir["value"] != None:				
-									if len(str(dir["value"])) != 0:
-										if includeonlypropswithuri and "uri" in dir:
-											dic_measurement_cal[keyword]= {}		
-											dic_measurement_cal[keyword]= dir
-										if not includeonlypropswithuri:
-											dic_measurement_cal[keyword]= {}		
-											dic_measurement_cal[keyword]= dir
+									if dir["value"] != None:				
+										if len(str(dir["value"])) != 0:
+											if includeonlypropswithuri and "uri" in dir:
+												dic_measurement_cal[keyword]= {}		
+												dic_measurement_cal[keyword]= dir
+											if not includeonlypropswithuri:
+												dic_measurement_cal[keyword]= {}		
+												dic_measurement_cal[keyword]= dir
+								except:
+									print ("error")
+									print(e)
 											
-									
 						def cal_measurements_calobject (beschreibung, description, keyword, einheit, uri, measurementclass, application):
 								dir = {}
 								dir.clear()
-								if keyword == 'm_cal_time':
-									value = gom.app.projects[p].measurements[m].get(keyword)
-									if value != None:
-										capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
-										dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
-								else:
-									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)						
-								if keyword == 'm_cal_time':
-									dir["value_type"] = "dateTime"
-								else:
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
-								dir["key_deu"] = beschreibung
-								if description!=None:
-									dir["key_eng"] = description
-								if uri!=None:
-									dir["uri"] = uri	
-								if measurementclass!=None:
-									dir["measurementclass"] = measurementclass
-								if einheit!=None:
-									dir["unit"] = einheit
-								if application!=None:
-									dir["from_application"] = application
+								try:
+									if keyword == 'm_cal_time':
+										value = gom.app.projects[p].measurements[m].get(keyword)
+										if value != None:
+											capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
+											dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
+									else:
+										dir["value"] = gom.app.projects[p].measurements[m].get(keyword)						
+									if keyword == 'm_cal_time':
+										dir["value_type"] = "dateTime"
+									else:
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
+									dir["key_deu"] = beschreibung
+									if description!=None:
+										dir["key_eng"] = description
+									if uri!=None:
+										dir["uri"] = uri	
+									if measurementclass!=None:
+										dir["measurementclass"] = measurementclass
+									if einheit!=None:
+										dir["unit"] = einheit
+									if application!=None:
+										dir["from_application"] = application
 
-								if dir["value"] != None:				
-									if len(str(dir["value"])) != 0:
-										if includeonlypropswithuri and "uri" in dir:
-											dic_measurement_cal_calobject[keyword]= {}		
-											dic_measurement_cal_calobject[keyword]= dir
-										if not includeonlypropswithuri:
-											dic_measurement_cal_calobject[keyword]= {}		
-											dic_measurement_cal_calobject[keyword]= dir
+									if dir["value"] != None:				
+										if len(str(dir["value"])) != 0:
+											if includeonlypropswithuri and "uri" in dir:
+												dic_measurement_cal_calobject[keyword]= {}		
+												dic_measurement_cal_calobject[keyword]= dir
+											if not includeonlypropswithuri:
+												dic_measurement_cal_calobject[keyword]= {}		
+												dic_measurement_cal_calobject[keyword]= dir
+								except:
+									print ("error")
+									print(e)
 
 
 						def cal_measurements_calsetup (beschreibung, description, keyword, einheit, uri, measurementclass, application):
 								dir = {}
 								dir.clear()
-								if keyword == 'm_cal_time':
-									value = gom.app.projects[p].measurements[m].get(keyword)
-									if value != None:
-										capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
-										dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
-								else:
-									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)						
-								if keyword == 'm_cal_time':
-									dir["value_type"] = "dateTime"
-								else:
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
-								dir["key_deu"] = beschreibung
-								if description!=None:
-									dir["key_eng"] = description
-								if uri!=None:
-									dir["uri"] = uri	
-								if measurementclass!=None:
-									dir["measurementclass"] = measurementclass
-								if einheit!=None:
-									dir["unit"] = einheit
-								if application!=None:
-									dir["from_application"] = application
-								
-								if dir["value"] != None:				
-									if len(str(dir["value"])) != 0:
-										if includeonlypropswithuri and "uri" in dir:
-											dic_measurement_cal_calsetup[keyword]= {}		
-											dic_measurement_cal_calsetup[keyword]= dir
-										if not includeonlypropswithuri:
-											dic_measurement_cal_calsetup[keyword]= {}		
-											dic_measurement_cal_calsetup[keyword]= dir
+								try:
+									if keyword == 'm_cal_time':
+										value = gom.app.projects[p].measurements[m].get(keyword)
+										if value != None:
+											capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
+											dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
+									else:
+										dir["value"] = gom.app.projects[p].measurements[m].get(keyword)						
+									if keyword == 'm_cal_time':
+										dir["value_type"] = "dateTime"
+									else:
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__
+									dir["key_deu"] = beschreibung
+									if description!=None:
+										dir["key_eng"] = description
+									if uri!=None:
+										dir["uri"] = uri	
+									if measurementclass!=None:
+										dir["measurementclass"] = measurementclass
+									if einheit!=None:
+										dir["unit"] = einheit
+									if application!=None:
+										dir["from_application"] = application
+																																				
+									if dir["value"] != None:				
+										if len(str(dir["value"])) != 0:
+											if includeonlypropswithuri and "uri" in dir:
+												dic_measurement_cal_calsetup[keyword]= {}		
+												dic_measurement_cal_calsetup[keyword]= dir
+											if not includeonlypropswithuri:
+												dic_measurement_cal_calsetup[keyword]= {}		
+												dic_measurement_cal_calsetup[keyword]= dir
+								except:
+									print ("error")
+									print(e)
 
 
 						def cal_measurements_calresults (beschreibung, description, keyword, einheit, uri, measurementclass, application):
 								dir = {}
 								dir.clear()
-								#print ("-----")
-								#print (keyword)
-								if keyword == 'm_cal_time':
-									value = gom.app.projects[p].measurements[m].get(keyword)
-									#print (value)
-									
-									if value != None:
-										capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
-										dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
-										dir["value_type"] = "dateTime"
+								try:
+									if keyword == 'm_cal_time':
+										value = gom.app.projects[p].measurements[m].get(keyword)																																								
+										if value != None:
+											capturetime = time.strptime(value, "%a %b %d %H:%M:%S %Y")
+											dir["value"] = (time.strftime("%Y-%m-%dT%H:%M:%S",capturetime))
+											dir["value_type"] = "dateTime"
+										else:
+											dir["value"] = value
+											dir["value_type"] = type(value).__name__
+								
 									else:
-										dir["value"] = value
-										dir["value_type"] = type(value).__name__
-	
-								else:
-									dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__			
+										dir["value"] = gom.app.projects[p].measurements[m].get(keyword)
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].get(keyword)).__name__			
 
-								dir["key_deu"] = beschreibung
-								if description!=None:
-									dir["key_eng"] = description
-								if uri!=None:
-									dir["uri"] = uri	
-								if measurementclass!=None:
-									dir["measurementclass"] = measurementclass
-								if einheit!=None:
-									dir["unit"] = einheit
-								if application!=None:
-									dir["from_application"] = application												
+									dir["key_deu"] = beschreibung
+									if description!=None:
+										dir["key_eng"] = description
+									if uri!=None:
+										dir["uri"] = uri	
+									if measurementclass!=None:
+										dir["measurementclass"] = measurementclass
+									if einheit!=None:
+										dir["unit"] = einheit
+									if application!=None:
+										dir["from_application"] = application												
 
-								if dir["value"] != None:				
-									if len(str(dir["value"])) != 0:
-										if includeonlypropswithuri and "uri" in dir:
-											dic_measurement_cal_calresults[keyword]= {}		
-											dic_measurement_cal_calresults[keyword]= dir
-										if not includeonlypropswithuri:
-											dic_measurement_cal_calresults[keyword]= {}		
-											dic_measurement_cal_calresults[keyword]= dir
-
+									if dir["value"] != None:				
+										if len(str(dir["value"])) != 0:
+											if includeonlypropswithuri and "uri" in dir:
+												dic_measurement_cal_calresults[keyword]= {}		
+												dic_measurement_cal_calresults[keyword]= dir
+											if not includeonlypropswithuri:
+												dic_measurement_cal_calresults[keyword]= {}		
+												dic_measurement_cal_calresults[keyword]= dir
+								except:
+									print ("error")
+									print(e)
 								
 						############ get values #############
 								
@@ -2653,7 +2830,7 @@ for root, dirs, files in os.walk(input_folder):
 						einheit = None
 						uri= ontologynamespace+"avoidTripleScanPoints"
 						measurementclass = None
-						application = "true, inverted value from keyword= m_one_cam"
+						application = "true, inverted value from keyword = m_one_cam"
 						infos_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application)			
 						
 						# Status: Kamera- und Sensorkennung gültig?
@@ -2719,7 +2896,7 @@ for root, dirs, files in os.walk(input_folder):
 						einheit = None
 						uri=ontologynamespace+"avoidPointsOnShinyAreas"
 						measurementclass = None
-						application = "true, inverted value from keyword= m_shiny_points"
+						application = "true, inverted value from keyword = m_shiny_points"
 						infos_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application)
 									
 						# Status: Punkte bei starkten Grauwertunterschieden berechnen?
@@ -2740,7 +2917,7 @@ for root, dirs, files in os.walk(input_folder):
 						einheit = None
 						uri= ontologynamespace+"avoidStrongBrightnessDifferencePoints"
 						measurementclass = None
-						application = "true, inverted value from keyword= m_col_trans"
+						application = "true, inverted value from keyword = m_col_trans"
 						infos_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application)
 						
 						# Status: Tapelinienbeleuchtung verwendet?
@@ -2816,7 +2993,7 @@ for root, dirs, files in os.walk(input_folder):
 						einheit = None
 						uri= ontologynamespace+"measurementTransformationMethod"
 						measurementclass = None
-						application = "true, adapted value from keyword= m_trafo_mode"
+						application = "true, adapted value from keyword = m_trafo_mode"
 						infos_measurements (beschreibung, description, keyword, einheit, uri, measurementclass, application)
 						
 						# Verbleibende Lampenaufwärmzeit
@@ -3326,28 +3503,32 @@ for root, dirs, files in os.walk(input_folder):
 							def infos_refpoints (beschreibung, description, keyword, einheit, uri, measurementclass, application):
 									dir = {}
 									dir.clear()
-									dir["value"] = gom.app.projects[p].measurements[m].ref_points[rp].get(keyword)
-									dir["key_deu"] = beschreibung
-									if description!=None:
-										dir["key_eng"] = description
-									if uri!=None:
-										dir["uri"] = uri	
-									if measurementclass!=None:
-										dir["measurementclass"] = measurementclass			
-									dir["value_type"] = type(gom.app.projects[p].measurements[m].ref_points[rp].get(keyword)).__name__
-									if einheit!=None:
-										dir["unit"] = einheit
-									if application!=None:
-										dir["from_application"] = application
-										
-									if dir["value"] != None:				
-										if len(str(dir["value"])) != 0:
-											if includeonlypropswithuri and "uri" in dir:
-												dic_refpoint[keyword]= {}		
-												dic_refpoint[keyword]= dir
-											if not includeonlypropswithuri:
-												dic_refpoint[keyword]= {}		
-												dic_refpoint[keyword]= dir
+									try:
+										dir["value"] = gom.app.projects[p].measurements[m].ref_points[rp].get(keyword)
+										dir["key_deu"] = beschreibung
+										if description!=None:
+											dir["key_eng"] = description
+										if uri!=None:
+											dir["uri"] = uri	
+										if measurementclass!=None:
+											dir["measurementclass"] = measurementclass			
+										dir["value_type"] = type(gom.app.projects[p].measurements[m].ref_points[rp].get(keyword)).__name__
+										if einheit!=None:
+											dir["unit"] = einheit
+										if application!=None:
+											dir["from_application"] = application
+																																												
+										if dir["value"] != None:				
+											if len(str(dir["value"])) != 0:
+												if includeonlypropswithuri and "uri" in dir:
+													dic_refpoint[keyword]= {}		
+													dic_refpoint[keyword]= dir
+												if not includeonlypropswithuri:
+													dic_refpoint[keyword]= {}		
+													dic_refpoint[keyword]= dir
+									except:
+										print ("error")
+										print(e)
 									
 							############ get values #############
 						
@@ -3511,7 +3692,14 @@ for root, dirs, files in os.walk(input_folder):
 									value = 0.07
 								# MV 35
 								elif 31 < mv_length < 39:
-									value = 0.03								
+									value = 0.03
+								# MV 270
+								elif 250 < mv_length < 290:
+									value = 0.21
+								# MV 730
+								elif 700 < mv_length < 760:
+									value = 0.60
+							
 
 								# Länge Messvolumen
 								value = value
@@ -3552,8 +3740,7 @@ for root, dirs, files in os.walk(input_folder):
 							
 						# wenn Kalibrierungszeit noch in in Liste, dann 
 						# neue sensor_id erzeugen und zu den sensor-informationen / kalibrierungen hinzufügen
-						if not cal_time_new in temp_list_cal_time: 
-							#print ("noch nicht drin")		
+						if not cal_time_new in temp_list_cal_time:		
 							temp_list_cal_time.append(cal_time_new)
 							
 							# sensor_id zu dic_sensor hinzufügen
@@ -3635,39 +3822,43 @@ for root, dirs, files in os.walk(input_folder):
 					def infos_meshes (beschreibung, description, keyword, einheit, uri, measurementclass, application, value=None):
 						dir = {}
 						dir.clear()
-						if keyword == "comment":
-							c = gom.app.meshes[me].get(keyword)
-							dir["value"] = c.replace("\n",", ")
-						elif value == None:
-							dir["value"] = gom.app.meshes[me].get(keyword)
-						else:
-							dir["value"] = value		
-						dir["key_deu"] = beschreibung
-						if description!=None:
-							dir["key_eng"] = description		
-						if uri!=None:
-							dir["uri"] = uri	
-						if measurementclass!=None:
-							dir["measurementclass"] = measurementclass
-							
-						if value == None:
-							dir["value_type"] = type(gom.app.meshes[me].get(keyword)).__name__
-						else:	
-							dir["value_type"] = type(value).__name__
-							
-						if einheit!=None:
-							dir["unit"] = einheit
-						if application!=None:
-							dir["from_application"] = application
-							
-						if dir["value"] != None:				
-							if len(str(dir["value"])) != 0:
-								if includeonlypropswithuri and "uri" in dir:
-									dic_mesh_info[keyword]= {}		
-									dic_mesh_info[keyword]= dir
-								if not includeonlypropswithuri:
-									dic_mesh_info[keyword]= {}		
-									dic_mesh_info[keyword]= dir
+						try:
+							if keyword == "comment":
+								c = gom.app.meshes[me].get(keyword)
+								dir["value"] = c.replace("\n",", ")
+							elif value == None:
+								dir["value"] = gom.app.meshes[me].get(keyword)
+							else:
+								dir["value"] = value		
+							dir["key_deu"] = beschreibung
+							if description!=None:
+								dir["key_eng"] = description		
+							if uri!=None:
+								dir["uri"] = uri	
+							if measurementclass!=None:
+								dir["measurementclass"] = measurementclass
+																																
+							if value == None:
+								dir["value_type"] = type(gom.app.meshes[me].get(keyword)).__name__
+							else:	
+								dir["value_type"] = type(value).__name__
+																																
+							if einheit!=None:
+								dir["unit"] = einheit
+							if application!=None:
+								dir["from_application"] = application
+																																
+							if dir["value"] != None:				
+								if len(str(dir["value"])) != 0:
+									if includeonlypropswithuri and "uri" in dir:
+										dic_mesh_info[keyword]= {}		
+										dic_mesh_info[keyword]= dir
+									if not includeonlypropswithuri:
+										dic_mesh_info[keyword]= {}		
+										dic_mesh_info[keyword]= dir
+						except:
+							print ("error")
+							print(e)
 					
 					###############################################
 					
@@ -4012,10 +4203,7 @@ for root, dirs, files in os.walk(input_folder):
 					####  Metadaten aus dem Kommentar  ####			
 					c = gom.app.meshes[me].get ("comment") 	
 					for poly in c.split("\n"):
-						#print ("-")
-						#print (poly)
 						liste = poly.split("=")
-						#print (liste)
 						if len(liste) == 2:
 							if (liste[0].replace(" ","")) == "poly_raster":
 								dir = {}
@@ -4033,7 +4221,7 @@ for root, dirs, files in os.walk(input_folder):
 								dir["key_eng"] = "polygonisation raster"				
 								dir["value_type"] = type(dir["value"]).__name__
 								dir["uri"] = ontologynamespace+"polyRaster"
-								dir["from_application"] = "True, part value from keyword=’comment’"
+								dir["from_application"] = "true, part value from keyword = comment"
 									
 								if dir["value"] != None:				
 									if len(str(dir["value"])) != 0:
@@ -4129,7 +4317,7 @@ for root, dirs, files in os.walk(input_folder):
 								dir["key_deu"] = "automatische Bearbeitung von Referenzpunkten"
 								dir["key_eng"] = "automatic postprocessing of referenzpoints"				
 								dir["value_type"] = type(liste[1].replace(" ","")).__name__
-								dir["from_application"] = "True, part value from keyword=’comment’"
+								dir["from_application"] = "true, part value from keyword = comment"
 								dir["uri"] = ontologynamespace+"refpoints"
 								
 								if dir["value"] != None:				
@@ -4179,6 +4367,8 @@ for root, dirs, files in os.walk(input_folder):
 			if len(list_prj) > 0:	
 				dic_prj["projects"]=list_prj
 			######################## PROJECTS END ###############################
+			
+			print ("hier")
 
 
 
@@ -4186,7 +4376,8 @@ for root, dirs, files in os.walk(input_folder):
 			############### EXPORTS #################
 
 			## output files
-			newfiles = (gom.app.get ("ACTUAL_SESSION_FILE")).split(".")[0]
+#			newfiles = (gom.app.get ("ACTUAL_SESSION_FILE")).split(".")[0]
+			newfiles = ((gom.app.get ("ACTUAL_SESSION_FILE"))[:-8])
 			if len(newfiles) == 0:
 				newfiles = gom.app.projects[0].get ("prj_directory") + "/" + (gom.app.projects[0].get ("prj_n")).split(".")[0]
 			out_file_txt = newfiles + ".txt"
@@ -4206,6 +4397,7 @@ for root, dirs, files in os.walk(input_folder):
 			######## ttl  ########
 			ttlstring=set()
 			fertiges_ttl = exportToTTL(dic_prj, None, ttlstring)
+#			text_file = open(out_file_ttl, "w",encoding="utf8") #geht nicht mit der alten Pythonversion in atos v6.2
 			text_file = open(out_file_ttl, "w")
 			text_file.write(ttlstringhead)
 			for item in fertiges_ttl:
