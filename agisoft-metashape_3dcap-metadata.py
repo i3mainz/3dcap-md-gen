@@ -3,17 +3,15 @@
 # Agisoft-Metashape Script
 
 # Laura Raddatz / i3mainz
-# Anja Cramer / RGZM
+# Anja Cramer / LEIZA
 # Timo Homburg / i3mainz
-# 2020/2021/2022
-
+# 2020/2021/2022/2023/2024/2025
 
 import Metashape
 import os, json
 import time, math 
 import random
 import datetime
-
 import tkinter
 from tkinter import filedialog
 import tkinter.font as tkFont
@@ -22,14 +20,10 @@ from tkinter import *
 production=True
 # production=False
 
-## Indicates if only properties for which a URI has been defined in the JSON dict should be considered for the TTL export .
-# includeonlypropswithuri=False
-#includeonlypropswithuri=None
-
 # python script version
 script_name = "agisoft-metashape_3dcap-metadata.py"
 script_label = "Agisoft Metashape 3DCAP Metadata Script"
-github_release = "0.1.3"
+github_release = "1.0.0"
 
 ####################### TTL Export #############################
 
@@ -107,7 +101,7 @@ englishlabel="key_eng"
 artifactURI=None
 
 ## Header for the TTL export which includes all necessary namespaces.
-ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
+ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix geocrs: <http://www.opengis.net/ont/crs/>.\n@prefix geocrsaxis: <http://www.opengis.net/ont/crs/cs/axis/> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
 
 ## Generates a UUID.
 def generate_uuid():
@@ -242,27 +236,27 @@ def exportInformationFromIndAsTTL(jsonobj,id,classs,labelprefix,ttlstring):
 	return ttlstring
 
 def exportInformationFromStructuredList(thelist,projectid,projectname,thekey,index,dataprefix,labelprefix,thelabel,theclass,informationkey,ttlstring,subdata=[{}],hasactivity=False):
-    for index, data in enumerate(thelist):
-        theid=str(projectid)+"_"+thekey+"_"+str(index)
-        ttlstring.add(str(dataprefix)+":"+str(theid)+" rdf:type "+str(ontologyprefix)+":"+str(theclass)+", "+provenancedict.get("entity")+" .\n")
-        ttlstring.add(str(dataprefix)+":"+str(theid)+" rdfs:label \""+thelabel+" "+str(theid)+" from "+str(projectname)+"\"@en .\n")
-        print(informationkey)
-        if hasactivity:
-            ttlstring.add(str(dataprefix)+":"+str(theid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+" .\n")	
-        if informationkey!=None and informationkey in data:
-            ttlstring=exportInformationFromIndAsTTL(data[informationkey],theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
-        elif informationkey==None and not isinstance(data,str):
-            ttlstring=exportInformationFromIndAsTTL(data,theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
-        for item in subdata:       
-            if item["key"] in data:
-                print(item["key"])
-                itemid=str(theid)+"_"+item["key"]
-                ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdf:type "+str(ontologyprefix)+":"+item["class"]+" .\n")
-                ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdfs:label \""+labelprefix+" "+thelabel+" "+str(index)+" "+item["label"]+"\" .\n")
-                ttlstring.add(str(dataprefix)+":"+str(theid)+" "+str(ontologyprefix)+":"+item["relation"]+" "+str(dataprefix)+":"+str(itemid)+" .\n")
-                if hasactivity:
-                    ttlstring.add(str(dataprefix)+":"+str(itemid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(theid)+"_activity .\n")							
-                ttlstring=exportInformationFromIndAsTTL(data[item["key"]],itemid,str(ontologyprefix)+":"+item["class"],labelprefix+" "+thelabel+" "+str(index)+" "+item["label"],ttlstring)
+	for index, data in enumerate(thelist):
+		theid=str(projectid)+"_"+thekey+"_"+str(index)
+		ttlstring.add(str(dataprefix)+":"+str(theid)+" rdf:type "+str(ontologyprefix)+":"+str(theclass)+", "+provenancedict.get("entity")+" .\n")
+		ttlstring.add(str(dataprefix)+":"+str(theid)+" rdfs:label \""+thelabel+" "+str(theid)+" from "+str(projectname)+"\"@en .\n")
+		print(informationkey)
+		if hasactivity:
+			ttlstring.add(str(dataprefix)+":"+str(theid)+" prov:wasDerivedFrom "+str(dataprefix)+":"+str(projectid)+" .\n")	
+		if informationkey!=None and informationkey in data:
+			ttlstring=exportInformationFromIndAsTTL(data[informationkey],theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
+		elif informationkey==None and not isinstance(data,str):
+			ttlstring=exportInformationFromIndAsTTL(data,theid,str(ontologyprefix)+":"+str(theclass),thelabel+" "+str(index),ttlstring)
+		for item in subdata:       
+			if item["key"] in data:
+				print(item["key"])
+				itemid=str(theid)+"_"+item["key"]
+				ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdf:type "+str(ontologyprefix)+":"+item["class"]+" .\n")
+				ttlstring.add(str(dataprefix)+":"+str(itemid)+" rdfs:label \""+labelprefix+" "+thelabel+" "+str(index)+" "+item["label"]+"\" .\n")
+				ttlstring.add(str(dataprefix)+":"+str(theid)+" "+str(ontologyprefix)+":"+item["relation"]+" "+str(dataprefix)+":"+str(itemid)+" .\n")
+				if hasactivity:
+					ttlstring.add(str(dataprefix)+":"+str(itemid)+" "+str(ontologyprefix)+":partOf "+str(dataprefix)+":"+str(theid)+"_activity .\n")							
+				ttlstring=exportInformationFromIndAsTTL(data[item["key"]],itemid,str(ontologyprefix)+":"+item["class"],labelprefix+" "+thelabel+" "+str(index)+" "+item["label"],ttlstring)
 
 
 def checkfornewline(literal):
@@ -270,6 +264,59 @@ def checkfornewline(literal):
         return "\"\""+literal+"\"\""
     else:
         return literal
+
+units={}
+def csAsSVG(csdef):
+    svgstr= """<svg width=\"400\" height=\"250\" viewbox=\"0 0 375 220\"><defs><marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"2\" orient=\"auto\"><polygon points=\"0 0, 4 2, 0 4\" /></marker></defs>"""
+    print(csdef)
+    if len(csdef["axis_list"])>0:
+        if csdef["axis_list"][0]["unit_name"] in units:
+            svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"200\" y2=\"200\" stroke=\"red\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"110\" y=\"220\" class=\"small\">"""+str(csdef["axis_list"][0]["abbrev"])+": "+str(csdef["axis_list"][0]["name"])+" ("+str(units[csdef["axis_list"][0]["unit_name"]])+") ("+str(csdef["axis_list"][0]["direction"])+")</text>"
+        else:
+            svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"200\" y2=\"200\" stroke=\"red\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"110\" y=\"220\" class=\"small\">"""+str(csdef["axis_list"][0]["abbrev"])+": "+str(csdef["axis_list"][0]["name"])+" ("+str(csdef["axis_list"][0]["unit_name"])+") ("+str(csdef["axis_list"][0]["direction"])+")</text>"
+    if len(csdef["axis_list"])>1:
+        if csdef["axis_list"][1]["unit_name"] in units:
+            svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"20\" y2=\"20\" stroke=\"green\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"35\" y=\"20\" class=\"small\">"""+str(csdef["axis_list"][1]["abbrev"])+": "+str(csdef["axis_list"][1]["name"])+" ("+str(units[csdef["axis_list"][1]["unit_name"]])+") ("+str(csdef["axis_list"][1]["direction"])+")</text>"
+        else:
+            svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"20\" y2=\"20\" stroke=\"green\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"35\" y=\"20\" class=\"small\">"""+str(csdef["axis_list"][1]["abbrev"])+": "+str(csdef["axis_list"][1]["name"])+" ("+str(csdef["axis_list"][1]["unit_name"])+") ("+str(csdef["axis_list"][1]["direction"])+")</text>"
+    if len(csdef["axis_list"])>2:
+        if csdef["axis_list"][2]["unit_name"] in units:
+            svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"190\" y2=\"30\" stroke=\"blue\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"210\" y=\"25\" class=\"small\">"""+str(csdef["axis_list"][2]["abbrev"])+": "+str(csdef["axis_list"][2]["name"])+" ("+str(units[csdef["axis_list"][2]["unit_name"]])+") ("+str(csdef["axis_list"][2]["direction"])+")</text>"
+        else:
+            svgstr+="""<line x1=\"20\" y1=\"200\" x2=\"190\" y2=\"30\" stroke=\"blue\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"210\" y=\"25\" class=\"small\">"""+str(csdef["axis_list"][2]["abbrev"])+": "+str(csdef["axis_list"][2]["name"])+" ("+str(csdef["axis_list"][2]["unit_name"])+") ("+str(csdef["axis_list"][2]["direction"])+")</text>"
+    return svgstr.replace("\"","'")+"</svg>"
+
+
+def csAxisAsSVG(axisdef):
+    svgstr= """<svg width=\"400\" height=\"100\" viewbox=\"0 0 275 100\"><defs><marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"2\" orient=\"auto\"><polygon points=\"0 0, 4 2, 0 4\" /></marker></defs>"""
+    if axisdef["unit_name"] in units:
+        svgstr+="""<line x1=\"20\" y1=\"50\" x2=\"200\" y2=\"50\" stroke=\"gray\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"30\" y=\"70\" class=\"small\">"""+str(axisdef["abbrev"])+": "+str(axisdef["name"])+" ("+str(units[axisdef["unit_name"]])+") ("+str(axisdef["direction"])+")</text>"
+    else:
+        svgstr+="""<line x1=\"20\" y1=\"50\" x2=\"200\" y2=\"50\" stroke=\"gray\" stroke-width=\"5\" marker-end=\"url(#arrowhead)\"></line><text x=\"30\" y=\"70\" class=\"small\">"""+str(axisdef["abbrev"])+": "+str(axisdef["name"])+" ("+str(axisdef["unit_name"])+") ("+str(axisdef["direction"])+")</text>"
+    return svgstr.replace("\"","'")+"</svg>"
+
+
+def csFromPoint(pointind,x,y,z,ttlstring):
+	crsid=str(dataprefix)+":cs_3d_x_"+str(x["unit"]).replace("om:","")+"_y_"+str(y["unit"]).replace("om:","")+"_z_"+str(z["unit"]).replace("om:","")
+	ttlstring.add(str(pointind)+" geo:inSRS "+str(crsid)+" .\n")
+	ttlstring.add(str(crsid)+" geocrs:asSVG \""+str(csAsSVG({"axis_list":[{"unit_name":x["unit"],"direction":"x","abbrev":"x","name":"x"},{"unit_name":y["unit"],"direction":"y","abbrev":"y","name":"y"},{"unit_name":z["unit"],"direction":"z","abbrev":"z","name":"z"}]}))+"\"^^xsd:string .\n")
+	ttlstring.add(str(crsid)+" rdfs:label \"Local 3D Coordinate System X("+str(x["unit"])+") Y("+str(y["unit"])+") Z("+str(z["unit"])+")\" . \n")
+	ttlstring.add(str(crsid)+" rdf:type geocrs:CoordinateSystem . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_xaxis .\n")
+	axisid=str(crsid)+"_xaxis"
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":x["unit"],"direction":"x","abbrev":"x","name":"x"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("x").replace("\"","'")+"\"^^xsd:string . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_yaxis .\n")
+	axisid=str(crsid)+"_yaxis"
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":y["unit"],"direction":"y","abbrev":"y","name":"y"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("y").replace("\"","'")+"\"^^xsd:string . \n")
+	ttlstring.add(str(crsid)+" geocrs:axis "+str(crsid)+"_zaxis .\n")
+	ttlstring.add("geocrsaxis:"+axisid+" rdf:type geocrs:CoordinateSystemAxis . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:asSVG \""+str(csAxisAsSVG({"unit_name":z["unit"],"direction":"z","abbrev":"z","name":"z"}))+"\"^^geocrs:svgLiteral . \n")
+	ttlstring.add("geocrsaxis:"+axisid+" geocrs:axisAbbrev \""+str("z").replace("\"","'")+"\"^^xsd:string . \n")
+	return ttlstring
 
 ## Processes a given property depending on its type .
 def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputvalue,propclass):
@@ -353,7 +400,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 	else:
 		if propuri=="http://www.w3.org/2000/01/rdf-schema#label" or  propuri=="rdfs:label" or propuri=="http://www.w3.org/2000/01/rdf-schema#comment" or propuri=="rdfs:comment":
 			ttlstring.add(str(propuri)+" rdf:type owl:AnnotationProperty .\n")
-			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \""+str(inputvalue)+"\" .\n")
+			ttlstring.add(str(dataprefix)+":"+str(id)+" "+str(propuri)+" \"\"\""+str(inputvalue)+"\"\"\" .\n")
 		else:
 			ttlstring.add(str(propuri)+" rdf:type owl:DatatypeProperty .\n")
 			ttlstring.add(str(propuri)+" rdfs:domain "+str(classs)+" .\n")
@@ -369,7 +416,7 @@ def handleProperty(jsonobj,info,id,labelprefix,propuri,classs,ttlstring,inputval
 ## Converts a preformatted dictionary to a set of triples .
 #  @param dict the dictionary to export from
 #  @param measurementToExport indicates whether to export measurements
-def exportToTTL(dict,measurementToExport,ttlstring):
+def exportToTTL(dict,measurementToExport,ttlstring,usermetadata=None):
 	#print ("drin in exportToTTL")
 	projectid=str(generate_uuid())
 	userid=str(generate_uuid())
@@ -597,9 +644,9 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 			ttlstring.add(str(dataprefix)+":"+str(projectid)+" rdf:type "+str(ontologyprefix)+":MeasurementProject .\n")
 			#print(pro[projinfokey])
 			ttlstring=exportInformationFromIndAsTTL(pro[projinfokey],projectid,str(ontologyprefix)+":MeasurementProject",labelprefix,ttlstring)
-		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdf:type foaf:Person, "+provenancedict.get("agent")+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(projectid)+" dc:creator "+str(dataprefix)+":"+str(userid)+" .\n")
-		ttlstring.add(str(dataprefix)+":"+str(userid)+" rdfs:label \"Creator of "+str(labelprefix)+"\" .\n")
+		# if usermetadata!=None:
+		if len(usermetadata) > 0:
+			ttlstring=addUserMetadataToId(ttlstring,usermetadata,projectid)
 		#print(pro[applicationkey])
 		if applicationkey in pro:
 			if "PROJECT.TYPE" in pro[applicationkey][0] and "PROJECT.VERSION" in pro[applicationkey][0]:
@@ -669,11 +716,14 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 						#print("266: "+str(grp))
 						ttlstring=exportInformationFromIndAsTTL(grp,grpid,str(ontologyprefix)+":GRP",labelprefix+" MS "+str(msindex)+" GRP"+str(index),ttlstring)
 						if "r_x" in grp and "r_y" in grp and "r_z" in grp:
-							ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")					
+							ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["r_x"]["value"])+" "+str(grp["r_y"]["value"])+" "+str(grp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")
+							ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["r_x"],grp["r_y"],grp["r_z"],ttlstring)
 						elif "coordinate.x" in grp and "coordinate.y" in grp and "coordinate.z" in grp:
 							ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["coordinate.x"]["value"])+" "+str(grp["coordinate.y"]["value"])+" "+str(grp["coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+							ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["coordinate.x"],grp["coordinate.y"],grp["coordinate.z"],ttlstring)
 						elif "position x" in grp and "position y" in grp and "position z" in grp:
 							ttlstring.add(str(dataprefix)+":"+str(grpid)+" geo:asWKT \"POINT("+str(grp["position x"]["value"])+" "+str(grp["position y"]["value"])+" "+str(grp["position z"]["value"])+")\"^^geo:wktLiteral .\n")
+							ttlstring=csFromPoint(str(dataprefix)+":"+str(grpid),grp["position x"],grp["position y"],grp["position z"],ttlstring)
 				if globalrefpointkey in project and scalebarskey in project[globalrefpointkey]:
 					exportInformationFromStructuredList(project[globalrefpointkey][scalebarskey],projectid,projectname,scalebarskey,index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Scalebar",None,ttlstring,[])
 			if alignmentsetupkey in project:
@@ -737,7 +787,7 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 					#print(ttlstring)
 			if densecloudkey in project:
 				exportInformationFromStructuredList(project[densecloudkey],projectid,projectname,densecloudkey,index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Densecloud",densecloudinformationkey,ttlstring,
-                [{"key":densecloudsetupkey,"label":"Densecloud Setup","class":"DenseCloudSetup","relation":"setup"}])
+				[{"key":densecloudsetupkey,"label":"Densecloud Setup","class":"DenseCloudSetup","relation":"setup"}])
 			for index, messung in enumerate(project[measurementskey]):
 				#print(index)
 				if measurementToExport==None or measurementToExport==index:
@@ -795,10 +845,12 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 							ttlstring=exportInformationFromIndAsTTL(rp,rpuri,str(ontologyprefix)+":ReferencePoint",labelprefix+" MS "+str(msindex)+" Measurement "+str(index)+" RP"+str(index2),ttlstring)
 							if "r_x" in rp and "r_y" in rp and "r_z" in rp:
 							# atos v6.2
-								ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")			
+								ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["r_x"]["value"])+" "+str(rp["r_y"]["value"])+" "+str(rp["r_z"]["value"])+")\"^^geo:wktLiteral .\n")
+								ttlstring=csFromPoint(str(dataprefix)+":"+str(rpuri),grp["r_x"],grp["r_y"],grp["r_z"],ttlstring)
 							#atos 2016
 							elif "reference_point_coordinate.x" in rp and "reference_point_coordinate.y" in rp and "reference_point_coordinate.z" in rp:
 								ttlstring.add(str(dataprefix)+":"+str(rpuri)+" geo:asWKT \"POINT("+str(rp["reference_point_coordinate.x"]["value"])+" "+str(rp["reference_point_coordinate.y"]["value"])+" "+str(rp["reference_point_coordinate.z"]["value"])+")\"^^geo:wktLiteral .\n")
+								ttlstring=csFromPoint(str(dataprefix)+":"+str(rpuri),grp["reference_point_coordinate.x"],grp["reference_point_coordinate.y"],grp["reference_point_coordinate.z"],ttlstring)
 							#print(rp)
 							ttlstring.add(str(dataprefix)+":"+str(rpuri)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(messungid)+"_activity . \n")
 							ttlstring.add(str(dataprefix)+":"+str(messungid)+"_activity rdfs:label \"MS "+str(msindex)+" Measurement "+str(index)+" Activity\"@en. \n")
@@ -872,14 +924,97 @@ def exportToTTL(dict,measurementToExport,ttlstring):
 								ttlstring.add(str(dataprefix)+":"+str(meshid)+" prov:wasGeneratedBy "+str(dataprefix)+":"+str(meshid)+"_creation_"+str(0)+"_activity .\n")
 						if lastprocid!="":
 							ttlstring.add(str(dataprefix)+":"+str(meshid)+" owl:sameAs "+str(lastprocid)+" .\n")
-					exportInformationFromStructuredList(project[mesheskey],projectid,projectname,"mesh",index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Mesh",meshinfokey,ttlstring,[
-                    {"key":meshsetupkey,"label":"Mesh Setup","class":"MeshSetup","relation":"setup"},
-                    {"key":meshtexturesetupkey,"label":"Mesh Texture","class":"TextureSetup","relation":"texturesetup"}
-                    ])
+					exportInformationFromStructuredList(project[mesheskey],projectid,projectname,"mesh",index,dataprefix,labelprefix,labelprefix+" MS "+str(msindex)+" ","Mesh",meshinfokey,ttlstring,[{"key":meshsetupkey,"label":"Mesh Setup","class":"MeshSetup","relation":"setup"},{"key":meshtexturesetupkey,"label":"Mesh Texture","class":"TextureSetup","relation":"texturesetup"}])
 					#ttlstring=exportInformationFromIndAsTTL(mesh[meshinfokey],meshid,str(ontologyprefix)+":Mesh",labelprefix+" Mesh Attribute ",ttlstring)							
 	return ttlstring
 
+def entryToTTL(idd,realobj,ttlstring):
+    print(realobj)
+    ttlstring.add("<"+idd+"> <"+realobj["value"]+" <"+realobj["value"]+"> .\n")
+    ttlstring.add("<"+realobj["value"]+"> rdfs:label \""+realobj["key_eng"]+"\"@en .\n")
+    ttlstring.add("<"+realobj["value"]+"> rdfs:label \""+realobj["key_deu"]+"\"@de .\n")
+    return ttlstring
 
+def addUserMetadataToId(ttlstring,usermetadata,theid):
+				data=usermetadata["projects"][0]["general"]
+				realobj=data["real_object"][0]
+				robjid=theid+"_robj"
+				for key in realobj:
+#					print(key)
+					ttlstring=entryToTTL(robjid,realobj[key],ttlstring)
+				if "3d_creator" in data["3d_creation"]:				
+					realobj=data["3d_creation"]["3d_creator"]
+					if "orcid_id" in realobj:
+						creatorid=realobj["orcid_id"]["value"]
+					else:
+						creatorid=str(generate_uuid())
+					ttlstring.add("<"+theid+"> dc:creator <"+creatorid+"> .\n")
+					ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+					ttlstring.add("<"+creatorid+"> rdfs:label \""+realobj["person_first_name"]["value"]+" "+realobj["person_surname"]["value"]+"\"@en .\n")
+					for key in realobj:
+						ttlstring=entryToTTL(creatorid,realobj[key],ttlstring)  
+				if "3d_contributors" in data["3d_creation"]:
+					realobj=data["3d_creation"]["3d_contributors"]
+					for cont in realobj:
+						if "orcid_id" in cont:
+							creatorid=cont["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+						ttlstring.add("<"+theid+"> dc:contributor <"+creatorid+"> .\n")
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+cont["person_first_name"]["value"]+" "+cont["person_surname"]["value"]+"\"@en .\n")
+						for key in cont:
+							ttlstring=entryToTTL(creatorid,cont[key],ttlstring)							
+				if "persons_responsible" in data["3d_creation"]:
+					realobj=data["3d_creation"]["persons_responsible"]
+					for cont in realobj:
+						if "orcid_id" in cont:
+							creatorid=cont["orcid_id"]["value"]
+						else:
+							creatorid=str(generate_uuid())
+						ttlstring.add("<"+creatorid+"> rdf:type foaf:Person .\n")
+						ttlstring.add("<"+creatorid+"> rdfs:label \""+cont["person_first_name"]["value"]+" "+cont["person_surname"]["value"]+"\"@en .\n")
+						for key in cont:
+							ttlstring=entryToTTL(creatorid,cont[key],ttlstring)     
+				if "research_project" in data:
+					realobj=data["research_project"]
+					if "research_project_name" in realobj:
+									rpid=realobj["research_project_name"]["value"].replace(" ","_")
+					else:
+									rpid=str(generate_uuid())
+					ttlstring.add("<"+rpid+"> rdf:type <http://xmlns.com/foaf/0.1/Project> .\n")
+					ttlstring.add("<"+rpid+"> rdfs:label \""+realobj["research_project_name"]["value"]+"\"@en .\n")
+				if "description" in realobj:        
+								ttlstring.add("<"+rpid+"> skos:definition \""+realobj["description"]["value"]+"\"@en .\n")
+				if "funding" in realobj:
+								ttlstring.add("<"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> rdf:type <http://purl.org/cerif/frapo/FundingAgency> .\n")
+								ttlstring.add("<"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> rdfs:label \""+realobj["funding"]["value"]+"\"@en .\n")
+								ttlstring.add("<"+rpid+"> <http://purl.org/cerif/frapo/hasFundingAgency> <"+rpid+"_"+realobj["funding"]["value"].replace(" ","_")+"> .\n")
+				if "applicants" in realobj:
+								for app in realobj["applicants"]:
+												ttlstring.add("<"+rpid+"> <http://purl.org/cerif/frapo/isAppliedForBy> <"+app["institute"]["value"]+"> .\n")
+												ttlstring.add("<"+app["institute"]["value"]+"> rdf:type <http://purl.org/cerif/frapo/ResearchInstitute> .\n")
+												#ttlstring.add("<"+app["institute"]["value"]+"> rdfs:label \""+app["institute"]["value_label"]+"\" .\n")      
+												ttlstring.add("<"+app["institute"]["value"]+"> rdfs:label \""+app["institute"]["value"]+"\" .\n")  
+				if "duration" in realobj and "project_start" in realobj["duration"]:
+								ttlstring.add("<"+rpid+"> <http://www.w3.org/2006/time#hasBeginning> \""+realobj["duration"]["project_start"]["value"]+"\"^^xsd:date .\n")
+				if "duration" in realobj and "project_end" in realobj["duration"]:
+								ttlstring.add("<"+rpid+"> <http://www.w3.org/2006/time#hasEnd> \""+realobj["duration"]["project_end"]["value"]+"\"^^xsd:date .\n")
+				if "license" in data:
+								realobj=data["license"]
+								if "license_3d_model" in realobj:
+												ttlstring.add("<"+theid+"> <http://purl.org/dc/terms/license> <"+realobj["license_3d_model"]["value"]+"> .\n")
+												ttlstring.add("<"+realobj["license_3d_model"]["value"]+"> rdf:type <"+realobj["license_3d_model"]["uri"]+"> .\n")
+												ttlstring.add("<"+realobj["license_3d_model"]["value"]+"> rdfs:label \""+realobj["license_3d_model"]["value_label"]+"\"@en .\n")
+								if "license_metadata" in realobj:
+												ttlstring.add("<"+theid+"> <http://www.w3.org/ns/dcat#resource> <"+theid+"_metadata> .\n")
+												ttlstring.add("<"+theid+"_metadata> <http://www.w3.org/ns/dcat#resource> <http://www.w3.org/ns/dcat#Dataset>.\n")
+												ttlstring.add("<"+theid+"_metadata> <http://purl.org/dc/terms/license> <"+realobj["license_metadata"]["uri"]+"> .\n")
+												ttlstring.add("<"+theid+"_metadata> rdfs:label \"Metadata License: "+realobj["license_metadata"]["value_label"]+"\"@en .\n")
+								if "rights_holder" in realobj:
+												ttlstring.add("<"+theid+"> <http://purl.org/dc/terms/rightsHolder> <"+realobj["rights_holder"]["value"]+"> .\n")
+												ttlstring.add("<"+realobj["rights_holder"]["value"]+"> rdfs:label \""+realobj["rights_holder"]["value_label"]+"\"@en .\n")
+				return ttlstring
 
 
 
@@ -1000,6 +1135,8 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 
 	print (includeonlypropswithuri)
 
+	mav =  (((Metashape.app.version).split('.'))[0])
+	
 	print ("... inside createMetaDic")
 	doc = Metashape.Document()
 	doc.open(input_file)	
@@ -1111,8 +1248,9 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		if  unit != None:
 			dir["unit"] =  unit
 		if measurementclass!=None:
-			dir["measurementclass"] = measurementclass
-		dir["value_type"] = type(value).__name__
+			dir["measurementclass"] = measurementclass		
+		if value != None:
+			dir["value_type"] = type(value).__name__
 		if keyword == 'LastSavedDateTime' or keyword == 'OriginalDateTime':
 			dir['value_type']= 'dateTime'
 		if keyword == 'LastSavedDateTime':
@@ -1914,15 +2052,24 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		measurementclass=None
 		infos_alignment_setup(keyword, beschreibung, value, unit,description, uri, measurementclass)
 
-		## point_cloud.meta
+
+		### point_cloud.meta # bis metashape app version 1.9.9 (mav)
+		### tie_points.meta # ab metashape app version 2.0.0 (mav)
+
 		# 'match/mask_tiepoints'
 		keyword= 'mask_tiepoints'
 		beschreibung= 'Maske Tiepoints'
-		if 'match/mask_tiepoints' in doc.chunks[i].point_cloud.meta:
-			value =doc.chunks[i].point_cloud.meta['match/mask_tiepoints']
-		else: 
-			value =None 
 		description='Mask tiepoints'
+		if mav == "2":	
+			if 'match/mask_tiepoints' in doc.chunks[i].tie_points.meta:
+				value =doc.chunks[i].tie_points.meta['match/mask_tiepoints']
+			else: 
+				value =None 
+		else:
+			if 'match/mask_tiepoints' in doc.chunks[i].point_cloud.meta:
+				value =doc.chunks[i].point_cloud.meta['match/mask_tiepoints']
+			else: 
+				value =None 		
 		unit = None
 		uri= ontologynamespace + 'mask_tiepoints'
 		measurementclass=None
@@ -1930,14 +2077,23 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 
 		# 'match/match_downscale'
 		keyword= 'match_downscale'
-		beschreibung= 'match_downscale'
-		if 'match/match_downscale' in doc.chunks[i].point_cloud.meta:
-			value =doc.chunks[i].point_cloud.meta['match/match_downscale']
-		elif 'MatchPhotos/downscale' in doc.chunks[i].point_cloud.meta:
-			value =doc.chunks[i].point_cloud.meta['MatchPhotos/downscale']
+		beschreibung= ''
+		description=''	
+		if mav == "2":	
+			if 'MatchPhotos/downscale' in doc.chunks[i].tie_points.meta:
+				# keyword= 'MatchPhotos/downscale'
+				value =doc.chunks[i].tie_points.meta['MatchPhotos/downscale']
+			else:
+				value= None
 		else:
-			value= None
-		description='match_downscale'
+			if 'match/match_downscale' in doc.chunks[i].point_cloud.meta:
+				# keyword= 'match/match_downscale'			
+				value =doc.chunks[i].point_cloud.meta['match/match_downscale']			
+			elif 'MatchPhotos/downscale' in doc.chunks[i].point_cloud.meta:
+				# keyword= 'MatchPhotos/downscale'
+				value =doc.chunks[i].point_cloud.meta['MatchPhotos/downscale']
+			else:
+				value= None		
 		unit = None
 		uri= ontologynamespace + 'match_downscale'
 		measurementclass=None
@@ -1947,12 +2103,12 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		accuracy_values = {"0":"highest", "1":"high", "2": "medium", "4": "low", "8":"lowest"}
 		keyword= 'matching_accuracy'
 		beschreibung= 'Matching Genauigkeit'
+		description='matching accuracy'
 		if value in accuracy_values:
 			print (accuracy_values[value])
 			value = (accuracy_values[value])
 		else: 
-			value = None 
-		description='matching accuracy'
+			value = None 		
 		unit = None
 		uri= ontologynamespace + 'matchingAccuracy'
 		measurementclass=None
@@ -1962,8 +2118,11 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# 'match/match_filter_mask'
 		keyword= 'match_filter_mask'
 		beschreibung= 'Filterpunkte nach Maske'
-		value = doc.chunks[i].point_cloud.meta['match/match_filter_mask']
 		description='Filter points by mask'
+		if mav == "2":
+			value = doc.chunks[i].tie_points.meta['match/match_filter_mask']
+		else:
+			value = doc.chunks[i].point_cloud.meta['match/match_filter_mask']		
 		unit = None
 		uri= ontologynamespace +'match_filter_masks'
 		measurementclass=None
@@ -1972,30 +2131,65 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#'match/match_point_limit'
 		keyword= 'match_point_limit'
 		beschreibung= 'Keypunktlimit'
-		if 'match/match_point_limit' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['match/match_point_limit']
-		elif 'MatchPhotos/keypoint_limit' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/keypoint_limit']
-		else: 
-			value = None 
 		description='Keypoint limit'
-		unit = ontologynamespace + 'match_point_limit'
-		uri= None
+		if mav == "2":
+			if 'match/match_point_limit' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['match/match_point_limit']
+			elif 'MatchPhotos/keypoint_limit' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/keypoint_limit']
+			else: 
+				value = None
+		else:
+			if 'match/match_point_limit' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['match/match_point_limit']
+			elif 'MatchPhotos/keypoint_limit' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/keypoint_limit']
+			else: 
+				value = None		
+		uri = ontologynamespace + 'match_point_limit'
+		unit = None
 		measurementclass=None
 		infos_alignment_setup(keyword, beschreibung, value, unit,description, uri, measurementclass)
+
+		#'MatchPhotos/keypoint_limit_per_mpx'
+		keyword= 'keypoint_limit_per_mpx'
+		beschreibung= ''
+		description='keypoint_limit per mpx'
+		if mav == "2":
+			if 'MatchPhotos/keypoint_limit_per_mpx' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/keypoint_limit_per_mpx']
+			else: 
+				value = None
+		else:
+			value = None		
+		uri = ontologynamespace + 'keypoint_limit_per_mpx'
+		unit = None
+		measurementclass=None
+		infos_alignment_setup(keyword, beschreibung, value, unit,description, uri, measurementclass)
+
 
 		#'match/match_preselection_generic'
 		keyword= 'match_preselection_generic'
 		beschreibung= 'Generische Vorauswahl'
-		if 'match/match_preselection_generic' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['match/match_preselection_generic']
-		elif 'MatchPhotos/generic_preselection' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/generic_preselection']
-		elif 'MatchPhotos/preselection_generic' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/preselection_generic']
-		else: 
-			value = None
 		description='Generic preselection'
+		if mav == "2":
+			if 'match/match_preselection_generic' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['match/match_preselection_generic']
+			elif 'MatchPhotos/generic_preselection' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/generic_preselection']
+			elif 'MatchPhotos/preselection_generic' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/preselection_generic']
+			else: 
+				value = None
+		else:
+			if 'match/match_preselection_generic' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['match/match_preselection_generic']
+			elif 'MatchPhotos/generic_preselection' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/generic_preselection']
+			elif 'MatchPhotos/preselection_generic' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/preselection_generic']
+			else: 
+				value = None		
 		unit = None
 		uri= ontologynamespace +'match_preselection_generic'
 		measurementclass=None
@@ -2004,31 +2198,48 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#'match/match_tiepoint_limit'
 		keyword= 'match_tiepoint_limit'
 		beschreibung= 'Tiepunktlimit'
-		if 'match/match_tiepoint_limit' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['match/match_tiepoint_limit']
-		elif 'MatchPhotos/tiepoint_limit' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/tiepoint_limit']
-		else: 
-			value = None 
 		description='tiepoint limit'
+		if mav == "2":
+			if 'match/match_tiepoint_limit' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['match/match_tiepoint_limit']
+			elif 'MatchPhotos/tiepoint_limit' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/tiepoint_limit']
+			else: 
+				value = None 
+		else:
+			if 'match/match_tiepoint_limit' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['match/match_tiepoint_limit']
+			elif 'MatchPhotos/tiepoint_limit' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/tiepoint_limit']
+			else: 
+				value = None 
 		unit = None
 		uri= ontologynamespace + 'match_tiepoint_limit'
 		measurementclass=None
 		infos_alignment_setup(keyword, beschreibung, value, unit,description, uri, measurementclass)
 
+		#### since version 2 point_cloud = tie_clouds
 		# Chunk Poincloud Meta /Info/LastSavedDateTime
 		# Chunk Poincloud Meta /Info/LastSavedSoftwareVersion
 		# Chunk Poincloud Meta /Info/OriginalDateTime
 		# Chunk Poincloud Meta /Info/OriginalSoftwareVersion
+		# Chunk TiePoints Meta / MatchPhotos/ram_used
+		# Chunk TiePoints Meta / MatchPhotos/duration
 
 		# Chunk Poincloud Meta /MatchPhotos/max_workgroup_size
 		keyword= 'max_workgroup_size'
 		beschreibung= ''
-		if 'MatchPhotos/max_workgroup_size' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/max_workgroup_size']
-		else: 
-			value = None 
-		description='max workgroup size'
+		description=''
+		if mav =="2":
+			if 'MatchPhotos/max_workgroup_size' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/max_workgroup_size']
+			else: 
+				value = None
+		else:
+			if 'MatchPhotos/max_workgroup_size' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/max_workgroup_size']
+			else: 
+				value = None
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2037,11 +2248,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# Chunk Poincloud Meta /MatchPhotos/network_distribute
 		keyword= 'network_distribute'
 		beschreibung= ''
-		if 'MatchPhotos/network_distribute' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/network_distribute']
-		else: 
-			value = None 
 		description='network distribute'
+		if mav ==  "2":
+			if 'MatchPhotos/network_distribute' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/network_distribute']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/network_distribute' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/network_distribute']
+			else: 
+				value = None 
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2050,11 +2267,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# Chunk Poincloud Meta /MatchPhotos/reset_matches
 		keyword= 'reset_matches'
 		beschreibung= ''
-		if 'MatchPhotos/reset_matches' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/reset_matches']
-		else: 
-			value = None 
 		description='reset matches'
+		if mav =="2":
+			if 'MatchPhotos/reset_matches' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/reset_matches']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/reset_matches' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/reset_matches']
+			else: 
+				value = None 
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2063,11 +2286,18 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# Chunk Poincloud Meta /MatchPhotos/store_keypoints
 		keyword= 'store_keypoints'
 		beschreibung= ''
-		if 'MatchPhotos/store_keypoints' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/store_keypoints']
-		else: 
-			value = None 
 		description='store keypoints'
+		if mav =="2":
+			if 'MatchPhotos/store_keypoints' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/store_keypoints']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/store_keypoints' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/store_keypoints']
+			else: 
+				value = None 
+		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2075,12 +2305,18 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 
 		# Chunk Poincloud Meta /MatchPhotos/workitem_size_cameras
 		keyword= 'workitem_size_cameras'
-		beschreibung= ''
-		if 'MatchPhotos/workitem_size_cameras' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/workitem_size_cameras']
-		else: 
-			value = None 
-		description='workitem size cameras'
+		beschreibung=''
+		description=''
+		if mav == "2":
+			if 'MatchPhotos/workitem_size_cameras' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/workitem_size_cameras']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/workitem_size_cameras' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/workitem_size_cameras']
+			else: 
+				value = None 
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2089,11 +2325,18 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# Chunk Poincloud Meta /MatchPhotos/workitem_size_pairs
 		keyword= 'workitem_size_pairs'
 		beschreibung= ''
-		if 'MatchPhotos/workitem_size_pairs' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/workitem_size_pairs']
-		else: 
-			value = None 
-		description='workitem size pairs'
+		description=''
+		if mav == "2":
+			if 'MatchPhotos/workitem_size_pairs' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/workitem_size_pairs']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/workitem_size_pairs' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/workitem_size_pairs']
+			else: 
+				value = None 
+		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2102,11 +2345,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# Chunk Poincloud Meta /match/match_select_pairs
 		keyword= 'match_select_pairs'
 		beschreibung= ''
-		if 'match/match_select_pairs' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['match/match_select_pairs']
-		else: 
-			value = None 
 		description='match select pairs'
+		if mav == "2":	
+			if 'match/mask_tiepoints' in doc.chunks[i].tie_points.meta:
+				value =doc.chunks[i].tie_points.meta['match/mask_tiepoints']
+			else: 
+				value =None 
+		else:
+			if 'match/mask_tiepoints' in doc.chunks[i].point_cloud.meta:
+				value =doc.chunks[i].point_cloud.meta['match/mask_tiepoints']
+			else: 
+				value =None 		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2115,11 +2364,18 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/descriptor_type
 		keyword= 'descriptor_type'
 		beschreibung= ''
-		if 'MatchPhotos/descriptor_type' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/descriptor_type']
-		else: 
-			value = None 
 		description='descriptor type'
+		if mav == "2":
+			if 'MatchPhotos/descriptor_type' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/descriptor_type']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/descriptor_type' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/descriptor_type']
+			else: 
+				value = None 
+		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2128,11 +2384,18 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/descriptor_version
 		keyword= 'descriptor_version'
 		beschreibung= ''
-		if 'MatchPhotos/descriptor_version' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/descriptor_version']
-		else: 
-			value = None 
 		description='descriptor version'
+		if mav == "2":
+			if 'MatchPhotos/descriptor_version' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/descriptor_version']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/descriptor_version' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/descriptor_version']
+			else: 
+				value = None 
+		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2141,11 +2404,18 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/filter_stationary_points
 		keyword= 'filter_stationary_points'
 		beschreibung= ''
-		if 'MatchPhotos/filter_stationary_points' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/filter_stationary_points']
-		else: 
-			value = None 
 		description='filter stationary points'
+		if mav == "2":
+			if 'MatchPhotos/filter_stationary_points' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/filter_stationary_points']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/filter_stationary_points' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/filter_stationary_points']
+			else: 
+				value = None 
+		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2154,11 +2424,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/guided_matching
 		keyword= 'guided_matching'
 		beschreibung= ''
-		if 'MatchPhotos/guided_matching' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/guided_matching']
-		else: 
-			value = None 
 		description='guided matching'
+		if mav == "2":
+			if 'MatchPhotos/guided_matching' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/guided_matching']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/guided_matching' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/guided_matching']
+			else: 
+				value = None 		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2167,11 +2443,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/keep_keypoints
 		keyword= 'keep_keypoints'
 		beschreibung= ''
-		if 'MatchPhotos/keep_keypoints' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/keep_keypoints']
-		else: 
-			value = None 
 		description='keep keypoints'
+		if mav == "2":
+			if 'MatchPhotos/keep_keypoints' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/keep_keypoints']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/keep_keypoints' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/keep_keypoints']
+			else: 
+				value = None 		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2180,11 +2462,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/reference_preselection
 		keyword= 'reference_preselection'
 		beschreibung= ''
-		if 'MatchPhotos/reference_preselection' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/reference_preselection']
-		else: 
-			value = None 
 		description='reference_preselection'
+		if mav == "2":
+			if 'MatchPhotos/reference_preselection' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/reference_preselection']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/reference_preselection' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/reference_preselection']
+			else: 
+				value = None 		
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2193,11 +2481,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/reference_preselection_mode
 		keyword= 'reference_preselection_mode'
 		beschreibung= ''
-		if 'MatchPhotos/reference_preselection_mode' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/reference_preselection_mode']
-		else: 
-			value = None 
 		description='reference preselection mode'
+		if mav =="2":
+			if 'MatchPhotos/reference_preselection_mode' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/reference_preselection_mode']
+			else: 
+				value = None
+		else:
+			if 'MatchPhotos/reference_preselection_mode' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/reference_preselection_mode']
+			else: 
+				value = None 
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2206,11 +2500,17 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		#MatchPhotos/subdivide_task
 		keyword= 'subdivide_task'
 		beschreibung= ''
-		if 'MatchPhotos/subdivide_task' in doc.chunks[i].point_cloud.meta:
-			value = doc.chunks[i].point_cloud.meta['MatchPhotos/subdivide_task']
-		else: 
-			value = None 
 		description='subdivide task'
+		if mav =="2":
+			if 'MatchPhotos/subdivide_task' in doc.chunks[i].tie_points.meta:
+				value = doc.chunks[i].tie_points.meta['MatchPhotos/subdivide_task']
+			else: 
+				value = None 
+		else:
+			if 'MatchPhotos/subdivide_task' in doc.chunks[i].point_cloud.meta:
+				value = doc.chunks[i].point_cloud.meta['MatchPhotos/subdivide_task']
+			else: 
+				value = None 
 		unit = None
 		uri= None
 		measurementclass=None
@@ -2222,7 +2522,10 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		# Anzahl Punkte
 		keyword= 'number_of_tiepoints'
 		beschreibung= 'Anzahl Tiepunkte'
-		value = len(doc.chunks[i].point_cloud.points)
+		if mav == '2':
+			value = len(doc.chunks[i].tie_points.points)
+		else:
+			value = len(doc.chunks[i].point_cloud.points)
 		description='number of tiepoints'
 		unit = None
 		uri= ontologynamespace + 'numberOfTiepoints'
@@ -2233,12 +2536,25 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 		## DenseCloud Information
 
 		list_densecloud =[]
-		if not (len(doc.chunks[i].dense_clouds)) > 0:
-			for d in range(len(doc.chunks[i].dense_clouds)):
-				denseclouds={}
-				densecloud_info= {}
-				densecloud_setup = {} 
-				densecloud = doc.chunks[i].dense_clouds[d]
+
+		if mav == '2':
+			if (len(doc.chunks[i].point_clouds)) > 0:
+				for d in range(len(doc.chunks[i].point_clouds)):
+					denseclouds={}
+					densecloud_info= {}
+					densecloud_setup = {} 
+					densecloud = doc.chunks[i].point_clouds[d]
+		else:
+			if (len(doc.chunks[i].dense_clouds)) > 0:
+				for d in range(len(doc.chunks[i].dense_clouds)):
+					denseclouds={}
+					densecloud_info= {}
+					densecloud_setup = {} 
+					densecloud = doc.chunks[i].dense_clouds[d]
+
+
+
+
 
 				print ("-------")
 				print ("densecloud")
@@ -2886,6 +3202,21 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 				infos_cameras(keyword, beschreibung, value, unit,description, uri, measurementclass, value_type)
 			except:
 				value = None
+			# Wenn die Aufnahmezeit auch noch Dezimalsekunden hat
+			try:				
+				keyword = 'DateTimeOriginal'
+				beschreibung = "Aufnahmedatum, Uhrzeit, Original"
+				description='date, time, original'
+				timeobject = time.strptime((doc.chunks[i].cameras[j].photo.meta['Exif/DateTimeOriginal']), "%Y:%m:%d %H:%M:%S.%f")
+				value = (time.strftime("%Y-%m-%dT%H:%M:%S",timeobject))
+				unit = None
+				uri= exifnamespace+'dateTimeOriginal'
+				measurementclass=None
+				value_type = "dateTime"
+				infos_cameras(keyword, beschreibung, value, unit,description, uri, measurementclass, value_type)
+			except:
+				value = None
+
 
 			# Isowert
 			try:
@@ -3693,6 +4024,10 @@ def createMetaDic(dic_user, input_file, selected_unit, includeonlypropswithuri):
 			texture_info={}
 
 			model= doc.chunks[i].models[l]
+
+			print ("-------")
+			print ((len(doc.chunks[i].models)))
+			print (model)
 
 			# Model ID
 			keyword= 'mesh_id'
@@ -5056,13 +5391,15 @@ def script_version():
 # export als TTL
 
 def exportMeta(input_file, unit,includeonlypropswithuri, manualmetadatapathJSON=None):
+
+	print ("in exportMeta()")
+	print ("_")
 	
-	# schauen nach manualmetadata.json 	## wenn ja dann wird es übergeben
+	#Definition von Variablen		
 	try:
 		out_file = input_file.replace(".psx","")
 
-		out_file_json = out_file+"_meta_agisoft.json"
-		out_file_ttl=out_file+"_meta_agisoft.ttl"
+
 
 		objectdescriptionpathTTL = out_file+"_objdesc.ttl"
 		objectdescriptionpathTXT = out_file+"_objdesc.txt"
@@ -5075,6 +5412,7 @@ def exportMeta(input_file, unit,includeonlypropswithuri, manualmetadatapathJSON=
 		## import externer Infos in ein dictionary
 		ttlstring=set()
 		dic_dig = {}
+		dic_dig["userdata"] = {}
 		if os.path.isfile(objectdescriptionpathTTL):
 			readInputTTL(objectdescriptionpathTTL,ttlstring)
 		elif os.path.isfile(objectdescriptionpathTXT):
@@ -5084,7 +5422,8 @@ def exportMeta(input_file, unit,includeonlypropswithuri, manualmetadatapathJSON=
 		elif os.path.isfile(manualmetadatapathJSON):		### ÜBERPRÜFEN .....
 			print (manualmetadatapathJSON)
 			with open(manualmetadatapathJSON, 'r',encoding='utf8') as json_file:
-				dic_dig=json.load(json_file)
+				# dic_dig=json.load(json_file)
+				dic_dig["userdata"]=json.load(json_file)
 		elif os.path.isfile(manualmetadatapathYAML):
 			with open(manualmetadatapathYAML) as yaml_file:
 				dic_dig["userdata"]=yaml.load(yaml_file)
@@ -5093,20 +5432,40 @@ def exportMeta(input_file, unit,includeonlypropswithuri, manualmetadatapathJSON=
 
 
 	# start von methode createMetaDic ## return dictionary (dic_prj) wo alles drin ist
-	try:
-		dic_prj = createMetaDic(dic_dig, input_file, unit, includeonlypropswithuri)
-	except Exception as e:
-		print ("... methode createMetaDic geht nicht")
-		print (e)
+	# dic_prj = createMetaDic(dic_dig, input_file, unit, includeonlypropswithuri)
+	dic_prj = createMetaDic(dic_dig["userdata"], input_file, unit, includeonlypropswithuri)
+
+	#filenamesuffix = Softwareversion
+	try: 
+		i = 0
+		filenamesuffix = ""
+		while i < len(dic_prj['projects'][0]['applications']):
+			dic_f = dic_prj['projects'][0]['applications'][i]
+			print (i)
+			print (dic_f)
+			if 'OriginalSoftwareVendor' in dic_f.keys():
+				print ("yes")
+				print (dic_f['OriginalSoftwareVendor']['value'])
+				print (((dic_f['OriginalSoftwareVersion']['value']).split("."))[0])
+				filenamesuffix = (dic_f['OriginalSoftwareVendor']['value']) + (((dic_f['OriginalSoftwareVersion']['value']).split("."))[0]) + (((dic_f['OriginalSoftwareVersion']['value']).split("."))[1]) + (((dic_f['OriginalSoftwareVersion']['value']).split("."))[2])
+			i = i + 1
+	except:
+		filenamesuffix = 'agisoft'
+			
+	out_file_json = out_file+"_metadata_" + filenamesuffix + ".json"
+	out_file_ttl = out_file+"_metadata_" + filenamesuffix + ".ttl"
 
 	try:
 		###### export der Metadaten in JSON-File
 		with open(out_file_json, 'w',encoding='utf8') as fp:
 			json.dump(dic_prj, fp, indent = 4, ensure_ascii=False)
-	
+
 		# Methode zum Umwandeln des Dictionary in TTL 
 		# externe Infos aus ttlstring werden übergeben
-		fertiges_ttl = exportToTTL(dic_prj, None, ttlstring)
+		if dic_dig!=None and dic_dig!={} and "userdata" in dic_dig:
+			fertiges_ttl = exportToTTL(dic_prj, None, ttlstring,dic_dig["userdata"])
+		else:
+			fertiges_ttl=exportToTTL(dic_prj, None, ttlstring)  
 		
 		##### export der Metadaten in TTL-File
 		with open(out_file_ttl, 'w',encoding='utf8') as text_file:
@@ -5119,6 +5478,7 @@ def exportMeta(input_file, unit,includeonlypropswithuri, manualmetadatapathJSON=
 		print ("... export geht nicht")
 	
 #######################################################################################################
+
 if production:
 	root = Tk()
 	def_font = tkinter.font.nametofont("TkDefaultFont")
