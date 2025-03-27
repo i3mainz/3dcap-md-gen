@@ -146,10 +146,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  891</span>        <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><span class="lineno">  892</span>                super().__init__()</div>
-<div class="line"><span class="lineno">  893</span>                self.initUI()</div>
-<div class="line"><span class="lineno">  894</span> </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1026</span>        <span class="keyword">def </span>__init__(self):</div>
+<div class="line"><span class="lineno"> 1027</span>                super().__init__()</div>
+<div class="line"><span class="lineno"> 1028</span>                self.initUI()</div>
+<div class="line"><span class="lineno"> 1029</span> </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00018.html#abdd362d5f799ad16b5d6700efe590290">Window.__init__()</a>, and <a class="el" href="a00018.html#a455beb884551f00985ec755a23bf4f50">Window.initUI()</a>.</p>
 
@@ -173,10 +173,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  936</span>        <span class="keyword">def </span>close_window(self):         </div>
-<div class="line"><span class="lineno">  937</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;6&quot;</span>)</div>
-<div class="line"><span class="lineno">  938</span>                root.destroy()</div>
-<div class="line"><span class="lineno">  939</span>        </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1071</span>        <span class="keyword">def </span>close_window(self):         </div>
+<div class="line"><span class="lineno"> 1072</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;6&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1073</span>                root.destroy()</div>
+<div class="line"><span class="lineno"> 1074</span>        </div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="a00018.html#acfa583be016fe2cb66bb7d12e5bfc792">Window.startMetadata()</a>.</p>
 
@@ -197,10 +197,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  967</span>        <span class="keyword">def </span>first_browser(self):</div>
-<div class="line"><span class="lineno">  968</span>                file = self.show_file_browser()</div>
-<div class="line"><span class="lineno">  969</span>                self.filepath.set(file)</div>
-<div class="line"><span class="lineno">  970</span> </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1102</span>        <span class="keyword">def </span>first_browser(self):</div>
+<div class="line"><span class="lineno"> 1103</span>                file = self.show_file_browser()</div>
+<div class="line"><span class="lineno"> 1104</span>                self.filepath.set(file)</div>
+<div class="line"><span class="lineno"> 1105</span> </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00018.html#a03d872533f5f6255a26b393857fd90e9">Window.filepath</a>, and <a class="el" href="a00018.html#a6fe651f9ce344beb3d198608653908e1">Window.show_file_browser()</a>.</p>
 
@@ -221,47 +221,47 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  895</span>        <span class="keyword">def </span>initUI(self):               </div>
-<div class="line"><span class="lineno">  896</span>                self.master.title(<span class="stringliteral">&quot;Metadaten Agisoft Metashape&quot;</span>)</div>
-<div class="line"><span class="lineno">  897</span>                self.master.rowconfigure( 0, weight = 1 )</div>
-<div class="line"><span class="lineno">  898</span>                self.master.columnconfigure( 0, weight = 10)</div>
-<div class="line"><span class="lineno">  899</span>                self.grid( sticky = W+E+N+S )</div>
-<div class="line"><span class="lineno">  900</span> </div>
-<div class="line"><span class="lineno">  901</span>                <span class="comment"># Variablen</span></div>
-<div class="line"><span class="lineno">  902</span>                self.filepath = tkinter.StringVar()</div>
-<div class="line"><span class="lineno">  903</span>                self.unit_mm = tkinter.IntVar()</div>
-<div class="line"><span class="lineno">  904</span>                self.unit_cm = tkinter.IntVar()</div>
-<div class="line"><span class="lineno">  905</span>                self.unit_m = tkinter.IntVar()</div>
-<div class="line"><span class="lineno">  906</span>                self.unit_project = tkinter.IntVar()</div>
-<div class="line"><span class="lineno">  907</span>                self.uri = tkinter.BooleanVar()</div>
-<div class="line"><span class="lineno">  908</span> </div>
-<div class="line"><span class="lineno">  909</span>                </div>
-<div class="line"><span class="lineno">  910</span>                filegroup = LabelFrame(self, text = <span class="stringliteral">&quot;Agisoft file&quot;</span>)</div>
-<div class="line"><span class="lineno">  911</span>                filegroup.grid(row = 0, column = 0, sticky = W, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  912</span>                browseButton = Button(filegroup, text = <span class="stringliteral">&#39;Browse&#39;</span>, command = self.first_browser)</div>
-<div class="line"><span class="lineno">  913</span>                browseButton.grid(row = 1, column=0, sticky = W+E+N+S, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  914</span>                filepathText = Entry(filegroup, textvariable = self.filepath, width=150)</div>
-<div class="line"><span class="lineno">  915</span>                filepathText.grid(row = 1, column = 1, columnspan=5, sticky = W+E+N+S , padx=5, pady=5)         </div>
-<div class="line"><span class="lineno">  916</span> </div>
-<div class="line"><span class="lineno">  917</span>                lbl = Label(filegroup,text=<span class="stringliteral">&quot;Select one unit:&quot;</span>)</div>
-<div class="line"><span class="lineno">  918</span>                lbl.grid(row = 2, column=0, sticky = W)         </div>
-<div class="line"><span class="lineno">  919</span>                checkbutton_mm = Checkbutton(filegroup, text=<span class="stringliteral">&quot;millimetre&quot;</span>, variable=self.unit_mm)</div>
-<div class="line"><span class="lineno">  920</span>                checkbutton_mm.grid(row = 2, column=1, sticky = W+E+N+S, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  921</span>                checkbutton_m = Checkbutton(filegroup, text=<span class="stringliteral">&quot;metre&quot;</span>, variable=self.unit_m)</div>
-<div class="line"><span class="lineno">  922</span>                checkbutton_m.grid(row = 2, column=3, sticky = W+E+N+S, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  923</span> </div>
-<div class="line"><span class="lineno">  924</span>                lbl_2 = Label(filegroup,text=<span class="stringliteral">&quot;Output with URI only:&quot;</span>)</div>
-<div class="line"><span class="lineno">  925</span>                lbl_2.grid(row = 3, column=0, sticky = W)       </div>
-<div class="line"><span class="lineno">  926</span>                checkbutton_uri = Checkbutton(filegroup, variable=self.uri)</div>
-<div class="line"><span class="lineno">  927</span>                checkbutton_uri.grid(row = 3, column=1, sticky = W, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  928</span> </div>
-<div class="line"><span class="lineno">  929</span>                checkbutton_project = Checkbutton(filegroup, text=<span class="stringliteral">&quot;project unit&quot;</span>, variable=self.unit_project)</div>
-<div class="line"><span class="lineno">  930</span>                checkbutton_project.grid(row = 2, column=5, sticky = W+E+N+S, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  931</span> </div>
-<div class="line"><span class="lineno">  932</span>                browseButton = Button(filegroup, text = <span class="stringliteral">&#39;Start&#39;</span>, command = self.startMetadata)</div>
-<div class="line"><span class="lineno">  933</span>                browseButton.grid(row = 4, column=0, sticky = W, padx=5, pady=5 )</div>
-<div class="line"><span class="lineno">  934</span>                </div>
-<div class="line"><span class="lineno">  935</span> </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1030</span>        <span class="keyword">def </span>initUI(self):               </div>
+<div class="line"><span class="lineno"> 1031</span>                self.master.title(<span class="stringliteral">&quot;Metadaten Agisoft Metashape&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1032</span>                self.master.rowconfigure( 0, weight = 1 )</div>
+<div class="line"><span class="lineno"> 1033</span>                self.master.columnconfigure( 0, weight = 10)</div>
+<div class="line"><span class="lineno"> 1034</span>                self.grid( sticky = W+E+N+S )</div>
+<div class="line"><span class="lineno"> 1035</span> </div>
+<div class="line"><span class="lineno"> 1036</span>                <span class="comment"># Variablen</span></div>
+<div class="line"><span class="lineno"> 1037</span>                self.filepath = tkinter.StringVar()</div>
+<div class="line"><span class="lineno"> 1038</span>                self.unit_mm = tkinter.IntVar()</div>
+<div class="line"><span class="lineno"> 1039</span>                self.unit_cm = tkinter.IntVar()</div>
+<div class="line"><span class="lineno"> 1040</span>                self.unit_m = tkinter.IntVar()</div>
+<div class="line"><span class="lineno"> 1041</span>                self.unit_project = tkinter.IntVar()</div>
+<div class="line"><span class="lineno"> 1042</span>                self.uri = tkinter.BooleanVar()</div>
+<div class="line"><span class="lineno"> 1043</span> </div>
+<div class="line"><span class="lineno"> 1044</span>                </div>
+<div class="line"><span class="lineno"> 1045</span>                filegroup = LabelFrame(self, text = <span class="stringliteral">&quot;Agisoft file&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1046</span>                filegroup.grid(row = 0, column = 0, sticky = W, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1047</span>                browseButton = Button(filegroup, text = <span class="stringliteral">&#39;Browse&#39;</span>, command = self.first_browser)</div>
+<div class="line"><span class="lineno"> 1048</span>                browseButton.grid(row = 1, column=0, sticky = W+E+N+S, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1049</span>                filepathText = Entry(filegroup, textvariable = self.filepath, width=150)</div>
+<div class="line"><span class="lineno"> 1050</span>                filepathText.grid(row = 1, column = 1, columnspan=5, sticky = W+E+N+S , padx=5, pady=5)         </div>
+<div class="line"><span class="lineno"> 1051</span> </div>
+<div class="line"><span class="lineno"> 1052</span>                lbl = Label(filegroup,text=<span class="stringliteral">&quot;Select one unit:&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1053</span>                lbl.grid(row = 2, column=0, sticky = W)         </div>
+<div class="line"><span class="lineno"> 1054</span>                checkbutton_mm = Checkbutton(filegroup, text=<span class="stringliteral">&quot;millimetre&quot;</span>, variable=self.unit_mm)</div>
+<div class="line"><span class="lineno"> 1055</span>                checkbutton_mm.grid(row = 2, column=1, sticky = W+E+N+S, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1056</span>                checkbutton_m = Checkbutton(filegroup, text=<span class="stringliteral">&quot;metre&quot;</span>, variable=self.unit_m)</div>
+<div class="line"><span class="lineno"> 1057</span>                checkbutton_m.grid(row = 2, column=3, sticky = W+E+N+S, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1058</span> </div>
+<div class="line"><span class="lineno"> 1059</span>                lbl_2 = Label(filegroup,text=<span class="stringliteral">&quot;Output with URI only:&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1060</span>                lbl_2.grid(row = 3, column=0, sticky = W)       </div>
+<div class="line"><span class="lineno"> 1061</span>                checkbutton_uri = Checkbutton(filegroup, variable=self.uri)</div>
+<div class="line"><span class="lineno"> 1062</span>                checkbutton_uri.grid(row = 3, column=1, sticky = W, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1063</span> </div>
+<div class="line"><span class="lineno"> 1064</span>                checkbutton_project = Checkbutton(filegroup, text=<span class="stringliteral">&quot;project unit&quot;</span>, variable=self.unit_project)</div>
+<div class="line"><span class="lineno"> 1065</span>                checkbutton_project.grid(row = 2, column=5, sticky = W+E+N+S, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1066</span> </div>
+<div class="line"><span class="lineno"> 1067</span>                browseButton = Button(filegroup, text = <span class="stringliteral">&#39;Start&#39;</span>, command = self.startMetadata)</div>
+<div class="line"><span class="lineno"> 1068</span>                browseButton.grid(row = 4, column=0, sticky = W, padx=5, pady=5 )</div>
+<div class="line"><span class="lineno"> 1069</span>                </div>
+<div class="line"><span class="lineno"> 1070</span> </div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="a00018.html#abdd362d5f799ad16b5d6700efe590290">Window.__init__()</a>.</p>
 
@@ -282,19 +282,19 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  971</span>        <span class="keyword">def </span>request_withUri(self):</div>
-<div class="line"><span class="lineno">  972</span>                print(<span class="stringliteral">&#39;:...................&#39;</span>)</div>
-<div class="line"><span class="lineno">  973</span>                print(self.uri)</div>
-<div class="line"><span class="lineno">  974</span>                <span class="comment">#print(includeonlypropswithuri)</span></div>
-<div class="line"><span class="lineno">  975</span>                <span class="keywordflow">if</span> self.uri.get() == <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  976</span>                        includeonlypropswithuri= <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  977</span>        </div>
-<div class="line"><span class="lineno">  978</span>                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  979</span>                        includeonlypropswithuri=<span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  980</span>                print(includeonlypropswithuri)</div>
-<div class="line"><span class="lineno">  981</span>                <span class="keywordflow">return</span> includeonlypropswithuri</div>
-<div class="line"><span class="lineno">  982</span> </div>
-<div class="line"><span class="lineno">  983</span> </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1106</span>        <span class="keyword">def </span>request_withUri(self):</div>
+<div class="line"><span class="lineno"> 1107</span>                print(<span class="stringliteral">&#39;:...................&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1108</span>                print(self.uri)</div>
+<div class="line"><span class="lineno"> 1109</span>                <span class="comment">#print(includeonlypropswithuri)</span></div>
+<div class="line"><span class="lineno"> 1110</span>                <span class="keywordflow">if</span> self.uri.get() == <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno"> 1111</span>                        includeonlypropswithuri= <span class="keyword">True</span></div>
+<div class="line"><span class="lineno"> 1112</span>        </div>
+<div class="line"><span class="lineno"> 1113</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1114</span>                        includeonlypropswithuri=<span class="keyword">False</span></div>
+<div class="line"><span class="lineno"> 1115</span>                print(includeonlypropswithuri)</div>
+<div class="line"><span class="lineno"> 1116</span>                <span class="keywordflow">return</span> includeonlypropswithuri</div>
+<div class="line"><span class="lineno"> 1117</span> </div>
+<div class="line"><span class="lineno"> 1118</span> </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00018.html#abab8d10ddba220b6ca30b80b481bec4e">Window.uri</a>.</p>
 
@@ -317,26 +317,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  947</span>        <span class="keyword">def </span>return_unit (self):</div>
-<div class="line"><span class="lineno">  948</span>                <span class="keywordflow">if</span> self.unit_mm.get() == 1:</div>
-<div class="line"><span class="lineno">  949</span>                        unit = <span class="stringliteral">&#39;unit_mm&#39;</span></div>
-<div class="line"><span class="lineno">  950</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;millimetre units&quot;</span>)</div>
-<div class="line"><span class="lineno">  951</span>                        <span class="keywordflow">print</span> (unit)</div>
-<div class="line"><span class="lineno">  952</span>                <span class="keywordflow">elif</span> self.unit_m.get() == 1:</div>
-<div class="line"><span class="lineno">  953</span>                        unit = <span class="stringliteral">&#39;unit_m&#39;</span></div>
-<div class="line"><span class="lineno">  954</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;metre units&quot;</span>)</div>
-<div class="line"><span class="lineno">  955</span>                        <span class="keywordflow">print</span> (unit)</div>
-<div class="line"><span class="lineno">  956</span>                <span class="keywordflow">elif</span> self.unit_project.get() == 1:</div>
-<div class="line"><span class="lineno">  957</span>                        unit = <span class="stringliteral">&#39;unit_project&#39;</span></div>
-<div class="line"><span class="lineno">  958</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;project units&quot;</span>)</div>
-<div class="line"><span class="lineno">  959</span>                        <span class="keywordflow">print</span> (unit)</div>
-<div class="line"><span class="lineno">  960</span>                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  961</span>                        unit = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  962</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... units&quot;</span>)</div>
-<div class="line"><span class="lineno">  963</span>                        <span class="keywordflow">print</span> (unit)</div>
-<div class="line"><span class="lineno">  964</span> </div>
-<div class="line"><span class="lineno">  965</span>                <span class="keywordflow">return</span> unit</div>
-<div class="line"><span class="lineno">  966</span> </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1082</span>        <span class="keyword">def </span>return_unit (self):</div>
+<div class="line"><span class="lineno"> 1083</span>                <span class="keywordflow">if</span> self.unit_mm.get() == 1:</div>
+<div class="line"><span class="lineno"> 1084</span>                        unit = <span class="stringliteral">&#39;unit_mm&#39;</span></div>
+<div class="line"><span class="lineno"> 1085</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;millimetre units&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1086</span>                        <span class="keywordflow">print</span> (unit)</div>
+<div class="line"><span class="lineno"> 1087</span>                <span class="keywordflow">elif</span> self.unit_m.get() == 1:</div>
+<div class="line"><span class="lineno"> 1088</span>                        unit = <span class="stringliteral">&#39;unit_m&#39;</span></div>
+<div class="line"><span class="lineno"> 1089</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;metre units&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1090</span>                        <span class="keywordflow">print</span> (unit)</div>
+<div class="line"><span class="lineno"> 1091</span>                <span class="keywordflow">elif</span> self.unit_project.get() == 1:</div>
+<div class="line"><span class="lineno"> 1092</span>                        unit = <span class="stringliteral">&#39;unit_project&#39;</span></div>
+<div class="line"><span class="lineno"> 1093</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;project units&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1094</span>                        <span class="keywordflow">print</span> (unit)</div>
+<div class="line"><span class="lineno"> 1095</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1096</span>                        unit = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno"> 1097</span>                        <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... units&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1098</span>                        <span class="keywordflow">print</span> (unit)</div>
+<div class="line"><span class="lineno"> 1099</span> </div>
+<div class="line"><span class="lineno"> 1100</span>                <span class="keywordflow">return</span> unit</div>
+<div class="line"><span class="lineno"> 1101</span> </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00018.html#a23457bc3005bec9d5485232b84b2cff7">Window.unit_m</a>, <a class="el" href="a00018.html#a86cc676166e917fa53dd3c8f911463cd">Window.unit_mm</a>, and <a class="el" href="a00018.html#a036cf688f8efbc08f43a75fe2246e59c">Window.unit_project</a>.</p>
 
@@ -359,12 +359,12 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  941</span>        <span class="keyword">def </span>show_file_browser(self):</div>
-<div class="line"><span class="lineno">  942</span>                filetypes = ((<span class="stringliteral">&#39;text files&#39;</span>, <span class="stringliteral">&#39;*.psx&#39;</span>),(<span class="stringliteral">&#39;All files&#39;</span>, <span class="stringliteral">&#39;*.*&#39;</span>))</div>
-<div class="line"><span class="lineno">  943</span>                self.filename = filedialog.askopenfilename(filetypes=filetypes)                 </div>
-<div class="line"><span class="lineno">  944</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... file open ... &quot;</span> + self.filename)</div>
-<div class="line"><span class="lineno">  945</span>                <span class="keywordflow">return</span> self.filename</div>
-<div class="line"><span class="lineno">  946</span>        </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1076</span>        <span class="keyword">def </span>show_file_browser(self):</div>
+<div class="line"><span class="lineno"> 1077</span>                filetypes = ((<span class="stringliteral">&#39;text files&#39;</span>, <span class="stringliteral">&#39;*.psx&#39;</span>),(<span class="stringliteral">&#39;All files&#39;</span>, <span class="stringliteral">&#39;*.*&#39;</span>))</div>
+<div class="line"><span class="lineno"> 1078</span>                self.filename = filedialog.askopenfilename(filetypes=filetypes)                 </div>
+<div class="line"><span class="lineno"> 1079</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... file open ... &quot;</span> + self.filename)</div>
+<div class="line"><span class="lineno"> 1080</span>                <span class="keywordflow">return</span> self.filename</div>
+<div class="line"><span class="lineno"> 1081</span>        </div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="a00018.html#aa8c374b0012b3b392b07391ce81093f0">Window.first_browser()</a>.</p>
 
@@ -385,17 +385,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  984</span>        <span class="keyword">def </span>startMetadata (self):</div>
-<div class="line"><span class="lineno">  985</span>                unit = self.return_unit()</div>
-<div class="line"><span class="lineno">  986</span>                includeonlypropswithuri= self.request_withUri()</div>
-<div class="line"><span class="lineno">  987</span> </div>
-<div class="line"><span class="lineno">  988</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... projekt wird zur nächsten Methode übergeben und gestartet&quot;</span>)</div>
-<div class="line"><span class="lineno">  989</span>                exportMeta(self.filename , unit, includeonlypropswithuri)</div>
-<div class="line"><span class="lineno">  990</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... close GUI&quot;</span>)</div>
-<div class="line"><span class="lineno">  991</span>                self.close_window()</div>
-<div class="line"><span class="lineno">  992</span> </div>
-<div class="line"><span class="lineno">  993</span> </div>
-<div class="line"><span class="lineno">  994</span> </div>
+<div class="fragment"><div class="line"><span class="lineno"> 1119</span>        <span class="keyword">def </span>startMetadata (self):</div>
+<div class="line"><span class="lineno"> 1120</span>                unit = self.return_unit()</div>
+<div class="line"><span class="lineno"> 1121</span>                includeonlypropswithuri= self.request_withUri()</div>
+<div class="line"><span class="lineno"> 1122</span> </div>
+<div class="line"><span class="lineno"> 1123</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... projekt wird zur nächsten Methode übergeben und gestartet&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1124</span>                exportMeta(self.filename , unit, includeonlypropswithuri)</div>
+<div class="line"><span class="lineno"> 1125</span>                <span class="keywordflow">print</span> (<span class="stringliteral">&quot;... close GUI&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1126</span>                self.close_window()</div>
+<div class="line"><span class="lineno"> 1127</span> </div>
+<div class="line"><span class="lineno"> 1128</span> </div>
+<div class="line"><span class="lineno"> 1129</span> </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00018.html#a398b23e9c501eb37b6a674369edfc71d">Window.close_window()</a>, <a class="el" href="a00011.html#a0d034f70575563221b87b239eccd35d3">agisoft-metashape_3dcap-metadata.exportMeta()</a>, <a class="el" href="a00018.html#a2ff994e16bf9521154de4cf659a3b689">Window.filename</a>, <a class="el" href="a00018.html#a75ff410d40fcb4a4480557b1863ce9b7">Window.request_withUri()</a>, and <a class="el" href="a00018.html#a80606499163e2547d6987387723cc9c1">Window.return_unit()</a>.</p>
 

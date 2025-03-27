@@ -1,6 +1,7 @@
 warning: the dot tool could not be found as 'D:\Programme\ATT\Graphviz\bin/dot'
-/home/runner/work/3dcap-md-gen/3dcap-md-gen/agisoft-metashape_3dcap-metadata.py:370: warning: The following parameter of agisoft-metashape_3dcap-metadata.exportToTTL(dict, measurementToExport, ttlstring) is not documented:
+/home/runner/work/3dcap-md-gen/3dcap-md-gen/agisoft-metashape_3dcap-metadata.py:417: warning: The following parameters of agisoft-metashape_3dcap-metadata.exportToTTL(dict, measurementToExport, ttlstring, usermetadata=None) are not documented:
   parameter 'ttlstring'
+  parameter 'usermetadata'
 /home/runner/work/3dcap-md-gen/3dcap-md-gen/atos-2016_3dcap-metadata.py:491: warning: The following parameters of atos-2016_3dcap-metadata.exportToTTL(dict, measurementToExport, ttlstring, usermetadata=None) are not documented:
   parameter 'ttlstring'
   parameter 'usermetadata'

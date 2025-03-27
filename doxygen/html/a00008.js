@@ -1,12 +1,17 @@
 var a00008 =
 [
     [ "Window", "a00018.html", "a00018" ],
+    [ "addUserMetadataToId", "a00008.html#a094a4325180eed9b968754b9161b750a", null ],
     [ "checkfornewline", "a00008.html#a9c8026a1870e7aaaeecbe6af11ae1fc7", null ],
     [ "createMetaDic", "a00008.html#a8fe39dfc595feef98af0cfefe502ab96", null ],
+    [ "csAsSVG", "a00008.html#ae56abc56b0b4bf30d54e58e692bd587d", null ],
+    [ "csAxisAsSVG", "a00008.html#a3ab1683c47ea44a2f794bfcdd749d949", null ],
+    [ "csFromPoint", "a00008.html#a8049b2983c40f5ed62a585f974fc6d86", null ],
+    [ "entryToTTL", "a00008.html#ab701b859909d527f39d3d7671fe61d5a", null ],
     [ "exportInformationFromIndAsTTL", "a00008.html#a34ecedf0543b59c0911ed24f0cb2e7e1", null ],
     [ "exportInformationFromStructuredList", "a00008.html#a68881ad04a9a982d64b7ea7ad245cc47", null ],
     [ "exportMeta", "a00008.html#a0d034f70575563221b87b239eccd35d3", null ],
-    [ "exportToTTL", "a00008.html#a45b6095ac507680914635da558442dfa", null ],
+    [ "exportToTTL", "a00008.html#a0cca34b935557ef2d5f16ec8ad99e8b0", null ],
     [ "filterLastId", "a00008.html#aaf8991f399b8d5e77b943beb008e6847", null ],
     [ "first_lower", "a00008.html#a8f46d2aae6fdc661c2d37cf56e8a8d48", null ],
     [ "first_upper", "a00008.html#a4ad75b6a98a5060eac676b3a11c66459", null ],
@@ -56,5 +61,6 @@ var a00008 =
     [ "toolnamespace", "a00008.html#ae79a4aa94dc811ee7d04e72f859b834d", null ],
     [ "toolpropnamespace", "a00008.html#a3a47fc399f083104b8baadffdd3ce5aa", null ],
     [ "ttlstring", "a00008.html#a3d5c5f8fd0529cd88f52bf58586cc0ec", null ],
-    [ "ttlstringhead", "a00008.html#afa4b3f00dd8dd06f28762ffddc8a4e0a", null ]
+    [ "ttlstringhead", "a00008.html#afa4b3f00dd8dd06f28762ffddc8a4e0a", null ],
+    [ "units", "a00008.html#aa11abaac18e7628100b0fc46144b5e10", null ]
 ];
