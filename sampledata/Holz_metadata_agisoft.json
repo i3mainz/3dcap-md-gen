@@ -1,6 +1,103 @@
 {
     "projects": [
         {
+            "general": {
+                "real_object": [
+                    {
+                        "object": {
+                            "key_eng": "object",
+                            "key_deu": "Gegenstand",
+                            "uri": "http://www.wikidata.org/entity/Q337060",
+                            "value": "Probekörber, konserviertes Nassholz",
+                            "from_application": "false",
+                            "value_type": "str"
+                        },
+                        "collection": {
+                            "key_eng": "collection",
+                            "key_deu": "Sammlung",
+                            "uri": "http://www.wikidata.org/entity/Q2668072",
+                            "value": "i3mainz",
+                            "from_application": "false",
+                            "value_type": "str"
+                        }
+                    }
+                ],
+                "3d_creation": {
+                    "3d_creator": {
+                        "person_first_name": {
+                            "key_eng": "first name",
+                            "key_deu": "Vorname",
+                            "uri": "http://xmlns.com/foaf/0.1/givenName",
+                            "value": "Anja",
+                            "from_application": "false",
+                            "value_type": "str"
+                        },
+                        "person_surname": {
+                            "key_eng": "surname",
+                            "key_deu": "Nachname",
+                            "uri": "http://xmlns.com/foaf/0.1/familyName",
+                            "value": "Cramer",
+                            "from_application": "false",
+                            "value_type": "str"
+                        },
+                        "employed_by": {
+                            "key_eng": "employed by",
+                            "key_deu": "angestellt bei",
+                            "uri": "http://www.wikidata.org/prop/direct/P108",
+                            "value": "http://www.wikidata.org/entity/Q878029",
+                            "from_application": "false",
+                            "value_label": "RGZM",
+                            "value_type": "str"
+                        },
+                        "orcid_id": {
+                            "key_eng": "ORCID-iD",
+                            "key_deu": "ORCID-iD",
+                            "uri": "http://www.wikidata.org/prop/direct/P496",
+                            "value": "http://orcid.org/0000-0002-5232-1944",
+                            "from_application": "false",
+                            "value_type": "str"
+                        }
+                    }
+                },
+                "licence": {
+                    "licence_3d_model": {
+                        "key_eng": "licence",
+                        "key_deu": "Lizenz",
+                        "uri": "http://www.wikidata.org/entity/Q79719",
+                        "value": "https://www.wikidata.org/wiki/Q6905323",
+                        "from_application": "false",
+                        "value_label": "CC BY 4.0",
+                        "value_type": "str"
+                    },
+                    "copyright": {
+                        "key_eng": "copyright",
+                        "key_deu": "Urheber",
+                        "uri": "http://www.wikidata.org/entity/Q1297822",
+                        "value": "http://www.wikidata.org/entity/Q878029",
+                        "from_application": "false",
+                        "value_label": "RGZM",
+                        "value_type": "str"
+                    },
+                    "rights_holder": {
+                        "key_eng": "rights holder",
+                        "key_deu": "Rechteinhaber",
+                        "uri": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/rightsHolder",
+                        "value": "http://www.wikidata.org/entity/Q878029",
+                        "from_application": "false",
+                        "value_label": "RGZM",
+                        "value_type": "str"
+                    },
+                    "licence_metadata": {
+                        "key_eng": "licence",
+                        "key_deu": "Lizenz",
+                        "uri": "http://www.wikidata.org/entity/Q79719",
+                        "value": "http://www.wikidata.org/entity/Q6938433",
+                        "from_application": "false",
+                        "value_label": "CC0 1.0",
+                        "value_type": "str"
+                    }
+                }
+            },
             "chunks": [
                 {
                     "sensors": [
@@ -493,7 +590,7 @@
                                     "value_type": "int"
                                 },
                                 "area": {
-                                    "value": 52424.02969084188,
+                                    "value": 52421.28482182431,
                                     "key_deu": "Fläche",
                                     "from_application": "true",
                                     "key_eng": "area",
@@ -502,7 +599,7 @@
                                     "value_type": "float"
                                 },
                                 "average_point_distance": {
-                                    "value": 0.16584212965047027,
+                                    "value": 0.1658377879307954,
                                     "key_deu": "durchschnittlicher Punktabstand",
                                     "from_application": "script-based calculation",
                                     "key_eng": "average point distance",
@@ -511,7 +608,7 @@
                                     "value_type": "float"
                                 },
                                 "volume": {
-                                    "value": 679588.4377057177,
+                                    "value": 679535.0645625014,
                                     "key_deu": "Volumen",
                                     "from_application": "true",
                                     "key_eng": "volume",
@@ -769,7 +866,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -18.3444862145752,
+                                    "value": -18.339587524048824,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -778,7 +875,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 68.56042623611773,
+                                    "value": 68.56827285111888,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -787,7 +884,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -790.9722411330292,
+                                    "value": -790.9542508165057,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -796,7 +893,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.08101030354571076,
+                                    "value": -0.08101030354571052,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -804,7 +901,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.4910302979406502,
+                                    "value": 0.4910302979406507,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -838,7 +935,7 @@
                                     "value_type": "int"
                                 },
                                 "referencepoint_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Referenzpunkt verwendet",
                                     "from_application": "true",
                                     "key_eng": "referencepoint enabled",
@@ -862,7 +959,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -156.82919563725554,
+                                    "value": -156.82067143969726,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -871,7 +968,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 82.08477978498314,
+                                    "value": 82.09227233451048,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -880,7 +977,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -878.4458742099335,
+                                    "value": -878.4255938479868,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -889,7 +986,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.7851179436200949,
+                                    "value": -0.7851179436194655,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -897,7 +994,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.8441337658235246,
+                                    "value": 0.8441337658225784,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -905,7 +1002,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -5.182373327389572,
+                                    "value": -5.182373327389273,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -955,7 +1052,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 199.65176696298036,
+                                    "value": 199.65095854745672,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -964,7 +1061,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 90.238861622878,
+                                    "value": 90.24614070000632,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -973,7 +1070,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -878.9378386558083,
+                                    "value": -878.9175454144112,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -982,7 +1079,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 1.288658923708142,
+                                    "value": 1.2886589237081418,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -990,7 +1087,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.8212474742863107,
+                                    "value": 0.8212474742863104,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -998,7 +1095,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.685687315066855,
+                                    "value": -4.685687315066856,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1048,7 +1145,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 194.12897733502038,
+                                    "value": 194.12831350481366,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1057,7 +1154,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 37.92598730297618,
+                                    "value": 37.93463592213999,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1066,7 +1163,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -618.9950577255003,
+                                    "value": -618.9815697434428,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1075,7 +1172,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 0.9568872444134784,
+                                    "value": 0.9568872444114257,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1083,7 +1180,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.21304840375305495,
+                                    "value": -0.21304840375483758,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1091,7 +1188,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -3.52982994868989,
+                                    "value": -3.52982994869209,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1141,7 +1238,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -125.92883453029566,
+                                    "value": -125.92111929925389,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1150,7 +1247,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 56.79800345509449,
+                                    "value": 56.80615800830884,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1159,7 +1256,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -751.0377651245471,
+                                    "value": -751.0208202859724,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1168,7 +1265,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.7520787985838586,
+                                    "value": -0.7520787985840564,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1176,7 +1273,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.3327304716525838,
+                                    "value": 0.3327304716519822,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1184,7 +1281,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.56998547397628,
+                                    "value": -4.569985473976223,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1234,7 +1331,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 163.7116201866985,
+                                    "value": 163.7117526783057,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1243,7 +1340,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 62.9492771163475,
+                                    "value": 62.95727063030961,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1252,7 +1349,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -745.7698236084259,
+                                    "value": -745.7530166837578,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1269,7 +1366,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.2950334522950278,
+                                    "value": 0.2950334522950288,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1277,7 +1374,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.139133626021413,
+                                    "value": -4.139133626021412,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1327,7 +1424,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 18.82029551055666,
+                                    "value": 18.82422123320805,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1336,7 +1433,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 88.94581452195644,
+                                    "value": 88.95312745085124,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1345,7 +1442,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -884.6061765137297,
+                                    "value": -884.5857348761828,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1354,7 +1451,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 0.2426985081588169,
+                                    "value": 0.2426985081588026,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1362,7 +1459,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.8650320326242414,
+                                    "value": 0.8650320326242819,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1370,7 +1467,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.959332968346263,
+                                    "value": -4.959332968346264,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1396,7 +1493,7 @@
                                     "value_type": "int"
                                 },
                                 "referencepoint_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Referenzpunkt verwendet",
                                     "from_application": "true",
                                     "key_eng": "referencepoint enabled",
@@ -1420,7 +1517,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -145.67854663481123,
+                                    "value": -145.67031435942422,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1429,7 +1526,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 28.874567074210518,
+                                    "value": 28.8834526583895,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1438,7 +1535,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -617.6677248026567,
+                                    "value": -617.6542715699675,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1447,7 +1544,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -1.020334855669449,
+                                    "value": -1.0203348556686695,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1455,7 +1552,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.200410945324233,
+                                    "value": -0.20041094532440057,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1463,7 +1560,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.002649534417048,
+                                    "value": -4.002649534417686,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1513,7 +1610,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 22.33203521538394,
+                                    "value": 22.33586900127864,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1522,7 +1619,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": 33.96549352768079,
+                                    "value": 33.974245832340955,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1531,7 +1628,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -614.0069510759697,
+                                    "value": -613.9935936816319,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1540,7 +1637,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.0484515734738379,
+                                    "value": -0.04845157347379266,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1548,7 +1645,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.2161232643230885,
+                                    "value": -0.21612326432302736,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1556,7 +1653,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -3.7452525563025576,
+                                    "value": -3.745252556302518,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1582,7 +1679,7 @@
                                     "value_type": "int"
                                 },
                                 "referencepoint_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Referenzpunkt verwendet",
                                     "from_application": "true",
                                     "key_eng": "referencepoint enabled",
@@ -1606,7 +1703,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 175.10640671413358,
+                                    "value": 175.10624089251806,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1615,7 +1712,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -28.55784525576621,
+                                    "value": -28.547456100836598,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1624,7 +1721,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -890.5169298659563,
+                                    "value": -890.4963334860715,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1633,7 +1730,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 1.2190762303975056,
+                                    "value": 1.2190762304004101,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1641,7 +1738,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.24117870638657127,
+                                    "value": 0.24117870638481428,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1649,7 +1746,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -5.121357994368355,
+                                    "value": -5.121357994370181,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1675,7 +1772,7 @@
                                     "value_type": "int"
                                 },
                                 "referencepoint_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Referenzpunkt verwendet",
                                     "from_application": "true",
                                     "key_eng": "referencepoint enabled",
@@ -1699,7 +1796,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -172.30259974087798,
+                                    "value": -172.2936704522642,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1708,7 +1805,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -45.28275194237074,
+                                    "value": -45.2719249316911,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1717,7 +1814,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -623.5788010711404,
+                                    "value": -623.5651930873432,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1726,7 +1823,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -1.1312764344300463,
+                                    "value": -1.1312764344300468,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1734,7 +1831,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.5642591059046795,
+                                    "value": -0.5642591059046796,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1792,7 +1889,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 165.13565640269513,
+                                    "value": 165.13575161326847,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1801,7 +1898,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -49.34895570536355,
+                                    "value": -49.33802224213849,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1810,7 +1907,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -624.321423191412,
+                                    "value": -624.3077957658898,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1819,7 +1916,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 0.8379160526823201,
+                                    "value": 0.8379160526823205,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1827,7 +1924,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.646480640054095,
+                                    "value": -0.6464806400540961,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1835,7 +1932,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -3.8484335595573778,
+                                    "value": -3.848433559557378,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1885,7 +1982,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -182.29897547473485,
+                                    "value": -182.28978448264937,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1894,7 +1991,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -24.121796279718637,
+                                    "value": -24.111523259378316,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1903,7 +2000,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -886.5710921269234,
+                                    "value": -886.5505990482061,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -1912,7 +2009,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.8706593670307452,
+                                    "value": -0.8706593670307492,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -1920,7 +2017,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.31966640861444207,
+                                    "value": 0.3196664086144385,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -1928,7 +2025,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -5.565311336264177,
+                                    "value": -5.56531133626418,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -1978,7 +2075,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -0.7616275695516208,
+                                    "value": -0.7571891953724048,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -1987,7 +2084,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -47.41749537239872,
+                                    "value": -47.40661247448719,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -1996,7 +2093,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -620.97857599041,
+                                    "value": -620.9650360800778,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -2005,7 +2102,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.13390841555260583,
+                                    "value": -0.13390841555260602,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -2013,7 +2110,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.6151490491504756,
+                                    "value": -0.6151490491504755,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -2047,7 +2144,7 @@
                                     "value_type": "int"
                                 },
                                 "referencepoint_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Referenzpunkt verwendet",
                                     "from_application": "true",
                                     "key_eng": "referencepoint enabled",
@@ -2071,7 +2168,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -0.6226161000874697,
+                                    "value": -0.6181813652181063,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -2080,7 +2177,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -25.972707303950813,
+                                    "value": -25.962385827064736,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -2089,7 +2186,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -895.2543814120895,
+                                    "value": -895.2336610062898,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -2098,7 +2195,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 0.19975767959501614,
+                                    "value": 0.1997576795949477,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -2106,7 +2203,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": 0.30147138549025426,
+                                    "value": 0.3014713854902588,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -2114,7 +2211,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -5.3722466611971464,
+                                    "value": -5.372246661197181,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -2164,7 +2261,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 140.40943230477222,
+                                    "value": 140.41017484365162,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -2173,7 +2270,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -38.080710894695244,
+                                    "value": -38.0700724324812,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -2182,7 +2279,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -758.752758449222,
+                                    "value": -758.7356116334859,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -2191,7 +2288,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 0.8566044901164055,
+                                    "value": 0.8566044901155391,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -2199,7 +2296,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.18862533774655846,
+                                    "value": -0.1886253377475591,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -2207,7 +2304,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.528746393466313,
+                                    "value": -4.5287463934673235,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -2257,7 +2354,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": 33.65386466792819,
+                                    "value": 33.65740205018409,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -2266,7 +2363,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -33.59006708637503,
+                                    "value": -33.57954618825977,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -2275,7 +2372,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -798.8117883533373,
+                                    "value": -798.7935927987581,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -2284,7 +2381,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": 0.2824830973908755,
+                                    "value": 0.28248309739089034,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -2292,7 +2389,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.02766800773581026,
+                                    "value": -0.02766800773579868,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -2300,7 +2397,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.860768992227521,
+                                    "value": -4.860768992227517,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -2350,7 +2447,7 @@
                                     "value_type": "bool"
                                 },
                                 "x_estimated_coordiate": {
-                                    "value": -141.68550373434778,
+                                    "value": -141.6773759962712,
                                     "key_deu": "Geschätzte Koordinate X",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate X",
@@ -2359,7 +2456,7 @@
                                     "value_type": "float"
                                 },
                                 "y_estimated_coordiate": {
-                                    "value": -35.09382365708791,
+                                    "value": -35.08326339087648,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "true",
                                     "key_eng": "estimated coordinate Y",
@@ -2368,7 +2465,7 @@
                                     "value_type": "float"
                                 },
                                 "z_estimated_coordiate": {
-                                    "value": -751.6700938566624,
+                                    "value": -751.6531324638875,
                                     "key_deu": "Geschätzte Koordinate Z",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate z",
@@ -2377,7 +2474,7 @@
                                     "value_type": "float"
                                 },
                                 "x_current_frame_position": {
-                                    "value": -0.7975083389117681,
+                                    "value": -0.7975083389117706,
                                     "key_deu": "x-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "x position in current frame",
@@ -2385,7 +2482,7 @@
                                     "value_type": "float"
                                 },
                                 "y_current_frame_position": {
-                                    "value": -0.14100149651856023,
+                                    "value": -0.14100149651857566,
                                     "key_deu": "y-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "y position in current frame",
@@ -2393,7 +2490,7 @@
                                     "value_type": "float"
                                 },
                                 "z_current_frame_position": {
-                                    "value": -4.860570906885796,
+                                    "value": -4.860570906885789,
                                     "key_deu": "z-Postion in der aktuellen Ansicht",
                                     "from_application": "true",
                                     "key_eng": "z position in current frame",
@@ -2474,7 +2571,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2528,7 +2625,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2582,7 +2679,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2636,7 +2733,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2690,7 +2787,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2744,7 +2841,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2798,7 +2895,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -2852,7 +2949,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -3068,7 +3165,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -3230,7 +3327,7 @@
                                     "value_type": "float"
                                 },
                                 "scalebar_enabled": {
-                                    "value": true,
+                                    "value": false,
                                     "key_deu": "Wird der Maßstab benutzt",
                                     "from_application": "true",
                                     "key_eng": "enabled scalebar",
@@ -3447,7 +3544,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.3250909592249509, 0.5609519597305294, -0.7613466799721926, 3.599390567094046],\n       [0.4945215268990183, -0.7870677507594988, -0.3687449188095302, 1.7229666271871733],\n       [-0.8060796038008063, -0.2566266833142301, -0.533271429712368, -2.113631939169214],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.3250909592249509, 0.560951959730529, -0.7613466799721926, 3.599390567094046],\n       [0.49452152689901824, -0.7870677507594989, -0.3687449188095303, 1.7229666271871733],\n       [-0.8060796038008063, -0.2566266833142301, -0.5332714297123679, -2.113631939169214],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -3774,7 +3871,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.6019347682992595, 0.46815082785083373, -0.646922976168798, 3.0547057807310876],\n       [0.43384322901457534, -0.8718577005793882, -0.2272536085051864, 1.0545361590970455],\n       [-0.670413743408295, -0.14387130472405066, -0.7279055298088319, -1.1946646267746526],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.6019347682992598, 0.46815082785083356, -0.6469229761687981, 3.0547057807310876],\n       [0.43384322901457545, -0.8718577005793882, -0.22725360850518608, 1.0545361590970455],\n       [-0.6704137434082948, -0.1438713047240509, -0.7279055298088318, -1.1946646267746526],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -4060,7 +4157,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.7851061516106712, 0.36294388495835284, -0.5018765456508391, 2.3662000975419963],\n       [0.34818508811874144, -0.9287842459448292, -0.12699200327752302, 0.581357380207529],\n       [-0.5122260000378986, -0.07504372629362135, -0.8555658735767471, -0.5928838462934071],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.7851061516106712, 0.36294388495835306, -0.5018765456508394, 2.3662000975419963],\n       [0.3481850881187415, -0.9287842459448297, -0.1269920032775228, 0.581357380207529],\n       [-0.5122260000378988, -0.07504372629362144, -0.8555658735767471, -0.5928838462934071],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -4918,7 +5015,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.9372600514416847, -0.1607019906742014, 0.3093840108423178, -1.4730513501277698],\n       [-0.17600887307819618, -0.9841422767514647, 0.022019439324981478, -0.11684669681345049],\n       [0.3009393170878043, -0.07509227193121798, -0.9506822172140036, -0.15343420451947598],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.9372600514416847, -0.16070199067420138, 0.3093840108423178, -1.4730513501277698],\n       [-0.17600887307819618, -0.9841422767514647, 0.022019439324981738, -0.11684669681345049],\n       [0.3009393170878043, -0.07509227193121809, -0.9506822172140035, -0.15343420451947598],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -5204,7 +5301,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.6969872278718361, -0.3446432843946721, 0.6288321005683364, -2.9810275535070323],\n       [-0.3978317894172253, -0.9154431663546596, -0.06077562425547839, 0.2776222748336148],\n       [0.5966059600042743, -0.2078095659400876, -0.7751622493331125, -0.987346104413413],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.6969872278718361, -0.34464328439467223, 0.6288321005683363, -2.9810275535070323],\n       [-0.3978317894172253, -0.9154431663546597, -0.060775624255478444, 0.2776222748336148],\n       [0.5966059600042743, -0.20780956594008765, -0.7751622493331125, -0.987346104413413],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -5490,7 +5587,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.3271345178899381, -0.4461747231188051, 0.8330132793988194, -3.9421088785148215],\n       [-0.5507190697982867, -0.8063589415214847, -0.2156241257115284, 1.0120325642187837],\n       [0.7679137408364481, -0.38821820395005785, -0.509504772064368, -2.2461401333876365],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.327134517889938, -0.44617472311880496, 0.833013279398819, -3.9421088785148215],\n       [-0.5507190697982869, -0.8063589415214847, -0.21562412571152836, 1.0120325642187837],\n       [0.7679137408364481, -0.38821820395005796, -0.5095047720643682, -2.2461401333876365],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -5817,7 +5914,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.13261332673210524, -0.445338031419402, 0.885487291464161, -4.184686722648453],\n       [-0.6087912455423307, -0.6684007521487199, -0.42733318836482026, 2.014304705555834],\n       [0.7821680924993437, -0.5957469868144671, -0.18247904750250424, -3.7931595697303435],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.13261332673210502, -0.44533803141940154, 0.8854872914641603, -4.184686722648453],\n       [-0.6087912455423306, -0.6684007521487199, -0.4273331883648203, 2.014304705555834],\n       [0.7821680924993435, -0.5957469868144674, -0.18247904750250404, -3.7931595697303435],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -6144,7 +6241,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.5778366513345159, -0.3257219779819467, 0.7483381571415701, -3.530080146440409],\n       [-0.5418474746392302, -0.5325768292058256, -0.6502024571009846, 3.067711295456118],\n       [0.6103327933198428, -0.7811959511240424, 0.13125078036263577, -5.275062887143087],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.5778366513345161, -0.3257219779819469, 0.7483381571415701, -3.530080146440409],\n       [-0.54184747463923, -0.5325768292058255, -0.6502024571009848, 3.067711295456118],\n       [0.6103327933198429, -0.7811959511240425, 0.131250780362636, -5.275062887143087],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -6471,7 +6568,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.8712277201301805, -0.1302910389757233, 0.47327212556772696, -2.225119901436679],\n       [-0.37659401903274364, -0.44101460131734327, -0.8146674574657257, 3.84345620464401],\n       [0.31486378722478314, -0.8879923234958346, 0.33515731963800954, -6.235735822231937],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.8712277201301803, -0.13029103897572344, 0.4732721255677274, -2.225119901436679],\n       [-0.3765940190327438, -0.44101460131734305, -0.814667457465726, 3.84345620464401],\n       [0.3148637872247833, -0.8879923234958347, 0.33515731963800954, -6.235735822231937],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -7166,7 +7263,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.873220763353491, 0.36942019941359205, -0.3178273347488664, 1.5168234408607402],\n       [0.14197681276379187, -0.43104343169011916, -0.8910915467191014, 4.19803728164739],\n       [-0.4661846019398123, -0.8232437526407517, 0.32394697197564826, -6.172579653525933],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.8732207633534914, 0.36942019941359217, -0.3178273347488665, 1.5168234408607402],\n       [0.14197681276379218, -0.43104343169011905, -0.8910915467191016, 4.19803728164739],\n       [-0.4661846019398126, -0.823243752640752, 0.3239469719756479, -6.172579653525933],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -7452,7 +7549,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.5230683002090968, 0.5525456970912354, -0.6489166402106874, 3.0781702102718156],\n       [0.37697841648952557, -0.5328598912233093, -0.7575933010702595, 3.5633917450400774],\n       [-0.7643865689671788, -0.6409006077009474, 0.0704243156242258, -4.9695457317028815],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.5230683002090968, 0.5525456970912352, -0.6489166402106874, 3.0781702102718156],\n       [0.37697841648952557, -0.5328598912233096, -0.7575933010702594, 3.5633917450400774],\n       [-0.7643865689671788, -0.6409006077009474, 0.07042431562422585, -4.9695457317028815],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -7779,7 +7876,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.09228213473185987, 0.6086284363844566, -0.7880707037021126, 3.731104953375965],\n       [0.490378749078334, -0.6610368625491391, -0.5679427337360335, 2.6651148742479935],\n       [-0.8666098834318121, -0.4388640937413337, -0.2374565584752268, -3.5119792786794237],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.09228213473185987, 0.6086284363844567, -0.788070703702112, 3.731104953375965],\n       [0.490378749078334, -0.661036862549139, -0.5679427337360333, 2.6651148742479935],\n       [-0.8666098834318121, -0.4388640937413336, -0.23745655847522662, -3.5119792786794237],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -8147,7 +8244,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.2398926129896608, 0.7265484748674513, -0.6438779759401413, 2.718824103512315],\n       [0.4983796777222651, -0.6613437158029059, -0.5605730874751809, 2.4010540989019553],\n       [-0.833108174888738, -0.1864183554154092, -0.5207484668222944, -2.295022380852235],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.23989261298966072, 0.7265484748674522, -0.6438779759401413, 2.718824103512315],\n       [0.49837967772226516, -0.6613437158029059, -0.560573087475181, 2.4010540989019553],\n       [-0.8331081748887382, -0.18641835541540935, -0.520748466822294, -2.295022380852235],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -8515,7 +8612,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.5472682916078491, 0.6192611127577037, -0.563039156033323, 2.3438137784308415],\n       [0.44747380596158437, -0.7849906106681361, -0.428435449211572, 1.8421344410700444],\n       [-0.707293863948275, -0.01747613770137159, -0.7067035974382485, -1.5139615244673987],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.5472682916078491, 0.6192611127577037, -0.563039156033323, 2.3438137784308415],\n       [0.44747380596158437, -0.7849906106681358, -0.42843544921157173, 1.8421344410700444],\n       [-0.7072938639482749, -0.01747613770137124, -0.7067035974382484, -1.5139615244673987],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -8842,7 +8939,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.8686232519449495, 0.36627102503854897, -0.33367526488757154, 1.333904248613511],\n       [0.2822105517019486, -0.9192672492505841, -0.27441743560376386, 1.2010435742464842],\n       [-0.40724789832319863, 0.1441986847113194, -0.9018624554990982, -0.7108729341705031],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.8686232519449495, 0.3662710250385491, -0.3336752648875716, 1.333904248613511],\n       [0.2822105517019486, -0.9192672492505841, -0.2744174356037638, 1.2010435742464842],\n       [-0.40724789832319863, 0.1441986847113197, -0.9018624554990983, -0.7108729341705031],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -9210,7 +9307,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.9990446299201108, 0.041874442366472545, -0.012504339418236568, -0.048836693473800576],\n       [0.03880349008332447, -0.9816031014720741, -0.18694822903081423, 0.8515449909230692],\n       [-0.020102651196865474, 0.18628441227569595, -0.9822901817477133, -0.4054129481109961],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.9990446299201108, 0.04187444236647253, -0.01250433941823657, -0.048836693473800576],\n       [0.03880349008332445, -0.9816031014720741, -0.18694822903081415, 0.8515449909230692],\n       [-0.020102651196865474, 0.1862844122756958, -0.9822901817477132, -0.4054129481109961],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -9905,7 +10002,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.6332163127438126, -0.5058513526745089, 0.5857913538731174, -2.5657589995234624],\n       [-0.4374291979074407, -0.8582891097829127, -0.2683197734907138, 1.2448391394852825],\n       [0.6385082600038807, -0.08633778445978646, -0.7647568168257096, -1.3971025028262454],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.6332163127438126, -0.5058513526745086, 0.5857913538731174, -2.5657589995234624],\n       [-0.4374291979074407, -0.8582891097829128, -0.2683197734907139, 1.2448391394852825],\n       [0.6385082600038807, -0.08633778445978663, -0.7647568168257097, -1.3971025028262454],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -10273,7 +10370,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.23396984256537806, -0.6239789955971324, 0.7455926004350669, -3.2088033964830798],\n       [-0.5758116890789255, -0.7068475935098045, -0.41086175079882165, 1.8663064351547505],\n       [0.7833894379489729, -0.33319167547072875, -0.5246754195757619, -2.4354008823772113],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.233969842565378, -0.6239789955971325, 0.745592600435067, -3.2088033964830798],\n       [-0.5758116890789255, -0.7068475935098045, -0.4108617507988214, 1.8663064351547505],\n       [0.7833894379489725, -0.3331916754707285, -0.5246754195757617, -2.4354008823772113],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -10600,7 +10697,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.26636398391215876, -0.5920061868781228, 0.7606437423475387, -3.224518891305459],\n       [-0.6061570185153249, -0.5106871301240008, -0.6097313539833134, 2.7175975607398493],\n       [0.7494157037179409, -0.6234800155768729, -0.22282004666817323, -3.7198972477966485],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.26636398391215826, -0.5920061868781223, 0.760643742347538, -3.224518891305459],\n       [-0.6061570185153246, -0.5106871301240004, -0.6097313539833134, 2.7175975607398493],\n       [0.7494157037179402, -0.6234800155768725, -0.22282004666817323, -3.7198972477966485],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -10968,7 +11065,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.7598528335004378, -0.34336965856672025, 0.5520153521389861, -2.286822850506297],\n       [-0.4633683390932444, -0.3095134982921707, -0.8303560541724919, 3.6450373485243532],\n       [0.4559752775615401, -0.8867348374518257, 0.07607808029886315, -4.966667286711482],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.759852833500438, -0.34336965856672064, 0.5520153521389862, -2.286822850506297],\n       [-0.46336833909324426, -0.30951349829217056, -0.830356054172492, 3.6450373485243532],\n       [0.4559752775615399, -0.8867348374518258, 0.07607808029886298, -4.966667286711482],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -11704,7 +11801,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.9281134103445239, 0.34502536254852423, -0.13986778305570177, 0.6810399431299677],\n       [0.06505848640640782, -0.21960169857111667, -0.9734179407280243, 4.204091522009783],\n       [-0.36656908064533306, -0.9125418309222542, 0.18136845351906017, -5.336267642195166],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.9281134103445239, 0.3450253625485242, -0.1398677830557018, 0.6810399431299677],\n       [0.06505848640640782, -0.21960169857111678, -0.9734179407280245, 4.204091522009783],\n       [-0.36656908064533306, -0.9125418309222542, 0.18136845351906028, -5.336267642195166],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -12072,7 +12169,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.5905241449844318, 0.6468271403653849, -0.4825928767368462, 2.11040668178274],\n       [0.3426045986032002, -0.3404990166404953, -0.8756040821528849, 3.759963634685865],\n       [-0.7306868845178118, -0.6824038907814011, -0.020533062120870277, -4.4397751533423175],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.5905241449844316, 0.6468271403653849, -0.48259287673684625, 2.11040668178274],\n       [0.34260459860320014, -0.34049901664049526, -0.8756040821528845, 3.759963634685865],\n       [-0.730686884517812, -0.6824038907814012, -0.02053306212086994, -4.4397751533423175],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -12481,7 +12578,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.1486081426149796, 0.7561916478927326, -0.6372517646941429, 2.7276060409563274],\n       [0.47874819705835414, -0.5088410473781058, -0.7154585608660562, 3.0637759405244736],\n       [-0.8652836435307796, -0.4114061012678665, -0.28640746512211046, -3.292507330907715],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.1486081426149798, 0.7561916478927324, -0.6372517646941425, 2.7276060409563274],\n       [0.47874819705835425, -0.5088410473781051, -0.7154585608660561, 3.0637759405244736],\n       [-0.8652836435307794, -0.4114061012678664, -0.2864074651221105, -3.292507330907715],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -12890,7 +12987,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.18241622528730336, -0.791448154771377, 0.5833816410043364, -2.3535683437369954],\n       [0.7043325816433506, 0.5191811907175216, 0.4841141452599268, -2.0443541176574587],\n       [-0.6860320219840652, 0.3225844223054135, 0.6521497951378489, -7.152079107518947],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.1824162252873036, -0.7914481547713771, 0.5833816410043363, -2.3535683437369954],\n       [0.7043325816433506, 0.5191811907175214, 0.4841141452599266, -2.0443541176574587],\n       [-0.686032021984065, 0.3225844223054135, 0.6521497951378483, -7.152079107518947],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -13258,7 +13355,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.11780073454454998, -0.78597237379308, 0.6069352639078037, -2.4228424539761577],\n       [0.6787201216372393, 0.38242532536247514, 0.6269687926891864, -2.6518211555500124],\n       [-0.7248875660580029, 0.4857965604607304, 0.4884052809082108, -6.448618624444702],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.11780073454454998, -0.78597237379308, 0.6069352639078037, -2.4228424539761577],\n       [0.6787201216372393, 0.38242532536247514, 0.6269687926891866, -2.6518211555500124],\n       [-0.7248875660580029, 0.4857965604607304, 0.4884052809082109, -6.448618624444702],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -13585,7 +13682,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.5629834589077464, -0.6498557509013658, 0.5106242532593714, -1.964797750945214],\n       [0.5215460516265256, 0.19992894739870637, 0.8294685841096253, -3.4999552313985425],\n       [-0.6411234990460499, 0.7332911556895163, 0.22637301066708998, -5.33800306131458],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.5629834589077467, -0.6498557509013662, 0.5106242532593716, -1.964797750945214],\n       [0.5215460516265258, 0.1999289473987063, 0.8294685841096253, -3.4999552313985425],\n       [-0.6411234990460503, 0.7332911556895165, 0.22637301066709004, -5.33800306131458],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -13828,7 +13925,7 @@
                                     "value_type": "float"
                                 },
                                 "estimated_coordinate_y": {
-                                    "value": -568,
+                                    "value": -567,
                                     "key_deu": "Geschätzte Koordinate Y",
                                     "from_application": "calculated",
                                     "key_eng": "estimated coordinate y",
@@ -13953,7 +14050,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.8734747829192253, -0.397173844058238, 0.28159321937897375, -0.954264173094324],\n       [0.2648500564375235, 0.09769148798951721, 0.9593283175114944, -4.027860091391026],\n       [-0.40852937618885277, 0.9125290739315631, 0.019860463749633017, -4.480262936703373],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.8734747829192253, -0.3971738440582382, 0.28159321937897397, -0.954264173094324],\n       [0.2648500564375235, 0.0976914879895171, 0.9593283175114942, -4.027860091391026],\n       [-0.40852937618885277, 0.912529073931563, 0.019860463749632518, -4.480262936703373],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -14321,7 +14418,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.9918610603051878, -0.12640556748883797, 0.015273164639102341, 0.19554476904229423],\n       [0.004342888866469235, 0.08629762032179394, 0.9962599359821154, -4.158417432716055],\n       [-0.1272508403373502, 0.9882177660994668, -0.08504628386248209, -4.06152528141742],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.9918610603051878, -0.1264055674888379, 0.01527316463910234, 0.19554476904229423],\n       [0.0043428888664692345, 0.08629762032179408, 0.9962599359821154, -4.158417432716055],\n       [-0.12725084033735018, 0.9882177660994667, -0.08504628386248209, -4.06152528141742],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -14648,7 +14745,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.9278728194212855, 0.19330314681707064, -0.318882304949354, 1.616179353960151],\n       [-0.2893265138816209, 0.16629026932388838, 0.942675826938029, -3.8993324361214485],\n       [0.23524922814815574, 0.9669443829708131, -0.0983684954489511, -4.042383764008267],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.9278728194212855, 0.19330314681707064, -0.3188823049493541, 1.616179353960151],\n       [-0.2893265138816209, 0.16629026932388863, 0.942675826938029, -3.8993324361214485],\n       [0.23524922814815574, 0.9669443829708133, -0.09836849544895114, -4.042383764008267],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -14975,7 +15072,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.6423532600103331, 0.455900061293543, -0.6160660869311356, 2.8557024541982248],\n       [-0.5147610838531983, 0.33889109121836936, 0.7875111775988345, -3.2129545294667947],\n       [0.5678057025993826, 0.8229872188590572, 0.016991812447624988, -4.569796039498506],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.642353260010333, 0.45590006129354316, -0.6160660869311352, 2.8557024541982248],\n       [-0.5147610838531982, 0.33889109121836963, 0.7875111775988345, -3.2129545294667947],\n       [0.5678057025993826, 0.8229872188590576, 0.016991812447624988, -4.569796039498506],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -15343,7 +15440,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.24565871777816803, 0.5770010362416399, -0.7789233585890591, 3.5101020118430575],\n       [-0.6005862866656159, 0.5401381479977534, 0.5895310792034326, -2.3585415928867697],\n       [0.7608862639375177, 0.6126341365396071, 0.2138492648983767, -5.43086857422958],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.24565871777816778, 0.57700103624164, -0.7789233585890589, 3.5101020118430575],\n       [-0.6005862866656155, 0.5401381479977534, 0.5895310792034326, -2.3585415928867697],\n       [0.7608862639375176, 0.6126341365396072, 0.21384926489837652, -5.43086857422958],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -16079,7 +16176,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.7060349198629037, 0.33568113543278333, -0.6235646456052013, 2.747407718490956],\n       [-0.31082690675918623, 0.9380633488979365, 0.15304831749779071, -0.5243615705463412],\n       [0.6363185727045054, 0.08576321337814796, 0.7666442103494653, -7.779217400600058],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.7060349198629032, 0.33568113543278344, -0.6235646456052011, 2.747407718490956],\n       [-0.31082690675918623, 0.9380633488979363, 0.15304831749779083, -0.5243615705463412],\n       [0.6363185727045053, 0.0857632133781479, 0.7666442103494655, -7.779217400600058],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -16447,7 +16544,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.9715177380401818, -0.0798537895166494, -0.22310682861158773, 1.0090373750007564],\n       [0.0946363540296364, 0.9939155813026352, 0.05635403925028176, -0.15357417425061706],\n       [0.21724926966336863, -0.07586296556077698, 0.9731636888453334, -8.6173309229007],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.9715177380401818, -0.07985378951664941, -0.2231068286115878, 1.0090373750007564],\n       [0.0946363540296364, 0.9939155813026351, 0.05635403925028192, -0.15357417425061706],\n       [0.21724926966336863, -0.0758629655607769, 0.9731636888453338, -8.6173309229007],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -16815,7 +16912,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.8780579956083798, -0.44925711502863463, 0.16487025488044466, -0.6383925448000266],\n       [0.4327043040441372, 0.8924806824498877, 0.12745672487343235, -0.4925722808944522],\n       [-0.20440435809902283, -0.04057432747355244, 0.9780452864464895, -8.594424111672502],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.8780579956083798, -0.4492571150286347, 0.16487025488044468, -0.6383925448000266],\n       [0.4327043040441372, 0.8924806824498877, 0.12745672487343235, -0.4925722808944522],\n       [-0.20440435809902283, -0.04057432747355239, 0.9780452864464894, -8.594424111672502],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -17224,7 +17321,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.5404110311132369, -0.7047448068673564, 0.4596636538215971, -1.862498820387566],\n       [0.6479329808599411, 0.6970876285489738, 0.307004381789444, -1.281986516931078],\n       [-0.5367855901242876, 0.13192268689448372, 0.8333412475795613, -7.941842054457885],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.5404110311132366, -0.7047448068673566, 0.4596636538215975, -1.862498820387566],\n       [0.6479329808599411, 0.6970876285489742, 0.30700438178944395, -1.281986516931078],\n       [-0.5367855901242877, 0.1319226868944846, 0.8333412475795616, -7.941842054457885],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -17592,7 +17689,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.2506408779778328, -0.7835178895074565, 0.568576175290772, -2.2974774894536507],\n       [0.7015753478237584, 0.5517107717034039, 0.451006935326284, -1.902635761376786],\n       [-0.6670616025619179, 0.2858582536996539, 0.6879781080668994, -7.307215264163142],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.25064087797783263, -0.7835178895074566, 0.5685761752907716, -2.2974774894536507],\n       [0.7015753478237584, 0.5517107717034042, 0.451006935326284, -1.902635761376786],\n       [-0.6670616025619175, 0.28585825369965423, 0.6879781080668996, -7.307215264163142],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -17960,7 +18057,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.256191365348055, -0.573802234465015, 0.7778926532909635, -3.1800644739025548],\n       [0.6967582610670939, 0.6674153718990701, 0.2628395841337167, -1.1627672212062523],\n       [-0.669995455175525, 0.47466590047714735, 0.5707875024633595, -7.018543723027955],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.25619136534805476, -0.5738022344650152, 0.7778926532909636, -3.1800644739025548],\n       [0.6967582610670937, 0.6674153718990703, 0.2628395841337169, -1.1627672212062523],\n       [-0.6699954551755252, 0.4746659004771475, 0.5707875024633593, -7.018543723027955],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -18246,7 +18343,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.07874451507431429, -0.5706460159027641, 0.8174120294441563, -3.3532789960067144],\n       [0.6808232207008533, 0.5681716785262012, 0.4622344490355922, -2.0253290179702694],\n       [-0.7282026115719642, 0.5929115180657415, 0.34376865512252586, -6.036962501432139],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.07874451507431424, -0.5706460159027641, 0.8174120294441557, -3.3532789960067144],\n       [0.6808232207008532, 0.5681716785262008, 0.4622344490355915, -2.0253290179702694],\n       [-0.7282026115719638, 0.5929115180657413, 0.3437686551225253, -6.036962501432139],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -18491,7 +18588,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.5757710974366199, -0.463865152722595, 0.6732880241369762, -2.7329336201485166],\n       [0.5093333959713593, 0.4406829626244216, 0.7391738754859004, -3.22395294920831],\n       [-0.6395835638170452, 0.7685230292855293, -0.017470499502911574, -4.474067533285672],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.5757710974366197, -0.46386515272259427, 0.6732880241369754, -2.7329336201485166],\n       [0.509333395971359, 0.44068296262442147, 0.7391738754859003, -3.22395294920831],\n       [-0.639583563817045, 0.7685230292855287, -0.01747049950291127, -4.474067533285672],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -18777,7 +18874,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.7494225683988315, -0.3843754222756973, 0.5390930798339735, -2.153500859397853],\n       [0.3884409039719969, 0.4041191195789479, 0.8281312705798244, -3.609348597310832],\n       [-0.5361711276224382, 0.8300260670250761, -0.1535488520405402, -3.884818098786356],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.7494225683988309, -0.3843754222756969, 0.5390930798339729, -2.153500859397853],\n       [0.3884409039719967, 0.40411911957894775, 0.8281312705798238, -3.609348597310832],\n       [-0.5361711276224379, 0.8300260670250756, -0.15354885204053997, -3.884818098786356],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -19022,7 +19119,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.9541994059658085, -0.20747194452098802, 0.21554323438971196, -0.7553971057939348],\n       [0.1252520422221278, 0.3772459376414011, 0.9176041785281096, -3.9978568363757967],\n       [-0.2716899327794178, 0.9025745923577406, -0.3339815648453891, -3.102881281702217],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.9541994059658083, -0.20747194452098802, 0.21554323438971199, -0.7553971057939348],\n       [0.1252520422221278, 0.3772459376414006, 0.9176041785281095, -3.9978568363757967],\n       [-0.2716899327794178, 0.9025745923577401, -0.3339815648453891, -3.102881281702217],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -19308,7 +19405,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.9933036266871706, -0.04207450575333271, -0.10759944784118117, 0.6419894398486078],\n       [-0.11544660597830364, 0.39750564429599033, 0.9103083784745256, -3.9679509080291084],\n       [0.004470612732568136, 0.9166346048008672, -0.39970115699526443, -2.816944480236833],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.9933036266871702, -0.042074505753332686, -0.10759944784118114, 0.6419894398486078],\n       [-0.1154466059783036, 0.3975056442959903, 0.9103083784745255, -3.9679509080291084],\n       [0.004470612732568134, 0.9166346048008674, -0.3997011569952644, -2.816944480236833],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -19512,7 +19609,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.9283771359060002, 0.08181611466314659, -0.36252174680755134, 1.7451148038856648],\n       [-0.292543799331587, 0.44072086898585, 0.8486361064160522, -3.7024771714745985],\n       [0.2292030082691143, 0.8939078470523593, -0.38522038105298123, -2.8781898441236673],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.9283771359060005, 0.08181611466314662, -0.3625217468075515, 1.7451148038856648],\n       [-0.2925437993315872, 0.4407208689858498, 0.8486361064160524, -3.7024771714745985],\n       [0.22920300826911438, 0.8939078470523594, -0.38522038105298123, -2.8781898441236673],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -19716,7 +19813,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.697095666138005, 0.22589618797935848, -0.6804620081297745, 3.121668100458161],\n       [-0.4933891387799353, 0.5374741430756307, 0.6838776961263688, -2.9909464505365455],\n       [0.5202160993141263, 0.8124607423017502, -0.26321617015845394, -3.404310659450901],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.697095666138005, 0.22589618797935834, -0.6804620081297746, 3.121668100458161],\n       [-0.4933891387799352, 0.5374741430756307, 0.6838776961263691, -2.9909464505365455],\n       [0.520216099314126, 0.8124607423017502, -0.2632161701584539, -3.404310659450901],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -20043,7 +20140,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[-0.322472414104307, 0.3081431521380266, -0.8950191841140508, 4.051595202454442],\n       [-0.599769822478957, 0.6649911425937867, 0.4450426275261393, -1.9583932144425522],\n       [0.7323166679690553, 0.680319467649024, -0.029626335454269737, -4.413563068202591],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[-0.32247241410430694, 0.30814315213802684, -0.8950191841140505, 4.051595202454442],\n       [-0.5997698224789573, 0.6649911425937862, 0.44504262752613905, -1.9583932144425522],\n       [0.7323166679690555, 0.6803194676490234, -0.029626335454269515, -4.413563068202591],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -20288,7 +20385,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.20597754352028708, 0.2914494342881852, -0.9341469257126763, 4.223680040307071],\n       [-0.5576663694819517, 0.8193922486898856, 0.13268218846458507, -0.6071027406837853],\n       [0.8041028988345754, 0.49361277337608367, 0.33130795047176764, -5.974434557222316],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.2059775435202867, 0.2914494342881855, -0.9341469257126767, 4.223680040307071],\n       [-0.5576663694819517, 0.8193922486898856, 0.13268218846458532, -0.6071027406837853],\n       [0.8041028988345753, 0.493612773376084, 0.3313079504717676, -5.974434557222316],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -20574,7 +20671,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.6669147385800474, 0.15616254514061298, -0.7285862961653294, 3.336773869112393],\n       [-0.3463485949281884, 0.9307123808449566, -0.11754622466579814, 0.4762991836881664],\n       [0.6597479687395609, 0.3307381496548572, 0.6747924822542889, -7.460760146849567],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.6669147385800474, 0.15616254514061312, -0.7285862961653293, 3.336773869112393],\n       [-0.3463485949281884, 0.9307123808449567, -0.11754622466579806, 0.4762991836881664],\n       [0.6597479687395609, 0.3307381496548572, 0.6747924822542889, -7.460760146849567],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -20860,7 +20957,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.9125998288642703, -0.021899972851523564, -0.4082670003147551, 1.952688273311406],\n       [-0.08010725167100666, 0.9696322098115029, -0.23107619073755709, 0.9687849696678194],\n       [0.4009293960120954, 0.2435852394648828, 0.883131842098456, -8.36338186552253],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.9125998288642698, -0.021899972851523647, -0.408267000314755, 1.952688273311406],\n       [-0.08010725167100678, 0.9696322098115034, -0.23107619073755664, 0.9687849696678194],\n       [0.4009293960120953, 0.24358523946488292, 0.8831318420984562, -8.36338186552253],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -21473,7 +21570,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.8594109288742505, -0.39010408140164254, 0.3305021346455683, -1.242926124784709],\n       [0.4511911374578681, 0.8827086876516839, -0.13134660339619317, 0.5400829058000102],\n       [-0.24049825947597192, 0.26200034049218773, 0.9346209973946691, -8.589051944584513],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.8594109288742507, -0.3901040814016426, 0.3305021346455682, -1.242926124784709],\n       [0.45119113745786804, 0.882708687651684, -0.13134660339619295, 0.5400829058000102],\n       [-0.24049825947597198, 0.2620003404921875, 0.9346209973946691, -8.589051944584513],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -21759,7 +21856,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.5296987418179655, -0.5331982326532996, 0.6596354202223089, -2.6683264911523183],\n       [0.6471971681217444, 0.7567521395035572, 0.09198926530842116, -0.424857535655964],\n       [-0.5482290292310861, 0.37818757786604557, 0.7459350423838222, -7.774768856462774],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.5296987418179653, -0.5331982326533002, 0.6596354202223089, -2.6683264911523183],\n       [0.6471971681217444, 0.7567521395035575, 0.09198926530842122, -0.424857535655964],\n       [-0.5482290292310862, 0.3781875778660454, 0.7459350423838225, -7.774768856462774],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -22086,7 +22183,7 @@
                                     "value_type": "bool"
                                 },
                                 "transform": {
-                                    "value": "Matrix([[0.0803009244375249, -0.578776607425257, 0.8115228895304113, -3.3275425891557298],\n       [0.6979132849601164, 0.613928609886349, 0.3687935854095006, -1.62179539095363],\n       [-0.7116662196638662, 0.5367581398174829, 0.45323491825875145, -6.509479636968552],\n       [0.0, 0.0, 0.0, 1.0]])",
+                                    "value": "Matrix([[0.08030092443752496, -0.5787766074252577, 0.8115228895304112, -3.3275425891557298],\n       [0.6979132849601163, 0.613928609886349, 0.36879358540950036, -1.62179539095363],\n       [-0.711666219663866, 0.5367581398174829, 0.45323491825875184, -6.509479636968552],\n       [0.0, 0.0, 0.0, 1.0]])",
                                     "key_deu": "Transformationsmatrix",
                                     "from_application": "true",
                                     "key_eng": "transformation matrix",
@@ -22320,7 +22417,7 @@
                             "value_type": "str"
                         },
                         "LastSavedDateTime": {
-                            "value": "2022-11-23T14:09:41",
+                            "value": "2022-11-08T11:14:37",
                             "key_deu": "Zuletzt gespeichert",
                             "from_application": "true",
                             "key_eng": "last saved date time",
@@ -22335,9 +22432,9 @@
                         },
                         "match_downscale": {
                             "value": "1",
-                            "key_deu": "match_downscale",
+                            "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "match_downscale",
+                            "key_eng": "",
                             "uri": "http://objects.mainzed.org/ont#match_downscale",
                             "value_type": "str"
                         },
@@ -22354,7 +22451,15 @@
                             "key_deu": "Keypunktlimit",
                             "from_application": "true",
                             "key_eng": "Keypoint limit",
-                            "unit": "http://objects.mainzed.org/ont#match_point_limit",
+                            "uri": "http://objects.mainzed.org/ont#match_point_limit",
+                            "value_type": "str"
+                        },
+                        "keypoint_limit_per_mpx": {
+                            "value": "1000",
+                            "key_deu": "",
+                            "from_application": "true",
+                            "key_eng": "keypoint_limit per mpx",
+                            "uri": "http://objects.mainzed.org/ont#keypoint_limit_per_mpx",
                             "value_type": "str"
                         },
                         "match_preselection_generic": {
@@ -22377,7 +22482,7 @@
                             "value": "100",
                             "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "max workgroup size",
+                            "key_eng": "",
                             "value_type": "str"
                         },
                         "reset_matches": {
@@ -22391,14 +22496,14 @@
                             "value": "20",
                             "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "workitem size cameras",
+                            "key_eng": "",
                             "value_type": "str"
                         },
                         "workitem_size_pairs": {
                             "value": "80",
                             "key_deu": "",
                             "from_application": "true",
-                            "key_eng": "workitem size pairs",
+                            "key_eng": "",
                             "value_type": "str"
                         },
                         "descriptor_type": {
@@ -22460,136 +22565,7 @@
                             "uri": "http://objects.mainzed.org/ont#numberOfTiepoints",
                             "value_type": "int"
                         }
-                    },
-                    "densecloud": [
-                        {
-                            "densecloud_information": {
-                                "densecloud_id": {
-                                    "value": 0,
-                                    "key_deu": "Densecloud ID",
-                                    "from_application": "true",
-                                    "key_eng": "densecloud ID",
-                                    "uri": "http://objects.mainzed.org/ont#densecloud_id",
-                                    "value_type": "int"
-                                },
-                                "number of points": {
-                                    "value": 5652298,
-                                    "key_deu": "Anzahl Punkte",
-                                    "from_application": "true",
-                                    "key_eng": "number of points",
-                                    "uri": "http://objects.mainzed.org/ont#numberOfPoints",
-                                    "value_type": "int"
-                                }
-                            },
-                            "densecloud_setup": {
-                                "keep_depth": {
-                                    "value": "true",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "max_neighbors": {
-                                    "value": "16",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "max_workgroup_size": {
-                                    "value": "100",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "point_colors": {
-                                    "value": "true",
-                                    "key_deu": "Berechne Punktfarben",
-                                    "from_application": "true",
-                                    "key_eng": "calculate point Colors",
-                                    "value_type": "str"
-                                },
-                                "point_confidence": {
-                                    "value": "false",
-                                    "key_deu": "Berechne Punkt Konfidenz",
-                                    "from_application": "true",
-                                    "key_eng": "calculate point confidence",
-                                    "value_type": "str"
-                                },
-                                "resolution": {
-                                    "value": "0.000621809170680691",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "subdivide_task": {
-                                    "value": "true",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "BuildDepthMaps_downscale": {
-                                    "value": "2",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "filter_mode": {
-                                    "value": "1",
-                                    "key_deu": "Filtermodus",
-                                    "from_application": "true",
-                                    "key_eng": "Filtering mode",
-                                    "value_type": "str"
-                                },
-                                "reuse_depth": {
-                                    "value": "false",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "workitem_size_cameras": {
-                                    "value": "20",
-                                    "key_deu": "",
-                                    "from_application": "true",
-                                    "key_eng": "",
-                                    "value_type": "str"
-                                },
-                                "LastSavedDateTime": {
-                                    "value": "2022-11-23T14:09:41",
-                                    "key_deu": "Zuletzt gespeichertes Datum Zeit",
-                                    "from_application": "true",
-                                    "key_eng": "last saved date time",
-                                    "value_type": "dateTime"
-                                },
-                                "LastSavedSoftwareVersion": {
-                                    "value": "1.8.1.13915",
-                                    "key_deu": "Zuletzt gespeicherte Softwareversion",
-                                    "from_application": "true",
-                                    "key_eng": "last saved software version",
-                                    "value_type": "str"
-                                },
-                                "OriginalDateTime": {
-                                    "value": "2022-11-04T10:13:34",
-                                    "key_deu": "Original Datum Zeit",
-                                    "from_application": "true",
-                                    "key_eng": "original date time",
-                                    "value_type": "dateTime"
-                                },
-                                "OriginalSoftwareVersion": {
-                                    "value": "1.8.1.13915",
-                                    "key_deu": "Originale Softwareversion",
-                                    "from_application": "true",
-                                    "key_eng": "original software version",
-                                    "value_type": "str"
-                                }
-                            }
-                        }
-                    ]
+                    }
                 }
             ],
             "applications": [
@@ -22605,7 +22581,7 @@
                     "github_release": {
                         "key_deu": "GitHub Release",
                         "key_eng": "GitHub Release",
-                        "value": "0.1.3",
+                        "value": "1.0.0",
                         "value_type": "str",
                         "uri": "http:///www.wikidata.org/entity/Q20631656",
                         "from_application": "false"
@@ -22621,7 +22597,7 @@
                     "start_time_script": {
                         "key_deu": "Skriptausführungszeit",
                         "key_eng": "Script execution time",
-                        "value": "2022-12-21T14:56:05",
+                        "value": "2025-03-26T12:04:22",
                         "value_type": "dateTime",
                         "uri": "http://www.w3.org/ns/prov#startedAtTime",
                         "from_application": "false"
@@ -22652,7 +22628,7 @@
                         "from_application": "true"
                     },
                     "LastSavedDateTime": {
-                        "value": "2022-11-23T14:11:15",
+                        "value": "2022-11-04T11:02:09",
                         "key_deu": "Zuletzt gespeichert",
                         "key_eng": "last saved date time",
                         "value_type": "dateTime",
