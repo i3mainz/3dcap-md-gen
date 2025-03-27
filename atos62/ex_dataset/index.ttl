@@ -1,0 +1,278 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://ldf.fi/void-ext#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/ex_dataset> a void:Dataset,
+        <http://www.w3.org/ns/adms#Asset>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "ex_dataset"@en ;
+    ns1:averageLiteralLength 0 ;
+    ns1:averageObjectIRILength 50 ;
+    ns1:averagePropertyIRILength 48 ;
+    ns1:averageSubjectIRILength 96 ;
+    ns1:datatypes 0 ;
+    ns1:distinctBlankNodes 0 ;
+    ns1:distinctIRIReferences 59997 ;
+    ns1:distinctLiterals 0 ;
+    ns1:distinctRDFNodes 59997 ;
+    ns1:languages 0 ;
+    ns1:propertyClasses 0 ;
+    dc:language <http://www.lexvo.org/page/iso639-1/en> ;
+    dcterms:modified "2025-03-27T10:54:54"^^xsd:dateTime ;
+    dcterms:subject <http://dbpedia.org/resource/Location>,
+        <http://dbpedia.org/resource/OGC_GeoSPARQL>,
+        <http://dbpedia.org/resource/Time>,
+        <http://www.wikidata.org/entity/Q121810372>,
+        foaf:Person ;
+    dcterms:title "ex_dataset"@en ;
+    vann:preferredNamespacePrefix "ex"^^xsd:string ;
+    vann:preferredNamespaceUri "http://objects.mainzed.org/data/"^^xsd:anyURI ;
+    void:classPartition <http://objects.mainzed.org/data/ex_dataset_Activity>,
+        <http://objects.mainzed.org/data/ex_dataset_Agent>,
+        <http://objects.mainzed.org/data/ex_dataset_Algorithm>,
+        <http://objects.mainzed.org/data/ex_dataset_Area>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_maxx>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_maxy>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_maxz>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_minx>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_miny>,
+        <http://objects.mainzed.org/data/ex_dataset_Boundb_minz>,
+        <http://objects.mainzed.org/data/ex_dataset_Calibration>,
+        <http://objects.mainzed.org/data/ex_dataset_CalibrationObject>,
+        <http://objects.mainzed.org/data/ex_dataset_CalibrationSetup>,
+        <http://objects.mainzed.org/data/ex_dataset_CapturingDevice>,
+        <http://objects.mainzed.org/data/ex_dataset_Entity>,
+        <http://objects.mainzed.org/data/ex_dataset_GRP>,
+        <http://objects.mainzed.org/data/ex_dataset_Geometry>,
+        <http://objects.mainzed.org/data/ex_dataset_Image_height>,
+        <http://objects.mainzed.org/data/ex_dataset_Image_width>,
+        <http://objects.mainzed.org/data/ex_dataset_IntermediateMeshResult>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_cam_angle>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_ref_temp>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_residual>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_scale_dev>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_depth>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_height>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_sensor_width>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_temp>,
+        <http://objects.mainzed.org/data/ex_dataset_M_cal_var_height>,
+        <http://objects.mainzed.org/data/ex_dataset_M_corner_mask>,
+        <http://objects.mainzed.org/data/ex_dataset_M_mod_left>,
+        <http://objects.mainzed.org/data/ex_dataset_M_ref_shutter>,
+        <http://objects.mainzed.org/data/ex_dataset_M_shutter_time0>,
+        <http://objects.mainzed.org/data/ex_dataset_M_shutter_time1>,
+        <http://objects.mainzed.org/data/ex_dataset_M_x2006_brightness>,
+        <http://objects.mainzed.org/data/ex_dataset_Measure>,
+        <http://objects.mainzed.org/data/ex_dataset_Measurement>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementCheck>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementProject>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementSeries>,
+        <http://objects.mainzed.org/data/ex_dataset_MeasurementSetup>,
+        <http://objects.mainzed.org/data/ex_dataset_Mesh>,
+        <http://objects.mainzed.org/data/ex_dataset_Person>,
+        <http://objects.mainzed.org/data/ex_dataset_Point>,
+        <http://objects.mainzed.org/data/ex_dataset_Prj_ellipse_quality>,
+        <http://objects.mainzed.org/data/ex_dataset_Prj_max_movement>,
+        <http://objects.mainzed.org/data/ex_dataset_Prj_measurement_temperature>,
+        <http://objects.mainzed.org/data/ex_dataset_Q193540>,
+        <http://objects.mainzed.org/data/ex_dataset_Quantity>,
+        <http://objects.mainzed.org/data/ex_dataset_R_dev>,
+        <http://objects.mainzed.org/data/ex_dataset_R_x>,
+        <http://objects.mainzed.org/data/ex_dataset_R_y>,
+        <http://objects.mainzed.org/data/ex_dataset_R_z>,
+        <http://objects.mainzed.org/data/ex_dataset_ReferencePoint>,
+        <http://objects.mainzed.org/data/ex_dataset_Scanner>,
+        <http://objects.mainzed.org/data/ex_dataset_Setup>,
+        <http://objects.mainzed.org/data/ex_dataset_Software>,
+        <http://objects.mainzed.org/data/ex_dataset_StructuredLightScanner>,
+        <http://objects.mainzed.org/data/ex_dataset_Thing>,
+        <http://objects.mainzed.org/data/ex_dataset_Tool>,
+        <http://objects.mainzed.org/data/ex_dataset_UnitOfMeasure>,
+        <http://objects.mainzed.org/data/ex_dataset_Verification>,
+        <http://objects.mainzed.org/data/ex_dataset_Volume> ;
+    void:classes 63 ;
+    void:dataDump <https://i3mainz.github.io/3dcap-md-gen/atos62//index.ttl> ;
+    void:distinctObjects 46405 ;
+    void:distinctSubjects 13486 ;
+    void:entities 13312 ;
+    void:feature <http://www.w3.org/ns/formats/RDFa>,
+        <http://www.w3.org/ns/formats/Turtle> ;
+    void:properties 106 ;
+    void:propertyPartition <http://objects.mainzed.org/data/ex_dataset_aCTUAL_SESSION_FILE>,
+        <http://objects.mainzed.org/data/ex_dataset_acquisitionTime>,
+        <http://objects.mainzed.org/data/ex_dataset_actedOnBehalfOf>,
+        <http://objects.mainzed.org/data/ex_dataset_alignment>,
+        <http://objects.mainzed.org/data/ex_dataset_areMeasurementsAligned>,
+        <http://objects.mainzed.org/data/ex_dataset_asWKT>,
+        <http://objects.mainzed.org/data/ex_dataset_automatic>,
+        <http://objects.mainzed.org/data/ex_dataset_avoidPointsOnShinyAreas>,
+        <http://objects.mainzed.org/data/ex_dataset_avoidStrongBrightnessDifferencePoints>,
+        <http://objects.mainzed.org/data/ex_dataset_avoidTripleScanPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_calibration>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationDate>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationDeviation>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationObjectName>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationTemperature>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationVolumeDepth>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationVolumeLength>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationVolumeWidth>,
+        <http://objects.mainzed.org/data/ex_dataset_calibrationobject>,
+        <http://objects.mainzed.org/data/ex_dataset_cameraAngle>,
+        <http://objects.mainzed.org/data/ex_dataset_capturingdevice>,
+        <http://objects.mainzed.org/data/ex_dataset_commonReferencepoint>,
+        <http://objects.mainzed.org/data/ex_dataset_cornerMask>,
+        <http://objects.mainzed.org/data/ex_dataset_creator>,
+        <http://objects.mainzed.org/data/ex_dataset_domain>,
+        <http://objects.mainzed.org/data/ex_dataset_ellipseQuality>,
+        <http://objects.mainzed.org/data/ex_dataset_expansionCoefficient>,
+        <http://objects.mainzed.org/data/ex_dataset_exposureTimeForReferencePoints>,
+        <http://objects.mainzed.org/data/ex_dataset_focalLengthCamera>,
+        <http://objects.mainzed.org/data/ex_dataset_hOME>,
+        <http://objects.mainzed.org/data/ex_dataset_hasNumericalValue>,
+        <http://objects.mainzed.org/data/ex_dataset_hasUnit>,
+        <http://objects.mainzed.org/data/ex_dataset_hasValue>,
+        <http://objects.mainzed.org/data/ex_dataset_heightVariance>,
+        <http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/ImageHeight>,
+        <http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/ImageWidth>,
+        <http://objects.mainzed.org/data/ex_dataset_http://www.w3.org/2003/12/exif/exposureTime>,
+        <http://objects.mainzed.org/data/ex_dataset_isDefinedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_isQuickCalibrated>,
+        <http://objects.mainzed.org/data/ex_dataset_lANGUAGE>,
+        <http://objects.mainzed.org/data/ex_dataset_label>,
+        <http://objects.mainzed.org/data/ex_dataset_lightControlActivated>,
+        <http://objects.mainzed.org/data/ex_dataset_lightFactorCalibrationEnvironment>,
+        <http://objects.mainzed.org/data/ex_dataset_lightIntensity>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumSensorMovement>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumXCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumYCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_maximumZCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_measurement>,
+        <http://objects.mainzed.org/data/ex_dataset_measurementSeries>,
+        <http://objects.mainzed.org/data/ex_dataset_measurementTemperature>,
+        <http://objects.mainzed.org/data/ex_dataset_measurementTransformationMethod>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumFringeContrastLeftImage>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumXCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumYCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_minimumZCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_movementControlActivated>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfCameras>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfPhaseSteps>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfReferencePoints>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfScales>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfShutterTimes>,
+        <http://objects.mainzed.org/data/ex_dataset_numberOfTransformationPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECT.DATE>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECT.TYPE>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECT.VERSION>,
+        <http://objects.mainzed.org/data/ex_dataset_pROJECTDIR>,
+        <http://objects.mainzed.org/data/ex_dataset_partOf>,
+        <http://objects.mainzed.org/data/ex_dataset_pointID>,
+        <http://objects.mainzed.org/data/ex_dataset_pointMeasurementDeviation>,
+        <http://objects.mainzed.org/data/ex_dataset_pointMeasurementState>,
+        <http://objects.mainzed.org/data/ex_dataset_pointProjectState>,
+        <http://objects.mainzed.org/data/ex_dataset_polyRaster>,
+        <http://objects.mainzed.org/data/ex_dataset_processname>,
+        <http://objects.mainzed.org/data/ex_dataset_range>,
+        <http://objects.mainzed.org/data/ex_dataset_referenceTemperature>,
+        <http://objects.mainzed.org/data/ex_dataset_refpoints>,
+        <http://objects.mainzed.org/data/ex_dataset_sOFTWAREDIR>,
+        <http://objects.mainzed.org/data/ex_dataset_sameAs>,
+        <http://objects.mainzed.org/data/ex_dataset_scaleDeviation>,
+        <http://objects.mainzed.org/data/ex_dataset_sensorType>,
+        <http://objects.mainzed.org/data/ex_dataset_serialNumber>,
+        <http://objects.mainzed.org/data/ex_dataset_setup>,
+        <http://objects.mainzed.org/data/ex_dataset_strongAmbientLight>,
+        <http://objects.mainzed.org/data/ex_dataset_subClassOf>,
+        <http://objects.mainzed.org/data/ex_dataset_tEMPDIR>,
+        <http://objects.mainzed.org/data/ex_dataset_totalArea>,
+        <http://objects.mainzed.org/data/ex_dataset_totalNumberOfFaces>,
+        <http://objects.mainzed.org/data/ex_dataset_totalNumberOfVertices>,
+        <http://objects.mainzed.org/data/ex_dataset_transformationCheck>,
+        <http://objects.mainzed.org/data/ex_dataset_type>,
+        <http://objects.mainzed.org/data/ex_dataset_usePointsOnShinyAreas>,
+        <http://objects.mainzed.org/data/ex_dataset_useStrongColorTransitionsPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_useTripleScanPoints>,
+        <http://objects.mainzed.org/data/ex_dataset_used>,
+        <http://objects.mainzed.org/data/ex_dataset_volume>,
+        <http://objects.mainzed.org/data/ex_dataset_wasAssociatedWith>,
+        <http://objects.mainzed.org/data/ex_dataset_wasAttributedTo>,
+        <http://objects.mainzed.org/data/ex_dataset_wasDerivedFrom>,
+        <http://objects.mainzed.org/data/ex_dataset_wasGeneratedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_wasInformedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_wasInvalidatedBy>,
+        <http://objects.mainzed.org/data/ex_dataset_xCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_yCoordinate>,
+        <http://objects.mainzed.org/data/ex_dataset_zCoordinate> ;
+    void:triples 91646 ;
+    void:uriSpace "http://objects.mainzed.org/data/"^^xsd:string ;
+    void:vocabulary ns1:,
+        dcam:,
+        dcmitype:,
+        dc:,
+        dcterms:,
+        qb:,
+        vann:,
+        <http://purl.org/vocommons/voaf#>,
+        void:,
+        doap:,
+        geo:,
+        rdf:,
+        rdfs:,
+        xsd:,
+        owl:,
+        skos:,
+        time:,
+        xml:,
+        <http://www.w3.org/ns/adms#>,
+        csvw:,
+        dcat:,
+        prof:,
+        odrl:,
+        org:,
+        prov:,
+        sh:,
+        sosa:,
+        ssn:,
+        foaf:,
+        brick:,
+        schema:,
+        wgs: ;
+    dcat:distribution <http://objects.mainzed.org/data/ex_dataset_dist_ttl> ;
+    dcat:keyword "Location"@en,
+        "OGC GeoSPARQL"@en,
+        "Person"@en,
+        "Q121810372"@en,
+        "Time"@en ;
+    dcat:landingPage <https://i3mainz.github.io/3dcap-md-gen/atos62/> ;
+    foaf:homepage <https://i3mainz.github.io/3dcap-md-gen/atos62/> ;
+    foaf:page <https://i3mainz.github.io/3dcap-md-gen/atos62//index.html> .
+
