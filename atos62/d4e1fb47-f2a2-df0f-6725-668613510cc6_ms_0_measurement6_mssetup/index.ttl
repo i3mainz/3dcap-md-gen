@@ -1,7 +1,7 @@
 @prefix ns1: <http://objects.mainzed.org/ont#> .
-@prefix ns2: <http://www.w3.org/2003/12/exif/exposureTim#http://www.w3.org/2003/12/exif/> .
+@prefix ns2: <http://www.w3.org/2003/12/exif/ImageWidt#http://www.w3.org/2003/12/exif/> .
 @prefix ns3: <http://www.w3.org/2003/12/exif/ImageHeigh#http://www.w3.org/2003/12/exif/> .
-@prefix ns4: <http://www.w3.org/2003/12/exif/ImageWidt#http://www.w3.org/2003/12/exif/> .
+@prefix ns4: <http://www.w3.org/2003/12/exif/exposureTim#http://www.w3.org/2003/12/exif/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -17,7 +17,7 @@
     ns1:partOf <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_activity> ;
     void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
     ns3:ImageHeight <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_mssetup_image_height> ;
-    ns4:ImageWidth <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_mssetup_image_width> ;
-    ns2:exposureTime <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_mssetup_m_shutter_time0>,
+    ns2:ImageWidth <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_mssetup_image_width> ;
+    ns4:exposureTime <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_mssetup_m_shutter_time0>,
         <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_0_measurement6_mssetup_m_shutter_time1> .
 
