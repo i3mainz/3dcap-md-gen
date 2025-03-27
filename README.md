@@ -7,7 +7,7 @@ Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orc
 Source Code Documentation: [Doxygen Documentation](http://i3mainz.github.io/3dcap-md-gen)
 
 Scripts are implemented in the following applications
-* [ZEISS / GOM](#zeiss---gom)
+* [ZEISS / GOM](#zeiss--gom)
 * [ATOS v6.2](#atos-v62)
 * [Agisoft Metashape](#agisoft-metashape)
 
