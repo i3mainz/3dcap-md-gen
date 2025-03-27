@@ -1,0 +1,30 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp75> a ns1:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GRP75 ( Messreihe 1)"@de,
+        "GRP75 ( Measurement Series 1)"@en ;
+    ns1:commonReferencepoint false ;
+    ns1:pointID 75 ;
+    ns1:pointMeasurementDeviation <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp75_r_dev> ;
+    ns1:pointMeasurementState "ok"^^xsd:string ;
+    ns1:pointProjectState "atos point"^^xsd:string ;
+    ns1:xCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp75_r_x> ;
+    ns1:yCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp75_r_y> ;
+    ns1:zCoordinate <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp75_r_z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    geo:asWKT "POINT(-57.062589259 323.978252483 -150.578537102)"^^geo:wktLiteral ;
+    ns2:wasDerivedFrom <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement1_rp75>,
+        <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement2_rp75>,
+        <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement3_rp75>,
+        <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement4_rp75>,
+        <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement5_rp75>,
+        <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_measurement6_rp75> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/d4e1fb47-f2a2-df0f-6725-668613510cc6_ms_1_grp_calculation_activity> .
+
