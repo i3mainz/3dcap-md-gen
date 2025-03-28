@@ -1,0 +1,31 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040> a ns2:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GRP1040 ( Messreihe 1)"@de,
+        "GRP1040 ( Measurement Series 1)"@en ;
+    ns2:diameter <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_diameter> ;
+    ns2:normal.x <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_normal.x> ;
+    ns2:normal.y <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_normal.y> ;
+    ns2:normal.z <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_normal.z> ;
+    ns2:pointID 1040 ;
+    ns2:pointThickness <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_point_thickness> ;
+    ns2:point_type "uncoded,atos"^^xsd:string ;
+    ns2:residual <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_residual> ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_coordinate.x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_coordinate.y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp1040_coordinate.z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    geo:asWKT "POINT(90.12431329659861 -142.7736221495106 47.093866352023)"^^geo:wktLiteral ;
+    geo:inSRS <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre> ;
+    ns1:wasDerivedFrom <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_measurement1_rp1040>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_measurement5_rp1040>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_measurement7_rp1040> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_grp_calculation_activity> .
+
