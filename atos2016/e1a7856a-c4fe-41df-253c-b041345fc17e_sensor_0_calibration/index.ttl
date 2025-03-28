@@ -1,0 +1,42 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration> a ns1:Calibration,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Sensor 0 Calibration"@en ;
+    ns1:calibrationDate "2020-08-24T09:36:29"^^xsd:dateTime ;
+    ns1:calibrationDeviation <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_deviation> ;
+    ns1:calibrationDeviationOptimized <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_deviation_optimized> ;
+    ns1:calibrationVolumeDepth <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_volume_depth> ;
+    ns1:calibrationVolumeLength <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_volume_length> ;
+    ns1:calibrationVolumeWidth <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_volume_width> ;
+    ns1:calibration_is_overexposure_check_ignored "no"^^xsd:string ;
+    ns1:calibration_max_ellipse_quality "0.4"^^xsd:float ;
+    ns1:calibration_max_z "116.017113388632"^^xsd:float ;
+    ns1:calibration_min_z "-162.4409059928217"^^xsd:float ;
+    ns1:calibration_movement_check_threshold "0.2"^^xsd:float ;
+    ns1:calibration_object_identification_point_id 2 ;
+    ns1:calibration_object_recertified false ;
+    ns1:calibration_object_type "panel3"^^xsd:string ;
+    ns1:calibration_projector_deviation_optimized <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_projector_deviation_optimized> ;
+    ns1:calibration_reference_point_max_z "116.017113388632"^^xsd:float ;
+    ns1:calibration_reference_point_min_z "-162.4409059928217"^^xsd:float ;
+    ns1:calibration_snap_mode "double_snap"^^xsd:string ;
+    ns1:calibrationobject <http://objects.mainzed.org/data/CP40-320-53034_calibration_object> ;
+    ns1:calibrationsetup <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_setup> ;
+    ns1:cameraAngle <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_camera_angle> ;
+    ns1:heightVariance <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_height_variance> ;
+    ns1:isQuickCalibrated false ;
+    ns1:limit_value_calibration_deviation "0.055"^^xsd:float ;
+    ns1:limit_value_calibration_projector_deviation "0.3"^^xsd:float ;
+    ns1:projectorDeviation <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_projector_deviation> ;
+    ns1:reference_volume_depth <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_reference_volume_depth> ;
+    ns1:reference_volume_length <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_reference_volume_length> ;
+    ns1:reference_volume_width <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_reference_volume_width> ;
+    ns1:scaleDeviation <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0_calibration_calibration_scale_deviation> ;
+    ns1:sensor_is_retro_calibrated false ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
