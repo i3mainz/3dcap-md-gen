@@ -161,7 +161,7 @@
             },
             "project_information": {
                 "project_creation_time": {
-                    "value": "05.03.2025 11:44",
+                    "value": "05.03.2025 12:21",
                     "key_deu": "Erzeugungszeit des Projektes",
                     "key_eng": "Creationtime of the Project ",
                     "from_application": "true",
@@ -175,14 +175,14 @@
                     "value_type": "str"
                 },
                 "project_file": {
-                    "value": "D:\\LEIZA-Projekte\\Metadaten\\ATOS-Q\\2023\\V03_041.zinspect",
+                    "value": "F:\\LEIZA-Projekte\\Metadaten\\Release_2025-03\\zenodo_atos - Kopie\\zeiss-2023_project\\V03_041.zinspect",
                     "key_deu": "Projektdatei",
                     "key_eng": "Project file",
                     "from_application": "true",
                     "value_type": "str"
                 },
                 "project_file_size": {
-                    "value": 1144850434,
+                    "value": 1144850498,
                     "key_deu": "Projektdateigröße",
                     "key_eng": "Project file size",
                     "unit": "Bytes",
@@ -205,7 +205,7 @@
                     "value_type": "str"
                 },
                 "project_modification_time": {
-                    "value": "26.02.2025 16:35",
+                    "value": "05.03.2025 12:21",
                     "key_deu": "Änderungszeit des Projektes",
                     "key_eng": "Project modification time",
                     "from_application": "true",
@@ -23563,21 +23563,21 @@
                         "from_application": "true"
                     },
                     "application_build_information.version": {
-                        "value": "2023 Service Pack 3",
+                        "value": "2023 Service Pack 4",
                         "key_deu": "Applikationsbuild-Informationen / Version",
                         "key_eng": "application build information / version",
                         "value_type": "str",
                         "from_application": "true"
                     },
                     "application_build_information.revision": {
-                        "value": "188",
+                        "value": "104",
                         "key_deu": "Applikationsbuild-Informationen / Revision",
                         "key_eng": "application build information / Revision",
                         "value_type": "str",
                         "from_application": "true"
                     },
                     "application_build_information.date": {
-                        "value": "2024-07-08",
+                        "value": "2024-09-18",
                         "key_deu": "Applikationsbuild-Informationen / Datum",
                         "key_eng": "application build information / date",
                         "value_type": "date",
@@ -23612,7 +23612,7 @@
                     "start_time_script": {
                         "key_deu": "Skriptausführungszeit",
                         "key_eng": "Script execution time",
-                        "value": "2025-03-05T11:52:14",
+                        "value": "2025-03-28T10:21:52",
                         "value_type": "dateTime",
                         "uri": "http://www.w3.org/ns/prov#startedAtTime",
                         "from_application": "false"
