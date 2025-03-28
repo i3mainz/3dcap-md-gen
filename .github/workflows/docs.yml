@@ -50,7 +50,7 @@ jobs:
     needs: ontdocII
     with: 
           rdffilepath: sampledata/Holz_metadata_agisoft.ttl
-          docpath: docs/agisoft/
+          docpath: docs/agisoft_holz/
           version: v018
           prefixns: http://objects.mainzed.org/data/
           prefixnsshort: ex
@@ -61,7 +61,7 @@ jobs:
           createVOWL: true
           preferredlang: en
           ghpages: true
-          ghpagesfolder: agisoft/
+          ghpagesfolder: agisoft_holz/
 
   ontdocIIII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
@@ -81,6 +81,25 @@ jobs:
           preferredlang: en
           ghpages: true
           ghpagesfolder: zeiss2023/
+
+  ontdocIIIII:
+    uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+    name: Ontdoc III  
+    needs: ontdocIIII
+    with: 
+          rdffilepath: sampledata/Krieger_metadata_agisoft.ttl
+          docpath: docs/agisoft_krieger/
+          version: v018
+          prefixns: http://objects.mainzed.org/data/
+          prefixnsshort: ex
+          indexpages: true
+          metadatatable: true
+          createcollections: false
+          createnonNSPages: true
+          createVOWL: true
+          preferredlang: en
+          ghpages: true
+          ghpagesfolder: agisoft_krieger/
 
 
   build:
