@@ -860,7 +860,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_rp1024 rdfs:label "RP1
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_rp1010 prov:wasGeneratedBy ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_activity . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1021_point_thickness om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1021_point_thickness_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_activity rdfs:label "MS 1 Measurement 2 Activity"@en. 
-ex:CP40/320/57409_calibration_object <http://objects.mainzed.org/ont#referenceTemperature> ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature .
+ex:CP40_320_57409_calibration_object <http://objects.mainzed.org/ont#referenceTemperature> ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup_current_camera_temperature_value rdf:type om:Measure .
 giga:averageresolution rdfs:label "average resolution"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_mssetup_exposure_times_0 rdf:type giga:Exposure_times_0 .
@@ -1081,7 +1081,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1002 giga:point_type """uncoded,
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1033_point_thickness rdf:type giga:Point_thickness .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp_calculation_activity prov:used ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_rp1002 . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1009 prov:wasDerivedFrom ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_rp1009 . 
-ex:CP40/320/57409_calibration_object <http://objects.mainzed.org/ont#calibrationTemperature> ex:CP40/320/57409_calibration_object_calibration_measurement_temperature .
+ex:CP40_320_57409_calibration_object <http://objects.mainzed.org/ont#calibrationTemperature> ex:CP40_320_57409_calibration_object_calibration_measurement_temperature .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_max_intersection_deviation rdf:type giga:Max_intersection_deviation .
 giga:Measurement_temperature rdf:type owl:Class .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_max_intersection_deviation_value om:hasNumericalValue "0.05636945714018941"^^xsd:float .
@@ -1147,7 +1147,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mssetup_sensor_accele
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_corner_mask_size rdfs:label "Eckenmaskierungsgröße ( MS 1 Measurement 7)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_corner_mask_size rdf:type giga:Corner_mask_size .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1026 prov:wasDerivedFrom ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_rp1026 . 
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature rdfs:label "Measurement temperature (CP40/320/57409 Calibration Object)"@en .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature rdfs:label "Measurement temperature (CP40/320/57409 Calibration Object)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_mssetup_image_width rdfs:label "Bildbreite ( MS 0 Measurement 1 Setup)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mscheck_lighting_change_sigma_value om:hasUnit "Grauwerte" .
 <http://www.w3.org/ns/prov#startedAtTime> rdfs:domain giga:Software .
@@ -1575,7 +1575,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_mssetup_sensor_tilt_an
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1007_point_thickness_value rdfs:label "Point thickness Measurement Value ( MS 0 GRP1007)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0 giga:globalReferencePoint ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1024 . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1021_residual_value rdf:type om:Measure .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient_value om:hasUnit "x 10-6 K-1" .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient_value om:hasUnit "x 10-6 K-1" .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_corner_mask_size rdf:type giga:Corner_mask_size .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1029_diameter om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1029_diameter_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_rp1001 rdfs:label "RP1001 ( Messreihe 0 Messung 15)"@de .
@@ -1685,7 +1685,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_mesh_0 <http://www.gigamesh.eu/ont#minim
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement9_rp1016 <http://objects.mainzed.org/ont#pointID> """1016"""^^xsd:integer .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_mssetup_reference_point_exposure_time rdf:type giga:Reference_point_exposure_time .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_mssetup_remaining_lamp_warmup_time_value rdfs:label "Remaining lamp warm up time (ATOS IIe Rev.01 / ATOS III Rev.01) Measurement Value ( MS 1 Measurement 4 Setup)"@en .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature_value om:hasNumericalValue "20.0"^^xsd:float .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature_value om:hasNumericalValue "20.0"^^xsd:float .
 giga:min_ellipse_radius_for_photogrammetry rdf:type owl:ObjectProperty .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_rp1016 prov:wasAttributedTo ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_algorithm . 
 giga:automatic_exposure_time_mode rdfs:domain giga:MeasurementProject .
@@ -2046,7 +2046,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1000 <http://objects.mainzed.org
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp_calculation_activity prov:used ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_rp1029 . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement0_mssetup_sensor_tilt_angle rdfs:label "Sensor tilt angle ( MS 0 Measurement 0 Setup)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_rp1023 prov:wasAttributedTo ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_algorithm . 
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature rdfs:label "Messtemperatur (CP40/320/57409 Calibration Object)"@de .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature rdfs:label "Messtemperatur (CP40/320/57409 Calibration Object)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_mssetup_image_height_value om:hasNumericalValue "3000"^^xsd:integer .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_algorithm rdfs:label "MS 0 Measurement 1 Algorithm"@en. 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_mssetup_exposure_times_0_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> .
@@ -2121,7 +2121,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_mssetup giga:is_double
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_mssetup_sensor_tilt_angle_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_min_fringe_contrast_value rdfs:label "Min. Streifenkontrast Messwert ( MS 0 Measurement 5)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1034 <http://objects.mainzed.org/ont#pointThickness> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1034_point_thickness .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3 giga:referencePoint ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_rp1025 . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement14_mssetup_sensor_camera_support_temperature_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_rp1012 rdfs:label "RP1012 ( MS 1 Measurement 7)"@en .
@@ -2632,7 +2632,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_corner_mask_size_value
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_mssetup_sensor_acceleration_value om:hasUnit "mm/s²" .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11 <http://objects.mainzed.org/ont#numberOfCommonReferencePoints> """13"""^^xsd:integer .
 <http://objects.mainzed.org/ont#sensorSetupValid> rdf:type owl:DatatypeProperty .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient_value rdfs:label "Ausdehnungskoeffizient Messwert (CP40/320/57409 Calibration Object)"@de .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient_value rdfs:label "Ausdehnungskoeffizient Messwert (CP40/320/57409 Calibration Object)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_mssetup giga:sensor_camera_support_temperature ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_mssetup_sensor_camera_support_temperature .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_mssetup_image_height_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pixel> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1032 prov:wasDerivedFrom ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_rp1032 . 
@@ -3394,7 +3394,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_rp1007 prov:wasGenerat
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1001_residual_value om:hasNumericalValue "0.011068514548242092"^^xsd:float .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup_sensor_tilt_angle rdf:type giga:Sensor_tilt_angle .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_rp1005 rdfs:label "RP1005 ( Messreihe 0 Messung 8)"@de .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature_value rdfs:label "Certification temperature Measurement Value (CP40/320/57409 Calibration Object)"@en .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature_value rdfs:label "Certification temperature Measurement Value (CP40/320/57409 Calibration Object)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_algorithm rdfs:label "MS 0 Measurement 3 Algorithm"@en. 
 <http://objects.mainzed.org/ont#measuringVolumeDepth> rdfs:domain giga:CapturingDevice .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mssetup giga:quality_triple_scan_points """calculated"""^^xsd:string .
@@ -3458,7 +3458,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_reference_volume_wi
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_mscheck <http://objects.mainzed.org/ont#lightChangeSigma> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_mscheck_lighting_change_sigma .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement13_mssetup_exposure_times_0 rdfs:label "Exposure time ( MS 0 Measurement 13 Setup)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_rp1012 prov:wasGeneratedBy ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_activity . 
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient_value om:hasNumericalValue "25.53"^^xsd:float .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient_value om:hasNumericalValue "25.53"^^xsd:float .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12 giga:referencePoint ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12_rp1023 . 
 giga:Calibration rdfs:label "Calibration".
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_rp1005 <http://objects.mainzed.org/ont#pointID> """1005"""^^xsd:integer .
@@ -3632,7 +3632,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_max_intersection_devia
 <http://objects.mainzed.org/ont#pointThickness> rdf:type owl:ObjectProperty .
 giga:points_per_exposure_time_0 rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/points_per_exposure_time_0> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_rp1000 rdfs:label "RP1000 ( MS 1 Measurement 5)"@en .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature rdfs:label "Certification temperature (CP40/320/57409 Calibration Object)"@en .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature rdfs:label "Certification temperature (CP40/320/57409 Calibration Object)"@en .
 <http://objects.mainzed.org/ont#mergeTolerance> rdfs:domain prov:Activity .
 giga:Average_point_distance rdf:type owl:Class .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup giga:is_visible """False"""^^xsd:boolean .
@@ -4549,7 +4549,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1025_point_thickness_value rdf:t
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_mssetup giga:are_acquisition_parameters_valid """True"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_mssetup <http://objects.mainzed.org/ont#operatingTemperature> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_mssetup_camera_operating_temperature .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_mscheck giga:lighting_change_check_result """check ok"""^^xsd:string .
-ex:CP40/320/57409_calibration_object <http://objects.mainzed.org/ont#numberOfScales> """0"""^^xsd:integer .
+ex:CP40_320_57409_calibration_object <http://objects.mainzed.org/ont#numberOfScales> """0"""^^xsd:integer .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mssetup <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/imageHeight> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mssetup_image_height .
 giga:calibration_snap_mode rdf:type owl:DatatypeProperty .
 giga:explorer_category rdfs:range xsd:string .
@@ -4570,7 +4570,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12_max_intersection_devi
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_rp1031 <http://objects.mainzed.org/ont#pointID> """1031"""^^xsd:integer .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1017_residual_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_mscheck_lighting_change_sigma_value om:hasNumericalValue "0.4786006767847003"^^xsd:float .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature_value rdf:type om:Measure .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_mssetup_sensor_tilt_angle_value rdfs:label "Neigungswinkel des Sensors Messwert ( MS 0 Measurement 2 Setup)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1 giga:is_referenced_in_inspection """False"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup_image_height om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup_image_height_value .
@@ -5362,7 +5362,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1002_residual rdf:type giga:Resi
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement6_activity prov:used ex:ZEISS_INSPECT_2023_Service_Pack_4 .
 giga:limit_value_calibration_projector_deviation rdfs:label """Limit value projector deviation """@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_min_fringe_contrast_value om:hasUnit "Grauwerte" .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient rdf:type giga:Calibration_object_expansion_coefficient .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient rdf:type giga:Calibration_object_expansion_coefficient .
 giga:avoid_points_on_groove_edges rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/avoid_points_on_groove_edges> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1022_diameter_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1000_residual om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1000_residual_value .
@@ -6165,7 +6165,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_reference_volume_de
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_max_intersection_deviation om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_max_intersection_deviation_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_mssetup giga:is_double_snap_enabled """True"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement2_mssetup_image_width rdf:type giga:Image_width .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature_value rdfs:label "Measurement temperature Measurement Value (CP40/320/57409 Calibration Object)"@en .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature_value rdfs:label "Measurement temperature Measurement Value (CP40/320/57409 Calibration Object)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_rp1002 prov:wasGeneratedBy ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_activity . 
 giga:is_double_snap_enabled rdfs:domain giga:MeasurementSetup .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_min_fringe_contrast om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_min_fringe_contrast_value .
@@ -6316,7 +6316,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_rp1012 rdfs:label "RP
 <http://objects.mainzed.org/ont#maximumEdgeLength> rdfs:domain prov:Activity .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_mssetup_mean_intersection_deviation rdfs:label "Mean intersection deviation ( MS 0 Measurement 2 Setup)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_transformation_deviation rdfs:label "Transformation deviation ( MS 0 Measurement 10)"@en .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature_value om:hasNumericalValue "19.8"^^xsd:float .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature_value om:hasNumericalValue "19.8"^^xsd:float .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1004_point_thickness_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_transformation_deviation rdf:type giga:Transformation_deviation .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6 <http://www.w3.org/2000/01/rdf-schema#label> """V03_041"""^^xsd:string .
@@ -6513,7 +6513,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_mssetup_sensor_rotatio
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1018_diameter om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1018_diameter_value .
 giga:Calibration_deviation rdfs:label "Calibration deviation"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15 <http://objects.mainzed.org/ont#measurementId> """16"""^^xsd:integer .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature rdf:type giga:Calibration_measurement_temperature .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature rdf:type giga:Calibration_measurement_temperature .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1035_point_thickness rdf:type giga:Point_thickness .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_mssetup_mean_intersection_deviation_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1021_residual_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
@@ -6747,9 +6747,9 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_rp1026 <http://objects
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1019_residual_value rdfs:label "Residuum Messwert ( MS 1 GRP1019)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1006_point_thickness om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1006_point_thickness_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_rp1005 rdf:type giga:ReferencePoint .
-ex:CP40/320/57409_calibration_object <http://objects.mainzed.org/ont#expansionCoefficient> ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient .
+ex:CP40_320_57409_calibration_object <http://objects.mainzed.org/ont#expansionCoefficient> ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement1_mssetup_exposure_times_0 rdfs:label "Exposure time ( MS 1 Measurement 1 Setup)"@en .
-ex:CP40/320/57409_calibration_object <http://www.w3.org/2000/01/rdf-schema#label> """CP40/320/57409"""^^xsd:string .
+ex:CP40_320_57409_calibration_object <http://www.w3.org/2000/01/rdf-schema#label> """CP40/320/57409"""^^xsd:string .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_mssetup_seconds_since_last_light_factor_calibration_value om:hasNumericalValue "0.0"^^xsd:float .
 giga:CalibrationObject rdf:type owl:Class .
 giga:avoid_points_on_borders_in_scan_area rdf:type owl:DatatypeProperty .
@@ -9480,7 +9480,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_rp1015 rdfs:label "RP1
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_algorithm rdfs:label "MS 0 Measurement 5 Algorithm"@en. 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1034_diameter_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_min_fringe_contrast rdf:type giga:Min_fringe_contrast .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature rdf:type giga:Calibration_object_certification_temperature .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature rdf:type giga:Calibration_object_certification_temperature .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_corner_mask_size_value rdfs:label "Corner mask size Measurement Value ( MS 1 Measurement 5)"@en .
 giga:calibration_max_ellipse_quality rdfs:label """Max. Ellipsenqualität"""@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_mssetup_current_camera_temperature rdfs:label "Current camera temperature(ATOS IIe Rev.01 / ATOS III Rev.01) ( MS 0 Measurement 1 Setup)"@en .
@@ -9651,7 +9651,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1012_diameter_value rdfs:label "
 giga:tags rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/tags> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_transformation_deviation_value om:hasNumericalValue "0.012539742179816682"^^xsd:float .
 giga:actual_master rdfs:range xsd:string .
-ex:CP40/320/57409_calibration_object rdfs:label " Sensor 0 Calibration Object" .
+ex:CP40_320_57409_calibration_object rdfs:label " Sensor 0 Calibration Object" .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_mssetup_remaining_lamp_warmup_time_value rdfs:label "Verbleibende Lampenaufwärmzeit (ATOS IIe Rev.01 / ATOS III Rev.01) Messwert ( MS 1 Measurement 0 Setup)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_activity rdfs:label "MS 0 Measurement 3 Activity"@en. 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0 prov:wasDerivedFrom ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15 .
@@ -9831,7 +9831,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7 giga:referencePoint ex
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_mssetup_sensor_tilt_angle rdfs:label "Sensor tilt angle ( MS 0 Measurement 1 Setup)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_mscheck_lighting_change_mean rdfs:label "Mean lighting change ( MS 1 Measurement 0 Measurement Check)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_mssetup_reference_point_exposure_time_value om:hasNumericalValue "0.00812"^^xsd:float .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature rdfs:label "Zertifizierungstemperatur (CP40/320/57409 Calibration Object)"@de .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature rdfs:label "Zertifizierungstemperatur (CP40/320/57409 Calibration Object)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_activity rdfs:label "MS 1 Measurement 4 Activity"@en. 
 <http://objects.mainzed.org/ont#avoidTripleScanPoints> rdfs:domain giga:Measurement .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_rp1015 rdf:type giga:ReferencePoint .
@@ -10501,7 +10501,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_mesh_0_bounding_box.max.y rdfs:label "Ma
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_rp1029 rdfs:label "RP1029 ( MS 0 Measurement 6)"@en .
 giga:StructuredLightScanner rdf:type owl:Class .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_mssetup_sensor_camera_support_temperature_value rdfs:label "Camera support temperature (Sensor) Measurement Value ( MS 0 Measurement 7 Setup)"@en .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient om:hasValue ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient_value .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient om:hasValue ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_mssetup_image_width_value rdfs:label "Image width Measurement Value ( MS 1 Measurement 0 Setup)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1017_residual rdfs:label "Residuum ( MS 1 GRP1017)"@de .
 <http://www.gigamesh.eu/ont#maximumZCoordinate> rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/bounding_box.max.z> .
@@ -10938,7 +10938,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_rp1023 <http://objects
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_rp1015 rdf:type giga:ReferencePoint .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12_mscheck_lighting_change_sigma rdfs:label "Lichtänderung (Sigma) ( MS 0 Measurement 12 Measurement Check)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement6_rp1020 rdfs:label "RP1020 ( MS 1 Measurement 6)"@en .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature om:hasValue ex:CP40/320/57409_calibration_object_calibration_measurement_temperature_value .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature om:hasValue ex:CP40_320_57409_calibration_object_calibration_measurement_temperature_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp_calculation_activity prov:used ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_rp1006 . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement9_mssetup_image_height om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement9_mssetup_image_height_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_rp1033 rdfs:label "RP1033 ( MS 0 Measurement 11)"@en .
@@ -11712,7 +11712,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement6_mscheck <http://object
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_rp1005 prov:wasAttributedTo ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement7_algorithm . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_mscheck_lighting_change_sigma_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1 rdf:type giga:MeasurementSeries .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient rdfs:label "Ausdehnungskoeffizient (CP40/320/57409 Calibration Object)"@de .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient rdfs:label "Ausdehnungskoeffizient (CP40/320/57409 Calibration Object)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1005 rdfs:label "GRP1005 ( Messreihe 1)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement6_rp1033 rdf:type giga:ReferencePoint .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1012_diameter om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1012_diameter_value .
@@ -11989,7 +11989,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement6_mssetup_sensor_acceler
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_rp1033 prov:wasGeneratedBy ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_activity . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mssetup_camera_operating_temperature_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1000_diameter rdfs:label "Diameter ( MS 1 GRP1000)"@en .
-ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_activity prov:used ex:CP40/320/57409_calibration_object .
+ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_activity prov:used ex:CP40_320_57409_calibration_object .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement1_rp1019 <http://objects.mainzed.org/ont#pointID> """1019"""^^xsd:integer .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1003_residual rdfs:label "Residuum ( MS 1 GRP1003)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_min_fringe_contrast_value rdf:type om:Measure .
@@ -12487,7 +12487,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1003_point_thickness_value rdfs:
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4 giga:is_measurement_transformed """True"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_mssetup_mean_intersection_deviation_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_mscheck_lighting_change_sigma rdf:type giga:Lighting_change_sigma .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature_value rdf:type om:Measure .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1010 prov:wasDerivedFrom ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_rp1010 . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_mscheck <http://objects.mainzed.org/ont#sensorMovement> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_mscheck_sensor_movement .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup_sensor_camera_support_temperature_value rdfs:label "Temperatur des Kameraträgers (Sensor) Messwert ( MS 1 Measurement 5 Setup)"@de .
@@ -13189,7 +13189,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1020_diameter_value rdfs:label "
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2 giga:sensor ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0 .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_calibration_volume_length rdf:type giga:Calibration_volume_length .
 giga:application_build_information.revision rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/application_build_information.revision> .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient_value rdf:type om:Measure .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement5_mssetup_sensor_acceleration_value rdfs:label "Beschleunigung des Sensor Messwert ( MS 1 Measurement 5 Setup)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mssetup_seconds_since_last_light_factor_calibration rdfs:label "Sekunden seit der letzten Lichtfaktorkalibrierung ( MS 0 Measurement 15 Setup)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_mesh_1_bounding_box.max.z rdfs:label "Maximum Z ( Mesh Attribute )"@en .
@@ -13212,7 +13212,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1016_diameter_value rdfs:label "
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1035_residual_value rdfs:label "Residuum Messwert ( MS 0 GRP1035)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_calibration_volume_width_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 giga:Sensor_acceleration rdfs:subClassOf om:Quantity .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient rdfs:label "Expansion coefficient (CP40/320/57409 Calibration Object)"@en .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient rdfs:label "Expansion coefficient (CP40/320/57409 Calibration Object)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1020 <http://objects.mainzed.org/ont#pointThickness> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1020_point_thickness .
 giga:measurement_resolution rdfs:label """Messauflösung"""@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_mssetup_mean_intersection_deviation om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_mssetup_mean_intersection_deviation_value .
@@ -13246,7 +13246,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement2_transformation_deviati
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_mssetup giga:transformation_stability_rating """4.931448799040468"""^^xsd:float .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_mssetup giga:quality_triple_scan_points_mode """intersection"""^^xsd:string .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement2_max_intersection_deviation_value om:hasNumericalValue "0.05415041682101078"^^xsd:float .
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature_value rdfs:label "Zertifizierungstemperatur Messwert (CP40/320/57409 Calibration Object)"@de .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature_value rdfs:label "Zertifizierungstemperatur Messwert (CP40/320/57409 Calibration Object)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement2_mscheck <http://objects.mainzed.org/ont#sensorTemperature> """True"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3 <http://www.w3.org/2000/01/rdf-schema#label> """M4"""^^xsd:string .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_activity rdfs:label "MS 0 Measurement 6 Activity"@en. 
@@ -13257,7 +13257,7 @@ giga:is_measurement_transformed rdf:type owl:DatatypeProperty .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12 giga:sensor ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0 .
 giga:observe_gray_value_feature rdfs:isDefinedBy <http://objects.mainzed.org/tool/atos/62/observe_gray_value_feature> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1006 <http://objects.mainzed.org/ont#diameter> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1006_diameter .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement0_activity rdfs:label "MS 0 Measurement 4 Activity"@en. 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_mssetup giga:is_scan_area_defined """False"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_rp1005 rdfs:label "RP1005 ( MS 0 Measurement 11)"@en .
@@ -13493,7 +13493,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement9_max_intersection_devia
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_rp1014 prov:wasAttributedTo ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_algorithm . 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1032_point_thickness_value om:hasNumericalValue "0.10000000149011612"^^xsd:float .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_mesh_0_average_point_distance_value rdf:type om:Measure .
-ex:CP40/320/57409_calibration_object_calibration_object_expansion_coefficient_value rdfs:label "Expansion coefficient Measurement Value (CP40/320/57409 Calibration Object)"@en .
+ex:CP40_320_57409_calibration_object_calibration_object_expansion_coefficient_value rdfs:label "Expansion coefficient Measurement Value (CP40/320/57409 Calibration Object)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement0_transformation_deviation rdf:type giga:Transformation_deviation .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement8_min_fringe_contrast_value rdfs:label "Min. Streifenkontrast Messwert ( MS 0 Measurement 8)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12_rp1019 rdfs:label "RP1019 ( MS 0 Measurement 12)"@en .
@@ -13676,7 +13676,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_mssetup giga:avoid_poi
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement1_activity prov:used ex:ZEISS_INSPECT_2023_Service_Pack_4 .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1015_point_thickness_value rdfs:label "Punkt-Materialstärke Messwert ( MS 0 GRP1015)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1003_point_thickness_value om:hasNumericalValue "0.10000000149011612"^^xsd:float .
-ex:CP40/320/57409_calibration_object_calibration_measurement_temperature_value rdfs:label "Messtemperatur Messwert (CP40/320/57409 Calibration Object)"@de .
+ex:CP40_320_57409_calibration_object_calibration_measurement_temperature_value rdfs:label "Messtemperatur Messwert (CP40/320/57409 Calibration Object)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement5_max_intersection_deviation_value rdfs:label "Max. intersection deviation Measurement Value ( MS 0 Measurement 5)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_activity rdfs:label "MS 1 Measurement 1 Activity"@en. 
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_activity rdfs:label "MS 0 Measurement 3 Activity"@en. 
@@ -14212,7 +14212,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_max_intersection_devia
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_max_intersection_deviation om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_max_intersection_deviation_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_setup_calibration_remaining_sensor_warmup_time om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration_setup_calibration_remaining_sensor_warmup_time_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement9_mssetup <http://objects.mainzed.org/ont#meanIntersectionDeviation> ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement9_mssetup_mean_intersection_deviation .
-ex:CP40/320/57409_calibration_object rdf:type giga:CalibrationObject .
+ex:CP40_320_57409_calibration_object rdf:type giga:CalibrationObject .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_mssetup giga:avoid_points_on_borders_in_scan_area """True"""^^xsd:boolean .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1013_point_thickness om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1013_point_thickness_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11 giga:setup ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_mssetup .
@@ -14732,7 +14732,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement0_mssetup_camera_operati
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_transformation_deviation_value rdfs:label "Transformation deviation Measurement Value ( MS 0 Measurement 4)"@en .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1025_residual_value rdfs:label "Residuum Messwert ( MS 0 GRP1025)"@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_rp1017 prov:wasAttributedTo ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement11_algorithm . 
-ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature om:hasValue ex:CP40/320/57409_calibration_object_calibration_object_certification_temperature_value .
+ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature om:hasValue ex:CP40_320_57409_calibration_object_calibration_object_certification_temperature_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement0_mssetup giga:reduce_influence_of_border_areas """False"""^^xsd:boolean .
 giga:is_referenced_in_inspection rdfs:label """Status: Ist in Inspektionselement referenziert?"""@de .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_mssetup_mean_intersection_deviation rdf:type giga:Mean_intersection_deviation .
@@ -15288,7 +15288,7 @@ ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement6_activity rdf:type prov
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_mssetup_remaining_lamp_warmup_time_value rdf:type om:Measure .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement14_max_intersection_deviation om:hasValue ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement14_max_intersection_deviation_value .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement3_mssetup_sensor_camera_support_temperature_value om:hasNumericalValue "30.299999"^^xsd:float .
-ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration giga:calibrationobject ex:CP40/320/57409_calibration_object .
+ex:f095c905-8f56-0f79-4977-070f4e2787b6_sensor_0_calibration giga:calibrationobject ex:CP40_320_57409_calibration_object .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_grp1009_point_thickness_value om:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
 ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_rp1030 prov:wasAttributedTo ex:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement4_algorithm . 
 giga:calibration_reference_point_max_z rdfs:label """Max. depth limitation (calibrated, reference volume)"""@en .
