@@ -29,7 +29,7 @@ jobs:
     name: Ontdoc II     
     needs: build
     with: 
-          rdffilepath: sampledata/V03_041_SLP_20200825_meta_atos2016.ttl
+          rdffilepath: sampledata/V03_041_SLP_20200825_meta_GOM2016.ttl
           docpath: docs/atos2016/
           version: v018
           prefixns: http://objects.mainzed.org/data/
