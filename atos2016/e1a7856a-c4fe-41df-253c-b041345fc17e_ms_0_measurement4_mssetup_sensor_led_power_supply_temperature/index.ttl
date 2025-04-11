@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement4_mssetup_sensor_led_power_supply_temperature> a <http://objects.mainzed.org/ont#Sensor_led_power_supply_temperature>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Temperatur der LED-Stromversorgung (Sensor) ( MS 0 Measurement 4 Setup)"@de,
+        "LED power supply temperature (Sensor) ( MS 0 Measurement 4 Setup)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement4_mssetup_sensor_led_power_supply_temperature_value> .
+
