@@ -4,30 +4,30 @@ on: [push]
 
 jobs:
     
-  #ontdocI:
-  #  uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
-   # name: Ontdoc I  
-   # needs: build
-   # with: 
-   #       rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl
-   #       version: v018
-   #       docpath: docs/atos62/
-   #       prefixns: http://objects.mainzed.org/data/
-   #       prefixnsshort: ex
-   #       indexpages: true
-   #       metadatatable: true
-   #       createcollections: false
-   #       createnonNSPages: true
-   #       createVOWL: true
-   #       preferredlang: en
-   #       ghpages: true
-   #       ghpagesfolder: atos62/
-   #       sleepafter: 300
+  ontdocI:
+    uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
+    name: Ontdoc I  
+    needs: build
+    with: 
+          rdffilepath: sampledata/V03_041_SLP_20120113_e.ttl
+          version: v018
+          docpath: docs/atos62/
+          prefixns: http://objects.mainzed.org/data/
+          prefixnsshort: ex
+          indexpages: true
+          metadatatable: true
+          createcollections: false
+          createnonNSPages: true
+          createVOWL: true
+          preferredlang: en
+          ghpages: true
+          ghpagesfolder: atos62/
+          sleepafter: 300
 
   ontdocII:
     uses: sparqlunicorn/sparqlunicornGoesGIS-ontdoc/.github/workflows/udoc.yml@main
     name: Ontdoc II     
-    needs: build
+    needs: ontdocI
     with: 
           rdffilepath: sampledata/V03_041_SLP_20200825_metadata_GOM2016.ttl
           docpath: docs/atos2016/
