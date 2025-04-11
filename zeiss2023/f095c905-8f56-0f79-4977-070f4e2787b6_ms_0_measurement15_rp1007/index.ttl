@@ -1,16 +1,16 @@
-@prefix ns1: <http://objects.mainzed.org/ont#> .
-@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_rp1007> a ns1:ReferencePoint,
+<http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_rp1007> a ns2:ReferencePoint,
         <http://www.w3.org/ns/ldp#Resource>,
         <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label "RP1007 ( Messreihe 0 Messung 15)"@de,
         "RP1007 ( MS 0 Measurement 15)"@en ;
-    ns1:pointID 1007 ;
+    ns2:pointID 1007 ;
     void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
-    ns2:wasAttributedTo <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_algorithm> ;
-    ns2:wasGeneratedBy <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_activity> .
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_algorithm> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_activity> .
 
