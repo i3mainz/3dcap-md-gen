@@ -6344,7 +6344,7 @@ var tree={
           "from": {
             "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Pixel_width": 1
+              "http://objects.mainzed.org/ont#FocalLength": 1
             }
           }
         },
@@ -9855,7 +9855,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 1
+              "instancecount": 8
             },
             "http://www.w3.org/ns/prov-o/used": {
               "instancecount": 0,
@@ -9868,11 +9868,12 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasGeneratedBy": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Measurement": 1
+              "http://objects.mainzed.org/ont#Measurement": 1,
+              "http://objects.mainzed.org/ont#ReferencePoint": 7
             }
           }
         },
-        "instancecount": 1
+        "instancecount": 8
       },
       {
         "id": "http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement11_rp_noid_5",
@@ -17198,8 +17199,8 @@ var tree={
             },
             "http://objects.mainzed.org/ont#radialDistortionCoefficientB2": {
               "instancecount": 1,
-              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b1": 1,
-              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b2": 1
+              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b2": 1,
+              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b1": 1
             },
             "http://objects.mainzed.org/ont#radialDistortionCoefficientK1": {
               "instancecount": 0,

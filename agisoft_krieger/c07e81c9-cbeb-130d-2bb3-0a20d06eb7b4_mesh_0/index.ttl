@@ -1,24 +1,24 @@
-@prefix ns1: <http://objects.mainzed.org/ont#> .
-@prefix ns2: <http://www.gigamesh.eu/ont#> .
-@prefix ns3: <http://www.w3.org/ns/prov-o/> .
+@prefix ns1: <http://www.gigamesh.eu/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix ns3: <http://objects.mainzed.org/ont#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0> a ns1:Mesh,
+<http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0> a ns3:Mesh,
         <http://www.w3.org/ns/ldp#Resource>,
-        ns3:Entity,
+        ns2:Entity,
         <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
     rdfs:label " MS 0  c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0 from "@en,
         "Mesh c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0 from "@en ;
-    ns1:averagePointDistance <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_average_point_distance> ;
-    ns1:mesh_id 0 ;
-    ns1:setup <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_mesh_setup> ;
-    ns1:texturesetup <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_texture_setup> ;
-    ns1:volume <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_volume> ;
+    ns3:averagePointDistance <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_average_point_distance> ;
+    ns3:mesh_id 0 ;
+    ns3:setup <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_mesh_setup> ;
+    ns3:texturesetup <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_texture_setup> ;
+    ns3:volume <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_volume> ;
     void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
-    ns2:totalArea <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_area> ;
-    ns2:totalNumberOfFaces 2395286 ;
-    ns2:totalNumberOfVertices 1197735 ;
-    ns3:wasDerivedFrom <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4> .
+    ns1:totalArea <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_mesh_0_area> ;
+    ns1:totalNumberOfFaces 2395286 ;
+    ns1:totalNumberOfVertices 1197735 ;
+    ns2:wasDerivedFrom <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4> .
 
