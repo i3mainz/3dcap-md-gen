@@ -1,0 +1,25 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9> a ns2:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "target 101"^^xsd:string,
+        "GRP9 ( Messreihe 0)"@de,
+        "GRP9 ( Measurement Series 0)"@en ;
+    ns2:estimatedCoordiateX <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9_x_estimated_coordiate> ;
+    ns2:estimatedCoordiateY <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9_y_estimated_coordiate> ;
+    ns2:estimatedCoordiateZ <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9_z_estimated_coordiate> ;
+    ns2:projections 7 ;
+    ns2:referenceEnabled false ;
+    ns2:referencepointEnabled false ;
+    ns2:referencepoint_id 9 ;
+    ns2:x_current_frame_position <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9_x_current_frame_position> ;
+    ns2:y_current_frame_position <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9_y_current_frame_position> ;
+    ns2:z_current_frame_position <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp9_z_current_frame_position> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/c12d937a-07ed-1e16-a988-1ef5a6b494ce_ms_0_grp_calculation_activity> .
+
