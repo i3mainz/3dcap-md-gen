@@ -18,6 +18,33 @@ searchPath = r"D:\LEIZA-Projekte\Metadaten\Release_2025-03\zenodo - Kopie\atos-v
 manualmetadatapathJSON=""
 # manualmetadatapathJSON =r"C:\Users\Folder\manualmetadata.json"
 
+## Prefix name for the data namespace .
+dataprefix="ex"
+# variable python script
+# script_uri=str(dataprefix)+":"+script_name
+## Prefix name for the class namespace .
+ontologyprefix="giga"
+toolnamespace="http://objects.mainzed.org/tool/"
+toolpropnamespace="http://objects.mainzed.org/tool/atos/62/"
+## Namespace for instances defined in the TTL export .
+datanamespace="http://objects.mainzed.org/data/"
+## Prefix name for the exif namespace .
+exifnamespace="http://www.w3.org/2003/12/exif/"
+## Prefix name for the exif namespace .
+om="http://www.ontology-of-units-of-measure.org/resource/om-2/"
+## Prefix name for the rdfs namespace .
+rdfs='http://www.w3.org/2000/01/rdf-schema#'
+##Prefix name for the  gigamesh namespace
+ontologynamespace="http://www.gigamesh.eu/ont#"
+# Prefix name for prov-o namespace .
+provnamespace = "http://www.w3.org/ns/prov#"
+#atos 2016
+referencepointid="reference_point_id"
+globalreferencepointid="point_id"
+
+ttlstringhead="@prefix "+str(ontologyprefix)+": <"+str(ontologynamespace)+"> .\n@prefix frapo: <http://purl.org/cerif/frapo>.\n@prefix geocrs: <http://www.opengis.net/ont/crs/>.\n@prefix geocrsaxis: <http://www.opengis.net/ont/crs/cs/axis/> .\n@prefix geo: <http://www.opengis.net/ont/geosparql#> .\n@prefix "+str(dataprefix)+": <"+str(datanamespace)+"> .\n@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n@prefix prov: <http://www.w3.org/ns/prov-o/> .\n@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \n@prefix om:<http://www.ontology-of-units-of-measure.org/resource/om-2/> .\n@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> . \n@prefix owl:<http://www.w3.org/2002/07/owl#> . \n@prefix i3atos:<http://www.i3mainz.de/metadata/atos#> . \n@prefix dc:<http://purl.org/dc/terms/> .\n@prefix i3data:<http://www.i3mainz.de/data/grabbauten/> . \n@prefix i3:<http://www.i3mainz.de/ont#> . \n@prefix xsd:<http://www.w3.org/2001/XMLSchema#> . \n"
+
+
 # methode zum Umwandeln in dictonary
 
 def generate_uuid():
