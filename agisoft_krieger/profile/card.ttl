@@ -1,0 +1,12 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://www.w3.org/ns/solid/terms#> .
+@prefix ns2: <http://www.w3.org/ns/pim/space#> .
+
+<docs/agisoft_krieger//profile/card> a foaf:PersonalProfileDocument ;
+    foaf:primaryTopic <https://i3mainz.github.io/3dcap-md-gen/agisoft_krieger//profile/card#> .
+
+<https://i3mainz.github.io/3dcap-md-gen/agisoft_krieger//profile/card#> a foaf:Person ;
+    ns2:storage <https://i3mainz.github.io/3dcap-md-gen/agisoft_krieger/ex_dataset> ;
+    ns1:privateTypeIndex <https://i3mainz.github.io/3dcap-md-gen/agisoft_krieger//settings/privateTypeIndex.ttl> ;
+    ns1:publicTypeIndex <https://i3mainz.github.io/3dcap-md-gen/agisoft_krieger//settings/publicTypeIndex.ttl> .
+

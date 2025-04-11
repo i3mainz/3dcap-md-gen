@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns10: <http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/> .
+@prefix ns11: <http://www.w3.org/2003/12/exif/ExposureTim#http://www.w3.org/2003/12/exif/> .
+@prefix ns12: <http://www.w3.org/2003/12/exif/dateTimeOrigina#http://www.w3.org/2003/12/exif/> .
+@prefix ns2: <http://www.w3.org/2003/12/exif/softwar#http://www.w3.org/2003/12/exif/> .
+@prefix ns3: <http://objects.mainzed.org/ont#> .
+@prefix ns4: <http://www.w3.org/2003/12/exif/mak#http://www.w3.org/2003/12/exif/> .
+@prefix ns5: <http://www.w3.org/2003/12/exif/focalLengthIn35mmFil#http://www.w3.org/2003/12/exif/> .
+@prefix ns6: <http://www.w3.org/2003/12/exif/FNumbe#http://www.w3.org/2003/12/exif/> .
+@prefix ns7: <http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/> .
+@prefix ns8: <http://www.w3.org/2003/12/exif/mode#http://www.w3.org/2003/12/exif/> .
+@prefix ns9: <http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8> a ns3:Measurement,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "DSC_0017"^^xsd:string,
+        "MS 0 Measurement 8 for "@en ;
+    ns3:camera_id 8 ;
+    ns3:enabled true ;
+    ns3:estimatedCoordiateX <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_estimated_coordinate_x> ;
+    ns3:estimatedCoordiateY <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_estimated_coordinate_y> ;
+    ns3:estimatedCoordiateZ <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_estimated_coordinate_z> ;
+    ns3:iSOSpeedRatings <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_ISOSpeedRatings> ;
+    ns3:sensor <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_sensor_0> ;
+    ns3:sensor_id 0 ;
+    ns3:transform """Matrix([[0.7528075200020514, -0.3991745708397778, 0.5233932554239117, -1.5881142694512935],\r
+       [0.516827581559724, 0.8508647025764363, -0.09443785707352342, 0.3679925289961899],\r
+       [-0.40763965553842746, 0.34159759938323847, 0.8468417746711133, -5.62985324893157],\r
+       [0.0, 0.0, 0.0, 1.0]])"""^^xsd:string ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns11:ExposureTime <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_ExposureTime> ;
+    ns6:FNumber "22"^^xsd:string ;
+    ns12:dateTimeOriginal "2022-11-03T14:12:28"^^xsd:dateTime ;
+    ns7:focalLength <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_FocalLength> ;
+    ns5:focalLengthIn35mmFilm <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_FocalLengthIn35mmFilm> ;
+    ns9:imageHeight "4912"^^xsd:string ;
+    ns10:imageWidth "7360"^^xsd:string ;
+    ns4:make "NIKON CORPORATION"^^xsd:string ;
+    ns8:model "NIKON D800"^^xsd:string ;
+    ns2:software "Ver.1.10 "^^xsd:string ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/9fba0ba2-bd9d-41d1-2a70-142a7346d398> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement8_activity> .
+
