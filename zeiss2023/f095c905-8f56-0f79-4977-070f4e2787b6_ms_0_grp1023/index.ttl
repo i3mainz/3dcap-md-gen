@@ -1,0 +1,23 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1023> a ns2:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GRP1023 ( Messreihe 0)"@de,
+        "GRP1023 ( Measurement Series 0)"@en ;
+    ns2:diameter <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1023_diameter> ;
+    ns2:pointID 1023 ;
+    ns2:pointThickness <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1023_point_thickness> ;
+    ns2:point_type "uncoded,atos"^^xsd:string ;
+    ns2:residual <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1023_residual> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:wasDerivedFrom <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement12_rp1023>,
+        <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement14_rp1023>,
+        <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement3_rp1023>,
+        <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement4_rp1023> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp_calculation_activity> .
+

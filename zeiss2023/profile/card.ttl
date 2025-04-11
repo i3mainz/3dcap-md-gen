@@ -1,0 +1,12 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://www.w3.org/ns/pim/space#> .
+@prefix ns2: <http://www.w3.org/ns/solid/terms#> .
+
+<docs/zeiss2023//profile/card> a foaf:PersonalProfileDocument ;
+    foaf:primaryTopic <https://i3mainz.github.io/3dcap-md-gen/zeiss2023//profile/card#> .
+
+<https://i3mainz.github.io/3dcap-md-gen/zeiss2023//profile/card#> a foaf:Person ;
+    ns1:storage <https://i3mainz.github.io/3dcap-md-gen/zeiss2023/ex_dataset> ;
+    ns2:privateTypeIndex <https://i3mainz.github.io/3dcap-md-gen/zeiss2023//settings/privateTypeIndex.ttl> ;
+    ns2:publicTypeIndex <https://i3mainz.github.io/3dcap-md-gen/zeiss2023//settings/publicTypeIndex.ttl> .
+
