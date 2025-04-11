@@ -1,0 +1,35 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021> a ns2:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GRP1021 ( Messreihe 0)"@de,
+        "GRP1021 ( Measurement Series 0)"@en ;
+    ns2:diameter <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_diameter> ;
+    ns2:normal.x <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_normal.x> ;
+    ns2:normal.y <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_normal.y> ;
+    ns2:normal.z <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_normal.z> ;
+    ns2:pointID 1021 ;
+    ns2:pointThickness <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_point_thickness> ;
+    ns2:point_type "uncoded,atos"^^xsd:string ;
+    ns2:residual <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_residual> ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_coordinate.x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_coordinate.y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021_coordinate.z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    geo:asWKT "POINT(-84.47388151832102 152.0118470776083 113.55925291373876)"^^geo:wktLiteral ;
+    geo:inSRS <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre> ;
+    ns1:wasDerivedFrom <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement0_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement1_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement6_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement7_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement8_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement9_rp1021> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp_calculation_activity> .
+

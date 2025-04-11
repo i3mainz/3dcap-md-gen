@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_activity> a <http://www.w3.org/ns/ldp#Resource>,
+        ns1:Activity,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label " Messreihe 0 ()"@de,
+        "MS 0 Activity ()"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:wasAssociatedWith <http://objects.mainzed.org/data/37a785ce-76df-8537-6020-29edae8e59be> .
+
