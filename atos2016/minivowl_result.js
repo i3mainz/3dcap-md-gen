@@ -648,6 +648,13 @@ var minivowlresult={
  ],
  "links": [
   {
+   "source": 9,
+   "target": 4,
+   "valueTo": "xNormal",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#xNormal"
+  },
+  {
    "source": 2,
    "target": 71,
    "valueTo": "hasUnit",
@@ -655,42 +662,14 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"
   },
   {
-   "source": 10,
-   "target": 27,
-   "valueTo": "xCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
-  },
-  {
-   "source": 10,
-   "target": 7,
-   "valueTo": "xCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
-  },
-  {
-   "source": 9,
-   "target": 27,
-   "valueTo": "xCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
-  },
-  {
-   "source": 9,
-   "target": 7,
-   "valueTo": "xCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
-  },
-  {
-   "source": 63,
+   "source": 45,
    "target": 94,
    "valueTo": "wasAttributedTo",
    "propertyTo": "class",
    "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
   },
   {
-   "source": 63,
+   "source": 45,
    "target": 50,
    "valueTo": "wasAttributedTo",
    "propertyTo": "class",
@@ -711,20 +690,6 @@ var minivowlresult={
    "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
   },
   {
-   "source": 45,
-   "target": 94,
-   "valueTo": "wasAttributedTo",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
-  },
-  {
-   "source": 45,
-   "target": 50,
-   "valueTo": "wasAttributedTo",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
-  },
-  {
    "source": 9,
    "target": 94,
    "valueTo": "wasAttributedTo",
@@ -739,77 +704,21 @@ var minivowlresult={
    "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
   },
   {
-   "source": 20,
-   "target": 2,
-   "valueTo": "hasValue",
+   "source": 63,
+   "target": 94,
+   "valueTo": "wasAttributedTo",
    "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
   },
   {
-   "source": 91,
-   "target": 2,
-   "valueTo": "hasValue",
+   "source": 63,
+   "target": 50,
+   "valueTo": "wasAttributedTo",
    "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasAttributedTo"
   },
   {
-   "source": 120,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 111,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 35,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 26,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 43,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 6,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 89,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 44,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 24,
+   "source": 14,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -823,21 +732,14 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 90,
+   "source": 49,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 79,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 56,
+   "source": 28,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -851,126 +753,7 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 92,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 83,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 101,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 108,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 113,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 127,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 51,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 86,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 3,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 1,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 49,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 13,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 110,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 118,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 30,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 75,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 80,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 11,
+   "source": 33,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -984,280 +767,14 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 116,
+   "source": 89,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 53,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 57,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 67,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 23,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 25,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 4,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 85,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 105,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 0,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 16,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 7,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 82,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 109,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 38,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 22,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 114,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 27,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 88,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 73,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 33,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 32,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 19,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 119,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 69,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 34,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 60,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 39,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 100,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 93,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 81,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 46,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 40,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 61,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 62,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 68,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 121,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 98,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 117,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 54,
+   "source": 43,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -1271,14 +788,77 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 76,
+   "source": 57,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 14,
+   "source": 27,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 54,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 98,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 6,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 113,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 119,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 99,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 108,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 35,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 110,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -1286,6 +866,454 @@ var minivowlresult={
   },
   {
    "source": 17,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 0,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 81,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 111,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 68,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 61,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 118,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 127,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 30,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 19,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 25,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 56,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 121,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 79,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 26,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 36,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 124,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 114,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 91,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 1,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 105,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 16,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 62,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 120,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 22,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 3,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 93,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 23,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 13,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 75,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 48,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 88,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 115,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 60,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 90,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 92,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 53,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 76,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 39,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 122,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 101,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 73,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 20,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 21,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 83,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 51,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 59,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 80,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 24,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 82,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 42,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 64,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 116,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 85,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 77,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 44,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 117,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 40,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 31,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 69,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 46,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 11,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 67,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 4,
+   "target": 2,
+   "valueTo": "hasValue",
+   "propertyTo": "class",
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
+  },
+  {
+   "source": 104,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -1306,105 +1334,21 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 48,
+   "source": 109,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 123,
+   "source": 7,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 31,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 104,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 115,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 36,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 21,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 28,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 77,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 58,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 64,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 122,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 42,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 124,
-   "target": 2,
-   "valueTo": "hasValue",
-   "propertyTo": "class",
-   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
-  },
-  {
-   "source": 99,
+   "source": 38,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
@@ -1418,319 +1362,46 @@ var minivowlresult={
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 59,
+   "source": 86,
    "target": 2,
    "valueTo": "hasValue",
    "propertyTo": "class",
    "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 10,
-   "target": 14,
-   "valueTo": "yCoordinate",
+   "source": 123,
+   "target": 2,
+   "valueTo": "hasValue",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 10,
-   "target": 1,
-   "valueTo": "yCoordinate",
+   "source": 32,
+   "target": 2,
+   "valueTo": "hasValue",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 9,
-   "target": 14,
-   "valueTo": "yCoordinate",
+   "source": 100,
+   "target": 2,
+   "valueTo": "hasValue",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 9,
-   "target": 1,
-   "valueTo": "yCoordinate",
+   "source": 34,
+   "target": 2,
+   "valueTo": "hasValue",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
-   "source": 63,
-   "target": 63,
-   "valueTo": "wasDerivedFrom",
+   "source": 58,
+   "target": 2,
+   "valueTo": "hasValue",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 63,
-   "target": 107,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 63,
-   "target": 45,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 63,
-   "target": 9,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 107,
-   "target": 63,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 107,
-   "target": 107,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 107,
-   "target": 45,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 107,
-   "target": 9,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 103,
-   "target": 63,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 103,
-   "target": 107,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 103,
-   "target": 45,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 103,
-   "target": 9,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 95,
-   "target": 63,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 95,
-   "target": 107,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 95,
-   "target": 45,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 95,
-   "target": 9,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 96,
-   "target": 63,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 96,
-   "target": 107,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 96,
-   "target": 45,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 96,
-   "target": 9,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 10,
-   "target": 63,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 10,
-   "target": 107,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 10,
-   "target": 45,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 10,
-   "target": 9,
-   "valueTo": "wasDerivedFrom",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
-  },
-  {
-   "source": 10,
-   "target": 23,
-   "valueTo": "normal.y",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#normal.y"
-  },
-  {
-   "source": 10,
-   "target": 21,
-   "valueTo": "zCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
-  },
-  {
-   "source": 10,
-   "target": 3,
-   "valueTo": "zCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
-  },
-  {
-   "source": 9,
-   "target": 21,
-   "valueTo": "zCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
-  },
-  {
-   "source": 9,
-   "target": 3,
-   "valueTo": "zCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
-  },
-  {
-   "source": 63,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 45,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 9,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 95,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 96,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 72,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 10,
-   "target": 29,
-   "valueTo": "wasGeneratedBy",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
-  },
-  {
-   "source": 9,
-   "target": 20,
-   "valueTo": "zNormal",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#zNormal"
-  },
-  {
-   "source": 10,
-   "target": 17,
-   "valueTo": "pointThickness",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#pointThickness"
-  },
-  {
-   "source": 107,
-   "target": 109,
-   "valueTo": "automatic_exposure_time_mode",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#automatic_exposure_time_mode"
-  },
-  {
-   "source": 15,
-   "target": 109,
-   "valueTo": "automatic_exposure_time_mode",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#automatic_exposure_time_mode"
+   "uriTo": "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue"
   },
   {
    "source": 10,
@@ -1741,31 +1412,31 @@ var minivowlresult={
   },
   {
    "source": 9,
-   "target": 4,
-   "valueTo": "xNormal",
+   "target": 7,
+   "valueTo": "xCoordinate",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#xNormal"
-  },
-  {
-   "source": 45,
-   "target": 9,
-   "valueTo": "referencePoint",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#referencePoint"
-  },
-  {
-   "source": 10,
-   "target": 47,
-   "valueTo": "inSRS",
-   "propertyTo": "class",
-   "uriTo": "http://www.opengis.net/ont/geosparql#inSRS"
+   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
   },
   {
    "source": 9,
-   "target": 47,
-   "valueTo": "inSRS",
+   "target": 27,
+   "valueTo": "xCoordinate",
    "propertyTo": "class",
-   "uriTo": "http://www.opengis.net/ont/geosparql#inSRS"
+   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 7,
+   "valueTo": "xCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 27,
+   "valueTo": "xCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#xCoordinate"
   },
   {
    "source": 10,
@@ -1775,74 +1446,277 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#normal.x"
   },
   {
-   "source": 5,
-   "target": 107,
-   "valueTo": "used",
+   "source": 9,
+   "target": 21,
+   "valueTo": "zCoordinate",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
   },
   {
-   "source": 5,
+   "source": 9,
+   "target": 3,
+   "valueTo": "zCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 21,
+   "valueTo": "zCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 3,
+   "valueTo": "zCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#zCoordinate"
+  },
+  {
+   "source": 63,
+   "target": 45,
+   "valueTo": "measurement",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#measurement"
+  },
+  {
+   "source": 9,
+   "target": 20,
+   "valueTo": "zNormal",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#zNormal"
+  },
+  {
+   "source": 45,
    "target": 9,
-   "valueTo": "used",
+   "valueTo": "referencePoint",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://objects.mainzed.org/ont#referencePoint"
   },
   {
-   "source": 5,
-   "target": 94,
-   "valueTo": "used",
+   "source": 63,
+   "target": 45,
+   "valueTo": "wasDerivedFrom",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
   },
   {
-   "source": 5,
-   "target": 74,
-   "valueTo": "used",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
-  },
-  {
-   "source": 5,
-   "target": 29,
-   "valueTo": "used",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
-  },
-  {
-   "source": 29,
+   "source": 63,
    "target": 107,
-   "valueTo": "used",
+   "valueTo": "wasDerivedFrom",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
   },
   {
-   "source": 29,
+   "source": 63,
    "target": 9,
-   "valueTo": "used",
+   "valueTo": "wasDerivedFrom",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
   },
   {
-   "source": 29,
-   "target": 94,
-   "valueTo": "used",
+   "source": 63,
+   "target": 63,
+   "valueTo": "wasDerivedFrom",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
   },
   {
-   "source": 29,
-   "target": 74,
-   "valueTo": "used",
+   "source": 103,
+   "target": 45,
+   "valueTo": "wasDerivedFrom",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
   },
   {
-   "source": 29,
+   "source": 103,
+   "target": 107,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 103,
+   "target": 9,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 103,
+   "target": 63,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 96,
+   "target": 45,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 96,
+   "target": 107,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 96,
+   "target": 9,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 96,
+   "target": 63,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 107,
+   "target": 45,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 107,
+   "target": 107,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 107,
+   "target": 9,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 107,
+   "target": 63,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 95,
+   "target": 45,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 95,
+   "target": 107,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 95,
+   "target": 9,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 95,
+   "target": 63,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 10,
+   "target": 45,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 10,
+   "target": 107,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 10,
+   "target": 9,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 10,
+   "target": 63,
+   "valueTo": "wasDerivedFrom",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasDerivedFrom"
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "valueTo": "meanLightingChange",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#meanLightingChange"
+  },
+  {
+   "source": 72,
    "target": 29,
-   "valueTo": "used",
+   "valueTo": "wasGeneratedBy",
    "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/used"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
+  },
+  {
+   "source": 96,
+   "target": 29,
+   "valueTo": "wasGeneratedBy",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
+  },
+  {
+   "source": 63,
+   "target": 29,
+   "valueTo": "wasGeneratedBy",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
+  },
+  {
+   "source": 9,
+   "target": 29,
+   "valueTo": "wasGeneratedBy",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
+  },
+  {
+   "source": 45,
+   "target": 29,
+   "valueTo": "wasGeneratedBy",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
+  },
+  {
+   "source": 95,
+   "target": 29,
+   "valueTo": "wasGeneratedBy",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
+  },
+  {
+   "source": 10,
+   "target": 29,
+   "valueTo": "wasGeneratedBy",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/wasGeneratedBy"
   },
   {
    "source": 9,
@@ -1852,25 +1726,11 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#yNormal"
   },
   {
-   "source": 15,
-   "target": 56,
-   "valueTo": "cameraTemperature",
+   "source": 29,
+   "target": 50,
+   "valueTo": "wasAssociatedWith",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#cameraTemperature"
-  },
-  {
-   "source": 15,
-   "target": 24,
-   "valueTo": "http://www.w3.org/2003/12/exif/imageHeight",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/imageHeight"
-  },
-  {
-   "source": 5,
-   "target": 48,
-   "valueTo": "lightChangeSigma",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#lightChangeSigma"
+   "uriTo": "http://www.w3.org/ns/prov-o/wasAssociatedWith"
   },
   {
    "source": 10,
@@ -1880,18 +1740,165 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#residual"
   },
   {
-   "source": 45,
-   "target": 37,
-   "valueTo": "transformationDeviation",
+   "source": 29,
+   "target": 29,
+   "valueTo": "used",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#transformationDeviation"
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 29,
+   "target": 74,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 29,
+   "target": 94,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 29,
+   "target": 9,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 29,
+   "target": 107,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 5,
+   "target": 29,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 5,
+   "target": 74,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 5,
+   "target": 94,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 5,
+   "target": 9,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 5,
+   "target": 107,
+   "valueTo": "used",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/ns/prov-o/used"
+  },
+  {
+   "source": 9,
+   "target": 47,
+   "valueTo": "inSRS",
+   "propertyTo": "class",
+   "uriTo": "http://www.opengis.net/ont/geosparql#inSRS"
   },
   {
    "source": 10,
-   "target": 25,
-   "valueTo": "diameter",
+   "target": 47,
+   "valueTo": "inSRS",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#diameter"
+   "uriTo": "http://www.opengis.net/ont/geosparql#inSRS"
+  },
+  {
+   "source": 10,
+   "target": 23,
+   "valueTo": "normal.y",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#normal.y"
+  },
+  {
+   "source": 9,
+   "target": 14,
+   "valueTo": "yCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+  },
+  {
+   "source": 9,
+   "target": 1,
+   "valueTo": "yCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 14,
+   "valueTo": "yCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 1,
+   "valueTo": "yCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#yCoordinate"
+  },
+  {
+   "source": 10,
+   "target": 17,
+   "valueTo": "pointThickness",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#pointThickness"
+  },
+  {
+   "source": 45,
+   "target": 28,
+   "valueTo": "minimumFringeContrast",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#minimumFringeContrast"
+  },
+  {
+   "source": 15,
+   "target": 64,
+   "valueTo": "max_viewing_angle_sensor_surface",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#max_viewing_angle_sensor_surface"
+  },
+  {
+   "source": 107,
+   "target": 64,
+   "valueTo": "max_viewing_angle_sensor_surface",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#max_viewing_angle_sensor_surface"
+  },
+  {
+   "source": 15,
+   "target": 46,
+   "valueTo": "seconds_since_last_light_factor_calibration",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#seconds_since_last_light_factor_calibration"
+  },
+  {
+   "source": 15,
+   "target": 26,
+   "valueTo": "sensor_main_power_supply_temperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_main_power_supply_temperature"
   },
   {
    "source": 63,
@@ -1902,24 +1909,66 @@ var minivowlresult={
   },
   {
    "source": 15,
+   "target": 35,
+   "valueTo": "sensor_main_board_temperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_main_board_temperature"
+  },
+  {
+   "source": 15,
    "target": 59,
    "valueTo": "meanIntersectionDeviation",
    "propertyTo": "class",
    "uriTo": "http://objects.mainzed.org/ont#meanIntersectionDeviation"
   },
   {
-   "source": 96,
-   "target": 85,
-   "valueTo": "maximumXCoordinate",
+   "source": 15,
+   "target": 53,
+   "valueTo": "sensor_led_power_supply_temperature",
    "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#maximumXCoordinate"
+   "uriTo": "http://objects.mainzed.org/ont#sensor_led_power_supply_temperature"
   },
   {
-   "source": 95,
-   "target": 85,
-   "valueTo": "maximumXCoordinate",
+   "source": 10,
+   "target": 25,
+   "valueTo": "diameter",
    "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#maximumXCoordinate"
+   "uriTo": "http://objects.mainzed.org/ont#diameter"
+  },
+  {
+   "source": 15,
+   "target": 19,
+   "valueTo": "http://www.w3.org/2003/12/exif/imageWidth",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/imageWidth"
+  },
+  {
+   "source": 107,
+   "target": 118,
+   "valueTo": "maximumSensorMovement",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#maximumSensorMovement"
+  },
+  {
+   "source": 45,
+   "target": 37,
+   "valueTo": "transformationDeviation",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#transformationDeviation"
+  },
+  {
+   "source": 15,
+   "target": 39,
+   "valueTo": "operatingTemperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#operatingTemperature"
+  },
+  {
+   "source": 15,
+   "target": 34,
+   "valueTo": "http://www.w3.org/2003/12/exif/exposureTime",
+   "propertyTo": "class",
+   "uriTo": "http://www.w3.org/2003/12/exif/exposureTim#http://www.w3.org/2003/12/exif/exposureTime"
   },
   {
    "source": 15,
@@ -1937,6 +1986,160 @@ var minivowlresult={
   },
   {
    "source": 45,
+   "target": 38,
+   "valueTo": "maxIntersectionDeviation",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#maxIntersectionDeviation"
+  },
+  {
+   "source": 15,
+   "target": 51,
+   "valueTo": "sensor_led_heatsink_temperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_led_heatsink_temperature"
+  },
+  {
+   "source": 29,
+   "target": 108,
+   "valueTo": "creationTolerance",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#creationTolerance"
+  },
+  {
+   "source": 15,
+   "target": 31,
+   "valueTo": "sensor_tilt_angle",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_tilt_angle"
+  },
+  {
+   "source": 55,
+   "target": 78,
+   "valueTo": "P108",
+   "propertyTo": "class",
+   "uriTo": "http://www.wikidata.org/prop/direct/P108"
+  },
+  {
+   "source": 45,
+   "target": 5,
+   "valueTo": "verification",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#verification"
+  },
+  {
+   "source": 15,
+   "target": 62,
+   "valueTo": "remaining_lamp_warmup_time",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#remaining_lamp_warmup_time"
+  },
+  {
+   "source": 15,
+   "target": 56,
+   "valueTo": "cameraTemperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#cameraTemperature"
+  },
+  {
+   "source": 96,
+   "target": 85,
+   "valueTo": "maximumXCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#maximumXCoordinate"
+  },
+  {
+   "source": 95,
+   "target": 85,
+   "valueTo": "maximumXCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#maximumXCoordinate"
+  },
+  {
+   "source": 107,
+   "target": 99,
+   "valueTo": "ellipseQualityForPhotogrammetry",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#ellipseQualityForPhotogrammetry"
+  },
+  {
+   "source": 15,
+   "target": 54,
+   "valueTo": "sensor_rotation_angle",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_rotation_angle"
+  },
+  {
+   "source": 15,
+   "target": 49,
+   "valueTo": "ambient_temperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#ambient_temperature"
+  },
+  {
+   "source": 15,
+   "target": 43,
+   "valueTo": "maximumResidual",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#maximumResidual"
+  },
+  {
+   "source": 5,
+   "target": 48,
+   "valueTo": "lightChangeSigma",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#lightChangeSigma"
+  },
+  {
+   "source": 15,
+   "target": 36,
+   "valueTo": "sensor_camera_support_temperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_camera_support_temperature"
+  },
+  {
+   "source": 15,
+   "target": 32,
+   "valueTo": "sensor_acceleration",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensor_acceleration"
+  },
+  {
+   "source": 125,
+   "target": 122,
+   "valueTo": "lightIntensity",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#lightIntensity"
+  },
+  {
+   "source": 97,
+   "target": 78,
+   "valueTo": "isAppliedForBy",
+   "propertyTo": "class",
+   "uriTo": "http://purl.org/cerif/frapo/isAppliedForBy"
+  },
+  {
+   "source": 96,
+   "target": 126,
+   "valueTo": "maximumYCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#maximumYCoordinate"
+  },
+  {
+   "source": 95,
+   "target": 126,
+   "valueTo": "maximumYCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#maximumYCoordinate"
+  },
+  {
+   "source": 5,
+   "target": 13,
+   "valueTo": "sensorMovement",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#sensorMovement"
+  },
+  {
+   "source": 45,
    "target": 96,
    "valueTo": "sensor",
    "propertyTo": "class",
@@ -1950,32 +2153,32 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#sensor"
   },
   {
-   "source": 107,
-   "target": 64,
-   "valueTo": "max_viewing_angle_sensor_surface",
+   "source": 96,
+   "target": 105,
+   "valueTo": "averageresolution",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#max_viewing_angle_sensor_surface"
+   "uriTo": "http://objects.mainzed.org/ont#averageresolution"
+  },
+  {
+   "source": 95,
+   "target": 105,
+   "valueTo": "averageresolution",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#averageresolution"
   },
   {
    "source": 15,
-   "target": 64,
-   "valueTo": "max_viewing_angle_sensor_surface",
+   "target": 33,
+   "valueTo": "sensor_led_temperature",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#max_viewing_angle_sensor_surface"
+   "uriTo": "http://objects.mainzed.org/ont#sensor_led_temperature"
   },
   {
-   "source": 15,
-   "target": 31,
-   "valueTo": "sensor_tilt_angle",
+   "source": 112,
+   "target": 76,
+   "valueTo": "calibrationVolumeLength",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_tilt_angle"
-  },
-  {
-   "source": 15,
-   "target": 26,
-   "valueTo": "sensor_main_power_supply_temperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_main_power_supply_temperature"
+   "uriTo": "http://objects.mainzed.org/ont#calibrationVolumeLength"
   },
   {
    "source": 45,
@@ -1986,52 +2189,10 @@ var minivowlresult={
   },
   {
    "source": 15,
-   "target": 49,
-   "valueTo": "ambient_temperature",
+   "target": 61,
+   "valueTo": "shutterTime",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#ambient_temperature"
-  },
-  {
-   "source": 5,
-   "target": 6,
-   "valueTo": "meanLightingChange",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#meanLightingChange"
-  },
-  {
-   "source": 45,
-   "target": 38,
-   "valueTo": "maxIntersectionDeviation",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#maxIntersectionDeviation"
-  },
-  {
-   "source": 96,
-   "target": 89,
-   "valueTo": "volume",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#volume"
-  },
-  {
-   "source": 95,
-   "target": 89,
-   "valueTo": "volume",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#volume"
-  },
-  {
-   "source": 15,
-   "target": 36,
-   "valueTo": "sensor_camera_support_temperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_camera_support_temperature"
-  },
-  {
-   "source": 45,
-   "target": 28,
-   "valueTo": "minimumFringeContrast",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#minimumFringeContrast"
+   "uriTo": "http://objects.mainzed.org/ont#shutterTime"
   },
   {
    "source": 45,
@@ -2041,265 +2202,6 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#cornerMask"
   },
   {
-   "source": 15,
-   "target": 53,
-   "valueTo": "sensor_led_power_supply_temperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_led_power_supply_temperature"
-  },
-  {
-   "source": 15,
-   "target": 34,
-   "valueTo": "http://www.w3.org/2003/12/exif/exposureTime",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/2003/12/exif/exposureTim#http://www.w3.org/2003/12/exif/exposureTime"
-  },
-  {
-   "source": 96,
-   "target": 65,
-   "valueTo": "capturingdevice",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#capturingdevice"
-  },
-  {
-   "source": 103,
-   "target": 65,
-   "valueTo": "capturingdevice",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#capturingdevice"
-  },
-  {
-   "source": 15,
-   "target": 33,
-   "valueTo": "sensor_led_temperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_led_temperature"
-  },
-  {
-   "source": 107,
-   "target": 102,
-   "valueTo": "ellipseQuality",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#ellipseQuality"
-  },
-  {
-   "source": 97,
-   "target": 78,
-   "valueTo": "isAppliedForBy",
-   "propertyTo": "class",
-   "uriTo": "http://purl.org/cerif/frapo/isAppliedForBy"
-  },
-  {
-   "source": 45,
-   "target": 5,
-   "valueTo": "verification",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#verification"
-  },
-  {
-   "source": 55,
-   "target": 78,
-   "valueTo": "P108",
-   "propertyTo": "class",
-   "uriTo": "http://www.wikidata.org/prop/direct/P108"
-  },
-  {
-   "source": 15,
-   "target": 51,
-   "valueTo": "sensor_led_heatsink_temperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_led_heatsink_temperature"
-  },
-  {
-   "source": 5,
-   "target": 13,
-   "valueTo": "sensorMovement",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensorMovement"
-  },
-  {
-   "source": 15,
-   "target": 46,
-   "valueTo": "seconds_since_last_light_factor_calibration",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#seconds_since_last_light_factor_calibration"
-  },
-  {
-   "source": 15,
-   "target": 54,
-   "valueTo": "sensor_rotation_angle",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_rotation_angle"
-  },
-  {
-   "source": 15,
-   "target": 35,
-   "valueTo": "sensor_main_board_temperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_main_board_temperature"
-  },
-  {
-   "source": 107,
-   "target": 124,
-   "valueTo": "alignmentTranslationZ",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#alignmentTranslationZ"
-  },
-  {
-   "source": 15,
-   "target": 61,
-   "valueTo": "shutterTime",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#shutterTime"
-  },
-  {
-   "source": 15,
-   "target": 39,
-   "valueTo": "operatingTemperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#operatingTemperature"
-  },
-  {
-   "source": 15,
-   "target": 19,
-   "valueTo": "http://www.w3.org/2003/12/exif/imageWidth",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/2003/12/exif/imageWidt#http://www.w3.org/2003/12/exif/imageWidth"
-  },
-  {
-   "source": 107,
-   "target": 72,
-   "valueTo": "metadata",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/data/metadata"
-  },
-  {
-   "source": 15,
-   "target": 43,
-   "valueTo": "maximumResidual",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#maximumResidual"
-  },
-  {
-   "source": 15,
-   "target": 32,
-   "valueTo": "sensor_acceleration",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#sensor_acceleration"
-  },
-  {
-   "source": 63,
-   "target": 45,
-   "valueTo": "measurement",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#measurement"
-  },
-  {
-   "source": 107,
-   "target": 40,
-   "valueTo": "min_ellipse_radius_for_photogrammetry",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#min_ellipse_radius_for_photogrammetry"
-  },
-  {
-   "source": 107,
-   "target": 118,
-   "valueTo": "maximumSensorMovement",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#maximumSensorMovement"
-  },
-  {
-   "source": 96,
-   "target": 88,
-   "valueTo": "averagePointDistance",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#averagePointDistance"
-  },
-  {
-   "source": 95,
-   "target": 88,
-   "valueTo": "averagePointDistance",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#averagePointDistance"
-  },
-  {
-   "source": 74,
-   "target": 121,
-   "valueTo": "calibrationTemperature",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationTemperature"
-  },
-  {
-   "source": 112,
-   "target": 117,
-   "valueTo": "heightVariance",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#heightVariance"
-  },
-  {
-   "source": 107,
-   "target": 99,
-   "valueTo": "ellipseQualityForPhotogrammetry",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#ellipseQualityForPhotogrammetry"
-  },
-  {
-   "source": 112,
-   "target": 57,
-   "valueTo": "cameraAngle",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#cameraAngle"
-  },
-  {
-   "source": 96,
-   "target": 75,
-   "valueTo": "minimumXCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#minimumXCoordinate"
-  },
-  {
-   "source": 95,
-   "target": 75,
-   "valueTo": "minimumXCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#minimumXCoordinate"
-  },
-  {
-   "source": 29,
-   "target": 79,
-   "valueTo": "mergeTolerance",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#mergeTolerance"
-  },
-  {
-   "source": 65,
-   "target": 101,
-   "valueTo": "measuringVolumeWidth",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#measuringVolumeWidth"
-  },
-  {
-   "source": 107,
-   "target": 41,
-   "valueTo": "min_ellipse_radius",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#min_ellipse_radius"
-  },
-  {
-   "source": 112,
-   "target": 74,
-   "valueTo": "calibrationobject",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationobject"
-  },
-  {
-   "source": 29,
-   "target": 50,
-   "valueTo": "wasAssociatedWith",
-   "propertyTo": "class",
-   "uriTo": "http://www.w3.org/ns/prov-o/wasAssociatedWith"
-  },
-  {
    "source": 65,
    "target": 82,
    "valueTo": "theoreticalMeasuringPointDistance",
@@ -2307,158 +2209,11 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#theoreticalMeasuringPointDistance"
   },
   {
-   "source": 96,
-   "target": 105,
-   "valueTo": "averageresolution",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#averageresolution"
-  },
-  {
-   "source": 95,
-   "target": 105,
-   "valueTo": "averageresolution",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#averageresolution"
-  },
-  {
-   "source": 112,
-   "target": 111,
-   "valueTo": "calibrationVolumeWidth",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationVolumeWidth"
-  },
-  {
-   "source": 107,
-   "target": 110,
-   "valueTo": "alignmentRotationZ",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#alignmentRotationZ"
-  },
-  {
-   "source": 112,
-   "target": 60,
-   "valueTo": "calibrationDeviationOptimized",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationDeviationOptimized"
-  },
-  {
-   "source": 107,
-   "target": 63,
-   "valueTo": "measurementSeries",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#measurementSeries"
-  },
-  {
-   "source": 55,
-   "target": 55,
-   "valueTo": "P496",
-   "propertyTo": "class",
-   "uriTo": "http://www.wikidata.org/prop/direct/P496"
-  },
-  {
    "source": 15,
-   "target": 62,
-   "valueTo": "remaining_lamp_warmup_time",
+   "target": 24,
+   "valueTo": "http://www.w3.org/2003/12/exif/imageHeight",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#remaining_lamp_warmup_time"
-  },
-  {
-   "source": 112,
-   "target": 123,
-   "valueTo": "projectorDeviation",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#projectorDeviation"
-  },
-  {
-   "source": 96,
-   "target": 120,
-   "valueTo": "totalArea",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#totalArea"
-  },
-  {
-   "source": 95,
-   "target": 120,
-   "valueTo": "totalArea",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#totalArea"
-  },
-  {
-   "source": 29,
-   "target": 108,
-   "valueTo": "creationTolerance",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#creationTolerance"
-  },
-  {
-   "source": 96,
-   "target": 58,
-   "valueTo": "minimumZCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#minimumZCoordinate"
-  },
-  {
-   "source": 95,
-   "target": 58,
-   "valueTo": "minimumZCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#minimumZCoordinate"
-  },
-  {
-   "source": 29,
-   "target": 104,
-   "valueTo": "maximumGap",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#maximumGap"
-  },
-  {
-   "source": 96,
-   "target": 112,
-   "valueTo": "calibration",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibration"
-  },
-  {
-   "source": 103,
-   "target": 112,
-   "valueTo": "calibration",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibration"
-  },
-  {
-   "source": 107,
-   "target": 113,
-   "valueTo": "alignmentRotationX",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#alignmentRotationX"
-  },
-  {
-   "source": 96,
-   "target": 126,
-   "valueTo": "maximumYCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#maximumYCoordinate"
-  },
-  {
-   "source": 95,
-   "target": 126,
-   "valueTo": "maximumYCoordinate",
-   "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#maximumYCoordinate"
-  },
-  {
-   "source": 107,
-   "target": 81,
-   "valueTo": "measurementMeshAlignmentResidual",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#measurementMeshAlignmentResidual"
-  },
-  {
-   "source": 74,
-   "target": 114,
-   "valueTo": "expansionCoefficient",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#expansionCoefficient"
+   "uriTo": "http://www.w3.org/2003/12/exif/imageHeigh#http://www.w3.org/2003/12/exif/imageHeight"
   },
   {
    "source": 107,
@@ -2468,11 +2223,60 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#measurementPointAlignmentResidual"
   },
   {
-   "source": 112,
-   "target": 100,
-   "valueTo": "reference_volume_width",
+   "source": 65,
+   "target": 92,
+   "valueTo": "measuringVolumeLength",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#reference_volume_width"
+   "uriTo": "http://objects.mainzed.org/ont#measuringVolumeLength"
+  },
+  {
+   "source": 15,
+   "target": 109,
+   "valueTo": "automatic_exposure_time_mode",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#automatic_exposure_time_mode"
+  },
+  {
+   "source": 107,
+   "target": 109,
+   "valueTo": "automatic_exposure_time_mode",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#automatic_exposure_time_mode"
+  },
+  {
+   "source": 107,
+   "target": 102,
+   "valueTo": "ellipseQuality",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#ellipseQuality"
+  },
+  {
+   "source": 112,
+   "target": 117,
+   "valueTo": "heightVariance",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#heightVariance"
+  },
+  {
+   "source": 112,
+   "target": 86,
+   "valueTo": "scaleDeviation",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#scaleDeviation"
+  },
+  {
+   "source": 112,
+   "target": 125,
+   "valueTo": "calibrationsetup",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibrationsetup"
+  },
+  {
+   "source": 29,
+   "target": 79,
+   "valueTo": "mergeTolerance",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#mergeTolerance"
   },
   {
    "source": 65,
@@ -2489,39 +2293,60 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#calibrationDeviation"
   },
   {
-   "source": 112,
-   "target": 30,
-   "valueTo": "reference_volume_depth",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#reference_volume_depth"
-  },
-  {
    "source": 107,
-   "target": 68,
-   "valueTo": "alignmentTranslationY",
+   "target": 77,
+   "valueTo": "alignmentTranslationX",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#alignmentTranslationY"
+   "uriTo": "http://objects.mainzed.org/ont#alignmentTranslationX"
+  },
+  {
+   "source": 55,
+   "target": 55,
+   "valueTo": "P496",
+   "propertyTo": "class",
+   "uriTo": "http://www.wikidata.org/prop/direct/P496"
   },
   {
    "source": 112,
-   "target": 125,
-   "valueTo": "calibrationsetup",
+   "target": 100,
+   "valueTo": "reference_volume_width",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationsetup"
+   "uriTo": "http://objects.mainzed.org/ont#reference_volume_width"
   },
   {
    "source": 96,
-   "target": 91,
-   "valueTo": "maximumZCoordinate",
+   "target": 65,
+   "valueTo": "capturingdevice",
    "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#maximumZCoordinate"
+   "uriTo": "http://objects.mainzed.org/ont#capturingdevice"
   },
   {
-   "source": 95,
-   "target": 91,
-   "valueTo": "maximumZCoordinate",
+   "source": 103,
+   "target": 65,
+   "valueTo": "capturingdevice",
    "propertyTo": "class",
-   "uriTo": "http://www.gigamesh.eu/ont#maximumZCoordinate"
+   "uriTo": "http://objects.mainzed.org/ont#capturingdevice"
+  },
+  {
+   "source": 107,
+   "target": 63,
+   "valueTo": "measurementSeries",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#measurementSeries"
+  },
+  {
+   "source": 112,
+   "target": 123,
+   "valueTo": "projectorDeviation",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#projectorDeviation"
+  },
+  {
+   "source": 107,
+   "target": 81,
+   "valueTo": "measurementMeshAlignmentResidual",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#measurementMeshAlignmentResidual"
   },
   {
    "source": 96,
@@ -2546,31 +2371,17 @@ var minivowlresult={
   },
   {
    "source": 112,
-   "target": 66,
-   "valueTo": "calibration_projector_deviation_optimized",
+   "target": 57,
+   "valueTo": "cameraAngle",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibration_projector_deviation_optimized"
-  },
-  {
-   "source": 125,
-   "target": 122,
-   "valueTo": "lightIntensity",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#lightIntensity"
-  },
-  {
-   "source": 112,
-   "target": 87,
-   "valueTo": "calibrationVolumeDepth",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationVolumeDepth"
+   "uriTo": "http://objects.mainzed.org/ont#cameraAngle"
   },
   {
    "source": 107,
-   "target": 77,
-   "valueTo": "alignmentTranslationX",
+   "target": 40,
+   "valueTo": "min_ellipse_radius_for_photogrammetry",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#alignmentTranslationX"
+   "uriTo": "http://objects.mainzed.org/ont#min_ellipse_radius_for_photogrammetry"
   },
   {
    "source": 107,
@@ -2581,24 +2392,66 @@ var minivowlresult={
   },
   {
    "source": 112,
-   "target": 98,
-   "valueTo": "reference_volume_length",
+   "target": 30,
+   "valueTo": "reference_volume_depth",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#reference_volume_length"
-  },
-  {
-   "source": 112,
-   "target": 86,
-   "valueTo": "scaleDeviation",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#scaleDeviation"
+   "uriTo": "http://objects.mainzed.org/ont#reference_volume_depth"
   },
   {
    "source": 107,
-   "target": 127,
-   "valueTo": "alignment.deviation",
+   "target": 73,
+   "valueTo": "measurementAlignmentResidual",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#alignment.deviation"
+   "uriTo": "http://objects.mainzed.org/ont#measurementAlignmentResidual"
+  },
+  {
+   "source": 107,
+   "target": 113,
+   "valueTo": "alignmentRotationX",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#alignmentRotationX"
+  },
+  {
+   "source": 65,
+   "target": 101,
+   "valueTo": "measuringVolumeWidth",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#measuringVolumeWidth"
+  },
+  {
+   "source": 96,
+   "target": 58,
+   "valueTo": "minimumZCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#minimumZCoordinate"
+  },
+  {
+   "source": 95,
+   "target": 58,
+   "valueTo": "minimumZCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#minimumZCoordinate"
+  },
+  {
+   "source": 96,
+   "target": 75,
+   "valueTo": "minimumXCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#minimumXCoordinate"
+  },
+  {
+   "source": 95,
+   "target": 75,
+   "valueTo": "minimumXCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#minimumXCoordinate"
+  },
+  {
+   "source": 107,
+   "target": 68,
+   "valueTo": "alignmentTranslationY",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#alignmentTranslationY"
   },
   {
    "source": 74,
@@ -2608,32 +2461,46 @@ var minivowlresult={
    "uriTo": "http://objects.mainzed.org/ont#referenceTemperature"
   },
   {
-   "source": 65,
-   "target": 92,
-   "valueTo": "measuringVolumeLength",
-   "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#measuringVolumeLength"
-  },
-  {
-   "source": 97,
-   "target": 52,
-   "valueTo": "hasFundingAgency",
-   "propertyTo": "class",
-   "uriTo": "http://purl.org/cerif/frapo/hasFundingAgency"
-  },
-  {
    "source": 112,
-   "target": 76,
-   "valueTo": "calibrationVolumeLength",
+   "target": 60,
+   "valueTo": "calibrationDeviationOptimized",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#calibrationVolumeLength"
+   "uriTo": "http://objects.mainzed.org/ont#calibrationDeviationOptimized"
   },
   {
-   "source": 125,
-   "target": 67,
-   "valueTo": "remainingSensorWarmupTime",
+   "source": 96,
+   "target": 88,
+   "valueTo": "averagePointDistance",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#remainingSensorWarmupTime"
+   "uriTo": "http://objects.mainzed.org/ont#averagePointDistance"
+  },
+  {
+   "source": 95,
+   "target": 88,
+   "valueTo": "averagePointDistance",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#averagePointDistance"
+  },
+  {
+   "source": 74,
+   "target": 121,
+   "valueTo": "calibrationTemperature",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibrationTemperature"
+  },
+  {
+   "source": 96,
+   "target": 89,
+   "valueTo": "volume",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#volume"
+  },
+  {
+   "source": 95,
+   "target": 89,
+   "valueTo": "volume",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#volume"
   },
   {
    "source": 107,
@@ -2644,6 +2511,41 @@ var minivowlresult={
   },
   {
    "source": 29,
+   "target": 70,
+   "valueTo": "unitEdgeLength",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#unitEdgeLength"
+  },
+  {
+   "source": 112,
+   "target": 111,
+   "valueTo": "calibrationVolumeWidth",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibrationVolumeWidth"
+  },
+  {
+   "source": 112,
+   "target": 87,
+   "valueTo": "calibrationVolumeDepth",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibrationVolumeDepth"
+  },
+  {
+   "source": 125,
+   "target": 67,
+   "valueTo": "remainingSensorWarmupTime",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#remainingSensorWarmupTime"
+  },
+  {
+   "source": 107,
+   "target": 124,
+   "valueTo": "alignmentTranslationZ",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#alignmentTranslationZ"
+  },
+  {
+   "source": 29,
    "target": 119,
    "valueTo": "maximumEdgeLength",
    "propertyTo": "class",
@@ -2651,17 +2553,115 @@ var minivowlresult={
   },
   {
    "source": 107,
-   "target": 73,
-   "valueTo": "measurementAlignmentResidual",
+   "target": 110,
+   "valueTo": "alignmentRotationZ",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#measurementAlignmentResidual"
+   "uriTo": "http://objects.mainzed.org/ont#alignmentRotationZ"
+  },
+  {
+   "source": 107,
+   "target": 72,
+   "valueTo": "metadata",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/data/metadata"
+  },
+  {
+   "source": 96,
+   "target": 112,
+   "valueTo": "calibration",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibration"
+  },
+  {
+   "source": 103,
+   "target": 112,
+   "valueTo": "calibration",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibration"
+  },
+  {
+   "source": 74,
+   "target": 114,
+   "valueTo": "expansionCoefficient",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#expansionCoefficient"
+  },
+  {
+   "source": 107,
+   "target": 127,
+   "valueTo": "alignment.deviation",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#alignment.deviation"
+  },
+  {
+   "source": 107,
+   "target": 41,
+   "valueTo": "min_ellipse_radius",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#min_ellipse_radius"
+  },
+  {
+   "source": 112,
+   "target": 98,
+   "valueTo": "reference_volume_length",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#reference_volume_length"
+  },
+  {
+   "source": 96,
+   "target": 120,
+   "valueTo": "totalArea",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#totalArea"
+  },
+  {
+   "source": 95,
+   "target": 120,
+   "valueTo": "totalArea",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#totalArea"
   },
   {
    "source": 29,
-   "target": 70,
-   "valueTo": "unitEdgeLength",
+   "target": 104,
+   "valueTo": "maximumGap",
    "propertyTo": "class",
-   "uriTo": "http://objects.mainzed.org/ont#unitEdgeLength"
+   "uriTo": "http://objects.mainzed.org/ont#maximumGap"
+  },
+  {
+   "source": 97,
+   "target": 52,
+   "valueTo": "hasFundingAgency",
+   "propertyTo": "class",
+   "uriTo": "http://purl.org/cerif/frapo/hasFundingAgency"
+  },
+  {
+   "source": 96,
+   "target": 91,
+   "valueTo": "maximumZCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#maximumZCoordinate"
+  },
+  {
+   "source": 95,
+   "target": 91,
+   "valueTo": "maximumZCoordinate",
+   "propertyTo": "class",
+   "uriTo": "http://www.gigamesh.eu/ont#maximumZCoordinate"
+  },
+  {
+   "source": 112,
+   "target": 74,
+   "valueTo": "calibrationobject",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibrationobject"
+  },
+  {
+   "source": 112,
+   "target": 66,
+   "valueTo": "calibration_projector_deviation_optimized",
+   "propertyTo": "class",
+   "uriTo": "http://objects.mainzed.org/ont#calibration_projector_deviation_optimized"
   }
  ]
 }
