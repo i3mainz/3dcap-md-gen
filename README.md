@@ -1,6 +1,6 @@
 # 3D Capturing and Processing Metadata Generator (3dcap-md-gen)
 Details on exporting metadata with these scripts are discussed and explained in the publication: Homburg, T., Cramer, A., Raddatz, L., Mara, H.. Metadata schema and ontology for capturing and processing of 3D cultural heritage objects. Herit Sci 9, 91 (2021).  https://doi.org/10.1186/s40494-021-00561-w
-
+ 
 
 Contributors: [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-9499-5840) Timo Homburg, [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5232-1944) Anja Cramer, [![ORCID ID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-7640-1247) Laura Raddatz
 
