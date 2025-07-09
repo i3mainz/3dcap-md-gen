@@ -1,0 +1,28 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.gigamesh.eu/ont#> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix ns3: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_rp56> a ns1:ReferencePoint,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "RP56 ( Messreihe 0 Messung 0)"@de,
+        "RP56 ( MS 0 Measurement 0)"@en ;
+    ns2:commonReferencepoint false ;
+    ns2:pointID 56 ;
+    ns2:pointMeasurementDeviation <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_rp56_r_dev> ;
+    ns2:pointMeasurementState "ok"^^xsd:string ;
+    ns2:pointProjectState "photogrammetric point"^^xsd:string ;
+    ns2:xCoordinate <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_rp56_r_x> ;
+    ns2:yCoordinate <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_rp56_r_y> ;
+    ns2:zCoordinate <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_rp56_r_z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:selected false ;
+    geo:asWKT "POINT(-85.2975489435 -79.6858544185 -17.4644593362)"^^geo:wktLiteral ;
+    geo:inSRS <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre> ;
+    ns3:wasAttributedTo <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_algorithm> ;
+    ns3:wasGeneratedBy <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_activity> .
+

@@ -1,0 +1,27 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix ns3: <http://www.gigamesh.eu/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_grp8> a ns3:GRP,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GRP8 ( Messreihe 0)"@de,
+        "GRP8 ( Measurement Series 0)"@en ;
+    ns1:commonReferencepoint false ;
+    ns1:pointID 8 ;
+    ns1:pointMeasurementDeviation <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_grp8_r_dev> ;
+    ns1:pointMeasurementState "ok"^^xsd:string ;
+    ns1:pointProjectState "atos point"^^xsd:string ;
+    ns1:xCoordinate <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_grp8_r_x> ;
+    ns1:yCoordinate <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_grp8_r_y> ;
+    ns1:zCoordinate <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_grp8_r_z> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns3:selected false ;
+    geo:asWKT "POINT(-116.547901629 114.130975155 -293.183714723)"^^geo:wktLiteral ;
+    geo:inSRS <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_grp_calculation_activity> .
+
