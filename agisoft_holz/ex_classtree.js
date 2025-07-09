@@ -9552,7 +9552,7 @@ var tree={
           "from": {
             "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Coordinate_x": 1
+              "http://objects.mainzed.org/ont#FocalLength": 1
             }
           }
         },
@@ -14773,7 +14773,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 1
+              "instancecount": 3
             },
             "http://www.w3.org/ns/prov-o/actedOnBehalfOf": {
               "instancecount": 0
@@ -14782,11 +14782,11 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasAttributedTo": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 2
+              "http://objects.mainzed.org/ont#ReferencePoint": 4
             }
           }
         },
-        "instancecount": 1
+        "instancecount": 3
       },
       {
         "id": "http://www.w3.org/ns/prov-o/Agent",
@@ -19341,9 +19341,9 @@ var tree={
             }
           },
           "from": {
-            "http://www.w3.org/2003/12/exif/focalLengt#http://www.w3.org/2003/12/exif/focalLength": {
+            "http://objects.mainzed.org/ont#focalLengthCamera": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Calibration": 1
+              "http://objects.mainzed.org/ont#CapturingDevice": 1
             }
           }
         },
@@ -19391,8 +19391,8 @@ var tree={
             },
             "http://objects.mainzed.org/ont#radialDistortionCoefficientB2": {
               "instancecount": 1,
-              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b2": 1,
-              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b1": 1
+              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b1": 1,
+              "http://objects.mainzed.org/ont#Radial_distortion_coefficient_b2": 1
             },
             "http://objects.mainzed.org/ont#radialDistortionCoefficientK1": {
               "instancecount": 0,
