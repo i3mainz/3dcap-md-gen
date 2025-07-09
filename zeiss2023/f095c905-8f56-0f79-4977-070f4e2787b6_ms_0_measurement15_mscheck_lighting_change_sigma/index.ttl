@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mscheck_lighting_change_sigma> a <http://objects.mainzed.org/ont#Lighting_change_sigma>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Lichtänderung (Sigma) ( MS 0 Measurement 15 Measurement Check)"@de,
+        "Light change sigma ( MS 0 Measurement 15 Measurement Check)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement15_mscheck_lighting_change_sigma_value> .
+

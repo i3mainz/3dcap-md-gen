@@ -1,0 +1,16 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix ns2: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_rp1018> a ns2:ReferencePoint,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "RP1018 ( Messreihe 0 Messung 10)"@de,
+        "RP1018 ( MS 0 Measurement 10)"@en ;
+    ns2:pointID 1018 ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_algorithm> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement10_activity> .
+
