@@ -7951,7 +7951,7 @@ var tree={
           "from": {
             "http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#Image_width": 1
+              "http://objects.mainzed.org/ont#Point_thickness": 1
             }
           }
         },
@@ -8506,8 +8506,8 @@ var tree={
               "instancecount": 1
             },
             "http://www.w3.org/ns/prov-o/wasDerivedFrom": {
-              "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 1
+              "instancecount": 5,
+              "http://objects.mainzed.org/ont#ReferencePoint": 6
             },
             "http://www.w3.org/ns/prov-o/wasGeneratedBy": {
               "instancecount": 0,
@@ -8521,7 +8521,7 @@ var tree={
             }
           }
         },
-        "instancecount": 1
+        "instancecount": 6
       },
       {
         "id": "http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_measurement7_mscheck_sensor_movement",
@@ -10843,7 +10843,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 12
+              "instancecount": 16
             },
             "http://www.w3.org/ns/prov-o/used": {
               "instancecount": 0,
@@ -10864,12 +10864,12 @@ var tree={
             },
             "http://www.w3.org/ns/prov-o/wasGeneratedBy": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 11,
+              "http://objects.mainzed.org/ont#ReferencePoint": 15,
               "http://objects.mainzed.org/ont#Measurement": 1
             }
           }
         },
-        "instancecount": 12
+        "instancecount": 16
       },
       {
         "id": "http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_0_grp1003_residual",
@@ -11830,8 +11830,8 @@ var tree={
               "instancecount": 0
             },
             "http://objects.mainzed.org/ont#referencePoint": {
-              "instancecount": 13,
-              "http://objects.mainzed.org/ont#ReferencePoint": 14
+              "instancecount": 12,
+              "http://objects.mainzed.org/ont#ReferencePoint": 13
             },
             "http://objects.mainzed.org/ont#sensor": {
               "instancecount": 0
@@ -11888,7 +11888,7 @@ var tree={
             }
           }
         },
-        "instancecount": 14
+        "instancecount": 13
       },
       {
         "id": "http://www.w3.org/ns/prov-o/Entity",
@@ -15891,7 +15891,7 @@ var tree={
               "http://www.w3.org/2002/07/owl#Class": 1
             },
             "http://www.w3.org/2000/01/rdf-schema#label": {
-              "instancecount": 14
+              "instancecount": 12
             },
             "http://www.w3.org/ns/prov-o/actedOnBehalfOf": {
               "instancecount": 0
@@ -15900,11 +15900,11 @@ var tree={
           "from": {
             "http://www.w3.org/ns/prov-o/wasAttributedTo": {
               "instancecount": 0,
-              "http://objects.mainzed.org/ont#ReferencePoint": 15
+              "http://objects.mainzed.org/ont#ReferencePoint": 13
             }
           }
         },
-        "instancecount": 14
+        "instancecount": 12
       },
       {
         "id": "http://objects.mainzed.org/data/f095c905-8f56-0f79-4977-070f4e2787b6_ms_1_measurement2_mscheck_lighting_change_mean",
