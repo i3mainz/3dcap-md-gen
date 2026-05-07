@@ -1,0 +1,99 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix ns3: <http://objects.mainzed.org/data/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns3:f095c905-8f56-0f79-4977-070f4e2787b6 a ns1:MeasurementProject,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "V03_041"^^xsd:string ;
+    ns3:metadata ns3:f095c905-8f56-0f79-4977-070f4e2787b6_metadata ;
+    ns1:acquisitionTechnology "fringe projection"^^xsd:string ;
+    ns1:actual_master "V03_041_raw"^^xsd:string ;
+    ns1:alignment.deviation ns3:f095c905-8f56-0f79-4977-070f4e2787b6_alignment.deviation ;
+    ns1:alignment.name "Original alignment, Original alignment"^^xsd:string ;
+    ns1:areMeasurementsAligned true ;
+    ns1:automatic_exposure_time_mode ns3:f095c905-8f56-0f79-4977-070f4e2787b6_automatic_exposure_time_mode ;
+    ns1:automation_move_to_endposition_on_abort false ;
+    ns1:avoidScanningAreaBorderPoints true ;
+    ns1:avoidTripleScanPoints false ;
+    ns1:avoid_points_at_strong_brightness_differences false ;
+    ns1:avoid_points_in_shadow_areas false ;
+    ns1:avoid_points_on_groove_edges false ;
+    ns1:avoid_points_on_shiny_surfaces false ;
+    ns1:avoid_triple_scan_points_at_strong_brightness_differences false ;
+    ns1:depth_limitation_mode "calibrated"^^xsd:string ;
+    ns1:ellipseQuality ns3:f095c905-8f56-0f79-4977-070f4e2787b6_ellipse_quality ;
+    ns1:ellipseQualityForPhotogrammetry ns3:f095c905-8f56-0f79-4977-070f4e2787b6_ellipse_quality_for_photogrammetry ;
+    ns1:ellipse_quality_type "best_quality"^^xsd:string ;
+    ns1:ellipse_quality_type_for_photogrammetry "best_quality"^^xsd:string ;
+    ns1:exception_decalibrated_sensor_abort true ;
+    ns1:exception_decalibrated_sensor_delay "0.0"^^xsd:float ;
+    ns1:exception_decalibrated_sensor_number_of_repetitions 0 ;
+    ns1:exception_lighting_change_abort false ;
+    ns1:exception_lighting_change_delay "0.0"^^xsd:float ;
+    ns1:exception_lighting_change_number_of_repetitions 3 ;
+    ns1:exception_sensor_movement_abort false ;
+    ns1:exception_sensor_movement_delay "0.0"^^xsd:float ;
+    ns1:exception_sensor_movement_number_of_repetitions 3 ;
+    ns1:exception_transformation_abort false ;
+    ns1:exception_transformation_number_of_repetitions 0 ;
+    ns1:is_quality_triple_scan_points_checked true ;
+    ns1:lightningChangeCheck true ;
+    ns1:max_residual "0.3"^^xsd:float ;
+    ns1:max_viewing_angle_sensor_surface ns3:f095c905-8f56-0f79-4977-070f4e2787b6_max_viewing_angle_sensor_surface ;
+    ns1:maximumSensorMovement ns3:f095c905-8f56-0f79-4977-070f4e2787b6_max_sensor_movement ;
+    ns1:measurementAlignmentResidual ns3:f095c905-8f56-0f79-4977-070f4e2787b6_measurement_alignment_residual ;
+    ns1:measurementMeshAlignmentResidual ns3:f095c905-8f56-0f79-4977-070f4e2787b6_measurement_mesh_alignment_residual ;
+    ns1:measurementPointAlignmentResidual ns3:f095c905-8f56-0f79-4977-070f4e2787b6_measurement_reference_point_alignment_residual ;
+    ns1:measurementSeries ns3:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0,
+        ns3:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1 ;
+    ns1:measurementTemperature ns3:f095c905-8f56-0f79-4977-070f4e2787b6_measurement_temperature ;
+    ns1:measurement_resolution "full_resolution"^^xsd:string ;
+    ns1:measurement_transformation_type "by_reference_points_and_best_fit"^^xsd:string ;
+    ns1:min_ellipse_contrast_for_photogrammetry "25.0"^^xsd:float ;
+    ns1:min_ellipse_contrast_for_scanning "25.0"^^xsd:float ;
+    ns1:min_ellipse_radius ns3:f095c905-8f56-0f79-4977-070f4e2787b6_min_ellipse_radius ;
+    ns1:min_ellipse_radius_for_photogrammetry ns3:f095c905-8f56-0f79-4977-070f4e2787b6_min_ellipse_radius_for_photogrammetry ;
+    ns1:min_fringe_contrast 10 ;
+    ns1:missingReferencePointCheck true ;
+    ns1:movementControlActivated true ;
+    ns1:name "V03_041"^^xsd:string ;
+    ns1:number_of_exposure_times 1 ;
+    ns1:numberofmeasurements "24"^^xsd:string ;
+    ns1:observe_gray_value_feature "feature_no_computation"^^xsd:string ;
+    ns1:project_building_block_type_draft "project"^^xsd:string ;
+    ns1:project_creation_time "05.03.2025 12:21"^^xsd:string ;
+    ns1:project_data_reduction "not_cleaned"^^xsd:string ;
+    ns1:project_file "F:\\LEIZA-Projekte\\Metadaten\\Release_2025-03\\zenodo_atos - Kopie\\zeiss-2023_project\\V03_041.zinspect"^^xsd:string ;
+    ns1:project_file_size ns3:f095c905-8f56-0f79-4977-070f4e2787b6_project_file_size ;
+    ns1:project_keywords "user_charge_nr"^^xsd:list,
+        "user_company"^^xsd:list,
+        "user_date"^^xsd:list,
+        "user_department"^^xsd:list,
+        "user_inspector"^^xsd:list,
+        "user_location"^^xsd:list,
+        "user_part"^^xsd:list,
+        "user_part_nr"^^xsd:list,
+        "user_project"^^xsd:list,
+        "user_system"^^xsd:list,
+        "user_version"^^xsd:list ;
+    ns1:project_modification_time "05.03.2025 12:21"^^xsd:string ;
+    ns1:quality_triple_scan_points_mode "intersection"^^xsd:string ;
+    ns1:quality_triple_scan_points_threshold "0.3"^^xsd:float ;
+    ns1:reduce_influence_of_border_areas false ;
+    ns1:reference_point_size ns3:f095c905-8f56-0f79-4977-070f4e2787b6_reference_point_size ;
+    ns1:reference_point_thickness "0.1"^^xsd:float ;
+    ns1:reference_point_type "1.5mm_round"^^xsd:string ;
+    ns1:reflection_detection "off"^^xsd:string ;
+    ns1:sensorDecalibrationCheck true ;
+    ns1:transformationCheck true ;
+    ns1:use_reference_point_size true ;
+    ns1:use_user_defined_reference_point_size_0 false ;
+    ns1:user_defined_reference_point_color "white"^^xsd:string ;
+    void:inDataset ns3:ex_dataset ;
+    ns2:wasDerivedFrom ns3:f095c905-8f56-0f79-4977-070f4e2787b6_ms_0,
+        ns3:f095c905-8f56-0f79-4977-070f4e2787b6_ms_1 .
+

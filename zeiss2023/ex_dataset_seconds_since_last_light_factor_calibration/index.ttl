@@ -1,0 +1,11 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/ex_dataset_seconds_since_last_light_factor_calibration> a void:Dataset,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Property Partition: seconds_since_last_light_factor_calibration"@en ;
+    void:property <http://objects.mainzed.org/ont#seconds_since_last_light_factor_calibration> ;
+    void:triples 24 .
+
