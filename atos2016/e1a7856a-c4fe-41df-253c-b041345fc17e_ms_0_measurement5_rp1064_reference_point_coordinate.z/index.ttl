@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1064_reference_point_coordinate.z> a <http://objects.mainzed.org/ont#Reference_point_coordinate.z>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Referenzpunktkoordinate Z ( MS 0 Measurement 26 RP1064)"@de,
+        "Reference point coordinate Z ( MS 0 Measurement 26 RP1064)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1064_reference_point_coordinate.z_value> .
+

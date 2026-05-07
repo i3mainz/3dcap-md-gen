@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_measurement5_rp1062_reference_point_normal.y> a <http://objects.mainzed.org/ont#Reference_point_normal.y>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Referenzpunktnormale Y ( MS 1 Measurement 17 RP1062)"@de,
+        "Reference point normal Y ( MS 1 Measurement 17 RP1062)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_1_measurement5_rp1062_reference_point_normal.y_value> .
+

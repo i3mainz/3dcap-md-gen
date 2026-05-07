@@ -1,0 +1,120 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0> a ns1:MeasurementSeries,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Measurement Series 0 for "@en ;
+    ns1:cut_out_points_below_plane false ;
+    ns1:cut_out_points_for_vdi false ;
+    ns1:cut_out_points_outside_cad false ;
+    ns1:cut_out_shadow_points_of_fixture false ;
+    ns1:explorer_category "actual"^^xsd:string ;
+    ns1:globalReferencePoint <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1000>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1001>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1002>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1003>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1004>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1005>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1006>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1007>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1008>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1009>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1010>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1011>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1012>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1013>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1014>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1015>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1016>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1017>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1018>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1019>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1020>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1022>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1023>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1024>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1025>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1026>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1027>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1028>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1029>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1030>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1031>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1032>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1033>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1034>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1035>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1036>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1037>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1038>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1039>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1040>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1041>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1042>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1043>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1044>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1045>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1046>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1047>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1048>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1049>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1050>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1051>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1052>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1053>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1054>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1055>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1056>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1057>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1058>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1059>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1060>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1061>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1062>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1063>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1064>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1065>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1066>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1067>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1068>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1069>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_grp1070> ;
+    ns1:icontype "atos_measurement_series"^^xsd:string ;
+    ns1:is_name_generated true ;
+    ns1:is_referenced_in_inspection false ;
+    ns1:is_selected false ;
+    ns1:is_transformed_by_common_reference_points false ;
+    ns1:is_visibility_locked false ;
+    ns1:is_visible false ;
+    ns1:measurement <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement0>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement1>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement2>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement3>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement4>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement6>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement7>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement8>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement9> ;
+    ns1:name "Scan 1"^^xsd:string ;
+    ns1:numberofmeasurements 10 ;
+    ns1:transformation_mode "atos points"^^xsd:string ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/37a785ce-76df-8537-6020-29edae8e59be> ;
+    ns2:wasDerivedFrom <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement0>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement1>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement2>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement3>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement4>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement6>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement7>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement8>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement9> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_activity> .
+

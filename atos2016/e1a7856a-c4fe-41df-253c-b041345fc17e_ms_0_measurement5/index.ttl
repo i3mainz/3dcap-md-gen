@@ -1,0 +1,69 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5> a ns1:Measurement,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "M6"^^xsd:string,
+        "MS 0 Measurement 5 for "@en ;
+    ns1:acquisitionTime "2020-08-25T12:17:49"^^xsd:dateTime ;
+    ns1:avoidTripleScanPoints false ;
+    ns1:avoidTripleScanPointsWithBrightnessDifference false ;
+    ns1:avoid_points_at_strong_brightness_differences false ;
+    ns1:avoid_points_on_shiny_surfaces false ;
+    ns1:cornerMask <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_corner_mask_size> ;
+    ns1:is_measurement_transformed true ;
+    ns1:maxIntersectionDeviation <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_max_intersection_deviation> ;
+    ns1:measurementId 6 ;
+    ns1:minimumFringeContrast <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_min_fringe_contrast> ;
+    ns1:numberOfCommonReferencePoints 31 ;
+    ns1:numberOfReferencePoints 33 ;
+    ns1:numberOfTransformationPoints 33 ;
+    ns1:points_per_exposure_time_0 1481090 ;
+    ns1:referencePoint <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1000>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1001>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1002>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1003>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1005>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1006>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1008>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1009>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1010>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1015>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1020>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1021>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1028>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1029>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1030>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1032>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1033>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1034>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1035>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1044>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1045>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1047>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1050>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1051>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1052>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1055>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1056>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1057>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1058>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1060>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1061>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1063>,
+        <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_rp1064> ;
+    ns1:sensor <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_sensor_0> ;
+    ns1:sensor_id 0 ;
+    ns1:setup <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_mssetup> ;
+    ns1:transformationDeviation <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_transformation_deviation> ;
+    ns1:transformation_method "reference_points"^^xsd:string ;
+    ns1:transformation_stability true ;
+    ns1:verification <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_mscheck> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns2:wasAttributedTo <http://objects.mainzed.org/data/37a785ce-76df-8537-6020-29edae8e59be> ;
+    ns2:wasGeneratedBy <http://objects.mainzed.org/data/e1a7856a-c4fe-41df-253c-b041345fc17e_ms_0_measurement5_activity> .
+

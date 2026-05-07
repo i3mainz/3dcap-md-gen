@@ -1,0 +1,15 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/GOM_Inspect_Professional_2016_Hotfix_11> a ns1:Software,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "GOM Inspect Professional 2016 Hotfix 11"@en ;
+    ns1:application_build_information.date "2017-08-30"^^xsd:date ;
+    ns1:application_build_information.revision "104024"^^xsd:string ;
+    ns1:application_build_information.version "2016 Hotfix 11"^^xsd:string ;
+    ns1:application_name "GOM Inspect Professional"^^xsd:string ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+
