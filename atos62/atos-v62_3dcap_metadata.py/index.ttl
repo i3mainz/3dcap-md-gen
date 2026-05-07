@@ -1,0 +1,18 @@
+@prefix ns1: <http://www.wikidata.org/entity/Q2063165#http://www.wikidata.org/entity/> .
+@prefix ns2: <http://www.wikidata.org/entity/Q1595572#http://www.wikidata.org/entity/> .
+@prefix ns3: <http://www.wikidata.org/entity/Q36#http://www.wikidata.org/entity/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/atos-v62_3dcap_metadata.py> a <http://www.gigamesh.eu/ont#Software>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "ATOS v6.2 3DCAP Metadata Script"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    prov:startedAtTime "2025-04-11T14:15:50"^^xsd:dateTime ;
+    ns2:Q15955723 "atos-v62_3dcap_metadata.py"^^xsd:string ;
+    ns1:Q20631656 "1.0.0"^^xsd:string ;
+    ns3:Q364 "http://github.com/i3mainz/3dcap-md-gen"^^xsd:string .
+

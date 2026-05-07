@@ -1,0 +1,19 @@
+@prefix ns1: <http://www.gigamesh.eu/ont#> .
+@prefix ns2: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_mscheck> a ns1:MeasurementCheck,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label " MS 0 Measurement 0 Measurement Check"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:m_lighting_left "0.0916509908663"^^xsd:float ;
+    ns1:m_lighting_right "0.077466529792"^^xsd:float ;
+    ns1:m_movement_left "0.000799274211556"^^xsd:float ;
+    ns1:m_movement_right "0.001276823039"^^xsd:float ;
+    ns1:m_x2006_lamp_warmup_rem_sec <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_mscheck_m_x2006_lamp_warmup_rem_sec> ;
+    ns1:m_x2006_lamp_warmup_valid true ;
+    ns2:used <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0_measurement0_activity> .
+

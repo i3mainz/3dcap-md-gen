@@ -1,0 +1,20 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_capturingdevice> a <http://www.gigamesh.eu/ont#StructuredLightScanner>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Sensor 0 Capturing Device"@en ;
+    ns1:focalLengthCamera <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_capturingdevice_m_cal_lense> ;
+    ns1:measuringVolumeDepth <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_capturingdevice_m_vol_width> ;
+    ns1:measuringVolumeLength <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_capturingdevice_m_vol_length> ;
+    ns1:measuringVolumeWidth <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_capturingdevice_m_vol_height> ;
+    ns1:numberOfCameras 2 ;
+    ns1:sensorType "ATOS III Rev.01"^^xsd:string ;
+    ns1:sensor_id 0 ;
+    ns1:serialNumber "D08061"^^xsd:string ;
+    ns1:theoreticalMeasuringPointDistance <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_capturingdevice_theoretical_measuring_point_distance> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> .
+

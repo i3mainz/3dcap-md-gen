@@ -1,0 +1,10 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_metadata> a <http://www.gigamesh.eu/ont#MeasurementProjectMetadata>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:wasAttributedTo <http://objects.mainzed.org/data/atos-v62_3dcap_metadata.py> ;
+    ns1:wasGeneratedBy <http://objects.mainzed.org/data/metadata_calculation_activity> .
+

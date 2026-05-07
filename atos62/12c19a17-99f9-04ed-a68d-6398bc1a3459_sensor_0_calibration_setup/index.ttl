@@ -1,0 +1,14 @@
+@prefix ns1: <http://www.gigamesh.eu/ont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_calibration_setup> a ns1:CalibrationSetup,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label " Sensor 0 Calibration Setup" ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:m_cal_light_intensity "100%"^^xsd:string ;
+    ns1:m_cal_snap_mode "single_shot"^^xsd:string ;
+    ns1:partOf <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_sensor_0_calibration_activity> .
+

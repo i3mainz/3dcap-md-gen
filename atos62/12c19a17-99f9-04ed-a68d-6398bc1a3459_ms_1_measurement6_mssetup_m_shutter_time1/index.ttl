@@ -1,0 +1,12 @@
+@prefix ns1: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_1_measurement6_mssetup_m_shutter_time1> a <http://www.gigamesh.eu/ont#M_shutter_time1>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Belichtungszeit 1 ( MS 1 Measurement 6 Setup)"@de,
+        "Shutter time ( MS 1 Measurement 6 Setup)"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:hasValue <http://objects.mainzed.org/data/12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_1_measurement6_mssetup_m_shutter_time1_value> .
+

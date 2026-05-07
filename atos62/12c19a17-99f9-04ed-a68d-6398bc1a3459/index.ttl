@@ -1,0 +1,21 @@
+@prefix ns1: <http://objects.mainzed.org/ont#> .
+@prefix ns2: <http://objects.mainzed.org/data/> .
+@prefix ns3: <http://www.gigamesh.eu/ont#> .
+@prefix ns4: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:12c19a17-99f9-04ed-a68d-6398bc1a3459 a ns3:MeasurementProject,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "V03_041_SLP_20120113_e" ;
+    ns2:metadata ns2:12c19a17-99f9-04ed-a68d-6398bc1a3459_metadata ;
+    ns1:acquisitionTechnology "fringe projection"^^xsd:string ;
+    void:inDataset ns2:ex_dataset ;
+    ns3:aCTUAL_SESSION_FILE "F:\\LEIZA-Projekte\\Metadaten\\zenodo_projects\\atos-v62_project\\V03_041_SLP_20120113_e.session"^^xsd:string ;
+    ns3:measurementSeries ns2:12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0,
+        ns2:12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_1 ;
+    ns4:wasDerivedFrom ns2:12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_0,
+        ns2:12c19a17-99f9-04ed-a68d-6398bc1a3459_ms_1 .
+

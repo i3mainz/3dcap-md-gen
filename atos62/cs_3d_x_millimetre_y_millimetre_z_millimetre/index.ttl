@@ -1,0 +1,15 @@
+@prefix ns1: <http://www.opengis.net/ont/crs/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre> a ns1:CoordinateSystem,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "Local 3D Coordinate System X(http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre) Y(http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre) Z(http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre)" ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:asSVG "<svg width='400' height='250' viewbox='0 0 375 220'><defs><marker id='arrowhead' markerWidth='10' markerHeight='7' refX='0' refY='2' orient='auto'><polygon points='0 0, 4 2, 0 4' /></marker></defs><line x1='20' y1='200' x2='200' y2='200' stroke='red' stroke-width='5' marker-end='url(#arrowhead)'></line><text x='110' y='220' class='small'>x: x (http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre) (x)</text><line x1='20' y1='200' x2='20' y2='20' stroke='green' stroke-width='5' marker-end='url(#arrowhead)'></line><text x='35' y='20' class='small'>y: y (http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre) (y)</text><line x1='20' y1='200' x2='190' y2='30' stroke='blue' stroke-width='5' marker-end='url(#arrowhead)'></line><text x='210' y='25' class='small'>z: z (http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre) (z)</text></svg>"^^xsd:string ;
+    ns1:axis <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre_xaxis>,
+        <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre_yaxis>,
+        <http://objects.mainzed.org/data/cs_3d_x_millimetre_y_millimetre_z_millimetre_zaxis> .
+
