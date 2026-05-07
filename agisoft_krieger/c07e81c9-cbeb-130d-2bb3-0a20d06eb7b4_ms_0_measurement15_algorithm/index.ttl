@@ -1,0 +1,17 @@
+@prefix ns1: <http://www.w3.org/ns/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://objects.mainzed.org/data/c07e81c9-cbeb-130d-2bb3-0a20d06eb7b4_ms_0_measurement15_algorithm> a <http://objects.mainzed.org/ont#Algorithm>,
+        <http://www.w3.org/ns/ldp#Resource>,
+        <https://www.iana.org/assignments/media-types/text/turtle#Resource> ;
+    rdfs:label "MS 0 Measurement 0 Algorithm"@en,
+        "MS 0 Measurement 1 Algorithm"@en,
+        "MS 0 Measurement 2 Algorithm"@en,
+        "MS 0 Measurement 3 Algorithm"@en,
+        "MS 0 Measurement 4 Algorithm"@en,
+        "MS 0 Measurement 5 Algorithm"@en,
+        "MS 0 Measurement 6 Algorithm"@en ;
+    void:inDataset <http://objects.mainzed.org/data/ex_dataset> ;
+    ns1:actedOnBehalfOf <http://objects.mainzed.org/data/9fba0ba2-bd9d-41d1-2a70-142a7346d398> .
+
